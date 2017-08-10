@@ -1,0 +1,213 @@
+Gran Logico
+
+Gran Lógico
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+Apunte
+Contacto
+Login
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+Dado un alfabeto \(\Sigma \) tal que \((\) y \()\) pertenecen a \(\Sigma \), definamos \(del:\Sigma ^{\ast }\rightarrow \Sigma ^{\ast }\), de la siguiente manera
+
+\(\displaystyle \begin{array}{rcl} del(\varepsilon ) & =& \varepsilon \\ del(\alpha a) & =& del(\alpha )a\text{, si }a\in \{(,)\} \\ del(\alpha a) & =& del(\alpha )\text{, si }a\in \Sigma -\{(,)\} \end{array} \)
+
+Lema 119 \(del(xy)=del(x)del(y)\), para todo \(x,y\in \Sigma ^{\ast }\)
+Lema 120 Supongamos que \(\Sigma \) es tal que \(T^{\tau }\subseteq \Sigma ^{\ast }\). Entonces \(del(t)\in Bal\), para cada \(t\in T^{\tau }-(Var\cup \mathcal{C})\)
+Lema 121 Sean \(s,t\in T^{\tau }\) y supongamos que hay palabras \( x,y,z\), con \(y\neq \varepsilon \) tales que \(s=xy\) y \(t=yz\) . Entonces \( x=z=\varepsilon \) o \(s,t\in \mathcal{C}\). En particular si un termino es tramo inicial o final de otro termino, entonces dichos terminos son iguales.
+Prueba: Supongamos \(s\in \mathcal{C}\). Ya que \(y\neq \varepsilon \) tenemos que \(t\) debe comenzar con un simbolo que ocurre en un nombre de cte, lo cual dice que \(t\) no puede ser ni una variable ni de la forma \(g(t_{1},...,t_{m})\), es decir \(t\in \mathcal{C}\). Supongamos \(s\in Var\). Si \(x\neq \varepsilon \) tenemos que \(t\) debe comenzar con alguno de los siguientes simbolos
+
+\(\displaystyle \mathit{0}\;\mathit{1\;}...\;\mathit{9}\;\mathbf{0}\;\mathbf{1}\ ...\; \mathbf{9} \)
+
+lo cual es absurdo. O sea que \(x=\varepsilon \) y por lo tanto \(t\) debe comenzar con \(\mathsf{X}\). Pero esto dice que \(t\in Var\) de lo que sigue facilmente que \(z=\varepsilon \). Supongamos entonces que \(s\) es de la forma \( f(s_{1},...,s_{n})\). Ya que \()\) debe ocurrir en \(t\), tenemos que \(t\) es de la forma \(g(t_{1},...,t_{m})\). O sea que \(del(s),del(t)\in Bal\). Ya que \()\) ocurre en \(y\), \(del(y)\neq \varepsilon \). Tenemos tambien que
+\(\displaystyle \begin{array}{rcl} del(s) & =& del(x)del(y) \\ del(t) & =& del(y)del(z) \end{array} \)
+
+La primera igualdad, por (3) del Lema 118, nos dice que
+\(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}\leq 0, \)
+
+y la segunda que
+\(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}\geq 0, \)
+
+por lo cual
+\(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}=0 \)
+
+Pero entonces ya que \(del(y)\) es tramo final de \(del(s)\), (3) del Lema 118 nos dice que \(del(x)=\varepsilon \). Similarmente obtenemos que \(del(z)=\varepsilon \). Ya que que \(t\) termina con \()\) tenemos que \(z=\varepsilon \). O sea que \(f(s_{1},...,s_{n})=xg(t_{1},...,t_{m})\) con \(del(x)=\varepsilon \), de lo que se saca que \(f=xg\) ya que \((\) no ocurre en \( x\). De la definicion de tipo se desprende que \(x=\varepsilon \). \(\Box\)
+Teorema 122 (Lectura unica de terminos). Dado \(t\in T^{\tau } \) se da una de las siguientes:
+(1) \(t\in Var\cup \mathcal{C}\)
+(2) Hay unicos \(n\geq 1,\;f\in \mathcal{F} _{n},\;t_{1},...,t_{n}\in T^{\tau }\) tales que \( t=f(t_{1},...,t_{n})\).
+Prueba: En virtud del Lema 117 solo nos falta probar la unicidad en el punto (2). Supongamos que
+
+\(\displaystyle t=f(t_{1},...,t_{n})=g(s_{1},...,s_{m}) \)
+
+con \(n,m\geq 1,\;f\in \mathcal{F}_{n}\), \(g\in \mathcal{F}_{m}\), \( t_{1},...,t_{n},s_{1},...,s_{m}\in T^{\tau }\). Notese que \(f=g\). O sea que \( n=m=a(f)\). Notese que \(t_{1}\) es tramo inicial de \(s_{1}\) o \(s_{1}\) es tramo inicial de \(t_{1}\), lo cual por el lema anterior nos dice que \(t_{1}=s_{1}\). Con el mismo razonamiento podemos probar que debera suceder \( t_{2}=s_{2},...,t_{n}=s_{n}\). \(\Box\)
+El teorema anterior es importante ya que nos permite definir recursivamente funciones con dominio contenido en \(T^{\tau }\). Por ejemplo podemos definir una funcion \(F:T^{\tau }\rightarrow T^{\tau }\), de la siguiente manera:
+
+- \(F(c)=c,\)
+- \(F(v)=v\), para cada \(v\in Var\)
+- \(F(f(t_{1},...,t_{n}))=f(F(t_{1}),...,F(t_{n}))\), si \(f\in \mathcal{ F}_{n}\), con \(n\neq 2\)
+- \(F(f(t_{1},t_{2}))=f(t_{2},t_{1})\), si \(f\in \mathcal{F}_{2}.\)
+Notese que si la unicidad de la lectura no fuera cierta, entonces las ecuaciones anterires no estarian definiendo en forma correcta una funcion ya que el valor de la imagen de un termino \(t\) estaria dependiendo de cual descomposicion tomemos para \(t\).
+
+7.1. Subterminos
+
+Sean \(s,t\in T^{\tau }\). Diremos que \(s\) es subtermino ( propio) de \(t\) si (no es igual a \(t\) y) \(s\) es subpalabra de \(t\). Notese que un termino \(s\) puede ocurrir en \(t\), a partir de \(i\), y tambien a partir de \(j\), con \(i\neq j\). En virtud de esto, hablaremos de las distintas ocurrencias de \(s\) en \(t\).
+
+Lema 123 Sean \(r,s,t\in T^{\tau }\).
+(a) Si \(s\neq t=f(t_{1},...,t_{n})\) y \(s\) ocurre en \(t\), entonces dicha ocurrencia sucede dentro de algun \(t_{j}\), \(j=1,...,n\).
+(b) Si \(r,s\) ocurren en \(t\), entonces dichas ocurrencias son disjuntas o una ocurre dentro de otra. En particular, las distintas ocurrencias de \(r\) en \(t\) son disjuntas.
+(c) Si \(t^{\prime }\) es el resultado de reemplazar una ocurrencia de \(s\) en \(t\) por \(r\), entonces \(t^{\prime }\in T^{\tau }\).
+Prueba: (a) Supongamos la ocurrencia de \(s\) comienza en algun \(t_{j}\). Entonces el Lema 121 nos conduce a que dicha ocurrencia debera estar contenida en \(t_{j}\). Veamos que la ocurrencia de \(s\) no puede ser a partir de un \(i\in \{1,...,\left\vert f\right\vert \}\). Supongamos lo contrario. Tenemos entonces que \(s\) debe ser de la forma \(g(s_{1},...,s_{m})\) ya que no puede estar en \(Var\cup \mathcal{C}\). Notese que \(i\neq 1\) ya que en caso contrario \(s\) seria un tramo inicial propio de \(t\). Pero entonces \(g\) debe ser un tramo final propio de \(f\), lo cual es absurdo. Ya que \(s\) no puede comenzar con parentesis o coma, hemos contemplado todos los posibles casos de comienzo de la ocurrencia de \(s\) en \(t\).
+
+(b) y (c) pueden probarse por induccion, usando (a). \(\Box\)
+
+
+
+Nota: Es importante notar que si bien no hemos definido en forma presisa el concepto de ocurrencia o de reemplazo de ocurrencias, la prueba del lema anterior es rigurosa en el sentido de que solo usa propiedades del concepto de ocurrencia y reemplazo de ocurrencias las cuales deberan ser comunes a cualquier definicion o formulacion matematica que se hiciera de aquellos conceptos. En este caso, es posible dar una defincion presisa y satisfactoria de dichos conceptos aunque para otros conceptos tales como los de pruebas absolutas de consistencia, aun no se ha encontrado una formulacion matematica adecuada.
+
+Sea \(\tau \) un tipo. Las palabras de alguna de las siguientes dos formas
+
+\(\displaystyle \begin{array}{l} (t\equiv s),\;\text{con }t,s\in T^{\tau } \\ r(t_{1},...,t_{n})\text{, con }r\in \mathcal{R}_{n}\text{,}\ n\geq 1\text{ y }t_{1},...,t_{n}\in T^{\tau } \end{array} \)
+
+seran llamadas formulas atomicas de tipo \(\tau \).
+Dado un tipo \(\tau \), definamos los conjuntos de palabras \(F_{k}^{\tau },\) con \(k\geq 0\), de la siguiente manera:
+
+\(\displaystyle \begin{array}{ccl} F_{0}^{\tau } & = & \{\text{formulas atomicas}\} \\ F_{k+1}^{\tau } & = & F_{k}^{\tau }\cup \{\lnot \varphi :\varphi \in F_{k}^{\tau }\}\cup \{(\varphi \vee \psi ):\varphi ,\psi \in F_{k}^{\tau }\}\cup \\ & & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{(\varphi \wedge \psi ):\varphi ,\psi \in F_{k}^{\tau }\}\cup \{(\varphi \rightarrow \psi ):\varphi ,\psi \in F_{k}^{\tau }\}\cup \\ & & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{(\varphi \leftrightarrow \psi ):\varphi ,\psi \in F_{k}^{\tau }\}\cup \{\forall v\varphi :\varphi \in F_{k}^{\tau },v\in Var\}\cup \\ & & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\exists v\varphi :\varphi \in F_{k}^{\tau },v\in Var\} \end{array} \)
+
+Sea
+\(\displaystyle F^{\tau }=\bigcup_{k\geq 0}F_{k}^{\tau } \)
+
+Los elementos de \(F^{\tau }\) seran llamados formulas de tipo \(\tau \) . El siguiente lema es la herramienta basica que usaremos para probar propiedades acerca de los elementos de \(F^{\tau }\).
+
+Lema 124 Supongamos \(\varphi \in F_{k}^{\tau }\), con \(k\geq 1\). Entonces \(\varphi \) es de alguna de las siguientes formas
+\(\varphi =(t\equiv s),\) con \(t,s\in T^{\tau }\).
+
+\(\varphi =r(t_{1},...,t_{n}),\) con \(r\in \mathcal{R}_{n}\), \( t_{1},...,t_{n}\in T^{\tau }\)
+
+\(\varphi =(\varphi _{1}\eta \varphi _{2}),\) con \(\eta \in \{\wedge ,\vee ,\rightarrow ,\leftrightarrow \},\;\varphi _{1},\varphi _{2}\in F_{k-1}^{\tau }\)
+
+\(\varphi =\lnot \varphi _{1},\) con \(\varphi _{1}\in F_{k-1}^{\tau }\)
+
+\(\varphi =Qv\varphi _{1},\) con \(Q\in \{\forall ,\exists \},\;v\in Var\) y \( \varphi _{1}\in F_{k-1}^{\tau }.\)
+Prueba: Induccion en \(k\). \(\Box\)
+
+Lema 125 Sea \(\tau \) un tipo.
+(a) Supongamos que \(\Sigma \) es tal que \(F^{\tau }\subseteq \Sigma ^{\ast }\). Entonces \(del(\varphi )\in Bal\), para cada \(\varphi \in F^{\tau }\) .
+(b) Sea \(\varphi \in F_{k}^{\tau }\), con \(k\geq 0\). Existen \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) y \( \varphi _{1}\in F^{\tau }\) tales que \(\varphi =x\varphi _{1}\) y \(\varphi _{1} \) es de la forma \((\psi _{1}\eta \psi _{2})\) o atomica. En particular toda formula termina con el simbolo \()\).
+Prueba: (b) Induccion en \(k\). El caso \(k=0\) es trivial. Supongamos (b) vale para cada \(\varphi \in F_{k}^{\tau }\) y sea \(\varphi \in F_{k+1}^{\tau }\). Hay varios casos de los cuales haremos solo dos
+
+CASO \(\varphi =(\varphi _{1}\eta \varphi _{2})\), con \(\varphi _{1},\varphi _{2}\in F_{k}^{\tau }\) y \(\eta \in \{\vee ,\wedge ,\rightarrow ,\leftrightarrow \}\).
+
+Podemos tomar \(x=\varepsilon \) y \(\varphi _{1}=\varphi \).
+
+CASO \(\varphi =Qx_{i}\psi \), con \(\psi \in F_{k}^{\tau }\), \(i\geq 1\) y \(Q\in \{\forall ,\exists \}\).
+
+Por HI hay \(\bar{x}\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) y \(\psi _{1}\in F^{\tau }\) tales que \( \psi =x\psi _{1}\) y \(\psi _{1}\) es de la forma \((\gamma _{1}\eta \gamma _{2}) \) o atomica. Entonces es claro que \(x=Qx_{i}\bar{x}\) y \(\varphi _{1}=\psi _{1}\) cumplen (b). \(\Box\)
+
+Lema 126 Ninguna formula es tramo final propio de una formula atomica, es decir, si \( \varphi =x\psi \), con \(\varphi \in F_{0}^{\tau }\) y \(,\psi \in F^{\tau }\), entonces \(x=\varepsilon \).
+Prueba: Si \(\varphi \) es de la forma \((t\equiv s)\), entonces \(\left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}< 0\) para cada tramo final propio \(y\) de \(\varphi \), lo cual termina el caso ya que \(del(\psi )\) es balanceada. Supongamos entonces \(\varphi =r(t_{1},...,t_{n})\). Notese que \(\psi \) no puede ser tramo final de \(t_{1},...,t_{n})\) ya que \(del(\psi )\) es balanceada y \(\left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}< 0\) para cada tramo final \(y\) de \(t_{1},...,t_{n})\). Es decir que \(\psi =y(t_{1},...,t_{n})\), para algun tramo final \(y\) de \(r\). Ya que en \(\psi \) no ocurren cuantificadores ni nexos ni el simbolo \(\equiv \) el Lema 124 nos dice \(\psi =\tilde{r}(s_{1},...,s_{m})\), con \( \tilde{r}\in \mathcal{R}_{m}\), \(m\geq 1\) y \(s_{1},...,s_{m}\in T^{\tau }\). Ahora es facil usando un argumento paresido al usado en la prueba del Teorema 122 concluir que \(m=n\), \(s_{i}=t_{i}\), \( i=1,...,n\) y \(\tilde{r}\) es tramo final de \(r\). Por (3) de la definicion de tipo tenemos que \(\tilde{r}=r\) lo cual nos dice que \(\varphi =\psi \) y \( x=\varepsilon \) \(\Box\)
+
+Lema 127 Si \(\varphi =x\psi \), con \(\varphi ,\psi \in F^{\tau }\) y \(x\) sin parentesis, entonces \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\)
+Prueba: Por induccion en el \(k\) tal que \(\varphi \in F_{k}^{\tau }\). El caso \(k=0\) es probado en el lema anterior. Asumamos que el resultado vale cuando \( \varphi \in F_{k}^{\tau }\) y veamos que vale cuando \(\varphi \in F_{k+1}^{\tau }\). Mas aun supongamos \(\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }\). Primero haremos el caso en que \(\varphi =Qv\varphi _{1},\) con \(Q\in \{\forall ,\exists \},\;v\in Var\) y \(\varphi _{1}\in F_{k}^{\tau }\) . Supongamos \(x\neq \varepsilon \). Ya que \(\psi \) no comienza con simbolos de \(v\), tenemos que \(\psi \) debe ser tramo final de \(\varphi _{1}\) lo cual nos dice que hay una palabra \(x_{1}\) tal que \(x=Qvx_{1}\) y \(\varphi _{1}=x_{1}\psi \). Por HI tenemos que \(x_{1}\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) con lo cual \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\). El caso en el que \(\varphi =\lnot \varphi _{1}\) con \(\varphi _{1}\in F_{k}^{\tau }\), es similar. Note que no hay mas casos posibles ya que \(\varphi \) no puede comenzar con \((\) porque en \(x\) no ocurren parentesis por hipotesis \(\Box\)
+
+Proposición 128 Si \(\varphi ,\psi \in F^{\tau }\) y \( x,y,z\) son tales que \(\varphi =xy,\) \(\psi =yz\) y \(y\neq \varepsilon ,\) entonces \(z=\varepsilon \) y \( x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) . En particular ningun tramo inicial propio de una formula es una formula.
+Prueba: Ya que \(\varphi \) termina con \()\) tenemos que \(del(y)\neq \varepsilon .\) Ya que \(del(\varphi ),del(\psi )\in Bal\) y ademas
+
+\(\displaystyle \begin{array}{rcl} del(\varphi ) & =& del(x)del(y) \\ del(\psi ) & =& del(y)del(z) \end{array} \)
+
+tenemos que \(del(y)\) es tramo inicial y final de palabras balanceadas, lo cual nos dice que
+\(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}=0 \)
+
+Pero esto por (3) del Lema 118 nos dice que \( del(x)=\varepsilon \). Similarmente obtenemos que \(del(z)=\varepsilon \). Pero \(\psi \) termina con \()\) lo cual nos dice que \(z=\varepsilon \). Es decir que \( \varphi =x\psi \). Por el lema anterior tenemos que \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) \(\Box\)
+Teorema 129 (Lectura unica de formulas) Dada \(\varphi \in F^{\tau }\) se da una y solo una de las siguientes:
+(1) \(\varphi =(t\equiv s),\) con \(t,s\in T^{\tau }\)
+(2) \(\varphi =r(t_{1},...,t_{n}),\) con \(r\in \mathcal{R}_{n}\) , \(t_{1},...,t_{n}\in T^{\tau }\)
+(3) \(\varphi =(\varphi _{1}\eta \varphi _{2}),\) con \(\eta \in \{\wedge ,\vee ,\rightarrow ,\leftrightarrow \},\;\varphi _{1},\varphi _{2}\in F^{\tau }\)
+(4) \(\varphi =\lnot \varphi _{1},\) con \(\varphi _{1}\in F^{\tau }\)
+(5) \(\varphi =Qv\varphi _{1},\) con \(Q\in \{\forall ,\exists \},\;\varphi _{1}\in F^{\tau }\) y \(v\in Var.\)
+Mas aun, en los puntos (1), (2), (3), (4) y (5) tales descomposiciones son unicas.
+Prueba: Si una formula \(\varphi \) satisface (1), entonces \(\varphi \) no puede contener simbolos del alfabeto \(\{\wedge ,\vee ,\rightarrow ,\leftrightarrow \}\) lo cual garantiza que \(\varphi \) no puede satisfacer (3). Ademas \( \varphi \) no puede satisfacer (2) o (4) o (5) ya que \(\varphi \) comienza con \((\). En forma analoga se puede terminar de ver que las propiedades (1),...,(5) son excluyentes.
+
+La unicidad en las descomposiciones de (4) y (5) es obvia. La de (3) se desprende facilmente del lema anterior y la de los puntos (1) y (2) del lema analogo para terminos. \(\Box\)
+
+7.2. Subformulas
+
+Una formula \(\varphi \) sera llamada una subformula (propia) de una formula \(\psi ,\) cuando \(\varphi \) (sea no igual a \(\psi \) y) tenga alguna ocurrencia en \(\psi .\)
+
+Lema 130 Sea \(\tau \) un tipo.
+(a) Las formulas atomicas no tienen subformulas propias.
+(b) Si \(\varphi \) ocurre propiamente en \((\psi \eta \varphi ),\) entonces tal ocurrencia es en \(\psi \) o en \(\varphi .\)
+(c) Si \(\varphi \) ocurre propiamente en \(\lnot \psi \), entonces tal ocurrencia es en \(\psi .\)
+(d) Si \(\varphi \) ocurre propiamente en \(Qx_{k}\psi ,\) entonces tal ocurrencia es en \(\psi .\)
+(e) Si \(\varphi _{1},\varphi _{2}\) ocurren en \(\varphi ,\) entonces dichas ocurrencias son disjuntas o una contiene a la otra.
+(f) Si \(\lambda ^{\prime }\) es el resultado de reemplazar alguna ocurrencia de \(\varphi \) en \(\lambda \) por \(\psi \), entonces \(\lambda ^{\prime }\in F^{\tau }\).
+Prueba: Ejercicio. \(\Box\)
+
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+×
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+
+Entorno para trabajar con el lenguaje \(\mathcal{S}^{\Sigma }\) creado por Gabriel Cerceau:
+
+Descargar!
+Close
+The best HTML CheatSheet has its own visual editor where you can apply your own CSS code as well. Web developers and designers love this free online resource!

@@ -1,0 +1,236 @@
+Gran Logico
+
+Gran Lógico
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+Apunte
+Contacto
+Login
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+9.4. Logica ecuacional
+
+En esta seccion veremos que cuando los axiomas de una teoria son ecuacionales, entonces aquellos teoremas que tambien tienen forma de ecuaciones pueden ser probados via ciertas pruebas muy simples llamadas ecuacionales.
+
+9.4.1. El algebra de terminos.
+
+Dado un tipo algebraico \(\tau \), hay una forma natural de definir un algebra \(\mathbf{T}^{\tau }\) cuyo universo es \(T^{\tau }\), de la siguiente manera
+
+(1) \(c^{\mathbf{T}^{\tau }}=c\), para cada \(c\in \mathcal{C}\)
+(2) \(f^{\mathbf{T}^{\tau }}(t_{1},...,t_{n})=f(t_{1},...,t_{n})\), para todo \(t_{1},...,t_{n}\in T^{\tau }\), \(f\in \mathcal{F}_{n}\).
+Llamaremos a \(\mathbf{T}^{\tau }\) el algebra de terminos de tipo \(\tau \).
+
+Ejemplo 169 Supongamos \(\tau =(\varnothing ,\{f\},\varnothing ,\{(f,1)\}).\) Entonces el universo de \(\mathbf{T}^{\tau }\) es
+\(\{x_{1},f(x_{1}),f(f(x_{1})),...\}\cup \)
+
+\(\{x_{2},f(x_{2}),f(f(x_{2})),...\}\cup \)
+
+\(\{x_{3},f(x_{3}),f(f(x_{3})),...\}\cup \)
+
+\(\;\;\;\;\;\;\;\;\;\;\vdots \)
+
+La funcion que interpreta a \(f\) en \(\mathbf{T}^{\tau }\) es la que a cada elemento del conjunto anterior le asigna el primer elemento que esta a su derecha. Notese entonces que \(\mathbf{T}^{\tau }\) resulta isomorfa al algebra \(\mathbf{A}\) definida por
+
+\(\displaystyle \begin{array}{rcl} A & =& \mathbf{N}\times \mathbf{N} \\ f^{\mathbf{A}}((n,m)) & =& (n,m+1) \end{array} \)
+Lema 170 Dados \(t_{1},...,t_{n}\),\(\;t=_{d}t(x_{1},...,x_{n})\in T^{\tau }\), se tiene que \(t^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}]=t(t_{1},...,t_{n})\).
+Prueba: Para cada \(k\geq 0\), sea
+
+- Teo\(_{k}\): Dados \(t_{1},...,t_{n}\in T^{\tau }\) y \( t=_{d}t(x_{1},...,x_{n})\in T_{k}^{\tau }\), se tiene que \(t^{\mathbf{T} ^{\tau }}[t_{1},...,t_{n}]=t(t_{1},...,t_{n})\).
+Veamos que es cierto Teo\(_{0}\). Hay dos casos
+
+Caso \(t=_{d}t(x_{1},...,x_{n})=c\in \mathcal{C}\).
+
+Entonces tenemos
+
+\(\displaystyle \begin{array}{cll} t^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}] & = & c^{\mathbf{T}^{\tau }} \\ & = & c \\ & = & t(t_{1},...,t_{n}) \end{array} \)
+
+Caso \(t=_{d}t(x_{1},...,x_{n})=x_{i}\), para algun \(i\).
+
+Entonces tenemos
+
+\(\displaystyle \begin{array}{cll} t^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}] & = & t_{i} \\ & = & t(t_{1},...,t_{n}) \end{array} \)
+
+Veamos que Teo\(_{k}\) implica Teo\(_{k+1}\). Supongamos que vale Teo\(_{k}\). Sean \(t_{1},...,t_{n}\in T^{\tau }\) y \(t=_{d}t(x_{1},...,x_{n})\in T_{k+1}^{\tau }-T_{k}^{\tau }\). Hay \(f\in \mathcal{F}_{m}\), con \(m\geq 1\), y terminos \(s_{1},...,s_{m}\in T_{k}^{\tau }\) tales que \(t=f(s_{1},...,s_{m})\) . Notese que \(s_{i}=_{d}s_{i}(x_{1},...,x_{n})\), \(i=1,...,m\). Tenemos entonces que
+\(\displaystyle \begin{array}{lll} t^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}] & = & f(s_{1},...,s_{m})^{\mathbf{T} ^{\tau }}[t_{1},...,t_{n}] \\ & = & f^{\mathbf{T}^{\tau }}(s_{1}^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}],...,s_{m}^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}]) \\ & = & f^{\mathbf{T}^{\tau }}(s_{1}(t_{1},...,t_{n}),...,s_{m}(t_{1},...,t_{n})) \\ & = & f(s_{1}(t_{1},...,t_{n}),...,s_{m}(t_{1},...,t_{n})) \\ & = & t(t_{1},...,t_{n}) \end{array} \)
+
+con lo cual vale Teo\(_{k+1}\) \(\Box\)
+El algebra de terminos tiene la siguiente propiedad fundamental:
+
+Lema 171 (Universal maping property) Si \(\mathbf{A}\) es cualquier \(\tau \)-algebra y \( F:Var\rightarrow A\), es una funcion cualquiera, entonces \(F\) puede ser extendida a un homomorfismo \(\bar{F}:\mathbf{T}^{\tau }\rightarrow \mathbf{A} \).
+Prueba: Definamos \(\bar{F}\) de la siguiente manera:
+
+\(\displaystyle \bar{F}(t)=t^{\mathbf{A}}[(F(x_{1}),F(x_{2}),...)] \)
+
+Es claro que \(\bar{F}\) extiende a \(F\). Veamos que es un homomorfismo. Dada \( c\in \mathcal{C}\), tenemos que
+\(\displaystyle \begin{array}{lll} \bar{F}(c^{\mathbf{T}^{\tau }}) & = & \bar{F}(c) \\ & = & c^{\mathbf{A}}[(F(x_{1}),F(x_{2}),...)] \\ & = & c^{\mathbf{A}} \end{array} \)
+
+Dados \(f\in \mathcal{F}_{n}\), \(t_{1},...,t_{n}\in T^{\tau }\) tenemos que
+\(\displaystyle \begin{array}{lll} \bar{F}(f^{\mathbf{T}^{\tau }}(t_{1},...,t_{n})) & = & \bar{F} (f(t_{1},...,t_{n})) \\ & = & f(t_{1},...,t_{n})^{\mathbf{A}}[(F(x_{1}),F(x_{2}),...)] \\ & = & f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[(F(x_{1}),F(x_{2}),...)],...,t_{n}^{ \mathbf{A}}[(F(x_{1}),F(x_{2}),...)]) \\ & = & f^{\mathbf{A}}(\bar{F}(t_{1}),...,\bar{F}(t_{n})) \end{array} \)
+
+con lo cual hemos probado que \(\bar{F}\) es un homomorfismo \(\Box\)
+9.4.2. Identidades y teorema de completitud.
+
+Dados \(t,s\in T^{\tau }\), con \(t\approx s\) denotaremos la siguiente sentencia de tipo \(\tau \):
+
+\(\displaystyle \forall x_{1}...\forall x_{n}\;(t\equiv s) \)
+
+donde \(n\) es el menor \(j\) tal que \(\{x_{1},...,x_{j}\}\) contiene a todas las variables que ocurren en \(t\) y \(s\). Las sentencias de la forma \(t\approx s\) seran llamadas identidades (de tipo \(\tau \)). Notese que si \(t=_{d}t(x_{1},...,x_{m})\) y \(s=_{d}s(x_{1},...,x_{m})\), entonces dado una \(\tau \)-algebra \(\mathbf{A}\), tenemos que \(\mathbf{A}\models t\approx s\) sii \(t^{\mathbf{A}}\left[ a_{1},...,a_{m}\right] =s^{\mathbf{A}}\left[ a_{1},...,a_{m}\right] \), para cada \((a_{1},...,a_{m})\in A^{m}\). (Independientemente de que \(m\) sea el menor \(j\) tal que \(\{x_{1},...,x_{j}\}\) contiene a las variables que ocurren en \(t\) y \(s\).) Tambien notese que \( \mathbf{A}\models t\approx s\) sii \(t^{\mathbf{A}}[\vec{a}]=s^{\mathbf{A}}[ \vec{a}]\), para cada \(\vec{a}\in A^{\mathbf{N}}\).
+REGLAS DE LA LOGICA ECUACIONAL
+
+TRANSITIVIDAD
+
+\(\underline{t\approx s,\;s\approx p}\)
+
+\(t\approx p\)
+
+SIMETRIA
+
+\(\underline{t\approx s}\)
+
+\(s\approx t\)
+
+SUBSTITUCION
+
+\(\underline{t\approx s}\;\;\;\;\;\;\;\;\;\)con \(t=_{d}t(x_{1},...,x_{n})\) y \( s=_{d}s(x_{1},...,x_{n})\)
+
+\(t(p_1,...,p_n)\approx s(p_1,...,p_n)\)
+
+REEMPLAZO
+
+\(\underline{t\approx s}\;\;\;\;\)donde \(\tilde r\) es el resultado de reemplazar
+
+\(r\approx \tilde r\;\;\;\;\)algunas ocurrencias de \(t\) en \(r\) por \(s.\)
+
+AXIOMAS DE LA LOGICA ECUACIONAL
+
+\(s\approx s\), \(s\in T^{\tau }\)
+
+Lema 172 Las reglas anteriores son universales.
+Prueba: Veamos que la regla de reemplazo es universal. Basta con ver por induccion en \(k\) que
+
+- Teo\(_{k}\): Sean \(t,s\in T^{\tau }\), \(r\in T_{k}^{\tau }\) y sea \( \mathbf{A}\) una \(\tau \)-algebra tal que \(t^{\mathbf{A}}[\vec{a}]=s^{\mathbf{A }}[\vec{a}]\), para cada \(\vec{a}\in A^{\mathbf{N}}\). Entonces \(r^{\mathbf{A} }[\vec{a}]=\tilde{r}^{\mathbf{A}}[\vec{a}]\), para cada \(\vec{a}\in A^{ \mathbf{N}}\), donde \(\tilde{r}\) es el resultado de reemplazar algunas ocurrencias de \(t\) en \(r\) por \(s.\)
+La prueba de Teo\(_{0}\) es dejada al lector. Asumamos que vale Teo\(_{k}\) y probemos que vale Teo\(_{k+1}\). Sean \(t,s\in T^{\tau }\), \(r\in T_{k+1}^{\tau }-T_{k}^{\tau }\) y sea \(\mathbf{A}\) una \(\tau \)-algebra tal que \(t^{\mathbf{A }}[\vec{a}]=s^{\mathbf{A}}[\vec{a}]\), para cada \(\vec{a}\in A^{\mathbf{N}}\). Sea \(\tilde{r}\) el resultado de reemplazar algunas ocurrencias de \(t\) en \(r\) por \(s\). El caso \(t=r\) es trivial. Supongamos entonces que \(t\neq r\). Supongamos \(r=f(r_{1},...,r_{n})\), con \(r_{1},...,r_{n}\in T_{k}^{\tau }\) y \( f\in \mathcal{F}_{n}\). Notese que por Lema 123 tenemos que \(\tilde{r}=f(\tilde{r}_{1},...,\tilde{r}_{n})\), donde cada \(\tilde{r} _{i} \) es el resultado de reemplazar algunas ocurrencias de \(t\) en \(r_{i}\) por \(s\). Para \(\vec{a}\in A^{\mathbf{N}}\) se tiene que
+
+\(\displaystyle \begin{array}{cclll} r^{\mathbf{A}}[\vec{a}] & = & f(r_{1},...,r_{n})^{\mathbf{A}}[\vec{a}] & & \\ & = & f^{\mathbf{A}}(r_{1}^{\mathbf{A}}[\vec{a}],...,r_{n}^{\mathbf{A}}[\vec{ a}]) & & \\ & = & f^{\mathbf{A}}(\tilde{r}_{1}^{\mathbf{A}}[\vec{a}],...,\tilde{r}_{n}^{ \mathbf{A}}[\vec{a}]) & & \text{por Teo}_{k} \\ & = & f(\tilde{r}_{1},...,\tilde{r}_{n})^{\mathbf{A}}[\vec{a}] & & \\ & = & \tilde{r}^{\mathbf{A}}[\vec{a}] & & \end{array} \)
+
+lo cual prueba Teo\(_{k+1}\)
+Veamos que la regla de substitucion es universal. Supongamos \(\mathbf{A} \models t\approx s\), con \(t=_{d}t(x_{1},...,x_{n})\) y \( s=_{d}s(x_{1},...,x_{n})\). Veremos que entonces \(\mathbf{A}\models t(p_{1},...,p_{n})\approx s(p_{1},...,p_{n}).\) Supongamos que \( p_{i}=_{d}p_{i}(x_{1},...,x_{m})\), para cada \(i=1,...,n.\) Por (a) del Lema 146, tenemos que
+
+\(\displaystyle \begin{array}{rcl} t(p_{1},...,p_{n}) & =& _{d}t(p_{1},...,p_{n})(x_{1},...,x_{m}) \\ s(p_{1},...,p_{n}) & =& _{d}s(p_{1},...,p_{n})(x_{1},...,x_{m}) \end{array} \)
+
+Sea \(\vec{a}\in A^{m}\). Tenemos que
+\(\displaystyle \begin{array}{rcl} t(p_{1},...,p_{n})^{\mathbf{A}}\left[ \vec{a}\right] & = & t^{\mathbf{A}} \left[ p_{1}^{\mathbf{A}}\left[ \vec{a}\right] ,...,p_{n}^{\mathbf{A}}\left[ \vec{a}\right] \right] \\ & = & s^{\mathbf{A}}\left[ p_{1}^{\mathbf{A}}\left[ \vec{a}\right] ,...,p_{n}^{\mathbf{A}}\left[ \vec{a}\right] \right] \\ & = & s(p_{1},...,p_{n})^{\mathbf{A}}\left[ \vec{a}\right] \end{array} \)
+
+lo cual nos dice que \(\mathbf{A}\models t(p_{1},...,p_{n})\approx s(p_{1},...,p_{n})\) \(\Box\)
+\( \)
+
+Dada una teoria \((\Sigma ,\tau )\) tal que todos los elementos de \(\Sigma \) son identidades, una prueba ecuacional de \(p\approx q\) en \((\Sigma ,\tau )\) sera una sucesion \((p_{1}\approx q_{1},...,p_{n}\approx q_{n})\) tal que
+
+\(p=p_{n}\) y \(q=q_{n}\)
+Para cada \(k=1,...,n\), se da alguna de las siguientes
+\(p_{k}\approx q_{k}\) pertenece a \(\Sigma \cup \{s\approx s:s\in T^{\tau }\}\)
+\(p_{k}\approx q_{k}\) se deduce de anteriores por alguna de las reglas
+Escribiremos \((\Sigma ,\tau )\vdash _{ec}p\approx q\) cuando haya una prueba ecuacional de \(p\approx q\) en \((\Sigma ,\tau ).\)
+
+Teorema 173 (Correccion) Si \((\Sigma ,\tau )\vdash _{ec}p\approx q\), entonces \((\Sigma ,\tau )\models p\approx q\).
+Prueba: Sea
+
+\(\displaystyle p_{1}\approx q_{1},...,p_{n}\approx q_{n} \)
+
+una prueba ecuacional de \(p\approx q\) en \((\Sigma ,\tau ).\) Usando el lema anterior se puede probar facilmente por induccion en \(i\) que \((\Sigma ,\tau )\models p_{i}\approx q_{i}\), por lo cual \((\Sigma ,\tau )\models p\approx q. \) \(\Box\)
+Teorema 174 (Completitud) (Birkhoff) Sea \((\Sigma ,\tau )\) una teoria tal que los elementos de \(\Sigma \) son identidades. Si \((\Sigma ,\tau )\models p\approx q \), entonces \((\Sigma ,\tau )\vdash _{ec}p\approx q.\)
+Prueba: Supongamos \((\Sigma ,\tau )\models p\approx q.\) Sea \(\theta \) la siguiente relacion binaria sobre \(T^{\tau }\):
+
+\(\displaystyle \theta =\{(t,s):(\Sigma ,\tau )\vdash _{ec}t\approx s\}. \)
+
+Dejamos al lector probar que \(\theta \) es una congruencia de \(\mathbf{T} ^{\tau }\). Veamos que
+(*) \(t^{\mathbf{T}^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ]=t(t_{1},...,t_{n})/\theta \), para todo \(t_{1},...,t_{n}\), \( t=_{d}t(x_{1},...,x_{n})\)
+Por Corolario 142 tenemos que
+
+\(\displaystyle t^{\mathbf{T}^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ]=t^{\mathbf{T} ^{\tau }}[t_{1},...,t_{n}]/\theta \)
+
+Pero por Lema 170 tenemos que \(t^{\mathbf{T}^{\tau }}[t_{1},...,t_{n}]=t(t_{1},...,t_{n})\) por lo cual (*) es verdadera.
+Veamos que \(\mathbf{T}^{\tau }/\theta \models \Sigma .\) Sea \(t\approx s\) un elemento de \(\Sigma \), con \(t=_{d}t(x_{1},...,x_{n})\) y \( s=_{d}s(x_{1},...,x_{n}).\) Veremos que \(\mathbf{T}^{\tau }/\theta \models t\approx s\), es decir veremos que
+
+\(\displaystyle t^{\mathbf{T}^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ]=s^{\mathbf{T} ^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ] \)
+
+para todo \(t_{1}/\theta ,...,t_{n}/\theta \in T^{\tau }/\theta \). Notese que
+\(\displaystyle (\Sigma ,\tau )\vdash _{ec}t(t_{1},...,t_{n})\approx s(t_{1},...,t_{n}) \)
+
+por lo cual \(t(t_{1},...,t_{n})/\theta =s(t_{1},...,t_{n})/\theta .\) Por (*) tenemos entonces
+\(\displaystyle t^{\mathbf{T}^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ]=t(t_{1},...,t_{n})/\theta =s(t_{1},...,t_{n})/\theta =s^{\mathbf{T}^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ], \)
+
+lo cual nos dice que \(\mathbf{T}^{\tau }/\theta \) satisface la identidad \( t\approx s.\)
+Ya que \(\mathbf{T}^{\tau }/\theta \models \Sigma \), por hipotesis tenemos que \(\mathbf{T}^{\tau }/\theta \models p\approx q.\) Es decir que si \( p=_{d}p(x_{1},...,x_{n})\) y \(q=_{d}q(x_{1},...,x_{n})\) tenemos que \(p^{ \mathbf{T}^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ]=q^{\mathbf{T} ^{\tau }/\theta }[t_{1}/\theta ,...,t_{n}/\theta ]\), para todo \( t_{1},...,t_{n}\in T^{\tau }\). En particular, tomando \(t_{i}=x_{i}\), \( i=1,...,n\) tenemos que
+
+\(\displaystyle p^{\mathbf{T}^{\tau }/\theta }[x_{1}/\theta ,...,x_{n}/\theta ]=q^{\mathbf{T} ^{\tau }/\theta }[x_{1}/\theta ,...,x_{n}/\theta ] \)
+
+lo cual por (*) nos dice que \(p/\theta =q/\theta \), produciendo \((\Sigma ,\tau )\vdash _{ec}p\approx q\). \(\Box\)
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+×
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+
+Entorno para trabajar con el lenguaje \(\mathcal{S}^{\Sigma }\) creado por Gabriel Cerceau:
+
+Descargar!
+Close

@@ -1,0 +1,220 @@
+Gran Logico
+
+Gran Lógico
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+Apunte
+Contacto
+Login
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+8. Estructuras
+
+Sea \(A\) un conjunto. Por una operacion \(n\)-aria sobre \(A\) entenderemos una funcion cuyo dominio es \(A^{n}\) y cuya imagen esta contenida en \(A.\) Por una relacion \(n\)-aria sobre \(A\) entenderemos un subconjunto de \(A^{n}\).
+
+Sea \(\tau \) un tipo. Una estructura o modelo de tipo \(\tau \) sera un par \(\mathbf{A}=(A,i)\) tal que:
+
+(1) \(A\) es un conjunto no vacio llamado el universo de \( \mathbf{A}.\)
+(2) \(i\) es una funcion con dominio \(\mathcal{C}\cup \mathcal{F}\cup \mathcal{R},\) tal que:
+(a) para cada \(c\in \mathcal{C}\), \(i(c)\) es un elemento de \(A\)
+(b) para cada \(f\in \mathcal{F}_{n}\), \(i(f)\) es una operacion \(n\) -aria sobre \(A\)
+(c) para cada \(r\in \mathcal{R}_{n}\), \(i(r)\) es una relacion \(n\)-aria sobre \(A.\)
+Sea \(\mathbf{A}=(A,i)\) una estructura de tipo \(\tau \). Una asignacion de \(\mathbf{A}\) sera un elemento de \(A^{\mathbf{N}}=\{\) sucesiones infinitas de elementos de \(A\}\). Si \(\vec{a}=(a_{1},a_{2},...)\) es una asignacion, entonces diremos que \(a_{j}\) es el valor que \( \vec{a}\) le asigna a la variable \(x_{j}\).
+
+Dada una estructura \(\mathbf{A}\) de tipo \(\tau \), un termino \(t\in T^{\tau }\) y una asignacion \(\vec{a}=(a_{1},a_{2},...)\in A^{\mathbf{N}}\) definamos recursivamente \(t^{\mathbf{A}}[\vec{a}]\) de la siguiente manera
+
+(1) Si \(t=x_{i}\in Var\), entonces \(t^{\mathbf{A}}[\vec{a}]=a_{i}\)
+(2) Si \(t=c\in \mathcal{C}\), entonces \(t^{\mathbf{A}}[\vec{a}]=i(c)\)
+(3) Si \(t=f(t_{1},...,t_{n})\), con \(f\in \mathcal{F}_{n},\;n\geq 1\) y \(t_{1},...,t_{n}\in T^{\tau }\), entonces \(t^{\mathbf{A}}[\vec{a} ]=i(f)(t_{1}^{\mathbf{A}}[\vec{a}],...,t_{n}^{\mathbf{A}}[\vec{a}])\)
+El elemento \(t^{\mathbf{A}}[\vec{a}]\) sera llamado el valor de \(t\) en la estructura \(\mathbf{A}\) para la asignacion \(\vec{a}\).
+
+Lema 131 Sea \(\mathbf{A}\) una estructura de tipo \(\tau \) y sea \(t\in T^{\tau }\). Supongamos que \(\vec{a},\vec{b}\) son asignaciones tales que \(a_{i}=b_{i},\) cada vez que \(x_{i}\) ocurra en \(t\). Entonces \(t^{ \mathbf{A}}[\vec{a}]=t^{\mathbf{A}}[\vec{b}]\).
+Prueba: Sea
+
+- Teo\(_{k}\): El lema vale para \(t\in T_{k}^{\tau }\).
+Teo\(_{0}\) es facil de probar. Veamos Teo\(_{k}\Rightarrow \)Teo\(_{k+1}\). Supongamos \(t\in T_{k+1}^{\tau }-T_{k}^{\tau }\) y sean \(\vec{a},\vec{b}\) asignaciones tales que \(a_{i}=b_{i},\) cada vez que \(x_{i}\) ocurra en \(t\). Notese que \(t=f(t_{1},...,t_{n})\), con \(f\in \mathcal{F}_{n},\;n\geq 1\) y \( t_{1},...,t_{n}\in T^{\tau }\). Notese que para cada \(j=1,...,n\), tenemos que \(a_{i}=b_{i},\) cada vez que \(x_{i}\) ocurra en \(t_{j}\), lo cual por Teo\(_{k}\) nos dice que
+
+\(\displaystyle t_{j}^{\mathbf{A}}[\vec{a}]=t_{j}^{\mathbf{A}}[\vec{b}]\text{, }j=1,...,n \)
+
+Se tiene entonces que
+\(\displaystyle \begin{array}{ccl} t^{\mathbf{A}}[\vec{a}] & = & i(f)(t_{1}^{\mathbf{A}}[\vec{a}],...,t_{n}^{ \mathbf{A}}[\vec{a}])\text{ (por def de }t^{\mathbf{A}}[\vec{a}]\text{)} \\ & = & i(f)(t_{1}^{\mathbf{A}}[\vec{b}],...,t_{n}^{\mathbf{A}}[\vec{b}]) \\ & = & t^{\mathbf{A}}[\vec{b}]\text{ (por def de }t^{\mathbf{A}}[\vec{a}] \text{)} \end{array} \)
+
+\(\Box\)
+Dada una asignacion \(\vec{a}\in A^{\mathbf{N}}\) y \(a\in A,\) con \(\downarrow _{i}^{a}(\vec{a})\) denotaremos la asignacion que resulta de reemplazar en \( \vec{a}\) el \(i\)-esimo elemento por \(a\).
+
+A continuacion definiremos recursivamente la relacion \(\mathbf{A}\models \varphi \lbrack \vec{a}]\), donde \(\mathbf{A}\) es una estructura de tipo \( \tau \), \(\vec{a}\) es una asignacion y \(\varphi \in F^{\tau }\). Escribiremos \( \mathbf{A}\not\models \varphi \lbrack \vec{a}]\) para expresar que no se da \( \mathbf{A}\models \varphi \lbrack \vec{a}]\).
+
+(1) Si \(\varphi =(t\equiv s),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \(t^{A}[ \vec{a}]=s^{A}[\vec{a}]\)
+(2) Si \(\varphi =r(t_{1},...,t_{m})\), entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \( (t_{1}^{A}[\vec{a}],...,t_{m}^{A}[\vec{a}])\in i(r)\)
+(3) Si \(\varphi =(\varphi _{1}\wedge \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \(\mathbf{A }\models \varphi _{1}[\vec{a}]\) y \(\mathbf{A}\models \varphi _{2}[\vec{a}]\)
+(4) Si \(\varphi =(\varphi _{1}\vee \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \(\mathbf{A }\models \varphi _{1}[\vec{a}]\) o \(\mathbf{A}\models \varphi _{2}[\vec{a}]\)
+(5) Si \(\varphi =(\varphi _{1}\rightarrow \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \(\mathbf{A }\models \varphi _{2}[\vec{a}]\) o \(\mathbf{A}\not\models \varphi _{1}[\vec{a} ]\)
+(6) Si \(\varphi =(\varphi _{1}\leftrightarrow \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si ya sea se dan \(\mathbf{A}\models \varphi _{1}[\vec{a}]\) y \(\mathbf{A}\models \varphi _{2}[\vec{a}]\) o se dan \(\mathbf{A}\not\models \varphi _{1}[\vec{a}]\) y \( \mathbf{A}\not\models \varphi _{2}[\vec{a}]\)
+(7) Si \(\varphi =\lnot \varphi _{1},\) entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \(\mathbf{A }\not\models \varphi _{1}[\vec{a}]\)
+(8) Si \(\varphi =\forall x_{i}\varphi _{1}\), entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si para cada \(a\in A\), se da que \(\mathbf{A}\models \varphi _{1}[\downarrow _{i}^{a}(\vec{ a})]\)
+(9) Si \(\varphi =\exists x_{i}\varphi _{1}\), entonces
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si hay un \( a\in A\) tal que \(\mathbf{A}\models \varphi _{1}[\downarrow _{i}^{a}(\vec{a} )] \)
+Cuando se de \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) diremos que la estructura \(\mathbf{A}\) satisface \(\varphi \) en la asignacion \(\vec{a}\) y en tal caso diremos que \(\varphi \) es verdadera en \(\mathbf{A}\) para la asignacion \(\vec{a}\) . Cuando no se de \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) diremos que la estructura \(\mathbf{A}\) no satisface \(\varphi \) en la asignacion \(\vec{a}\) y en tal caso diremos que \(\varphi \) es falsa en \(\mathbf{A}\) para la asignacion \(\vec{a}\). Tambien hablaremos del valor de verdad de \(\varphi \) en \( \mathbf{A}\) para la asignacion \(\vec{a}\) el cual sera igual a \(1\) si se da \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) y \(0\) en caso contrario.
+
+8.1. Variables libres
+
+Definamos recursivamente el predicado
+
+\(\displaystyle "v\mathit{\ ocurre\ libremente\ en\ }\varphi \mathit{\ a\ partir\ de\ } i":\omega \times Var\times F^{\tau }\rightarrow \omega \)
+
+de la siguiente manera:
+(1) Si \(\varphi \) es atomica, entonces \(v\) ocurre libremente en \( \varphi \) a partir de \(i\) sii \(v\) ocurre en \(\varphi \) a partir de \(i\)
+(2) Si \(\varphi =(\varphi _{1}\eta \varphi _{2})\), entonces \(v\) ocurre libremente en \(\varphi \) a partir de \(i\) sii se da alguna de las siguientes
+(a) \(v\) ocurre libremente en \(\varphi _{1}\) a partir de \(i-1\)
+(b) \(v\) ocurre libremente en \(\varphi _{2}\) a partir de \(i-\left\vert (\varphi _{1}\eta \right\vert \)
+(3) Si \(\varphi =\lnot \varphi _{1}\), entonces \(v\) ocurre libremente en \(\varphi \) a partir de \(i\) sii \(v\) ocurre libremente en \(\varphi _{1}\) a partir de \(i-1\)
+(4) Si \(\varphi =Qw\varphi _{1}\), entonces \(v\) ocurre libremente en \( \varphi \) a partir de \(i\) sii \(v\neq w\) y \(v\) ocurre libremente en \(\varphi _{1}\) a partir de \(i-\left\vert Qw\right\vert \)
+Diremos que \("v\) ocurre acotadamente en \(\varphi \) a partir de \(i"\) cuando \(v\) ocurre en \(\varphi \) a partir de \(i\) y \(v\) no ocurre libremente en \(\varphi \) a partir de \(i\). Dada una formula \(\varphi \), sea
+
+\(\displaystyle Li(\varphi )=\{v\in Var:\text{hay un }i\text{ tal que }v\text{ ocurre libremente en }\varphi \text{ a partir de }i\}\text{.} \)
+
+Los elementos de \(Li(\varphi )\) seran llamados variables libres de \( \varphi \). Una sentencia sera una formula \(\varphi \) tal que \( Li(\varphi )=\varnothing \). Usaremos \(S^{\tau }\) para denotar el conjunto de las sentencias de tipo \(\tau \).
+
+Lema 132
+(a) \(Li((t\equiv s))=\{v\in Var:v\) ocurre en \(t\) o \(v\) ocurre en \( s\}. \)
+(b) \(Li(r(t_{1},...,t_{n}))=\{v\in Var:v\) ocurre en algun \(t_{i}\}.\)
+(c) \(Li(\lnot \varphi )=Li(\varphi )\)
+(d) \(Li((\varphi \eta \psi ))=Li(\varphi )\cup Li(\psi ).\)
+(e) \(Li(Qx_{j}\varphi )=Li(\varphi )-\{x_{j}\}.\)
+Prueba: (a) y (b) son triviales de las definiciones, teniendo en cuenta que si una variable \(v\) ocurre en \((t\equiv s)\) (resp. en \(r(t_{1},...,t_{n})\)) entonces \(v\) ocurre en \(t\) o \(v\) ocurre en \(s\) (resp.\(v\) ocurre en algun \( t_{i}\))
+
+(d) Supongamos \(v\in Li((\varphi \eta \psi ))\), entonces hay un \(i\) tal que \( v\) ocurre libremente en \((\varphi \eta \psi )\) a partir de \(i\). Por definicion tenemos que ya sea \(v\) ocurre libremente en \(\varphi \) a partir de \(i-1\) o \(v\) ocurre libremente en \(\psi \) a partir de \(i-\left\vert (\varphi \eta \right\vert \), con lo cual \(v\in Li(\varphi )\cup Li(\psi )\)
+
+Supongamos ahora que \(v\in Li(\varphi )\cup Li(\psi )\). S.p.d.g. supongamos \( v\in Li(\psi )\). Por definicion tenemos que hay un \(i\) tal que \(v\) ocurre libremente en \(\psi \) a partir de \(i\). Pero notese que esto nos dice por definicion que \(v\) ocurre libremente en \((\varphi \eta \psi )\) a partir de \( i+\left\vert (\varphi \eta \right\vert \) con lo cual \(v\in Li((\varphi \eta \psi ))\).
+
+(c) es similar a (d)
+
+(e) Supongamos \(v\in Li(Qx_{j}\varphi )\), entonces hay un \(i\) tal que \(v\) ocurre libremente en \(Qx_{j}\varphi \) a partir de \(i\). Por definicion tenemos que \(v\neq x_{j}\) y \(v\) ocurre libremente en \(\varphi \) a partir de \( i-\left\vert Qx_{j}\right\vert \), con lo cual \(v\in Li(\varphi )-\{x_{j}\}\)
+
+Supongamos ahora que \(v\in Li(\varphi )-\{x_{j}\}\). Por definicion tenemos que hay un \(i\) tal que \(v\) ocurre libremente en \(\varphi \) a partir de \(i\). Ya que \(v\neq x_{j}\) esto nos dice por definicion que \(v\) ocurre libremente en \(Qx_{j}\varphi \) a partir de \(i+\left\vert Qx_{j}\right\vert \), con lo cual \(v\in Li(Qx_{j}\varphi )\). \(\Box\)
+
+Lema 133 Supongamos que \(\vec{a},\vec{b}\) son asignaciones tales que si \(x_{i}\in Li(\varphi ),\) entonces \(a_{i}=b_{i}.\) Entonces \( \mathbf{A}\models \varphi \lbrack \vec{a}]\) sii \(\mathbf{A}\models \varphi \lbrack \vec{b}]\)
+Prueba: Probaremos por induccion en \(k\) que el lema vale para cada \(\varphi \in F_{k}^{\tau }.\) El caso \(k=0\) se desprende del Lema 131. Veamos que Teo\(_{k}\) implica Teo\(_{k+1}.\) Sea \(\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }.\) Hay varios casos:
+
+CASO \(\varphi =(\varphi _{1}\wedge \varphi _{2})\).
+
+Ya que \(Li(\varphi _{i})\subseteq Li(\varphi )\), \(i=1,2\), Teo\(_{k}\) nos dice que \(\mathbf{A}\models \varphi _{i}[\vec{a}]\) sii \(\mathbf{A} \models \varphi _{i}[\vec{b}]\), para \(i=1,2\). Se tiene entonces que
+
+\(\displaystyle \begin{array}{l} \mathbf{A}\models \varphi \lbrack \vec{a}] \\ \ \ \Updownarrow \text{ (por (3) en la def de }\mathbf{A}\models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A}\models \varphi _{1}[\vec{a}]\text{ y }\mathbf{A}\models \varphi _{2}[\vec{a}] \\ \ \ \Updownarrow \text{ (por Teo}_{k}\text{)} \\ \mathbf{A}\models \varphi _{1}[\vec{b}]\text{ y }\mathbf{A}\models \varphi _{2}[\vec{b}] \\ \ \ \Updownarrow \text{(por (3) en la def de }\mathbf{A}\models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A}\models \varphi \lbrack \vec{b}] \end{array} \)
+
+CASO \(\varphi =(\varphi _{1}\wedge \varphi _{2})\).
+
+Es completamente similar al anterior.
+
+CASO \(\varphi =\lnot \varphi _{1}.\)
+
+Es completamente similar al anterior.
+
+CASO \(\varphi =\forall x_{j}\varphi _{1}.\)
+
+Supongamos \(\mathbf{A}\models \varphi \lbrack \vec{a}]\). Entonces por (8) en la def de \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) se tiene que \(\mathbf{A}\models \varphi _{1}[\downarrow _{j}^{a}(\vec{a})]\), para todo \(a\in A\). Notese que \(\downarrow _{j}^{a}(\vec{a})\) y \(\downarrow _{j}^{a}(\vec{b})\) coinciden en toda \(x_{i}\) de \(x_{i}\in Li(\varphi _{1})\subseteq Li(\varphi _{1})\cup \{x_{j}\}\), con lo cual por Teo\(_{k}\) se tiene que \(\mathbf{A}\models \varphi _{1}[\downarrow _{j}^{a}(\vec{b})]\), para todo \(a\in A\), lo cual por (8) en la def de \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) nos dice que \(\mathbf{A}\models \varphi \lbrack \vec{b}]\). La prueba de que \(\mathbf{A}\models \varphi \lbrack \vec{b}]\) implica que \( \mathbf{A}\models \varphi \lbrack \vec{a}]\) es similar.
+
+CASO \(\varphi =\exists x_{j}\varphi _{1}\).
+
+Es similar al anterior. \(\Box\)
+
+Corolario 134 Si \(\varphi \) es una sentencia, entonces \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) sii \(\mathbf{A}\models \varphi \lbrack \vec{b}]\), cualesquiera sean las asignaciones \(\vec{a},\vec{b}\).
+En virtud del corolario anterior tenemos que el valor de verdad de una sentencia \(\varphi \) en una estructura dada \(\mathbf{A}\) para una asignacion \(\vec{a}\) no depende de \(\vec{a}\), es decir este valor es ya sea \(1\) para todas las asignaciones o \(0\) para todas las asignaciones. En el primer caso diremos que \(\varphi \) es verdadera en \(\mathbf{A}\) y en el segundo caso diremos que \(\varphi \) es falsa en \(\mathbf{A}\)
+
+Una sentencia de tipo \(\tau \) sera llamada universalmente valida si es verdadera en cada modelo de tipo \(\tau \).
+
+8.2. Equivalencia de formulas
+
+Dadas \(\varphi ,\psi \in F^{\tau }\) diremos que \(\varphi \) y \(\psi \) son equivalentes cuando se de la siguiente condicion
+
+- \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) si y solo si \(\mathbf{A }\models \psi \lbrack \vec{a}]\), para cada modelo de tipo \(\tau \), \(\mathbf{A }\) y cada \(\vec{a}\in A^{\mathbf{N}}\)
+Escribiremos \(\varphi \thicksim \psi \) cuando \(\varphi \) y \(\psi \) sean equivalentes. Notese que \(\thicksim \) es una relacion de equivalencia.
+
+Lema 135
+(a) Si \(Li(\varphi )\cup Li(\psi )\subseteq \{x_{i_{1}},...,x_{i_{n}}\},\) entonces \(\varphi \thicksim \psi \) si y solo si la sentencia \(\forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\) es universalmente valida.
+(b) Si \(\varphi _{i}\thicksim \psi _{i},\) \(i=1,2,\) entonces \(\lnot \varphi _{1}\thicksim \lnot \psi _{1},\) \((\varphi _{1}\eta \varphi _{2})\thicksim (\psi _{1}\eta \psi _{2})\) y \(Qv\varphi _{1}\thicksim Qv\psi _{1}.\)
+(c) Si \(\varphi \thicksim \psi \) y \(\alpha ^{\prime }\) es el resultado de reemplazar en una formula \(\alpha \) algunas (posiblemente \(0\)) ocurrencias de \(\varphi \) por \(\psi \), entonces \(\alpha \thicksim \alpha ^{\prime }.\)
+Prueba: (a) Tenemos que
+
+\(\displaystyle \begin{array}{l} \varphi \thicksim \psi \\ \ \ \Updownarrow \text{ (por (6) de la def de}\models \text{)} \\ \mathbf{A}\models (\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo } \mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A}\models (\varphi \leftrightarrow \psi )[\downarrow _{i_{n}}^{a}(\vec{a })]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow (\text{por (8) de la def de}\models ) \\ \mathbf{A}\models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}] \text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A}\models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\downarrow _{i_{n-1}}^{a}(\vec{a})]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \text{ (por (8) de la def de}\models \text{)} \\ \mathbf{A}\models \forall x_{i_{n-1}}\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \ \ \ \ \vdots \\ \ \ \Updownarrow \\ \mathbf{A}\models \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\text{ es universalmente valida} \end{array} \)
+
+(b) Es dejado al lector.
+
+(c) Por induccion en el \(k\) tal que \(\alpha \in F_{k}^{\tau }\). \(\Box\)
+
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+×
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+
+Entorno para trabajar con el lenguaje \(\mathcal{S}^{\Sigma }\) creado por Gabriel Cerceau:
+
+Descargar!
+Close

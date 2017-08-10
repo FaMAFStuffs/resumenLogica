@@ -1,0 +1,203 @@
+Gran Logico
+
+Gran Lógico
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+Apunte
+Contacto
+Login
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+Lema 194
+\(\displaystyle \begin{array}{rcl} \omega \times S^{\tau _{A}^{e}}\times S^{\tau _{A}^{e}+}\times Just^{+} & \rightarrow & \omega \\ (i,\varphi ,\mathbf{\varphi },\mathbf{J}) & \rightarrow & \left\{ \begin{array}{ccl} 1 & & \text{si }(\mathbf{\varphi },\mathbf{J})\text{ es adecuado y }\varphi \text{ es hipotesis de }\mathbf{\varphi }_{i}\text{ en }(\mathbf{\varphi }, \mathbf{J}) \\ 0 & & \text{caso contrario} \end{array} \right. \end{array} \)
+es \((A\cup B)\)-p.r..
+Lema 195
+\(\displaystyle \begin{array}{rcl} \mathcal{C}\times \mathcal{C}\times S^{\tau _{A}^{e}+}\times Just^{+} & \rightarrow & \omega \\ (e,d,\mathbf{\varphi },\mathbf{J}) & \rightarrow & \left\{ \begin{array}{ccl} 1 & & \text{si }(\mathbf{\varphi },\mathbf{J})\text{ es adecuado y }e\text{ depende de }d\text{ en }(\mathbf{\varphi },\mathbf{J}) \\ 0 & & \text{caso contrario} \end{array} \right. \end{array} \)
+es \((A\cup B)\)-p.r..
+Dada una teoria de la forma \((\Sigma ,\tau _{A})\), diremos que una prueba \(( \mathbf{\varphi },\mathbf{J})\) de \(\varphi \) en \((\Sigma ,\tau _{A})\) es normal si solo usa nombres de ctes auxiliares de \(Aux\), es decir si \(\mathbf{\varphi }\in S^{\tau _{A}^{e}+}\). Definamos
+
+\(\displaystyle Pruebas_{(\Sigma ,\tau _{A})}=\{(\mathbf{\varphi },\mathbf{J}):\exists \varphi \ (\mathbf{\varphi },\mathbf{J})\text{ es una prueba normal de } \varphi \text{ en }(\Sigma ,\tau _{A})\} \)
+
+Lema 196 Sea \((\Sigma ,\tau _{A})\) una teoria tal que \(\Sigma \) es \(A\)-recursivo (resp. \(A\)-r.e.). Entonces \(Pruebas_{(\Sigma ,\tau _{A})}\) es \((A\cup B)\) -recursivo (resp. \((A\cup B)\)-r.e.).
+Dada una teoria \((\Sigma ,\tau _{A})\), definamos
+
+\(\displaystyle Teo_{(\Sigma ,\tau _{A})}=\{\varphi \in S^{\tau _{A}}:(\Sigma ,\tau _{A})\vdash \varphi \} \)
+
+Proposición 197 Si \((\Sigma ,\tau _{A})\) es una teoria tal que \(\Sigma \) es \(A\)-r.e., entonces \(Teo_{(\Sigma ,\tau _{A})}\) es \(A\)-r.e.
+Prueba: Ya que \(Pruebas_{(\Sigma ,\tau _{A})}\) es \((A\cup B)\)-r.e. tenemos que hay una funcion \(F:\omega \rightarrow S^{\tau _{A}^{e}+}\times Just^{+}\) la cual cumple que \(p_{1}^{0,2}\circ F\) y \(p_{2}^{0,2}\circ F\) son \((A\cup B)\)-r. y ademas \(I_{F}=Pruebas_{(\Sigma ,\tau _{A})}\). Sea
+
+\(\displaystyle \begin{array}{ccc} g:S^{\tau _{A}^{e}+} & \rightarrow & S^{\tau _{A}^{e}} \\ \mathbf{\varphi } & \rightarrow & \mathbf{\varphi }_{n(\mathbf{\varphi })} \end{array} \)
+
+Por lemas anteriores \(g\) es \(A\)-p.r.. Notese que \(I_{(g\circ p_{1}^{0,2}\circ F)}=Teo_{(\Sigma ,\tau _{A})}\), lo cual dice que \( Teo_{(\Sigma ,\tau _{A})}\) es \((A\cup B)\)-r.e.. Por el teorema de independencia del alfabeto tenemos que \(Teo_{(\Sigma ,\tau _{A})}\) es \(A\) -r.e.. \(\Box\)
+10.2. Teorema de incompletitud
+
+Sea
+
+\(\displaystyle Verd_{\mathbf{\omega }}=\{\varphi \in S^{\tau _{A}}:\mathbf{\omega }\models \varphi \}. \)
+
+Notese que por el teorema de correccion tenemos que \(Teo_{Arit}\subseteq Verd_{\mathbf{\omega }}\). Como puede notarse a medida que uno se va familiarizando con la teoria \(Arit\), todos los resultados clasicos de la aritmetica los cuales pueden ser enunciados por medio de una sentencia de \( Verd_{\mathbf{\omega }}\) son en realidad teoremas de \(Arit\). Sin envargo Godel probo en su famoso teorema de incompletitud (1931) que hay una sentencia de \(Verd_{\mathbf{\omega }}\) la cual no es un teorema de \(Arit\). Por a\~{n}os nadie fue capaz de dar una sentencia de \(Verd_{\mathbf{\omega } } \) la cual tenga un genuino interes aritmetico y la cual no sea un teorema de \(Arit\). Recien en 1977 Paris y Harrington dieron el primer ejemplo de una tal sentencia. Una ves sabido que los axiomas de \(Arit\) no son suficientemente poderosos como para probar toda sentencia verdadera en \( \mathbf{\omega }\), una pregunta interesante es si hay un conjunto \(\Sigma \) de sentencias de tipo \(\tau _{A}\) tal que \(Teo_{(\Sigma ,\tau _{A})}=Verd_{ \mathbf{\omega }}\) y tal que la pertenencia a \(\Sigma \) sea decidible mediante un algoritmo (es decir axiomas describibles en alguna forma razonable). Una respuesta negativa a dicha pregunta forma parte del teorema de incompletitud de Godel que veremos a continuacion.
+Una funcion \(f:D_{f}\subseteq \omega ^{n}\rightarrow \omega \) sera llamada representable si hay una formula de tipo \(\tau _{A}\), \(\varphi =_{d}\varphi (v_{1},...,v_{n},v)\) la cual cumpla
+
+- \(\mathbf{\omega }\models \varphi \left[ k_{1},...,k_{n},k\right] \) si y solo si \(f(k_{1},...,k_{n})=k\), cualesquiera sean \(k_{1},...,k_{n},k\in \omega .\)
+En tal caso diremos que la formula \(\varphi \) representa a la funcion \(f\). Notese que cuando \((k_{1},...,k_{n})\notin D_{f}\) entonces debera suceder que \(\mathbf{\omega }\nvDash \varphi \left[ k_{1},...,k_{n},k \right] \), cualquiera sea \(k\in \omega \).
+
+Sea \(\beta =\lambda xyi[r(x,y(i+1)+1)]\). Notese que \(D_{\beta }=\omega ^{3}\) . Esta funcion es conocida como la funcion \(\beta \) de Godel. Notese que \(\beta \) es representable ya que por ejemplo la formula
+
+\(\displaystyle \exists q\;(v_{1}\equiv q.(v_{2}.(v_{3}+1)+1)+v\wedge v< v_{2}.(v_{3}+1)+1) \)
+
+la representa.
+Lema 198 Cualesquiera sean \(z_{0},...,z_{n}\in \omega \), \(n\geq 0\), hay \(x,y\in \omega \), tales que \(\beta (x,y,i)=z_{i}\), \(i=0,...,n\)
+Prueba: Dados \(x,y,m\in \omega \) con \(m\geq 1\), usaremos \(x\equiv y(m)\) para expresar que \(x\) es congruente a \(y\) modulo \(m\), es decir para expresar que \( x-y\) es divisible por \(m\). Usaremos en esta prueba el Teorema Chino del Resto:
+
+- Dados \(m_{0},...,m_{n},z_{0},...,z_{n}\in \omega \) tales que \( m_{0},...,m_{n}\) son coprimos de a pares, hay un \(x\in \omega \) tal que \( x\equiv z_{i}(m_{i})\), para \(i=0,...,n.\)
+Sea \(y=\max (z_{0},...,z_{n},n)!\). Sean \(m_{i}=y(i+1)+1\), \(i=0,...,n\). Veamos que \(m_{0},...,m_{n}\) son coprimos de a pares. Supongamos \(p\) divide a \(m_{i}\) y a \(m_{j}\) con \(i< j\). Entonces \(p\) divide a \(m_{j}-m_{i}=y(j-i)\) y ya que \(p\) no puede dividir a \(y\), tenemos que \(p\) divide a \(j-i\). Pero ya que \(j-i< n\) tenemos que \(p< n\) lo cual es absurdo ya que implicaria que \(p\) divide \(y\).
+
+Por el Teorema Chino del Resto hay un \(x\) tal que \(x\equiv z_{i}(m_{i})\), para \(i=0,...,n\). Ya que \(z_{i}< m_{i}\), tenemos que
+
+\(\displaystyle \beta (x,y,i)=r(x,y(i+1)+1)=r(x,m_{i})=z_{i}\text{, }i=0,...,n\text{.} \)
+
+\(\Box\)
+Proposición 199 Si \(h\) es \(\varnothing \)-recursiva, entonces \(h\) es representable
+Prueba: Supongamos \(f:S_{1}\times ...\times S_{n}\rightarrow \omega \) y \(g:\omega \times \omega \times S_{1}\times ...\times S_{n}\rightarrow \omega \) son representables, con \(S_{1},...,S_{n}\subseteq \omega \). Probaremos que \( R(f,g):\omega \times S_{1}\times ...\times S_{n}\rightarrow \omega \) lo es. Para esto primero notese que para \(t,x_{1},...,x_{n},z\in \omega \), las siguientes son equivalentes
+
+(1) \(R(f,g)(t,\vec{x})=z\)
+(2) hay \(z_{0},...,z_{t}\in \omega \) tales que
+\(\displaystyle \begin{array}{rcl} z_{0} & =& f(\vec{x}) \\ z_{i+1} & =& g(z_{i},i,\vec{x})\text{, }i=0,...,t-1 \\ z_{t} & =& z \end{array} \)
+
+(3) hay \(x,y\in \omega \) tales que
+\(\displaystyle \begin{array}{rcl} \beta (x,y,0) & =& f(\vec{x}) \\ \beta (x,y,i+1) & =& g(\beta (x,y,i),i,\vec{x})\text{, }i=0,...,t-1 \\ \beta (x,y,t) & =& z \end{array} \)
+
+Sean
+
+\(\displaystyle \begin{array}{rcl} \varphi _{\beta } & =& _{d}\varphi _{\beta }(v_{1},v_{2},v_{3},v) \\ \varphi _{f} & =& _{d}\varphi _{f}(v_{1},...,v_{n},v) \\ \varphi _{g} & =& _{d}\varphi _{g}(v_{1},...,v_{n+2},v) \end{array} \)
+
+formulas que representen a las funciones \(\beta \), \(f\) y \(g\), respectivamente. Sean \(w_{1},...,w_{n+1},w\), \( y_{1},y_{2},y_{3},y_{4},z_{1},z_{2}\) variables todas distintas y tales que cada una de las variebles libres de \(\varphi _{\beta }\), \(\varphi _{f}\) y \( \varphi _{g}\) es sustituible por cada una de las variables \( w_{1},...,w_{n+1},w\), \(y_{1},y_{2},y_{3},y_{4},z_{1},z_{2}\). Sea \(\varphi _{R(f,g)}=\varphi _{R(f,g)}(w_{1},...,w_{n+1},w)\) la siguiente formula
+\(\exists z_{1},z_{2}\;(\exists y_{1}\varphi _{\beta }(z_{1},z_{2},0,y_{1})\wedge \varphi _{f}(w_{2},...,w_{n+1},y_{1}))\wedge \)
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \varphi _{\beta }(z_{1},z_{2},w_{1},w)\wedge \forall y_{2}(y_{2}< w_{1}\rightarrow \exists y_{3},y_{4}\;\varphi _{\beta }(z_{1},z_{2},y_{2}+1,y_{3})\wedge \)
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \varphi _{\beta }(z_{1},z_{2},y_{2},y_{4})\wedge \varphi _{g}(y_{4},y_{2},w_{2},...,w_{n+1},y_{3}))\)
+Es facil usando (3) ver que la formula \(\varphi _{R(f,g)}\) representa a \(R(f,g)\).
+
+En forma analoga se puede probar que las reglas de composicion y minimizacion preservan representabilidad por lo cual ya que los elementos de \(\mathrm{R}_{0}^{\varnothing }\) son representables, tenemos que lo es toda funcion \(\varnothing \)-r. \(\Box\)
+
+Lema 200 Hay un predicado \(P:\omega \times \omega \rightarrow \omega \) el cual es \(\varnothing \)-p.r. y tal que el predicado \(Q=\lambda x \left[ (\exists t\in \omega )P(t,x)\right] :\omega \rightarrow \omega \) no es \(\varnothing \)-r.
+Prueba: Sea \(\Sigma =\Sigma _{p}\). Recordemos que el predicado
+
+\(\displaystyle P_{1}=\lambda t\mathcal{P}\left[ i^{0,1}(t,\mathcal{P},\mathcal{P})=n( \mathcal{P})+1\right] \)
+
+es \(\Sigma _{p}\)-p.r. ya que la funcion \(i^{0,1}\) lo es. Notese que el dominio de \(P_{1}\) es \(\omega \times \mathrm{Pro}^{\Sigma _{p}}\). Por Lema 69 (de la materia de lenguajes) tenemos que
+\(\displaystyle Halt^{\Sigma _{p}}=\lambda \mathcal{P}\left[ (\exists t\in \omega )\;P_{1}(t, \mathcal{P})\right] \)
+
+no es \(\Sigma _{p}\)-recursivo. Sea \(< \) un orden total sobre \(\Sigma _{p}\). Definamos \(P:\omega \times \omega \rightarrow \omega \) de la siguiente manera
+\(\displaystyle P(t,x)=\left\{ \begin{array}{ccc} P_{1}(t,\ast ^{< }(x)) & \text{si} & \ast ^{< }(x)\in \mathrm{Pro}^{\Sigma _{p}} \\ 0 & \text{si} & \ast ^{< }(x)\notin \mathrm{Pro}^{\Sigma _{p}} \end{array} \right. \)
+
+Claramente \(P\) es \(\Sigma _{p}\)-p.r., por lo cual es \(\varnothing \)-p.r.. Sea \( Q=\lambda x\left[ (\exists t\in \omega )P(t,x)\right] .\) Notese que
+\(\displaystyle Halt^{\Sigma _{p}}=Q\circ \#^{< }\mathrm{\mid }_{\mathrm{Pro}^{\Sigma _{p}}} \)
+
+lo cual dice que \(Q\) no es \(\Sigma _{p}\)-r. ya que de serlo, el predicado \( Halt^{\Sigma _{p}}\) lo seria. Por el teorema de independencia del alfabeto tenemos entonces que \(Q\) no es \(\varnothing \)-recursivo. \(\Box\)
+Recordemos que para \(\alpha \in \Sigma ^{\ast }\), definimos
+
+\(\displaystyle ^{\curvearrowright }\alpha =\left\{ \begin{array}{lll} \left[ \alpha \right] _{2}...\left[ \alpha \right] _{\left\vert \alpha \right\vert } & \text{si} & \left\vert \alpha \right\vert \geq 2 \\ \varepsilon & \text{si} & \left\vert \alpha \right\vert \leq 1 \end{array} \right. \)
+
+Lema 201 Si \(Verd_{\mathbf{\omega }}\) es \(A\)-r.e., entonces es \(A\)-r.
+Prueba: Supongamos \(Verd_{\mathbf{\omega }}\) es \(A\)-r. e. Sea \(f:\omega \rightarrow Verd_{\mathbf{\omega }}\) una funcion sobre y \(A\)-r. Sea \(g:S^{\tau _{A}}\rightarrow S^{\tau _{A}}\), dada por
+
+\(\displaystyle g(\varphi )=\left\{ \begin{array}{ccc} ^{\curvearrowright }\varphi & \;\; & \text{si }\left[ \varphi \right] _{1}=\lnot \\ \lnot \varphi & \;\; & \text{caso contrario} \end{array} \right. \)
+
+Notar que \(g\) es \(A\)-p.r. por lo cual \(g\circ f\) es \(A\)-r. Ya que \(I_{g\circ f}=S^{\tau _{A}}-Verd_{\mathbf{\omega }}\) (justifique), tenemos que \(S^{\tau _{A}}-Verd_{\mathbf{\omega }}\) es \(A\)-r. e., por lo cual
+\(\displaystyle A^{\ast }-Verd_{\mathbf{\omega }}=(A^{\ast }-S^{\tau _{A}})\cup (S^{\tau _{A}}-Verd_{\mathbf{\omega }}) \)
+
+lo es. Es decir que \(Verd_{\mathbf{\omega }}\) y su complemento son \(A\)-r.e. por lo cual \(Verd_{\mathbf{\omega }}\) es \(A\)-r. \(\Box\)
+Lema 202 \(Verd_{\mathbf{\omega }}\) no es \(A\)-r.e.
+Prueba: Por el Lema 200 hay un predicado \(\varnothing \)-p.r., \( P:\omega \times \omega \rightarrow \omega \) tal que el predicado \(Q=\lambda x \left[ (\exists t\in \omega )P(t,x)\right] :\omega \rightarrow \omega \) no es \(\varnothing \)-recursivo. Notese que \(Q\) tampoco es \(A\)-recursivo. Ya que \(P \) es representable, hay una formula \(\varphi =_{d}\varphi (v_{1},v_{2},v)\in F^{\tau _{A}}\) la cual cumple
+
+\(\displaystyle \mathbf{\omega }\models \varphi \left[ t,x,k\right] \text{ si y solo si } P(t,x)=k, \)
+
+cualesquiera sean \(t,x,k\in \omega .\) Sea \(\psi =\varphi (v_{1},v_{2},1)\). Notese que \(\psi =_{d}\psi (v_{1},v_{2})\) y que
+\(\displaystyle \mathbf{\omega }\models \psi \left[ t,x\right] \text{ si y solo si }P(t,x)=1 \text{,} \)
+
+cualesquiera sean \(t,x\in \omega .\) Sea \(\psi _{0}=\exists v_{1}\ \psi (v_{1},v_{2})\). Notese que \(\psi _{0}=_{d}\psi _{0}(v_{2})\) y que
+\(\displaystyle \mathbf{\omega }\models \psi _{0}\left[ x\right] \text{ si y solo si }Q(x)=1 \)
+
+cualesquiera sea \(x\in \omega \). Por el lema de reemplazo tenemos que para \( x\in \omega \),
+\(\displaystyle \mathbf{\omega }\models \psi _{0}\left[ x\right] \text{ si y solo si } \mathbf{\omega }\models \psi _{0}(\widehat{x}) \)
+
+(justifique), por lo cual
+\(\displaystyle \mathbf{\omega }\models \psi _{0}(\widehat{x})\text{ si y solo si }Q(x)=1 \)
+
+cualesquiera sea \(x\in \omega \). Ya que \(\psi _{0}(\widehat{x})\) es una sentencia,
+\(\displaystyle \psi _{0}(\widehat{x})\in Verd_{\mathbf{\omega }}\text{ si y solo si }Q(x)=1 \)
+
+Sea \(h:\omega \rightarrow A^{\ast }\), dada por \(h(x)=\psi _{0}(\widehat{x})\) . Es facil ver que \(h\) es \(A\)-recursiva. Ya que \(Q=\chi _{Verd_{\mathbf{ \omega }}}\circ h\) y \(Q\) no es \(A\)-recursivo, tenemos que \(\chi _{Verd_{ \mathbf{\omega }}}\) no es \(A\)-recursiva, es decir que \(Verd_{\mathbf{\omega } }\) es un conjunto no \(A\)-recursivo. El lema anterior nos dice entonces que es \(Verd_{\mathbf{\omega }}\) no es \(A\)-r.e.. \(\Box\)
+Teorema 203 (Godel) Si \(\Sigma \subseteq Verd_{\mathbf{\omega }}\) es \(A\)-r.e., entonces \( Teo_{(\Sigma ,\tau _{A})}\subsetneq Verd_{\mathbf{\omega }}\)
+Prueba: Por el Teorema de Correccion, tenemos que \(Teo_{(\Sigma ,\tau _{A})}\subseteq Verd_{\mathbf{\omega }}\). Ya que \(Teo_{(\Sigma ,\tau _{A})}\) es \(A\)-r.e y \(Verd_{\mathbf{\omega }}\) no lo es, tenemos que \(Teo_{(\Sigma ,\tau _{A})}\neq Verd_{\mathbf{\omega }}\). \(\Box\)
+
+Corolario 204 Existe \(\varphi \in S^{\tau _{A}}\) tal que \(Arit\nvdash \varphi \) y \( Arit\nvdash \lnot \varphi \).
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+×
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+
+Entorno para trabajar con el lenguaje \(\mathcal{S}^{\Sigma }\) creado por Gabriel Cerceau:
+
+Descargar!
+Close
+Ruwix is a collection of online puzzle programs and tutorials. Discover the secret of your unsolved Rubix Cube.

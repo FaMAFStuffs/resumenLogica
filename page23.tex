@@ -1,0 +1,207 @@
+Gran Logico
+
+Gran Lógico
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+Apunte
+Contacto
+Login
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+Sean \(v_{1},...,v_{n}\) variables, todas distintas. Si \(\varphi \) es una formula de tipo \(\tau \), escribiremos \(\varphi =_{d}\varphi (v_{1},...,v_{n}) \) para declarar que todas las variables libres de \(\varphi \) estan en \(\{v_{1},...,v_{n}\}\) (no necesariamente toda \(v_{j}\) debe ocurrir libremente en dicha formula). Cuando hayamos hecho la declaracion \( \varphi =_{d}\varphi (v_{1},...,v_{n})\), si \(P_{1},...,P_{n}\) son palabras cualesquiera, entonces \(\varphi (P_{1},...,P_{n})\) denotara la palabra que resulta de reemplazar (simultaneamente) cada ocurrencia libre de \(v_{1}\) en \( \varphi ,\) por \(P_{1}, \) cada ocurrencia libre de \(v_{2}\) en \(\varphi ,\) por \(P_{2},\) etc. Notese que cuando las palabras \(P_{i}^{\prime }s\) son terminos, \(\varphi (P_{1},...,P_{n})\) es una formula. Ademas notese que si \( \varphi =_{d}\varphi (v_{1},...,v_{n})\) entonces se da una de las siguientes
+
+(1) \(\varphi =(t\equiv s)\), con \(t=_{d}t(v_{1},...,v_{n})\) y \( s=_{d}s(v_{1},...,v_{n})\)
+(2) \(\varphi =r(t_{1},...,t_{m})\), con \( t_{1}=_{d}t_{1}(v_{1},...,v_{n}),...,t_{m}=_{d}t_{m}(v_{1},...,v_{n})\)
+(3) \(\varphi =(\varphi _{1}\eta \varphi _{2})\), con \(\varphi _{1}=_{d}\varphi _{1}(v_{1},...,v_{n})\) y \(\varphi _{2}=_{d}\varphi _{2}(v_{1},...,v_{n})\)
+(4) \(\varphi =\lnot \varphi _{1}\), con \(\varphi _{1}=_{d}\varphi _{1}(v_{1},...,v_{n})\)
+(5) \(\varphi =Qv_{j}\varphi _{1}\), con \(\varphi _{1}=_{d}\varphi _{1}(v_{1},...,v_{n})\)
+(6) \(\varphi =Qv\varphi _{1}\), con \(v\not\in \{v_{1},...,v_{n}\}\) y \( \varphi _{1}=_{d}\varphi _{1}(v_{1},...,v_{n},v)\)
+Sean \(v_{1},...,v_{n}\) variables, todas distintas y supongamos \(\varphi =_{d}\varphi (v_{1},...,v_{n})\). Sea \(\mathbf{A}=(A,i)\) un modelo de tipo \( \tau \) y sean \(a_{1},...,a_{n}\in A\). Entonces \(\mathbf{A}\models \varphi \lbrack a_{1}...,a_{n}]\) significara que \(\mathbf{A}\models \varphi \lbrack \vec{b}],\) donde \(\vec{b}\) es una asignacion tal que a cada \(v_{i}\) le asigna el valor \(a_{i}.\) Notese que esta definicion es buena o inambigua gracias al Lema 133. En gral \(\mathbf{A}\not\models \varphi \lbrack a_{1},....,a_{n}]\) significara que no sucede \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}].\)
+
+Las siguientes propiedades caracterizan la notacion \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\):
+
+(1) Si \(\varphi =(t\equiv s),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( t^{\mathbf{A}}[a_{1},...,a_{n}]=s^{\mathbf{A}}[a_{1},...,a_{n}]\)
+(2) Si \(\varphi =r(t_{1},...,t_{m})\), entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( (t_{1}^{A}[a_{1},...,a_{n}],...,t_{m}^{A}[a_{1},...,a_{n}])\in r^{A}\)
+(3) Si \(\varphi =(\varphi _{1}\wedge \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{1}[a_{1},....,a_{n}]\) y \(\mathbf{A}\models \varphi _{2}[a_{1},....,a_{n}]\)
+(4) Si \(\varphi =(\varphi _{1}\vee \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{1}[a_{1},....,a_{n}]\) o \(\mathbf{A}\models \varphi _{2}[a_{1},....,a_{n}]\)
+(5) Si \(\varphi =(\varphi _{1}\rightarrow \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{2}[a_{1},....,a_{n}]\) o \(\mathbf{A}\not\models \varphi _{1}[a_{1},....,a_{n}]\)
+(6) Si \(\varphi =(\varphi _{1}\leftrightarrow \varphi _{2}),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si ya sea \(\mathbf{A}\models \varphi _{1}[a_{1},....,a_{n}]\) y \(\mathbf{A} \models \varphi _{2}[a_{1},....,a_{n}]\) o \(\mathbf{A}\not\models \varphi _{1}[a_{1},....,a_{n}]\) y \(\mathbf{A}\not\models \varphi _{2}[a_{1},....,a_{n}]\)
+(7) Si \(\varphi =\lnot \varphi _{1},\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\not\models \varphi _{1}[a_{1},....,a_{n}]\)
+(8) Si \(\varphi =\forall v\varphi _{1},\) con \(v\not\in \{v_{1},...,v_{n}\}\) y \(\varphi _{1}=_{d}\varphi _{1}(v_{1},...,v_{n},v),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{1}[a_{1},....,a_{n},a],\) para todo \(a\in A.\)
+(9) Si \(\varphi =\forall v_{j}\varphi _{1},\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{1}[a_{1},....,a,...,a_{n}],\) para todo \(a\in A.\)
+(10) Si \(\varphi =\exists v\varphi _{1},\) con \(v\not\in \{v_{1},...,v_{n}\}\) y \(\varphi _{1}=_{d}\varphi _{1}(v_{1},...,v_{n},v),\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{1}[a_{1},....,a_{n},a],\) para algun \(a\in A.\)
+(11) Si \(\varphi =\exists v_{j}\varphi _{1},\) entonces
+- \(\mathbf{A}\models \varphi \lbrack a_{1},....,a_{n}]\) si y solo si \( \mathbf{A}\models \varphi _{1}[a_{1},....,a,...,a_{n}],\) para algun \(a\in A.\)
+8.5.1. Alcance de la ocurrencia de un cuantificador en una formula.
+
+Lema 147 Si \(Qv\) ocurre en \(\varphi \) a partir de \(i\), entonces hay una unica formula \(\psi \) tal que \(Qv\psi \) ocurre en \(\varphi \) a partir de \(i\).
+Prueba: Por induccion en el \(k\) tal que \(\varphi \in F^{\tau }\). \(\Box\)
+
+Dada una ocurrencia de \(Qv\) en una formula \(\varphi \), la formula \(\psi \) del lema anterior sera llamada el alcance de dicha ocurrencia en \( \varphi \). Notese que dos ocurrencias distintas de \(Qv\) en \(\varphi \) pueden tener alcances distintos.
+
+8.5.2. Sustitucion de variables libres.
+
+Diremos que \(v\) es sustituible por \(w\) en \(\varphi \) cuando ninguna ocurrencia libre de \(v\) en \(\varphi \) sucede dentro de una ocurrencia de una subformula de la forma \(Qw\psi \) en \(\varphi \). En otras palabras \(v\) no sera sustituible por \(w\) en \(\varphi \) cuando alguna ocurrencia libre de \(v\) en \(\varphi \) suceda dentro de una ocurrencia en \( \varphi \) de una formula de la forma \(Qw\psi \). Notese que puede suceder que \(v\) es sustituible por \(w\) en \(\varphi \) y que sin envargo haya una subformula de la forma \(Qw\psi \) para la cual \(v\in Li(Qw\psi )\).
+
+Usando lemas anteriores podemos ver que se dan las siguientes propiedades
+
+(1) Si \(\varphi \) es atomica, entonces \(v\) es sustituible por \(w\) en \( \varphi \)
+(2) Si \(\varphi =(\varphi _{1}\eta \varphi _{2})\), entonces \(v\) es sustituible por \(w\) en \(\varphi \) sii \(v\) es substituible por \(w\) en \( \varphi _{1}\) y \(v\) es
+substituible por \(w\) en \(\varphi _{2}\)
+
+(3) Si \(\varphi =\lnot \varphi _{1}\), entonces \(w\) es \(v\) es sustituible por \(w\) en \(\varphi \) sii \(v\) es substituible por \(w\) en \( \varphi _{1}\)
+(4) Si \(\varphi =Qv\varphi _{1}\), entonces \(v\) es sustituible por \(w\) en \(\varphi \)
+(5) Si \(\varphi =Qw\varphi _{1}\) y \(v\in Li(\varphi _{1}),\) entonces \( v\) no es sustituible por \(w\) en \(\varphi \)
+(6) Si \(\varphi =Qw\varphi _{1}\) y \(v\not\in Li(\varphi _{1}),\) entonces \(v\) es sustituible por \(w\) en \(\varphi \)
+(7) Si \(\varphi =Qu\varphi _{1}\), con \(u\neq v,w\), entonces \(v\) es sustituible por \(w\) en \(\varphi \) sii \(v\) es sustituible por \(w\) en \(\varphi _{1}\)
+Notese que las propiedades (1),...,(7) pueden usarse para dar una definicion recursiva del predicado
+
+\(\displaystyle "v\text{ }\mathit{es\ sustituible\ por\ }w\mathit{\ en}\text{ }\varphi ":Var\times Var\times F^{\tau }\rightarrow \omega . \)
+
+Dado un termino \(t\), diremos que \(v\) es sustituible por \(t\) en \(\varphi \) cuando \(v\) sea sustituible en \(\varphi \) por cada variable que ocurre en \(t\).
+
+Lema 148 Sean \(w_{1},...,w_{k}\) variables, todas distintas. Sean \( v_{1},...,v_{n}\) variables, todas distintas. Supongamos \(\varphi =_{d}\varphi (w_{1},...,w_{k}),\) \( t_{1}=_{d}t_{1}(v_{1},...,v_{n}),...,t_{k}=_{d}t_{k}(v_{1},...,v_{n})\) son tales que cada \(w_{j}\) es sustituible por \(t_{j}\) en \(\varphi .\) Entonces
+(a) \(\varphi (t_{1},...,t_{k})=_{d}\varphi (t_{1},...,t_{k})(v_{1},...,v_{n})\)
+(b) Para cada estructura \(\mathbf{A}\) y \(\vec{a}\in A^{n}\) se tiene
+\(\displaystyle \mathbf{A}\models \varphi (t_{1},...,t_{k})[\vec{a}]\text{ si y solo si } \mathbf{A}\models \varphi \lbrack t_{1}^{\mathbf{A}}[\vec{a}],...,t_{k}^{ \mathbf{A}}[\vec{a}]] \)
+Prueba: Probaremos que se dan (a) y (b), por induccion en el \(l\) tal que \(\varphi \in F_{l}^{\tau }.\) El caso \(l=0\) es una consecuencia directa del Lema 146. Supongamos (a) y (b) valen para cada \(\varphi \in F_{l}^{\tau } \) y sea \(\varphi \in F_{l+1}^{\tau }-F_{l}^{\tau }.\) Notese que se puede suponer que cada \(v_{i}\) ocurre en algun \(t_{i},\) y que cada \(w_{i}\in Li(\varphi )\), ya que para cada \(\varphi ,\) el caso general se desprende del caso con estas restricciones. Hay varios casos
+
+CASO \(\varphi =\forall w\varphi _{1},\) con \(w\not\in \{w_{1},...,w_{k}\}\) y \( \varphi _{1}=_{d}\varphi _{1}(w_{1},...,w_{k},w)\)
+
+Notese que cada \(w_{j}\in Li(\varphi _{1})\). Ademas notese que \( w\not\in \{v_{1},...,v_{n}\}\) ya que de lo contrario \(w\) ocurriria en algun \( t_{j}\), y entonces \(w_{j}\) no seria sustituible por \(t_{j}\) en \(\varphi \). Sean
+
+\(\displaystyle \begin{array}{ccc} \tilde{t}_{1} & = & t_{1} \\ & \vdots & \\ \tilde{t}_{k} & = & t_{k} \\ \tilde{t}_{k+1} & = & w \end{array} \)
+
+Notese que
+\(\displaystyle \tilde{t}_{j}=_{d}\tilde{t}_{j}(v_{1},...,v_{n},w) \)
+
+Por (a) de la hipotesis inductiva tenemos que
+\(\displaystyle Li(\varphi _{1}(t_{1},...,t_{k},w))=Li(\varphi _{1}(\tilde{t}_{1},...,\tilde{ t}_{k},\tilde{t}_{k+1}))\subseteq \{v_{1},...,v_{n},w\} \)
+
+y por lo tanto
+\(\displaystyle Li(\varphi (t_{1},...,t_{k}))\subseteq \{v_{1},...,v_{n}\} \)
+
+lo cual prueba (a). Finalmente notese que
+\(\displaystyle \begin{array}{c} \mathbf{A}\models \varphi (t_{1},...,t_{k})\mathbf{[}\vec{a}] \\ \Updownarrow \\ \mathbf{A}\models \varphi _{1}(\tilde{t}_{1},...,\tilde{t}_{k},\tilde{t} _{k+1})[\vec{a},a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A}\models \varphi _{1}[\tilde{t}_{1}^{\mathbf{A}}[\vec{a},a],..., \tilde{t}_{k}^{\mathbf{A}}[\vec{a},a],\tilde{t}_{k+1}^{\mathbf{A}}[\vec{a} ,a]],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A}\models \varphi _{1}[t_{1}^{\mathbf{A}}[\vec{a}],...,t_{k}^{ \mathbf{A}}[\vec{a}],a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A}\models \varphi \lbrack t_{1}^{\mathbf{A}}[\vec{a}],...,t_{k}^{ \mathbf{A}}[\vec{a}]] \end{array} \)
+
+lo cual pueba (b). El caso del cuantificador \(\exists \) es analogo y los casos de nexos logicos son directos. \(\Box\)
+Ejemplo: Sean \(\varphi =\exists v_{1}f(v_{1})=w_{1}\) y \(t=v_{1}\), donde \(v_{1}\) y \(w_{1}\) son variables distintas. Declaremos \(\varphi =_{d}\varphi (w_{1})\) y \(t=_{d}t_{1}(v_{1})\). Notese que
+
+\(\mathbf{A}\models \varphi (t)[a_{1}]\) si y solo si \(f^{\mathbf{A}}\) tiene un pto fijo
+
+\(\mathbf{A}\models \varphi \lbrack t^{\mathbf{A}}[a_{1}]]\) si y solo si \( a_{1}\) esta en la imagen de \(f^{\mathbf{A}}.\)
+
+9. Teorias de primer orden
+
+Una teoria de primer orden sera un par \((\Sigma ,\tau )\), donde \( \tau \) es un tipo y \(\Sigma \) es un conjunto de sentencias de tipo \(\tau \). Supongamos que tenemos dada una teoria \((\Sigma ,\tau )\) y supongamos que los elementos de \(\Sigma \) tienen un significado bien claro para un matematico. Supongamos tambien que le decimos a tal matematico que usando los elementos de \(\Sigma \) como axiomas, intente obtener teoremas para los cuales la prueba obtenida pueda ser escrita usando siempre sentencias de tipo \(\tau \) con posiblemente nombres nuevos de constante agregados. El siguiente ejemplo mostrara que el matematico en muchos casos podra enunciar y probar gran cantidad de teoremas clasicos, aun con la restriccion antes impuesta.
+
+A continuacion intentaremos dar una definicion matematica de prueba que formalice la nocion intuitiva antes descripta. Para esto debemos primero definir una serie de conjuntos los cuales poseen informacion deductiva basica.
+
+Sean
+
+\(\displaystyle \begin{array}{rcl} Par^{\tau } & =& \{(\forall v\varphi (v),\varphi (t)):\varphi =_{d}\varphi (v)\in F^{\tau }\mathrm{\ y\ }t\in T_{c}^{\tau }\} \\ Exist^{\tau } & =& \{(\varphi (t),\exists v\varphi (v)):\varphi =_{d}\varphi (v)\in F^{\tau }\mathrm{\ y\ }t\in T_{c}^{\tau }\} \\ Evoc^{\tau } & =& \{(\varphi ,\varphi ):\varphi \in S^{\tau }\} \\ Abs^{\tau } & =& \{((\lnot \varphi \rightarrow (\psi \wedge \lnot \psi )),\varphi ):\varphi ,\psi \in S^{\tau }\} \\ ConjElim^{\tau } & =& \{((\varphi \wedge \psi ),\varphi ):\varphi ,\psi \in S^{\tau }\}\cup \{((\varphi \wedge \psi ),\psi ):\varphi ,\psi \in S^{\tau }\} \\ DisjInt^{\tau } & =& \{(\varphi ,(\varphi \vee \psi )):\varphi ,\psi \in S^{\tau }\}\cup \{(\psi ,(\varphi \vee \psi )):\varphi ,\psi \in S^{\tau }\} \end{array} \)
+
+Diremos que \(\varphi \) se deduce de \(\psi \) por la regla de particularizacion (resp. de existencia, de evocacion, del absurdo, de conjuncion-eliminacion, de disjuncion-introduccion) para expresar que \( (\psi ,\varphi )\in Part^{\tau }\) (resp. \((\psi ,\varphi )\in Exist^{\tau }(\psi ,\varphi )\), \((\psi ,\varphi )\in Evoc^{\tau }\), \((\psi ,\varphi )\in Absur^{\tau },\) \((\psi ,\varphi )\in ConjElim^{\tau }\), \((\psi ,\varphi )\in DisjInt^{\tau }\)). Sean
+\(\displaystyle \begin{array}{rcl} ModPon^{\tau } & =& \{(\varphi ,(\varphi \rightarrow \psi ),\psi ):\varphi ,\psi \in S^{\tau }\} \\ ConjInt^{\tau } & =& \{(\varphi ,\psi ,(\varphi \wedge \psi )):\varphi ,\psi \in S^{\tau }\} \\ DisjElim^{\tau } & =& \{(\lnot \varphi ,(\varphi \vee \psi ),\psi ):\varphi ,\psi \in S^{\tau }\}\cup \{(\lnot \psi ,(\varphi \vee \psi ),\varphi ):\varphi ,\psi \in S^{\tau }\} \end{array} \)
+
+Diremos que \(\varphi \) se deduce de \(\psi _{1}\) y \(\psi _{2}\) por la regla de Modus Ponens (resp. de conjuncion-introduccion, de disjuncion-eliminacion) para expresar que \( (\psi _{1},\psi _{2},\varphi )\in ModPon^{\tau }\) (resp. \((\psi _{1},\psi _{2},\varphi )\in ConInt^{\tau }\), \((\psi _{1},\psi _{2},\varphi )\in DisEli^{\tau }\)). Sea
+\(\displaystyle DivPorCas^{\tau }=\{((\varphi _{1}\vee \varphi _{2}),(\varphi _{1}\rightarrow \psi ),(\varphi _{2}\rightarrow \psi ),\psi ):\varphi _{1},\varphi _{2},\psi \in S^{\tau }\} \)
+
+Diremos que \(\varphi \) se deduce de \(\psi _{1}\), \(\psi _{2}\) y \( \psi _{3}\) por la regla de division por casos para expresar que \( (\psi _{1},\psi _{2},\psi _{3},\varphi )\in DivPorCas^{\tau }\). Sea
+\(\displaystyle Reemp^{\tau }=Reemp1^{\tau }\cup Reemp2^{\tau } \)
+
+donde \(Reemp1^{\tau }=\{((t\equiv s),\varphi (t),\varphi (s)):\varphi =_{d}\varphi (v)\in F^{\tau }\mathrm{\ y\ }s,t\in T_{c}^{\tau }\}\) y
+\(\ \ \ \ \ \ \ \ \ \ \ Reemp2^{\tau }=\{(\varphi ,\forall v_{1}...\forall v_{n}(\varphi \leftrightarrow \psi )),\tilde{\varphi})\in S^{\tau }\times S^{\tau }\times S^{\tau }:\)
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\geq 0\ \mathrm{y\ } \tilde{\varphi}=\mathrm{resultado\ de\ reemplazar\ en\ }\varphi \ \mathrm{una\ ocurrencia\ de\ }\varphi \ \mathrm{por\ }\psi \}\)
+Diremos que \(\varphi \) se deduce de \(\psi _{1}\)y \(\psi _{2}\) por la regla de reemplazo para expresar que \((\psi _{1},\psi _{2},\varphi )\in Reemp^{\tau }\). Sea
+
+\(\displaystyle Trans^{\tau }=Trans1^{\tau }\cup Trans2^{\tau }\cup Trans3^{\tau } \)
+
+donde
+\(\displaystyle \begin{array}{rcl} Trans1^{\tau } & =& \{((t\equiv s),(s\equiv u),(t\equiv u)):t,s,u\in T_{c}^{\tau }\} \\ Trans2^{\tau } & =& \{((\varphi \rightarrow \psi ),(\psi \rightarrow \Phi ),(\varphi \rightarrow \Phi )):\varphi ,\psi ,\Phi \in S^{\tau }\} \\ Trans3^{\tau } & =& \{((\varphi \leftrightarrow \psi ),(\psi \leftrightarrow \Phi ),(\varphi \leftrightarrow \Phi )):\varphi ,\psi ,\Phi \in S^{\tau }\} \end{array} \)
+
+Diremos que \(\varphi \) se deduce de \(\psi _{1}\)y \(\psi _{2}\) por la regla de transitividad para expresar que \((\psi _{1},\psi _{2},\varphi )\in Trans^{\tau }\). Sea
+\(\displaystyle \begin{array}{l} Generaliz^{\tau }=\{(\psi ,\forall v\tilde{\psi}):\psi \in S^{\tau },\ v\ \mathrm{no\ ocurre\ en\ }\psi \\ \ \ \ \ \ \ \ \ \ \mathrm{\ \ \ \ \ \ \ \ \ \ \ \ y\ existe\ }c\in \mathcal{C }\ \mathrm{tal\ que\ }\tilde{\psi}=\mathrm{resultado\ de\ reemplazar} \\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mathrm{en\ }\psi \ \mathrm{ cada\ ocurrencia\ de\ }c\ \mathrm{por\ }v\} \end{array} \)
+
+Diremos que \(\varphi \) se deduce de \(\psi \) por la regla de generalizacion para expresar que \((\psi ,\varphi )\in Generaliz^{\tau }\). Es importante el siguiente
+Lema 149 Si \(\varphi \) se deduce de \(\psi \) por la regla de generalizacion, entonces el nombre de constante \(c\) del cual habla la propiedad que define al conjunto \(Generaliz^{\tau }\) esta univocamente determinado por el par \( (\varphi ,\psi )\).
+Prueba: Notese que \(c\) es el unico nombre de constante que ocurre en \(\psi \) y no ocurre en \(\varphi \) \(\Box\)
+
+« Previous
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+» Next
+×
+Lenguaje \(\mathcal{S}^{\Sigma }\)
+
+Entorno para trabajar con el lenguaje \(\mathcal{S}^{\Sigma }\) creado por Gabriel Cerceau:
+
+Descargar!
+Close

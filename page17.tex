@@ -1,0 +1,183 @@
+6. Estructuras algebraicas ordenadas
+
+En esta seccion estudiaremos varios clases de estructuras algebraicas en las cuales hay un orden parcial involucrado. Esto tendra una doble utilidad. Por un lado algunos de los resultados probados sobre algebras de Boole (por ejemplo el teorema de Rasiova y Sikorski) seran utilizados mas adelante para la prueba de algunos resultados de la logica de primer orden. Tambien las diversas estructuras que veamos nos serviran como ejemplos de estructuras de primer orden y las pruebas dadas en este capitulo seran inspiradoras para el manejo de las pruebas formales en el contexto de teorias de primer orden.
+
+6.1. Conjuntos parcialmente ordenados
+
+Sea \(P\) un conjunto no vacio cualquiera. Una relacion binaria \(\leq \) sobre \( P\) sera llamada un orden parcial sobre \(P\) si se cumplen las siguientes condiciones:
+
+(1) \(\leq \) es reflexiva, i. e. para todo \(a\in P\), \(a\leq a\)
+(2) \(\leq \) es antisimetrica, i. e. para todo \(a,b\in P\), si \(a\leq b\) y \(b\leq a\), entonces \(a=b.\)
+(3) \(\leq \) es transitiva, i. e. para todo \(a,b,c\in P\), si \(a\leq b\) y \(b\leq c\), entonces \(a\leq c\).
+Un conjunto parcialmente ordenado o poset sera un par \((P,\leq )\) donde \(P\) es un conjunto no vacio cualquiera y \(\leq \) es un orden parcial sobre \(P\).
+
+Ejemplo 87 (a) Sea \(X\) un conjunto cualquiera. Sea \(P=\mathcal{P}(X)\). Definamos \( S_{1}\leq S_{2}\) si y solo si \(S_{1}\subseteq S_{2}\), para \(S_{1},S_{2}\in P\) .
+(b) Sea \(P=\mathbf{R}\) y \(\leq \) la relacion de orden usual de \(\mathbf{R}\).
+
+(c) Sea \(P=\mathbf{N}\) y definamos \(n\leq m\) si y solo si \(n\) divide a \(m\).
+Dado un poset \((P,\leq )\) podemos definir una nueva relacion binaria \(< \) sobre \(P\) de la siguiente manera:
+
+\(\displaystyle a< b\text{ si y solo si }a\leq b\text{ y }a\neq b \)
+
+Otra relacion que podemos definir es la siguiente:
+\(\displaystyle a\prec b\text{ si y solo si }a< b\text{ y no existe }z\text{ tal que }a< z< b \)
+
+Cuando se de \(a\prec b\) diremos que \(b\) cubre a \(a\). Muchas veces escribiremos \(a\geq b\), \(a >b\), \(a\succ b\) en lugar de \(b\leq a\), \(b< a\), \( b\prec a\), respectivamente.
+6.1.1. Diagramas de Hasse.
+
+Dado un poset finito \((P,\leq )\) podemos realizar un diagrama de \((P,\leq )\) , llamado diagrama de Hasse, siguiendo las siguientes instrucciones:
+
+(1) Asociar a cada \(a\in \) \(P\) un punto \(p_{a}\) del plano.
+(2) Trazar un segmento de recta uniendo los puntos \(p_{a}\) y \(p_{b}\), cada vez que \(a\prec b\)
+(3) Realizar lo indicado en los puntos (1) y (2) en tal forma que
+(i) Si \(a\prec b\), entonces \(p_{a}\) esta por debajo de \(p_{b}\)
+(ii) Si un punto \(p_{a}\) ocurre en un segmento del diagrama entonces lo hace en alguno de sus extremos.
+La relacion de orden del poset puede ser facilmente obtenida de su diagrama, a saber, \(a< b\) sucedera si y solo si hay una sucesion de segmentos ascendentes desde \(p_{a}\) hasta \(p_{b}\).
+
+6.1.2. Elementos maximales, maximos y supremos.
+
+Sea \((P,\leq )\) un poset. Diremos que \(a\in P\) es un elemento maximal de \((P,\leq )\) si \(a\nless b\), para todo \(b\in P\). Diremos que \( a\in P\) es el elemento maximo de \((P,\leq )\) si \(b\leq a\), para todo \(b\in P\). En forma analoga se definen los conceptos de elemento minimal y minimo. Notese que no todo poset tiene elementos maximales o maximos. Ademas un poset tiene a lo sumo un maximo y un minimo (por que?), los cuales en caso de existir seran denotados con \(1\) y \(0\), respectivamente.
+
+Dado \(S\subseteq P\), diremos que un elemento \(a\in P\) es cota superior de \(S\) en \((P,\leq )\) cuando \(b\leq a\), para todo \(b\in S\) . En forma analoga se define el concepto de cota inferior de \(S\) en \((P,\leq )\). Notese que todo elemento de \(P\) es cota superior de \(\varnothing \) en \((P,\leq )\) y todo elemento de \(P\) es cota inferior de \(\varnothing \) en \((P,\leq )\). Un elemento \(a\in P\) sera llamado supremo de \(S\) en \((P,\leq )\) cuando se den las siguientes dos propiedades
+
+(1) \(a\) es a cota superior de \(S\) en \((P,\leq )\)
+(2) Para cada \(b\in P\), si \(b\) es una cota superior de \(S\) en \( (P,\leq )\), entonces \(a\leq b\).
+Notese que no siempre existe el supremo o el infimo de un conjunto \(S\) en \((P,\leq )\) y que en caso de existir es unico (por que?). En forma analoga se define el concepto de infimo de \(S\) en \((P,\leq )\). Denotaremos con \(\sup (S)\) (resp. \(\inf (S)\)) al supremo (resp. infimo) de \(S\) en \((P,\leq )\), en caso de que exista. Notese ademas que en caso de existir, \(\sup (\varnothing )\) en \((P,\leq )\) es un elemento minimo de \( (P,\leq )\) y en caso de existir, \(\inf (\varnothing )\) en \((P,\leq )\) es un elemento maximo de \((P,\leq )\).
+
+Ejemplo 88 (a) Para el poset \((\mathcal{P}(\mathbf{R}),\subseteq )\) se tiene que dado \( S\subseteq \mathcal{P}(\mathbf{R}),\)
+\(\sup S=\bigcup S=\{r\in \mathbf{R}:r\in A\), para algun \(A\in S\}\)
+
+\(\inf S=\bigcap S=\{r\in \mathbf{R}:r\in A\), para todo \(A\in S\},\)
+
+lo cual en particular nos dice que
+
+\(\sup (\{A,B\})=A\cup B\)
+
+\(\inf (\{A,B\})=A\cap B\)
+
+\(\sup \varnothing =\varnothing \)
+
+\(\sup \mathcal{P}(\mathbf{R})=\mathbf{R}\)
+
+\(\inf \varnothing =\mathbf{R}\)
+
+\(\inf \mathcal{P}(\mathbf{R})=\varnothing \)
+
+(b) Sea \(P=\{[a,b]:a,b\in \mathbf{R\}}\), donde \([a,b]=\{r\in \mathbf{R} :a\leq r\leq b\}\). Notese que \(\varnothing \in P\) ya que \(\varnothing =[2,1]\). Para el poset \((P,\subseteq )\), dado \(S=\{[a_{i},b_{i}]:i\in I\}\subseteq P\) , se tiene que \(\sup S\) existe si y solo si existen \(\sup \{b_{i}:i\in I\}\) e \(\inf \{a_{i}:i\in I\}\) y en tal caso \(\sup S=[\inf \{a_{i}:i\in I\},\sup \{b_{i}:i\in I\}]\). Ademas
+
+\(\inf S=\bigcap S=\{r\in \mathbf{R}:a_{i}\leq r\leq b_{i}\), para todo \(i\in I\}\).
+6.1.3. Homomorfismos de posets.
+
+Sean \((P,\leq )\) y \((P^{\prime },\leq ^{\prime })\) posets. Una funcion \( F:P\rightarrow P^{\prime }\) sera llamada un homomorfismo de \( (P,\leq )\) en \((P^{\prime },\leq ^{\prime })\) si para todo \(x,y\in P \) se cumple que \(x\leq y\) implica \(F(x)\leq ^{\prime }F(y)\). Una funcion \( F:P\rightarrow P^{\prime }\) sera llamada un isomorfismo de \((P,\leq )\) en \((P^{\prime },\leq ^{\prime })\) si \(F\) es biyectiva y tanto \( F\) como \(F^{-1}\) son homomorfismos. Escribiremos \((P,\leq )\cong (P^{\prime },\leq ^{\prime })\) cuando exista un isomorfismo \((P,\leq )\) en \((P^{\prime },\leq ^{\prime })\) y en tal caso diremos que \((P,\leq )\) y \((P^{\prime },\leq ^{\prime })\) son isomorfos. Escribiremos \(F:(P,\leq )\rightarrow (P^{\prime },\leq ^{\prime })\) cuando \(F\) sea un homomorfismo de \((P,\leq )\) en \((P^{\prime },\leq ^{\prime })\). Cabe observar que un homomorfismo biyectivo no necesariamente es un isomorfismo como lo muestra el siguiente ejemplo. Sea \(F:\mathcal{P}(\{a,b\})\rightarrow \{0,1,2,3\}\) dada por \(F(\varnothing )=0\), \(F(\{a\})=1\), \(F(\{b\})=2\), \( F(\{a,b\})=3\). Es facil ver que \(F\) es un homomorfismo de \((\mathcal{P} (\{a,b\}),\subseteq )\) en \((\{0,1,2,3\},\leq )\) pero \(F^{-1}\) no es un homomorfismo.
+
+El siguiente lema aporta evidencia al hecho de que posets isomorfos tienen las mismas propiedades matematicas.
+
+Lema 89 Sean \((P,\leq )\) y \((P^{\prime },\leq ^{\prime })\) posets. Supongamos \(F\) es un isomorfismo de \((P,\leq )\) en \((P^{\prime },\leq ^{\prime })\).
+(a) Para cada \(S\subseteq P\) y cada \(a\in P\), se tiene que \(a\) es cota superior (resp. inferior) de \(S\) si y solo si \(F(a)\) es cota superior (resp. inferior) de \(F(S)\).
+(b) Para cada \(S\subseteq P\), se tiene que existe \(\sup (S)\) si y solo si existe \(\sup (F(S))\) y en el caso de que existan tales elementos se tiene que \(F(\sup (S))=\sup (F(S))\).
+(c) \(P\) tiene \(1\) (resp. \(0\)) si y solo si \(P^{\prime }\) tiene \(1\) (resp. \(0\)) y en tal caso tales elementos estan conectados por \(F\).
+(d) Para cada \(a\in P\), \(a\) es maximal (resp. minimal) si y solo si \( F(a)\) es maximal (resp. minimal).
+(e) Para \(a,b\in P\), tenemos que \(a\prec b\) si y solo si \(F(a)\prec ^{\prime }F(b)\).
+Prueba: (a) Supongamos que \(a\) es cota superior de \(S\). Veamos que entonces \(F(a)\) es cota superior de \(F(S)\). Sea \(x\in F(S)\). Sea \(s\in S\) tal que \(x=F(s)\). Ya que \(s\leq a\), tenemos que \(x=F(s)\leq ^{\prime }F(a)\). Supongamos ahora que \(F(a)\) es cota superior de \(F(S)\) y veamos que entonces \(a\) es cota superior de \(S\). Sea \(s\in S\). Ya que \(F(s)\leq ^{\prime }F(a)\), tenemos que \(s=F^{-1}(F(s))\leq ^{\prime }F^{-1}(F(a))=a\).
+
+(b) Supongamos existe \(\sup (S)\). Veamos entonces que \(F(\sup (S))\) es el supremo de \(F(S)\). Por (a) \(F(\sup (S))\) es cota superior de \(F(S)\). Supongamos \(b\) es cota superior de \(F(S)\). Entonces \(F^{-1}(b)\) es cota superior de \(S\), por lo cual \(\sup (S)\leq ^{\prime }F^{-1}(b)\), produciendo \(F(\sup (S))\leq ^{\prime }b\). En forma analoga se ve que si existe \(\sup (F(S))\), entonces \(F^{-1}(\sup (F(S)))\) es el supremo de \(S\).
+
+(c) Se desprende de (b) tomando \(S=P\).
+
+(d) y (e) son dejados como ejercicio. \(\Box\)
+
+Notese que si dos posets finitos son isomorfos, entonces pueden representarse con el mismo diagrama de Hasse.
+
+6.2. Reticulados
+
+Diremos que un conjunto parcialmente ordenado \((L,\leq )\) es un reticulado si para todo \(a,b\in L\), existen \(\sup (\{a,b\})\) e \(\inf (\{a,b\})\). En un reticulado tenemos dos operaciones binarias, \(\mathsf{s}\) e \(\mathsf{i}\), naturalmente definidas:
+
+\(\displaystyle \begin{array}{rcl} a\mathsf{\;s\;}b & =& \sup (\{a,b\}) \\ a\mathsf{\;i\;}b & =& \inf (\{a,b\}) \end{array} \)
+
+Lema 90 Dado un reticulado \((L,\leq )\) y elementos \(x,y,z,w\in L\), se cumplen las siguientes.
+(1) \(x\leq x\) \(\mathsf{s}\) \(y\)
+(2) \(x\;\mathsf{i\;}y\leq x\)
+(3) \(x\;\mathsf{s}\;x=x\mathsf{\;i\;}x=x\)
+(4) \(x\;\mathsf{s}\;y=y\;\mathsf{s}\;x\)
+(5) \(x\mathsf{\;i\;}y=y\mathsf{\;i\;}x\)
+(6) \(x\leq y\) si y solo si \(x\;\mathsf{s}\;y=y\) si y solo si \(x \mathsf{\;i\;}y=x\)
+(7) \(x\;\mathsf{s}\;(x\mathsf{\;i\;}y)=x\)
+(8) \(x\mathsf{\;i\;}(x\;\mathsf{s}\;y)=x\)
+(9) \((x\;\mathsf{s}\;y)\;\mathsf{s}\;z=x\;\mathsf{s}\;(y\;\mathsf{s} \;z)\)
+(10) \((x\mathsf{\;i\;}y)\mathsf{\;i\;}z=x\mathsf{\;i\;}(y\mathsf{\;i\; }z)\)
+(11) Si \(x\leq z\) e \(y\leq w\), entonces \(x\;\mathsf{s}\ y\leq z\; \mathsf{s}\ w\) y \(x\mathsf{\;i\;}y\leq z\mathsf{\;i\;}w\)
+(12) \((x\mathsf{\;i\;}y)\;\mathsf{s}\;(x\mathsf{\;i\;}z)\leq x\mathsf{ \;i\;}(y\;\mathsf{s}\;z)\)
+Prueba: (1), (2), (3), (4), (5) y (6) son consecuencias inmediatas de la definicion de las operaciones \(\mathsf{s}\) e \(\mathsf{i}\).
+
+(7) Ya que \(x\mathsf{\;i\;}y\leq x\), (6) nos dice que \((x\mathsf{\;i\;}y)\; \mathsf{s}\;x=x\), por lo cual \(x\;\mathsf{s}\;(x\mathsf{\;i\;}y)=x\).
+
+(8) Similar a (7).
+
+(9) Notese que \(x\;\mathsf{s}\;(y\;\mathsf{s}\;z)\) es cota superior de \( \{x,y,z\}\) ya que onviamente \(x\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z)\) y ademas
+
+\(\displaystyle \begin{array}{rcl} y & \leq & (y\;\mathsf{s}\;z)\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z) \\ z & \leq & (y\;\mathsf{s}\;z)\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z) \end{array} \)
+
+Ya que \(x\;\mathsf{s}\;(y\;\mathsf{s}\;z)\) es cota superior de \(\{x,y\}\), tenemos que \(x\;\mathsf{s}\;y\leq x\;\mathsf{s}\ (y\;\mathsf{s}\;z)\), por lo cual \(x\;\mathsf{s}\;(y\;\mathsf{s}\;z)\) es cota superior del conjunto \(\{x\; \mathsf{s}\;y,z\}\), lo cual dice que \((x\;\mathsf{s}\;y)\;\mathsf{s}\;z\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z)\). Analogamente se puede probar que \(x\; \mathsf{s}\;(y\;\mathsf{s}\;z)\leq (x\;\mathsf{s}\;y)\;\mathsf{s}\;z\).
+(10) Similar a (9).
+
+(11) Ya que
+
+\(\displaystyle \begin{array}{rcl} x & \leq & z\leq z\;\mathsf{s}\;w \\ y & \leq & w\leq z\;\mathsf{s}\;w \end{array} \)
+
+tenemos que \(z\;\mathsf{s}\;w\) es cota superior de \(\{x,y\}\) lo cual dice que \(x\;\mathsf{s}\;y\leq z\;\mathsf{s}\;w\). La otra desigualdad es analoga.
+(12) Ya que
+
+\(\displaystyle \begin{array}{rcl} (x\mathsf{\;i\;}y),(x\mathsf{\;i\;}z) & \leq & x \\ (x\mathsf{\;i\;}y),(x\mathsf{\;i\;}z) & \leq & y\;\mathsf{s}\;z \end{array} \)
+
+tenemos que \((x\;\mathsf{i}\;y),(x\mathsf{\;i\;}z)\leq x\mathsf{\;i\;}(y\; \mathsf{s}\;z)\), por lo cual \((x\mathsf{\;i\;}y)\;\mathsf{s}\;(x\mathsf{\;i\; }z)\leq x\mathsf{\;i\;}(y\;\mathsf{s}\;z)\). \(\Box\)
+Lema 91 Sea \((L,\leq )\) un reticulado. Dados elementos \(x_{1},...,x_{n}\in L\), con \( n\geq 2\), se tiene
+\(\displaystyle \begin{array}{rcl} (...(x_{1}\;\mathsf{s\;}x_{2})\;\mathsf{s\;}...)\;\mathsf{s\;}x_{n} & =& \sup (\{x_{1},...,x_{n}\}) \\ (...(x_{1}\mathsf{\;i\;}x_{2})\mathsf{\;i\;}...)\mathsf{\;i\;}x_{n} & =& \inf (\{x_{1},...,x_{n}\}) \end{array} \)
+Prueba: Por induccion en \(n\). Claramente el resultado vale para \(n=2\). Supongamos vale para \(n\) y veamos entonces que vale para \(n+1\). Sean \( x_{1},...,x_{n+1}\in L\). Por hipotesis inductiva tenemos que
+
+(1) \((...(x_{1}\;\mathsf{s}\;x_{2})\;\mathsf{s\;}...)\;\mathsf{s\;} x_{n}=\sup (\{x_{1},...,x_{n}\}).\)
+Veamos entonces que
+
+(2) \(((...(x_{1}\;\mathsf{s\;}x_{2})\;\mathsf{s\;}...)\;\mathsf{s\;} x_{n})\;\mathsf{s\;}x_{n+1}=\sup (\{x_{1},...,x_{n+1}\}).\)
+Es facil ver que \(((...(x_{1}\;\mathsf{s\;}x_{2})\;\mathsf{s\;} ...)\;\mathsf{s\;}x_{n})\;\mathsf{s\;}x_{n+1}\) es cota superior de \( \{x_{1},...,x_{n+1}\}\). Supongamos que \(z\) es otra cota superior. Ya que \(z\) es tambien cota superior del conjunto \(\{x_{1},...,x_{n}\}\), por (1) tenemos que
+
+\(\displaystyle (...(x_{1}\;\mathsf{s\;}x_{2})\;\mathsf{s}\;...)\;\mathsf{s\;}x_{n}\leq z. \)
+
+Pero entonces ya que \(x_{n+1}\leq z\), tenemos que
+\(\displaystyle ((...(x_{1}\;\mathsf{s\;}x_{2})\;\mathsf{s\;}...)\;\mathsf{s\;}x_{n})\; \mathsf{s\;}x_{n+1}\leq z, \)
+
+con lo cual hemos probado (2). \(\Box\)
+Dado que la distribucion de parentesis en una expresion de la forma
+
+\(\displaystyle (...(x_{1}\;\mathsf{s\;}x_{2})\;\mathsf{s\;}...)\;\mathsf{s\;}x_{n} \)
+
+es irrelevante (ya que\(\;\mathsf{s\;}\)es asociativa), en general suprimiremos los parentesis.
+Ya hemos llamado a ciertos posets \((L,\leq )\), reticulados. Una terna \((L, \mathsf{s},\mathsf{i})\), donde \(L\) es un conjunto no vacio cualquiera y \( \mathsf{s}\) e \(\mathsf{i}\) son dos operaciones binarias sobre \(L\) sera llamada reticulado cuando cumpla las siguientes identidades:
+
+(I1) \(x\;\mathsf{s}\;x=x\mathsf{\;i\;}x=x\), cualesquiera sea \(x\in L\)
+(I2) \(x\mathsf{\;s\;}y=y\;\mathsf{s}\;x\), cualesquiera sean \(x,y\in L\)
+(I3) \(x\mathsf{\;i\;}y=y\mathsf{\;i\;}x\), cualesquiera sean \(x,y\in L\)
+(I4) \((x\mathsf{\;s\;}y)\;\mathsf{s}\;z=x\;\mathsf{s}\;(y\;\mathsf{s} \;z)\), cualesquiera sean \(x,y,z\in L\)
+(I5) \((x\mathsf{\;i\;}y)\mathsf{\;i\;}z=x\mathsf{\;i\;}(y\mathsf{\;i\; }z)\), cualesquiera sean \(x,y,z\in L\)
+(I6) \(x\;\mathsf{s}\;(x\mathsf{\;i\;}y)=x\), cualesquiera sean \(x,y\in L\)
+(I7) \(x\mathsf{\;i\;}(x\;\mathsf{s}\;y)=x\), cualesquiera sean \(x,y\in L\)
+Notese que no toda terna \((L,\mathsf{s},\mathsf{i})\) es un reticulado. Por ejemplo \((\mathbf{R},+,.)\), donde \(+\) y \(.\) son las operaciones de suma y producto usuales de \(\mathbf{R}\), no es un reticulado ya que no cumple, por ejemplo (I1). Ademas es claro que dado un reticulado \((L,\leq )\), la terna \( (L,\sup ,\inf )\) es un reticulado. El siguiente teorema muestra que todo reticulado \((L,\mathsf{s},\mathsf{i})\) se obtiene de esta forma.
+
+Teorema 92 Sea \((L,\mathsf{s},\mathsf{i})\) un reticulado. La relacion binaria definida por:
+\(\displaystyle x\leq y\text{ si y solo si }x\;\mathsf{s}\;y=y \)
+
+es un orden parcial sobre \(L\) para el cual se cumple:
+\(\displaystyle \begin{array}{rcl} \sup (\{x,y\}) & =& x\;\mathsf{s}\;y \\ \inf (\{x,y\}) & =& x\mathsf{\;i\;}y \end{array} \)
+Prueba: Dejamos como ejercicio para el lector probar que \(\leq \) es reflexiva y antisimetrica. Veamos que \(\leq \) es transitiva. Supongamos que \(x\leq y\) e \( y\leq z\). Entonces
+
+\(\displaystyle x\;\mathsf{s\;}z=x\;\mathsf{s\;}(y\;\mathsf{s\;}z)=(x\;\mathsf{s\;}y)\; \mathsf{s\;}z=y\;\mathsf{s\;}z=z, \)
+
+por lo cual \(x\leq z\). Veamos ahora que \(\sup (\{x,y\})=x\;\mathsf{s\;}y\). Es claro que \(x\;\mathsf{s\;}y\) es una cota superior del conjunto \(\{x,y\}\). Supongamos \(x,y\leq z\). Entonces
+\(\displaystyle (x\;\mathsf{s\;}y)\;\mathsf{s\;}z=x\;\mathsf{s\;}(y\;\mathsf{s\;}z)=x\; \mathsf{s\;}z=z, \)
+
+por lo que \(x\;\mathsf{s\;}y\leq z\). Es decir que \(x\;\mathsf{s\;}y\) es la menor cota superior.
+Para probar que \(\inf (\{x,y\})=x\mathsf{\;i\;}y\), probaremos que para todo \( u,v\in L\),
+
+\(\displaystyle u\leq v\text{ si y solo si }u\mathsf{\;i\;}v=u, \)
+
+lo cual le permitira al lector aplicar un razonamiento similar al usado en el caso de la operacion \(\mathsf{s}\). Supongamos que \(u\;\mathsf{s}\;v=v\). Entonces \(u\mathsf{\;i\;}v=u\mathsf{\;i\;}(v\;\mathsf{s}\;v)=u\). Reciprocamente si \(u\mathsf{\;i\;}v=u\), entonces \(u\;\mathsf{s}\;v=(u\mathsf{ \;i\;}v)\;\mathsf{s}\;v=v\), por lo cual \(u\leq v\). \(\Box\)
+Ejercicio: Use los resultados anteriores para definir una funcion \( \mathcal{F}\) de \(\{(L,\leq ):(L,\leq )\) es un reticulado\(\}\) en \(\{(L, \mathsf{s},\mathsf{i}):(L,\mathsf{s},\mathsf{i})\) es un reticulado\(\}\) la cual sea biyectiva

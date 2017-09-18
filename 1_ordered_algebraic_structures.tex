@@ -1,184 +1,238 @@
 \section{Estructuras algebráicas ordenadas}
 
-  % % Lemma 89: Con prueba. Lemma 1.
-  % \begin{lemma}
-  %   \PN Sean $(P, \leq)$ y $(P^{\prime}, \leq^{\prime})$ posets. Supongamos que $F$ es un isomorfismo de $(P, \leq)$ en
-  %   $(P^{\prime}, \leq^{\prime})$, entonces:
-  %
-  %   \begin{enumerate}[a)]
-  %     \item Para cada $S \subseteq P$ y cada $a \in P$, se tiene que $a$ es \textbf{cota superior} (resp.
-  %       \textbf{inferior}) de $S$ si y solo si $F(a)$ es \textbf{cota superior} (resp. \textbf{inferior}) de $F(S)$.
-  %     \item Para cada $S \subseteq P$, se tiene que $\exists \ \sup (S)$ si y solo si $\exists \ \sup (F(S))$ y en el
-  %       caso de que existan tales elementos se tiene que $F(\sup (S)) = \sup (F(S))$.
-  %     \item $P$ tiene $1$ (resp. $0$) si y solo si $P^{\prime }$ tiene $1$ (resp. $0$) y en tal caso tales elementos
-  %       están conectados por $F$.
-  %     \item Para cada $m \in P$, $m$ es \textbf{maximal} (resp. \textbf{minimal}) si y solo si $F(m)$ es
-  %       \textbf{maximal} (resp. \textbf{minimal}).
-  %     \item Para $a, b \in P$, tenemos que $a \prec b$ si y solo si $F(a) \prec^{\prime} F(b)$.
-  %   \end{enumerate}
-  % \end{lemma}
-  % \begin{proof}
-  %   \begin{enumerate}[a)]
-  %     \item Probaremos solo el caso de la \textbf{cota superior}.
-  %       \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $a$ es \textbf{cota
-  %       superior} de $S$, veamos entonces que $F(a)$ es \textbf{cota superior} de $F(S)$. Sean:
-  %       \begin{itemize}
-  %         \item $x \in F(S)$
-  %         \item $s \in S$ tal que $x = F(s)$.
-  %       \end{itemize}
-  %
-  %       \PN Ya que $s \leq a$, tenemos que $x = F(s) \leq^{\prime} F(a)$. Luego, $F(a)$ es \textbf{cota superior}.
-  %
-  %       \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos ahora que $F(a)$ es \textbf{cota
-  %       superior} de $F(S)$ y veamos entonces que $a$ es cota superior de $S$.
-  %
-  %       \PN Sea $s \in S$, ya que $F(s) \leq^{\prime} F(a)$, tenemos que $s = F^{-1}(F(s)) \leq^{\prime} F^{-1}(F(a)) =
-  %       a$. Por lo tanto, $a$ es \textbf{cota superior}.
-  %
-  %     \item \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos existe $\sup (S)$. Veamos
-  %       que $F(\sup (S))$ es el supremo de $F(S)$. Por el iniciso (a) $F(\sup (S))$ es cota superior de $F(S)$. Veamos
-  %       que es la menor de las cotas superiores. Supongamos $b^{\prime}$ cota superior de $F(S)$, entonces
-  %       $F^{-1}(b^{\prime})$ es cota superior de $S$, es decir, $\sup (S) \leq F^{-1}(b^{\prime})$, produciendo
-  %       $F(\sup (S)) \leq^{\prime} b^{\prime}$. Por lo tanto, $F(\sup (S))$ es el supremo de $F(S)$.
-  %
-  %       \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos existe $\sup (F(S))$. Veamos
-  %       que $F^{-1}(\sup (F(S)))$ es el supremo de $S$. Nuevamente, por el iniciso (a) $F^{-1}(\sup (F(S)))$ es cota
-  %       superior de $S$. Veamos que es la menor de las cotas superiores. Supongamos $b$ cota superior de $S$, entonces
-  %       $F(b)$ es cota superior de $F(S)$, es decir, $\sup (F(S)) \leq F(b)$, produciendo $F^{-1}(\sup (F(S))) \leq b$.
-  %       Por lo tanto, $F^{-1}(\sup (F(S)))$ es el supremo de $S$.
-  %
-  %     \item Se desprende del inciso (b) tomando $S = P$.
-  %     \item Probaremos solo el caso \textbf{maximal}.
-  %       \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $m$ es maximal de
-  %       $(P, \leq)$. Veamos que $F(m)$ es maximal de $(P^{\prime}, \leq^{\prime})$. Supongamos que $F(m)$ no es maximal
-  %       de $(P^{\prime}, \leq^{\prime})$, es decir, $F(m) <^{\prime} b^{\prime} \ \forall b^{\prime} \in P^{\prime}$.
-  %       Dado que $F$ es isomorfismo:
-  %       \begin{eqnarray*}
-  %   			F^{-1}(F(m)) < F^{-1}(b^{\prime}) \\
-  %   			m < F^{-1}(b^{\prime})
-  %   		\end{eqnarray*}
-  %       \PN Lo cual es un absurdo, dado que $m$ es maximal de $(P, \leq)$. Por lo tanto, $F(m)$ es maximal de
-  %       $(P^{\prime}, \leq^{\prime})$.
-  %
-  %       \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos que $F(m)$ es maximal de
-  %       $(P^{\prime}, \leq^{\prime})$. Veamos que $m$ es maximal de $(P, \leq)$. Supongamos que $m$ no es maximal
-  %       de $(P, \leq)$, es decir, $m < b \ \forall b \in P$. Dado que $F$ es isomorfismo:
-  %       \[
-  %   			F(m) < F(b)
-  %   		\]
-  %       \PN Lo cual es un absurdo, dado que $F(m)$ es maximal de $(P^{\prime}, \leq^{\prime})$. Por lo tanto, $m$ es
-  %       maximal de $(P, \leq)$.
-  %
-  %     \item \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos $a \prec b$, veamos que $F(a)
-  %       \prec^{\prime} F(b)$. Debemos ver:
-  %       \begin{enumerate}[1)]
-  %         \item $F(a) <^{\prime} F(b)$
-  %         \item $\nexists z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$
-  %       \end{enumerate}
-  %
-  %       \PN Ya que $a \prec b$, por definición tenemos: \begin{tabular}{|c|} \hline $a < b$ y $\nexists z$ tal que
-  %       $a < z < b$ \\\hline \end{tabular} $(\star)$
-  %
-  %       \PN Dado que la función $F$ es un isomorfismo, se cumple (1). Veamos que se cumple (2), supongamos que $\exists
-  %       z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$. Luego, nuevamente utilizando que $F$ es isomorfismo, tenemos:
-  %       \begin{eqnarray*}
-  %   			F^{-1}(F(a)) < &F^{-1}(z^{\prime})& < F^{-1}(F(b)) \\
-  %   			a < &F^{-1}(z^{\prime})& < b
-  %   		\end{eqnarray*}
-  %       \PN Lo cual, contradice $(\star)$, el absurdo vino de suponer que $\exists z^{\prime}$ tal que
-  %       $F(a) < z^{\prime} < F(b)$, por lo tanto $\nexists z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$.
-  %
-  %       \PN Finalmente, dado que se cumplen los puntos (1) y (2), se cumple también $F(a) \prec^{\prime} F(b)$.
-  %
-  %       \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos $F(a) \prec^{\prime} F(b)$,
-  %       veamos que $a \prec b$.
-  %
-	% 	    \PN Ya que $F^{-1}: (P^{\prime}, \leq^{\prime}) \rightarrow (P, \leq)$ es isomorfismo, por lo ya visto tenemos:
-  %   		\begin{eqnarray*}
-  %   			F^{-1}(F(a)) &\prec& F^{-1}(F(b)) \\
-  %   			a &\prec& b
-  %   		\end{eqnarray*}
-  %   \end{enumerate}
-  % \end{proof}
-  %
-  % % Lemma 90: Con prueba. Lemma 2.
-  % \begin{lemma}
-  %   \PN Dado un reticulado $(L, \leq)$ y elementos $x, y, z, w \in L$, se cumplen las siguientes propiedades:
-  %   \begin{multicols}{2}
-  %     \begin{enumerate}
-  %       \item $x \leq x \ \SU \ y$
-  %       \item $x \ \IN \ y \leq x$
-  %       \item $x \ \SU \ x = x \ \IN \ x = x$
-  %       \item $x \ \SU \ y = y \ \SU \ x$
-  %       \item $x \ \IN \ y = y \ \IN \ x$
-  %       \item $x \leq y \Leftrightarrow x \ \SU \ y = y \Leftrightarrow x \ \IN \ y = x$
-  %       \item $x \ \SU \ (x \ \IN \ y) = x$
-  %       \item $x \ \IN(x \ \SU \ y) = x$
-  %       \item $(x \ \SU \ y) \ \SU \ z = x \ \SU \ (y \ \SU \ z)$
-  %       \item $(x \ \IN \ y) \ \IN \ z = x \ \IN \ (y \ \IN \ z)$
-  %       \item Si $x \leq z$ e $y \leq w$ entonces:
-  %         \begin{itemize}
-  %           \item $x \ \SU \ y \leq z \ \SU \ w$
-  %           \item $x \ \IN \ y \leq z \ \IN \ w$
-  %         \end{itemize}
-  %       \item $(x \ \IN \ y) \ \SU \ (x \ \IN \ z) \leq x \ \IN \ (y \ \SU \ z)$
-  %     \end{enumerate}
-  %   \end{multicols}
-  % \end{lemma}
-  % \begin{proof}
-  %   \begin{enumerate}
-  %     \item \begin{tabular}{|c|} \hline $x \leq x \ \SU \ y$ \\\hline \end{tabular}
-  %       \begin{eqnarray*}
-  %         \textup{Si } x \leq y &\Rightarrow& x \leq x \ \SU \ y = y \Rightarrow x \leq y \\
-  %         \textup{Si } y \leq x &\Rightarrow& x \leq x \ \SU \ y = x \Rightarrow x \leq x
-  %       \end{eqnarray*}
-  %     \item \begin{tabular}{|c|} \hline $x \ \IN \ y \leq x$ \\\hline \end{tabular}
-  %       \begin{eqnarray*}
-  %         \textup{Si } x \leq y \Rightarrow x \ \IN \ y &\leq& x \\
-  %         x &\leq& x \\
-  %         \textup{Si } y \leq x \Rightarrow x \ \IN \ y &\leq& x \\
-  %         y &\leq& x
-  %       \end{eqnarray*}
-  %     \item \begin{tabular}{|c|} \hline $x \ \SU \ x = x \ \IN \ x = x$ \\\hline \end{tabular}
-  %       \begin{eqnarray*}
-  %         x \ \SU \ x &=& x \ \IN \ x = x \\
-  %         x &=& x = x
-  %       \end{eqnarray*}
-  %       % TODO
-  %     \item \begin{tabular}{|c|} \hline $x \ \SU \ y = y \ \SU \ x$ \\\hline \end{tabular}
-  %       \begin{eqnarray*}
-  %         \textup{Si } x \leq y \Rightarrow x \ \SU \ y &=& y \ \SU \ x \\
-  %         y &=& y \\
-  %         \textup{Si } y \leq x \Rightarrow x \ \SU \ y &=& y \ \SU \ x \\
-  %         x &=& x
-  %       \end{eqnarray*}
-  %     \item \begin{tabular}{|c|} \hline $x \ \IN \ y = y \ \IN \ x$ \\\hline \end{tabular}
-  %       \begin{eqnarray*}
-  %         \textup{Si } x \leq y \Rightarrow x \ \IN \ y &=& y \ \IN \ x \\
-  %         x &=& x \\
-  %         \textup{Si } y \leq x \Rightarrow x \ \IN \ y &=& y \ \IN \ x \\
-  %         y &=& y
-  %       \end{eqnarray*}
-  %     \item \begin{tabular}{|c|} \hline $x \leq y \Leftrightarrow x \ \SU \ y = y \Leftrightarrow x \ \IN
-  %       \ y = x$ \\\hline \end{tabular}
-  %       % TODO
-  %     \item Ya que $x\mathsf{\;i\;}y\leq x$, (6) nos dice que $(x\mathsf{\;i\;}y)\; \SU\;x=x$, por lo cual $x\;\SU\;(x\mathsf{\;i\;}y)=x$.
-  %     \item Similar a (7).
-  %     \item Notese que $x\;\SU\;(y\;\SU\;z)$ es cota superior de $ \{x,y,z\}$ ya que onviamente $x\leq x\;\SU\;(y\;\SU\;z)$ y ademas
-  %       $\displaystyle \begin{array}{rcl} y & \leq & (y\;\SU\;z)\leq x\;\SU\;(y\;\SU\;z) \\ z & \leq & (y\;\SU\;z)\leq x\;\SU\;(y\;\SU\;z) \end{array} $
-  %
-  %       Ya que $x\;\SU\;(y\;\SU\;z)$ es cota superior de $\{x,y\}$, tenemos que $x\;\SU\;y\leq x\;\SU\ (y\;\SU\;z)$, por lo cual $x\;\SU\;(y\;\SU\;z)$ es cota superior del conjunto $\{x\; \SU\;y,z\}$, lo cual dice que $(x\;\SU\;y)\;\SU\;z\leq x\;\SU\;(y\;\SU\;z)$. Analogamente se puede probar que $x\; \SU\;(y\;\SU\;z)\leq (x\;\SU\;y)\;\SU\;z$.
-  %     \item Similar a (9).
-  %     \item Ya que
-  %       $\displaystyle \begin{array}{rcl} x & \leq & z\leq z\;\SU\;w \\ y & \leq & w\leq z\;\SU\;w \end{array} $
-  %
-  %       tenemos que $z\;\SU\;w$ es cota superior de $\{x,y\}$ lo cual dice que $x\;\SU\;y\leq z\;\SU\;w$. La otra desigualdad es analoga.
-  %     \item Ya que
-  %       $\displaystyle \begin{array}{rcl} (x\mathsf{\;i\;}y),(x\mathsf{\;i\;}z) & \leq & x \\ (x\mathsf{\;i\;}y),(x\mathsf{\;i\;}z) & \leq & y\;\SU\;z \end{array} $
-  %
-  %       tenemos que $(x\;\IN\;y),(x\mathsf{\;i\;}z)\leq x\mathsf{\;i\;}(y\; \SU\;z)$, por lo cual $(x\mathsf{\;i\;}y)\;\SU\;(x\mathsf{\;i\; }z)\leq x\mathsf{\;i\;}(y\;\SU\;z)$.
-  %   \end{enumerate}
-  % \end{proof}
+  % Lemma 89: Con prueba. Lemma 1.
+  \begin{lemma}
+    \PN Sean $(P, \leq)$ y $(P^{\prime}, \leq^{\prime})$ posets. Supongamos que $F$ es un isomorfismo de $(P, \leq)$ en
+    $(P^{\prime}, \leq^{\prime})$, entonces:
+
+    \begin{enumerate}[a)]
+      \item Para cada $S \subseteq P$ y cada $a \in P$, se tiene que $a$ es \textbf{cota superior} (resp.
+        \textbf{inferior}) de $S$ si y solo si $F(a)$ es \textbf{cota superior} (resp. \textbf{inferior}) de $F(S)$.
+      \item Para cada $S \subseteq P$, se tiene que $\exists \ \sup (S)$ si y solo si $\exists \ \sup (F(S))$ y en el
+        caso de que existan tales elementos se tiene que $F(\sup (S)) = \sup (F(S))$.
+      \item $P$ tiene $1$ (resp. $0$) si y solo si $P^{\prime }$ tiene $1$ (resp. $0$) y en tal caso tales elementos
+        están conectados por $F$.
+      \item Para cada $m \in P$, $m$ es \textbf{maximal} (resp. \textbf{minimal}) si y solo si $F(m)$ es
+        \textbf{maximal} (resp. \textbf{minimal}).
+      \item Para $a, b \in P$, tenemos que $a \prec b$ si y solo si $F(a) \prec^{\prime} F(b)$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \begin{enumerate}[a)]
+      \item Probaremos solo el caso de la \textbf{cota superior}.
+        \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $a$ es \textbf{cota
+        superior} de $S$, veamos entonces que $F(a)$ es \textbf{cota superior} de $F(S)$. Sean:
+        \begin{itemize}
+          \item $x \in F(S)$
+          \item $s \in S$ tal que $x = F(s)$.
+        \end{itemize}
+
+        \PN Ya que $s \leq a$, tenemos que $x = F(s) \leq^{\prime} F(a)$. Luego, $F(a)$ es \textbf{cota superior}.
+
+        \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos ahora que $F(a)$ es \textbf{cota
+        superior} de $F(S)$ y veamos entonces que $a$ es cota superior de $S$.
+
+        \PN Sea $s \in S$, ya que $F(s) \leq^{\prime} F(a)$, tenemos que $s = F^{-1}(F(s)) \leq^{\prime} F^{-1}(F(a)) =
+        a$. Por lo tanto, $a$ es \textbf{cota superior}.
+
+      \item \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos existe $\sup (S)$. Veamos
+        que $F(\sup (S))$ es el supremo de $F(S)$. Por el iniciso (a) $F(\sup (S))$ es cota superior de $F(S)$. Veamos
+        que es la menor de las cotas superiores. Supongamos $b^{\prime}$ cota superior de $F(S)$, entonces
+        $F^{-1}(b^{\prime})$ es cota superior de $S$, es decir, $\sup (S) \leq F^{-1}(b^{\prime})$, produciendo
+        $F(\sup (S)) \leq^{\prime} b^{\prime}$. Por lo tanto, $F(\sup (S))$ es el supremo de $F(S)$.
+
+        \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos existe $\sup (F(S))$. Veamos
+        que $F^{-1}(\sup (F(S)))$ es el supremo de $S$. Nuevamente, por el iniciso (a) $F^{-1}(\sup (F(S)))$ es cota
+        superior de $S$. Veamos que es la menor de las cotas superiores. Supongamos $b$ cota superior de $S$, entonces
+        $F(b)$ es cota superior de $F(S)$, es decir, $\sup (F(S)) \leq F(b)$, produciendo $F^{-1}(\sup (F(S))) \leq b$.
+        Por lo tanto, $F^{-1}(\sup (F(S)))$ es el supremo de $S$.
+
+      \item Se desprende del inciso (b) tomando $S = P$.
+      \item Probaremos solo el caso \textbf{maximal}.
+        \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $m$ es maximal de
+        $(P, \leq)$. Veamos que $F(m)$ es maximal de $(P^{\prime}, \leq^{\prime})$. Supongamos que $F(m)$ no es maximal
+        de $(P^{\prime}, \leq^{\prime})$, es decir, $F(m) <^{\prime} b^{\prime} \ \forall b^{\prime} \in P^{\prime}$.
+        Dado que $F$ es isomorfismo:
+        \begin{eqnarray*}
+    			F^{-1}(F(m)) < F^{-1}(b^{\prime}) \\
+    			m < F^{-1}(b^{\prime})
+    		\end{eqnarray*}
+        \PN Lo cual es un absurdo, dado que $m$ es maximal de $(P, \leq)$. Por lo tanto, $F(m)$ es maximal de
+        $(P^{\prime}, \leq^{\prime})$.
+
+        \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos que $F(m)$ es maximal de
+        $(P^{\prime}, \leq^{\prime})$. Veamos que $m$ es maximal de $(P, \leq)$. Supongamos que $m$ no es maximal
+        de $(P, \leq)$, es decir, $m < b \ \forall b \in P$. Dado que $F$ es isomorfismo:
+        \[
+    			F(m) < F(b)
+    		\]
+        \PN Lo cual es un absurdo, dado que $F(m)$ es maximal de $(P^{\prime}, \leq^{\prime})$. Por lo tanto, $m$ es
+        maximal de $(P, \leq)$.
+
+      \item \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos $a \prec b$, veamos que $F(a)
+        \prec^{\prime} F(b)$. Debemos ver:
+        \begin{enumerate}[1)]
+          \item $F(a) <^{\prime} F(b)$
+          \item $\nexists z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$
+        \end{enumerate}
+
+        \PN Ya que $a \prec b$, por definición tenemos: \begin{tabular}{|c|} \hline $a < b$ y $\nexists z$ tal que
+        $a < z < b$ \\\hline \end{tabular} $(\star)$
+
+        \PN Dado que la función $F$ es un isomorfismo, se cumple (1). Veamos que se cumple (2), supongamos que $\exists
+        z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$. Luego, nuevamente utilizando que $F$ es isomorfismo, tenemos:
+        \begin{eqnarray*}
+    			F^{-1}(F(a)) < &F^{-1}(z^{\prime})& < F^{-1}(F(b)) \\
+    			a < &F^{-1}(z^{\prime})& < b
+    		\end{eqnarray*}
+        \PN Lo cual, contradice $(\star)$, el absurdo vino de suponer que $\exists z^{\prime}$ tal que
+        $F(a) < z^{\prime} < F(b)$, por lo tanto $\nexists z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$.
+
+        \PN Finalmente, dado que se cumplen los puntos (1) y (2), se cumple también $F(a) \prec^{\prime} F(b)$.
+
+        \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos $F(a) \prec^{\prime} F(b)$,
+        veamos que $a \prec b$.
+
+		    \PN Ya que $F^{-1}: (P^{\prime}, \leq^{\prime}) \rightarrow (P, \leq)$ es isomorfismo, por lo ya visto tenemos:
+    		\begin{eqnarray*}
+    			F^{-1}(F(a)) &\prec& F^{-1}(F(b)) \\
+    			a &\prec& b
+    		\end{eqnarray*}
+    \end{enumerate}
+  \end{proof}
+
+  % Lemma 90: Con prueba. Lemma 2.
+  \begin{lemma}
+    \PN Dado un reticulado $(L, \leq)$ y elementos $x, y, z, w \in L$, se cumplen las siguientes propiedades:
+    \begin{multicols}{2}
+      \begin{enumerate}[(1)]
+        \item $x \leq x \ \SU \ y$
+        \item $x \ \IN \ y \leq x$
+        \item $x \ \SU \ x = x \ \IN \ x = x$
+        \item $x \ \SU \ y = y \ \SU \ x$
+        \item $x \ \IN \ y = y \ \IN \ x$
+        \item $x \leq y \Leftrightarrow x \ \SU \ y = y \Leftrightarrow x \ \IN \ y = x$
+        \item $x \ \SU \ (x \ \IN \ y) = x$
+        \item $x \ \IN \ (x \ \SU \ y) = x$
+        \item $(x \ \SU \ y) \ \SU \ z = x \ \SU \ (y \ \SU \ z)$
+        \item $(x \ \IN \ y) \ \IN \ z = x \ \IN \ (y \ \IN \ z)$
+        \item Si $x \leq z$ e $y \leq w$ entonces:
+          \begin{itemize}
+            \item $x \ \SU \ y \leq z \ \SU \ w$
+            \item $x \ \IN \ y \leq z \ \IN \ w$
+          \end{itemize}
+        \item $(x \ \IN \ y) \ \SU \ (x \ \IN \ z) \leq x \ \IN \ (y \ \SU \ z)$
+      \end{enumerate}
+    \end{multicols}
+  \end{lemma}
+  \begin{proof}
+    \PN Dado que las propiedades $(1), (2), (3), (4), (5), (6)$, son consecuencia inmediata de las definiciones de $\SU$
+    e $\IN$, probaremos solo las restantes.
+    \begin{enumerate}
+      \begin{multicols}{2}
+        \item[(7)]
+          \begin{alignat*}{3}
+            x \ \IN \ y &\leq& x \qquad &\text{Por } (2) \\
+            (x \ \IN \ y) \ \SU \ x &=& x \qquad &\text{Por } (6) \\
+            x \ \SU \ (x \ \IN \ y) &=& x \qquad &\text{Por } (3)
+          \end{alignat*}
+
+        \item[(8)]
+          \begin{alignat*}{3}
+            x &\leq& x \ \SU \ y \qquad \; && \text{Por } (1) \\
+            x \ \IN \ (y \ \SU \ x) &=& x \qquad\qquad &&\text{Por } (6)
+          \end{alignat*}
+          \vspace{3mm}
+      \end{multicols}
+
+      \item[(9)] Para probar la igualdad probaremos las siguientes desigualdades:
+        \begin{itemize}
+          \item \begin{tabular}{|c|} \hline $(x \ \SU \ y) \ \SU \ z \leq x \ \SU \ (y \ \SU \ z)$\\\hline \end{tabular}
+            \PN Notese que $x \ \SU \ (y \ \SU \ z)$ es cota superior de $\{x, y, z\}$ ya que:
+            \begin{eqnarray*}
+              x &\leq& x \ \SU \ (y \ \SU \ z) \\
+              y &\leq& (y \ \SU \ z) \leq x \ \SU \ (y \ \SU \ z) \\
+              z &\leq& (y \ \SU \ z) \leq x \ \SU \ (y \ \SU \ z)
+            \end{eqnarray*}
+
+            \PN Por otro lado, $x \ \SU \ (y \ \SU \ z)$ es cota superior de $\{x, y\}$, tenemos que $x \ \SU \ y \leq x
+            \ \SU \ (y \ \SU \ z)$, por lo cual $x \ \SU \ (y \ \SU \ z)$ es cota superior del conjunto $\{x \ \SU \ y,
+            z\}$, lo cual dice que $(x \ \SU \ y) \ \SU \ z \leq x \ \SU \ (y \ \SU \ z)$.
+
+          \item \begin{tabular}{|c|} \hline $(x \ \SU \ y) \ \SU \ z \geq x \ \SU \ (y \ \SU \ z)$\\\hline \end{tabular}
+            \PN Notese que $(x \ \SU \ y) \ \SU \ z$ es cota superior de $\{x, y, z\}$ ya que:
+            \begin{eqnarray*}
+              x &\leq& x \ \SU \ y \leq (x \ \SU \ y) \ \SU \ z \\
+              y &\leq& x \ \SU \ y \leq (x \ \SU \ y) \ \SU \ z \\
+              z &\leq& (x \ \SU \ y) \ \SU \ z
+            \end{eqnarray*}
+
+            \PN Por otro lado, $(x \ \SU \ y) \ \SU \ z$ es cota superior de $\{y, z\}$, tenemos que $y \ \SU \ z \leq
+            (x \ \SU \ y) \ \SU \ z$, por lo cual $(x \ \SU \ y) \ \SU \ z$ es cota superior del conjunto $\{x, y \ \SU
+            \ z\}$, lo cual dice que $(x \ \SU \ y) \ \SU \ z \geq x \ \SU \ (y \ \SU \ z)$.
+        \end{itemize}
+
+        \PN Por lo tanto, $(x \ \SU \ y) \ \SU \ z = x \ \SU \ (y \ \SU \ z)$
+
+      \item[(10)] Para probar la igualdad probaremos las siguientes desigualdades:
+        \begin{itemize}
+          \item \begin{tabular}{|c|} \hline $(x \ \IN \ y) \ \IN \ z \leq x \ \IN \ (y \ \IN \ z)$\\\hline \end{tabular}
+            \PN Notese que $x \ \IN \ (y \ \IN \ z)$ es cota inferior de $\{x, y, z\}$ ya que:
+            \begin{eqnarray*}
+              x \ \IN \ (y \ \IN \ z) &\leq& x \\
+              (y \ \IN \ z) \leq x \ \IN \ (y \ \IN \ z) &\leq& y \\
+              z &\leq& (y \ \IN \ z) \leq x \ \IN \ (y \ \IN \ z)
+            \end{eqnarray*}
+
+            \PN Por otro lado, $x \ \IN \ (y \ \IN \ z)$ es cota inferior de $\{x, y\}$, tenemos que $x \ \IN \ y \leq x
+            \ \IN \ (y \ \IN \ z)$, por lo cual $x \ \IN \ (y \ \IN \ z)$ es cota inferior del conjunto $\{x \ \IN \ y,
+            z\}$, lo cual dice que $(x \ \IN \ y) \ \IN \ z \leq x \ \IN \ (y \ \IN \ z)$.
+
+          \item \begin{tabular}{|c|} \hline $(x \ \IN \ y) \ \IN \ z \geq x \ \IN \ (y \ \IN \ z)$\\\hline \end{tabular}
+            \PN Notese que $(x \ \IN \ y) \ \IN \ z$ es cota inferior de $\{x, y, z\}$ ya que:
+            \begin{eqnarray*}
+              x &\leq& x \ \IN \ y \leq (x \ \SU \ y) \ \IN \ z \\
+              y &\leq& x \ \IN \ y \leq (x \ \SU \ y) \ \IN \ z \\
+              z &\leq& (x \ \IN \ y) \ \IN \ z
+            \end{eqnarray*}
+
+            \PN Por otro lado, $(x \ \IN \ y) \ \IN \ z$ es cota inferior de $\{y, z\}$, tenemos que $y \ \IN \ z \leq
+            (x \ \IN \ y) \ \IN \ z$, por lo cual $(x \ \IN \ y) \ \IN \ z$ es cota inferior del conjunto $\{x, y \ \IN
+            \ z\}$, lo cual dice que $(x \ \IN \ y) \ \IN \ z \geq x \ \IN \ (y \ \IN \ z)$.
+        \end{itemize}
+
+        \PN Por lo tanto, $(x \ \IN \ y) \ \IN \ z = x \ \IN \ (y \ \IN \ z)$
+
+      \item[(11)]
+        \begin{multicols}{2}
+          \begin{alignat*}{3}
+            x &\leq& z &\leq& z \ \SU \ w \\
+            y &\leq& w &\leq& z \ \SU \ w \\
+          \end{alignat*}
+          \begin{alignat*}{3}
+            \\
+            x &\leq& z \Rightarrow x \ \IN \ y &\leq& z \\
+            y &\leq& w \Rightarrow x \ \IN \ y &\leq& w
+          \end{alignat*}
+        \end{multicols}
+        \PN Luego, $z \ \SU \ w$ es cota superior de $\{x, y\}$ y $x \ \IN \ y$ es cota inferior de $\{z, w\}$, por lo
+        tanto, $x \ \SU \ y \leq z \ \SU \ w$ y $x \ \IN \ y \leq z \ \IN \ w$.
+
+      \item[(12)]
+        \begin{equation*}
+          \left.
+          \begin{array}{l}
+            (x \ \IN \ y), (x \ \IN \ z) \leq x \\
+            (x \ \IN \ y), (x \ \IN \ z) \leq y \ \SU \ z
+          \end{array}
+          \right \rbrace \Rightarrow (x \ \IN \ y), (x \ \IN \ z) \leq x \ \IN \ (y \ \SU \ z)
+        \end{equation*}
+
+        \[
+          \therefore (x \ \IN \ y) \ \SU \ (x \ \IN \ z) \leq x \ \IN \ (y \ \SU \ z)
+        \]
+    \end{enumerate}
+  \end{proof}
 
   % Lemma 91: Con prueba. Lemma 3.
   \begin{lemma}
@@ -258,77 +312,110 @@
     \]
 
     \PN Por lo tanto, vale $(\dag_{2})$.
-
   \end{proof}
 
-  % % Theorem 92: Con prueba. Theorem 4.
-  % \begin{theorem}
-  %   \PN Sea $(L, \SU, \IN)$ un reticulado, la relación binaria definida por:
-  %   \[
-  %     x \leq y \Leftrightarrow x \ \SU \ y=y
-  %   \]
-  %
-  %   \PN es un orden parcial sobre $L$ para el cual se cumple:
-  %   \[
-  %     \begin{array}{rcl}
-  %       \sup (\{x, y\}) &=& x \ \SU \ y \\
-  %       \inf (\{x, y\}) &=& x \ \IN \ y
-  %     \end{array}
-  %   \]
-  % \end{theorem}
-  % \begin{proof}
-  %   \begin{itemize}
-  %     \item \underline{Reflexiva:}
-  %     \item \underline{Antisimétrica:}
-  %     \item \underline{Transitiva:} Supongamos que $x \leq y$ e $y \leq z$, entonces:
-  %       \[
-  %         x \ \SU \ z = x \ \SU \ (y \ \SU \ z) = (x \ \SU \ y) \ \SU \ z = y \ \SU \ z = z
-  %       \]
-  %
-  %       \PN por lo cual $x \leq z$. Veamos ahora que $\sup (\{x,y\})=x\ \SU \y$. Es claro que $x\ \SU \y$ es una cota superior del conjunto $\{x,y\}$. Supongamos $x,y\leq z$. Entonces
-  %     $\displaystyle (x\ \SU \y)\ \SU \z=x\ \SU \(y\ \SU \z)=x\; \mathsf{s\;}z=z, $
-  %
-  %     por lo que $x\ \SU \y\leq z$. Es decir que $x\ \SU \y$ es la menor cota superior.
-  %     Para probar que $\inf (\{x,y\})=x\mathsf{\;i\;}y$, probaremos que para todo $ u,v\in L$,
-  %
-  %     $\displaystyle u\leq v\text{ si y solo si }u\mathsf{\;i\;}v=u, $
-  %
-  %     lo cual le permitira al lector aplicar un razonamiento similar al usado en el caso de la operacion $\SU$. Supongamos que $u\;\SU\;v=v$. Entonces $u\mathsf{\;i\;}v=u\mathsf{\;i\;}(v\;\SU\;v)=u$. Reciprocamente si $u\mathsf{\;i\;}v=u$, entonces $u\;\SU\;v=(u\mathsf{ \;i\;}v)\;\SU\;v=v$, por lo cual $u\leq v$.
-  %   \end{itemize}
-  % \end{proof}
-  %
-  % % Lemma 93: Con prueba. Lemma 5.
-  % \begin{lemma}
-  %   \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un
-  %   homomorfismo biyectivo, entonces $F$ es un isomorfismo.
-  % \end{lemma}
-  % \begin{proof}
-  %   \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
-  %   tenemos que:
-  %   \begin{eqnarray*}
-  %     F^{-1}(F(x) \ \SU^{\prime} \ F(y)) &=& F^{-1}(F(x \ \SU \ y)) \\
-  %     &=& x \ \SU \ y \\
-  %     &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(y))
-  %   \end{eqnarray*}
-  %
-  %   \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
-  % \end{proof}
-  %
-  % % Lemma 94: Con prueba. Lemma 6.
-  % \begin{lemma}
-  %   \PN Sean $(L, \SU, \IN)$ y $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$ reticulados y sea
-  %   $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ un homomorfismo,
-  %   entonces $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Ya que $L$ es no vacio tenemos que $I_{F}$ tambien es no vacio. Sean $a,b\in I_{F}$. Sean $x,y\in L$ tales que $F(x)=a$ y $F(y)=b$. Se tiene que
-  %   \begin{eqnarray*}
-  %     a\;\SU^{\prime }\ b &=& F(x)\;\SU^{\prime }\ F(y)=F(x\mathsf{ \;s\;}y)\in I_{F} \\
-  %     a\;\IN^{\prime }\ b & =& F(x)\;\IN^{\prime }\ F(y)=F(x\mathsf{ \;i\;}y)\in I_{F}
-  %   \end{eqnarray*}
-  %
-  %   \PN por lo cual $I_{F}$ es cerrada bajo $\SU^{\prime }$ e $\IN ^{\prime }$.
-  % \end{proof}
+  % Theorem 92: Con prueba. Theorem 4.
+  \begin{theorem}
+    \PN Sea $(L, \SU, \IN)$ un reticulado, la relación binaria definida por:
+    \[
+      x \leq y \Leftrightarrow x \ \SU \ y = y
+    \]
+
+    \PN es un orden parcial sobre $L$ para el cual se cumple:
+    \[
+      \begin{array}{rcl}
+        \sup (\{x, y\}) &=& x \ \SU \ y \\
+        \inf (\{x, y\}) &=& x \ \IN \ y
+      \end{array}
+    \]
+  \end{theorem}
+  \begin{proof}
+    \begin{itemize}
+      \item \underline{Reflexiva:} Sea $x \in L$ un elemento cualquiera. Luego,
+        \begin{equation*}
+          \left.
+          \begin{array}{l}
+            x \ \SU \ x = x \\
+            x \ \IN \ x = x
+          \end{array}
+          \right \rbrace \Rightarrow x \leq x
+        \end{equation*}
+
+      \item \underline{Antisimétrica:} Sean $x, y \in L$ elementos cualquieras. Supongamos que $x \leq y$ e $y \leq x$,
+        entonces:
+        \begin{equation*}
+          \left.
+          \begin{array}{l}
+            x \leq y \Rightarrow x \ \SU \ y = y \\
+            y \leq x \Rightarrow x \ \SU \ y = x
+          \end{array}
+          \right \rbrace \Rightarrow x = y
+        \end{equation*}
+
+      \item \underline{Transitiva:} Supongamos que $x \leq y$ e $y \leq z$, entonces:
+        \[
+          x \ \SU \ z = x \ \SU \ (y \ \SU \ z) = (x \ \SU \ y) \ \SU \ z = y \ \SU \ z = z
+        \]
+
+        \PN por lo cual $x \leq z$.
+
+        \PN Veamos ahora que $\sup(\{x, y\}) = x \ \SU \ y$. Es claro que $x \ \SU \ y$ es una cota superior del
+        conjunto $\{x, y\}$, veamos que es la menor. Supongamos $x, y \leq z$, entonces:
+        \[
+          (x \ \SU \ y) \ \SU \ z = x \ \SU \ (y \ \SU \ z) = x \ \SU \ z = z
+        \]
+        \PN por lo que $x\ \SU \ y \leq z$, es decir, $x\ \SU \ y$ es la menor cota superior.
+
+        \PN Resta probar que $\inf(\{x, y\}) = x \ \IN \ y$. Nuevamente, es claro que $x \ \IN \ y$ es una cota inferior
+        del conjunto $\{x, y\}$, veamos que es la mayor. Supongamos $z \leq x, y$, entonces:
+        \[
+          (x \ \IN \ y) \ \IN \ z = x \ \IN \ (y \ \IN \ z) = x \ \IN \ z = z
+        \]
+        \PN por lo que $z \leq x\ \IN \ y$, es decir, $x\ \IN \ y$ es la mayor cota inferior.
+    \end{itemize}
+  \end{proof}
+
+  % Lemma 93: Con prueba. Lemma 5.
+  \begin{lemma}
+    \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un
+    homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+  \end{lemma}
+  \begin{proof}
+    \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
+    tenemos que:
+    \begin{multicols}{2}
+      \begin{eqnarray*}
+        F^{-1}(F(x) \ \SU^{\prime} \ F(y)) &=& F^{-1}(F(x \ \SU \ y)) \\
+        &=& x \ \SU \ y \\
+        &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(y))
+      \end{eqnarray*}
+
+      \begin{eqnarray*}
+        F^{-1}(F(x) \ \IN^{\prime} \ F(y)) &=& F^{-1}(F(x \ \IN \ y)) \\
+        &=& x \ \IN \ y \\
+        &=& F^{-1}(F(x)) \ \IN \ F^{-1}(F(y))
+      \end{eqnarray*}
+    \end{multicols}
+
+    \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
+  \end{proof}
+
+  % Lemma 94: Con prueba. Lemma 6.
+  \begin{lemma}
+    \PN Sean $(L, \SU, \IN)$ y $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$ reticulados y sea $F: (L, \SU, \IN)
+    \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ un homomorfismo, entonces $I_{F}$ es un subuniverso de
+    $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$.
+  \end{lemma}
+  \begin{proof}
+    \PN Ya que $L \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$. Sean $a, b \in I_{F}, \ x, y \in L$ tales que
+    $F(x) = a$ y $F(y) = b$. Se tiene que:
+    \begin{alignat*}{3}
+      a \ \SU^{\prime} \ b &=& F(x) \ \SU^{\prime} \ F(y) &=& F(x \ \SU \ y) \in I_{F} \\
+      a \ \IN^{\prime} \ b &=& F(x) \ \IN^{\prime} \ F(y) &=& F(x \ \IN \ y) \in I_{F}
+    \end{alignat*}
+
+    \PN por lo cual $I_{F}$ es cerrada bajo $\SU^{\prime }$ e $\IN ^{\prime }$.
+  \end{proof}
   %
   % % Lemma 95: Con prueba. Lemma 7.
   % \begin{lemma}
@@ -470,7 +557,7 @@
   % \begin{proof}
   %   Supongamos $x\in L$ tiene complementos $y,z$. Se tiene
   %
-  %   $\displaystyle y=y\;\mathsf{i\;}1=y\;\mathsf{i\;}(x\ \SU \z)=(y\;\mathsf{i\;}x)\; \mathsf{s\;}(y\;\mathsf{i\;}z)=0\ \SU \(y\;\mathsf{i\;}z)=y\;\mathsf{ i\;}z, $
+  %   % $\displaystyle y=y\;\mathsf{i\;}1=y\;\mathsf{i\;}(x\ \SU \z)=(y\;\mathsf{i\;}x)\; \mathsf{s\;}(y\;\mathsf{i\;}z)=0\ \SU \(y\;\mathsf{i\;}z)=y\;\mathsf{ i\;}z, $
   %
   %   por lo cual $y\leq z$. En forma analoga se muestra que $z\leq y$. $\Box$
   % \end{proof}

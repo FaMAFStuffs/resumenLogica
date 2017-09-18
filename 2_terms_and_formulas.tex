@@ -1,186 +1,220 @@
 \section{Términos y fórmulas}
 
-  % Lemma 117
+  % Lemma 117. Con prueba. Lemma 29.
   \begin{lemma}
-    Supongamos \(t\in T_{k}^{\tau }\), con \(k\geq 1\). Entonces ya sea \(t\in Var\cup \mathcal{C}\) o \(t=f(t_{1},...,t_{n})\), con \(f\in \mathcal{F }_{n}\), \(n\geq 1,\;t_{1},...,t_{n}\in T_{k-1}^{\tau }\).
+    Supongamos $t\in T_{k}^{\tau }$, con $k\geq 1$. Entonces ya sea $t\in Var \cup \mathcal{C}$ o $t=f(t_{1}, \dotsc,t_{n})$, con $f\in \mathcal{F }_{n}$, $n\geq 1,\;t_{1}, \dotsc,t_{n}\in T_{k-1}^{\tau }$.
   \end{lemma}
   \begin{proof}
-    Por induccion en \(k\).
+    Por induccion en $k$.
 
-    CASO \(k=1\): Es directo ya que por definicion
+    CASO $k=1$: Es directo ya que por definicion
 
-    \(\displaystyle T_{1}^{\tau }=Var\cup \mathcal{C}\cup \{f(t_{1},...,t_{n}):f\in \mathcal{F} _{n},n\geq 1,t_{1},...,t_{n}\in T_{0}^{\tau }\}. \)
+    $\displaystyle T_{1}^{\tau }=Var \cup \mathcal{C}\cup \{f(t_{1}, \dotsc,t_{n}):f\in \mathcal{F}_{n},n\geq 1,t_{1}, \dotsc,t_{n}\in T_{0}^{\tau }\}. $
 
-    CASO \(k\Rightarrow k+1\): Sea \(t\in T_{k+1}^{\tau }\). Por definicion de \( T_{k+1}^{\tau }\) tenemos que \(t\in T_{k}^{\tau }\) o \(t=f(t_{1},...,t_{n})\) con \(f\in \mathcal{F}_{n}\), \(n\geq 1\) y \(t_{1},...,t_{n}\in T_{k}^{\tau }\). Si se da que \(t\in T_{k}^{\tau }\), entonces podemos aplicar hipotesis inductiva y usar que \(T_{k-1}^{\tau }\subseteq T_{k}^{\tau }\). Esto completa el caso. \(\Box\)
+    CASO $k\Rightarrow k+1$: Sea $t\in T_{k+1}^{\tau }$. Por definicion de $ T_{k+1}^{\tau }$ tenemos que $t\in T_{k}^{\tau }$ o $t=f(t_{1}, \dotsc,t_{n})$ con $f\in \mathcal{F}_{n}$, $n\geq 1$ y $t_{1}, \dotsc,t_{n}\in T_{k}^{\tau }$. Si se da que $t\in T_{k}^{\tau }$, entonces podemos aplicar hipotesis inductiva y usar que $T_{k-1}^{\tau }\subseteq T_{k}^{\tau }$. Esto completa el caso. $\Box$
   \end{proof}
 
-  % Lemma 118
+  % Lemma 118. Con prueba. Lemma 30.
   \begin{lemma}
-    Sea \(b\in Bal\). Se tiene:
-    (1) \(\left\vert b\right\vert _{(}-\left\vert b\right\vert _{)}=0\)
-    (2) Si \(x\) es tramo inicial propio de \(b\), entonces \(\left\vert x\right\vert _{(}-\left\vert x\right\vert _{)} >0\)
-    (3) Si \(x\) es tramo final propio de \(b\), entonces \(\left\vert x\right\vert _{(}-\left\vert x\right\vert _{)}< 0\)
+    \PN Sea $b \in Bal$. Se tiene:
+    \begin{enumerate}[(1)]
+      \item $\lvert b\rvert_{(}-\lvert b\rvert_{)}=0$
+      \item Si $x$ es tramo inicial propio de $b$, entonces $\lvert x\rvert_{(}-\lvert x\rvert_{)} >0$
+      \item Si $x$ es tramo final propio de $b$, entonces $\lvert x\rvert_{(}-\lvert x\rvert_{)}< 0$
+    \end{enumerate}
   \end{lemma}
   \begin{proof}
-    Probaremos por induccion en \(k\), que valen (1), (2) y (3) para cada \(b\in Bal_{k}\). El caso \(k=1\) es trivial. Supongamos \(b\in Bal_{k+1}\). Si \(b\in Bal_{k}\), se aplica directamente HI. Supongamos entonces que \( b=(b_{1}...b_{n})\), con \(b_{1},...,b_{n}\in Bal_{k}\), \(n\geq 1\). Por HI, \( b_{1},...,b_{n}\) cumplen (1) por lo cual \(b\) cumple (1). Veamos que \(b\) cumple (2). Sea \(x\) un tramo inicial propio de \(b\). Notese que \(x\) es de la forma \(x=(b_{1}...b_{i}x_{1}\) con \(0\leq i\leq n-1\) y \(x_{1}\) un tramo inicial de \(b_{i+1}\) (en el caso \(i=0\) interpretamos \(b_{1}...b_{i}= \varepsilon )\). Pero entonces ya que
+    Probaremos por induccion en $k$, que valen (1), (2) y (3) para cada $b\in Bal_{k}$. El caso $k=1$ es trivial. Supongamos $b\in Bal_{k+1}$. Si $b\in Bal_{k}$, se aplica directamente HI. Supongamos entonces que $ b=(b_{1}...b_{n})$, con $b_{1}, \dotsc,b_{n}\in Bal_{k}$, $n\geq 1$. Por HI, $ b_{1}, \dotsc,b_{n}$ cumplen (1) por lo cual $b$ cumple (1). Veamos que $b$ cumple (2). Sea $x$ un tramo inicial propio de $b$. Notese que $x$ es de la forma $x=(b_{1}...b_{i}x_{1}$ con $0\leq i\leq n-1$ y $x_{1}$ un tramo inicial de $b_{i+1}$ (en el caso $i=0$ interpretamos $b_{1}...b_{i}= \varepsilon )$. Pero entonces ya que
 
-    \(\displaystyle \left\vert x\right\vert _{(}-\left\vert x\right\vert _{)}=1+\left( \sum_{j=1}^{i}\left\vert b_{j}\right\vert _{(}-\left\vert b_{j}\right\vert _{)}\right) +\left\vert x_{1}\right\vert _{(}-\left\vert x_{1}\right\vert _{)} \)
+    $\displaystyle \lvert x\rvert_{(}-\lvert x\rvert_{)}=1+\left( \sum_{j=1}^{i}\lvert b_{j}\rvert_{(}-\lvert b_{j}\rvert_{)}\right) +\lvert x_{1}\rvert_{(}-\lvert x_{1}\rvert_{)} $
 
-    tenemos que por HI, se da que \(\left\vert x\right\vert _{(}-\left\vert x\right\vert _{)} >0\). En forma analoga se puede ver que \(b\) cumple (3). \(\Box\)
+    tenemos que por HI, se da que $\lvert x\rvert_{(}-\lvert x\rvert_{)} >0$. En forma analoga se puede ver que $b$ cumple (3). $\Box$
   \end{proof}
 
-  % Lemma 119
+  % Lemma 119. Sin prueba. Lemma 31.
   \begin{lemma}
-    \(del(xy)=del(x)del(y)\), para todo \(x,y\in \Sigma ^{\ast }\)
+    \PN $del(xy) = del(x)del(y) \ \forall x, y \in \SIGMA$
   \end{lemma}
 
-  % Lemma 120
+  % Lemma 120. Sin prueba. Lemma 32.
   \begin{lemma}
-    Supongamos que \(\Sigma \) es tal que \(T^{\tau }\subseteq \Sigma ^{\ast }\). Entonces \(del(t)\in Bal\), para cada \(t\in T^{\tau }-(Var\cup \mathcal{C})\)
+    \PN Supongamos que $\Sigma$ es tal que $\TAU \subseteq \SIGMA$, entonces $del(t) \in Bal$, para cada $t \in \TAU -
+    (Var \cup \mathcal{C})$.
   \end{lemma}
 
-  % Lemma 121
+  % Lemma 121. Con prueba. Lemma 33.
   \begin{lemma}
-    Sean \(s,t\in T^{\tau }\) y supongamos que hay palabras \( x,y,z\), con \(y\neq \varepsilon \) tales que \(s=xy\) y \(t=yz\) . Entonces \( x=z=\varepsilon \) o \(s,t\in \mathcal{C}\). En particular si un termino es tramo inicial o final de otro termino, entonces dichos terminos son iguales.
+    \PN Sean $s, t \in \TAU$ y supongamos que hay palabras $x,y,z$, con $y \neq \varepsilon$ tales que $s=xy$ y $t=yz$,
+    entonces $x=z=\varepsilon$ ó $s, t \in \mathcal{C}$. En particular si un término es tramo inicial o final de otro
+    término, entonces dichos terminos son iguales.
   \end{lemma}
   \begin{proof}
-    Supongamos \(s\in \mathcal{C}\). Ya que \(y\neq \varepsilon \) tenemos que \(t\) debe comenzar con un simbolo que ocurre en un nombre de cte, lo cual dice que \(t\) no puede ser ni una variable ni de la forma \(g(t_{1},...,t_{m})\), es decir \(t\in \mathcal{C}\). Supongamos \(s\in Var\). Si \(x\neq \varepsilon \) tenemos que \(t\) debe comenzar con alguno de los siguientes simbolos
+    Supongamos $s\in \mathcal{C}$. Ya que $y\neq \varepsilon $ tenemos que $t$ debe comenzar con un simbolo que ocurre en un nombre de cte, lo cual dice que $t$ no puede ser ni una variable ni de la forma $g(t_{1}, \dotsc,t_{m})$, es decir $t\in \mathcal{C}$. Supongamos $s\in Var$. Si $x\neq \varepsilon $ tenemos que $t$ debe comenzar con alguno de los siguientes simbolos
 
-    \(\displaystyle \mathit{0}\;\mathit{1\;}...\;\mathit{9}\;\mathbf{0}\;\mathbf{1}\ ...\; \mathbf{9} \)
+    $\displaystyle \mathit{0}\;\mathit{1\;}...\;\mathit{9}\;\mathbf{0}\;\mathbf{1}\ ...\; \mathbf{9} $
 
-    lo cual es absurdo. O sea que \(x=\varepsilon \) y por lo tanto \(t\) debe comenzar con \(\mathsf{X}\). Pero esto dice que \(t\in Var\) de lo que sigue facilmente que \(z=\varepsilon \). Supongamos entonces que \(s\) es de la forma \( f(s_{1},...,s_{n})\). Ya que \()\) debe ocurrir en \(t\), tenemos que \(t\) es de la forma \(g(t_{1},...,t_{m})\). O sea que \(del(s),del(t)\in Bal\). Ya que \()\) ocurre en \(y\), \(del(y)\neq \varepsilon \). Tenemos tambien que
-    \(\displaystyle \begin{array}{rcl} del(s) & =& del(x)del(y) \\ del(t) & =& del(y)del(z) \end{array} \)
+    lo cual es absurdo. O sea que $x=\varepsilon $ y por lo tanto $t$ debe comenzar con $\mathsf{X}$. Pero esto dice que $t\in Var$ de lo que sigue facilmente que $z=\varepsilon $. Supongamos entonces que $s$ es de la forma $ f(s_{1}, \dotsc,s_{n})$. Ya que $)$ debe ocurrir en $t$, tenemos que $t$ es de la forma $g(t_{1}, \dotsc,t_{m})$. O sea que $del(s),del(t)\in Bal$. Ya que $)$ ocurre en $y$, $del(y)\neq \varepsilon $. Tenemos tambien que
+    $\displaystyle \begin{array}{rcl} del(s) & =& del(x)del(y) \\ del(t) & =& del(y)del(z) \end{array} $
 
     La primera igualdad, por (3) del Lema 118, nos dice que
-    \(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}\leq 0, \)
+    $\displaystyle \lvert del(y)\rvert_{(}-\lvert del(y)\rvert_{)}\leq 0, $
 
     y la segunda que
-    \(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}\geq 0, \)
+    $\displaystyle \lvert del(y)\rvert_{(}-\lvert del(y)\rvert_{)}\geq 0, $
 
     por lo cual
-    \(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}=0 \)
+    $\displaystyle \lvert del(y)\rvert_{(}-\lvert del(y)\rvert_{)}=0 $
 
-    Pero entonces ya que \(del(y)\) es tramo final de \(del(s)\), (3) del Lema 118 nos dice que \(del(x)=\varepsilon \). Similarmente obtenemos que \(del(z)=\varepsilon \). Ya que que \(t\) termina con \()\) tenemos que \(z=\varepsilon \). O sea que \(f(s_{1},...,s_{n})=xg(t_{1},...,t_{m})\) con \(del(x)=\varepsilon \), de lo que se saca que \(f=xg\) ya que \((\) no ocurre en \( x\). De la definicion de tipo se desprende que \(x=\varepsilon \). \(\Box\)
+    Pero entonces ya que $del(y)$ es tramo final de $del(s)$, (3) del Lema 118 nos dice que $del(x)=\varepsilon $. Similarmente obtenemos que $del(z)=\varepsilon $. Ya que que $t$ termina con $)$ tenemos que $z=\varepsilon $. O sea que $f(s_{1}, \dotsc,s_{n})=xg(t_{1}, \dotsc,t_{m})$ con $del(x)=\varepsilon $, de lo que se saca que $f=xg$ ya que $($ no ocurre en $ x$. De la definicion de tipo se desprende que $x=\varepsilon $. $\Box$
   \end{proof}
 
-  % Theorem 122
+  % Theorem 122. Con prueba. Lemma 34.
   \begin{theorem}
-    (Lectura unica de terminos). Dado \(t\in T^{\tau } \) se da una de las siguientes:
-    (1) \(t\in Var\cup \mathcal{C}\)
-    (2) Hay unicos \(n\geq 1,\;f\in \mathcal{F} _{n},\;t_{1},...,t_{n}\in T^{\tau }\) tales que \( t=f(t_{1},...,t_{n})\).
+    \PN (Lectura unica de terminos). Dado $t \in \TAU$ se da una de las siguientes:
+    \begin{enumerate}[1)]
+      \item $t \in Var \cup \mathcal{C}$
+      \item Hay únicos $n \geq 1, \ f \in \mathcal{F}_{n}, \ t_{1}, \dotsc, t_{n} \in \TAU$ tales que $t = f(t_{1},
+      \dotsc, t_{n})$.
+    \end{enumerate}
   \end{theorem}
   \begin{proof}
     En virtud del Lema 117 solo nos falta probar la unicidad en el punto (2). Supongamos que
 
-    \(\displaystyle t=f(t_{1},...,t_{n})=g(s_{1},...,s_{m}) \)
+    $\displaystyle t=f(t_{1}, \dotsc,t_{n})=g(s_{1}, \dotsc,s_{m}) $
 
-    con \(n,m\geq 1,\;f\in \mathcal{F}_{n}\), \(g\in \mathcal{F}_{m}\), \( t_{1},...,t_{n},s_{1},...,s_{m}\in T^{\tau }\). Notese que \(f=g\). O sea que \( n=m=a(f)\). Notese que \(t_{1}\) es tramo inicial de \(s_{1}\) o \(s_{1}\) es tramo inicial de \(t_{1}\), lo cual por el lema anterior nos dice que \(t_{1}=s_{1}\). Con el mismo razonamiento podemos probar que debera suceder \( t_{2}=s_{2},...,t_{n}=s_{n}\). \(\Box\)
+    con $n,m\geq 1,\;f\in \mathcal{F}_{n}$, $g\in \mathcal{F}_{m}$, $ t_{1}, \dotsc,t_{n},s_{1}, \dotsc,s_{m}\in \TAU$. Notese que $f=g$. O sea que $ n=m=a(f)$. Notese que $t_{1}$ es tramo inicial de $s_{1}$ o $s_{1}$ es tramo inicial de $t_{1}$, lo cual por el lema anterior nos dice que $t_{1}=s_{1}$. Con el mismo razonamiento podemos probar que debera suceder $ t_{2}=s_{2}, \dotsc,t_{n}=s_{n}$. $\Box$
   \end{proof}
 
-  % Lemma 123
+  % Lemma 123. Con prueba. Lemma 35.
   \begin{lemma}
-    Sean \(r,s,t\in T^{\tau }\).
-    (a) Si \(s\neq t=f(t_{1},...,t_{n})\) y \(s\) ocurre en \(t\), entonces dicha ocurrencia sucede dentro de algun \(t_{j}\), \(j=1,...,n\).
-    (b) Si \(r,s\) ocurren en \(t\), entonces dichas ocurrencias son disjuntas o una ocurre dentro de otra. En particular, las distintas ocurrencias de \(r\) en \(t\) son disjuntas.
-    (c) Si \(t^{\prime }\) es el resultado de reemplazar una ocurrencia de \(s\) en \(t\) por \(r\), entonces \(t^{\prime }\in T^{\tau }\).
+    \PN Sean $r, s, t \in \TAU$.
+    \begin{enumerate}[(a)]
+      \item Si $s \neq t = f(t_{1}, \dotsc, t_{n})$ y $s$ ocurre en $t$, entonces dicha ocurrencia sucede dentro de
+        algún $t_{j}$, $j = 1, \dotsc, n$.
+      \item Si $r, s$ ocurren en $t$, entonces dichas ocurrencias son disjuntas o una ocurre dentro de otra. En
+        particular, las distintas ocurrencias de $r$ en $t$ son disjuntas.
+      \item Si $t^{\prime}$ es el resultado de reemplazar una ocurrencia de $s$ en $t$ por $r$, entonces $t^{\prime} \in
+        \TAU$.
+    \end{enumerate}
   \end{lemma}
   \begin{proof}
-    (a) Supongamos la ocurrencia de \(s\) comienza en algun \(t_{j}\). Entonces el Lema 121 nos conduce a que dicha ocurrencia debera estar contenida en \(t_{j}\). Veamos que la ocurrencia de \(s\) no puede ser a partir de un \(i\in \{1,...,\left\vert f\right\vert \}\). Supongamos lo contrario. Tenemos entonces que \(s\) debe ser de la forma \(g(s_{1},...,s_{m})\) ya que no puede estar en \(Var\cup \mathcal{C}\). Notese que \(i\neq 1\) ya que en caso contrario \(s\) seria un tramo inicial propio de \(t\). Pero entonces \(g\) debe ser un tramo final propio de \(f\), lo cual es absurdo. Ya que \(s\) no puede comenzar con parentesis o coma, hemos contemplado todos los posibles casos de comienzo de la ocurrencia de \(s\) en \(t\).
+    (a) Supongamos la ocurrencia de $s$ comienza en algun $t_{j}$. Entonces el Lema 121 nos conduce a que dicha ocurrencia debera estar contenida en $t_{j}$. Veamos que la ocurrencia de $s$ no puede ser a partir de un $i\in \{1, \dotsc,\lvert f\rvert \}$. Supongamos lo contrario. Tenemos entonces que $s$ debe ser de la forma $g(s_{1}, \dotsc,s_{m})$ ya que no puede estar en $Var \cup \mathcal{C}$. Notese que $i\neq 1$ ya que en caso contrario $s$ seria un tramo inicial propio de $t$. Pero entonces $g$ debe ser un tramo final propio de $f$, lo cual es absurdo. Ya que $s$ no puede comenzar con parentesis o coma, hemos contemplado todos los posibles casos de comienzo de la ocurrencia de $s$ en $t$.
 
-    (b) y (c) pueden probarse por induccion, usando (a). \(\Box\)
+    (b) y (c) pueden probarse por induccion, usando (a). $\Box$
   \end{proof}
 
-  % Lemma 124
+  % Lemma 124. Con prueba. Lemma 36.
   \begin{lemma}
-    Supongamos \(\varphi \in F_{k}^{\tau }\), con \(k\geq 1\). Entonces \(\varphi \) es de alguna de las siguientes formas
-    \(\varphi =(t\equiv s),\) con \(t,s\in T^{\tau }\).
-
-    \(\varphi =r(t_{1},...,t_{n}),\) con \(r\in \mathcal{R}_{n}\), \( t_{1},...,t_{n}\in T^{\tau }\)
-
-    \(\varphi =(\varphi _{1}\eta \varphi _{2}),\) con \(\eta \in \{\wedge ,\vee ,\rightarrow ,\leftrightarrow \},\;\varphi _{1},\varphi _{2}\in F_{k-1}^{\tau }\)
-
-    \(\varphi =\lnot \varphi _{1},\) con \(\varphi _{1}\in F_{k-1}^{\tau }\)
-
-    \(\varphi =Qv\varphi _{1},\) con \(Q\in \{\forall ,\exists \},\;v\in Var\) y \( \varphi _{1}\in F_{k-1}^{\tau }.\)
+    \PN Supongamos $\varphi \in F_{k}^{\tau}$, con $k \geq 1$, entonces $\varphi$ es de alguna de las siguientes formas:
+    \begin{itemize}
+      \item $\varphi = (t \equiv s)$, con $t, s \in \TAU$.
+      \item $\varphi = r(t_{1}, \dotsc, t_{n})$, con $r \in \mathcal{R}_{n}, t_{1}, \dotsc, t_{n} \in \TAU$.
+      \item $\varphi = (\varphi_{1} \eta \varphi_{2})$, con $\eta \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}, \
+        \varphi_{1}, \varphi_{2} \in F_{k-1}^{\tau}$.
+      \item $\varphi = \lnot \varphi_{1}$, con $\varphi_{1} \in F_{k-1}^{\tau}$.
+      \item $\varphi = Qv \varphi_{1}$, con $Q \in \{\forall, \exists\}, \ v \in Var$ y $\varphi_{1} \in F_{k-1}^{\tau}$.
+    \end{itemize}
   \end{lemma}
   \begin{proof}
-    Induccion en \(k\). \(\Box\)
+    Induccion en $k$. $\Box$
   \end{proof}
 
-  % Lemma 125
+  % Lemma 125. Con prueba. Lemma 37.
   \begin{lemma}
-    Sea \(\tau \) un tipo.
-    (a) Supongamos que \(\Sigma \) es tal que \(F^{\tau }\subseteq \Sigma ^{\ast }\). Entonces \(del(\varphi )\in Bal\), para cada \(\varphi \in F^{\tau }\) .
-    (b) Sea \(\varphi \in F_{k}^{\tau }\), con \(k\geq 0\). Existen \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) y \( \varphi _{1}\in F^{\tau }\) tales que \(\varphi =x\varphi _{1}\) y \(\varphi _{1} \) es de la forma \((\psi _{1}\eta \psi _{2})\) o atomica. En particular toda formula termina con el simbolo \()\).
+    \PN Sea $\tau$ un tipo.
+    \begin{enumerate}[a)]
+      \item Supongamos que $\Sigma$ es tal que $FT \subseteq \SIGMA$, entonces $del(\varphi) \in Bal$, para cada
+        $\varphi \in FT$.
+      \item Sea $\varphi \in F_{k}^{\tau}$, con $k \geq 0$, existen $x \in (\{\lnot\} \cup \{Qv: Q \in \{\forall,
+        \exists\}$ y $v \in Var\})^{\ast}$ y $\varphi_{1} \in FT$ tales que $\varphi = x \varphi_{1}$ y
+        $\varphi_{1}$ es de la forma $(\psi_{1} \eta \psi_{2})$ o atómica. En particular toda fórmula termina con el
+        símbolo $)$.
+    \end{enumerate}
   \end{lemma}
   \begin{proof}
-    (b) Induccion en \(k\). El caso \(k=0\) es trivial. Supongamos (b) vale para cada \(\varphi \in F_{k}^{\tau }\) y sea \(\varphi \in F_{k+1}^{\tau }\). Hay varios casos de los cuales haremos solo dos
+    (b) Induccion en $k$. El caso $k=0$ es trivial. Supongamos (b) vale para cada $\varphi \in F_{k}^{\tau }$ y sea $\varphi \in F_{k+1}^{\tau }$. Hay varios casos de los cuales haremos solo dos
 
-    CASO \(\varphi =(\varphi _{1}\eta \varphi _{2})\), con \(\varphi _{1},\varphi _{2}\in F_{k}^{\tau }\) y \(\eta \in \{\vee ,\wedge ,\rightarrow ,\leftrightarrow \}\).
+    CASO $\varphi =(\varphi_{1}\eta \varphi_{2})$, con $\varphi_{1},\varphi_{2}\in F_{k}^{\tau }$ y $\eta \in \{\vee ,\wedge ,\rightarrow ,\leftrightarrow \}$.
 
-    Podemos tomar \(x=\varepsilon \) y \(\varphi _{1}=\varphi \).
+    Podemos tomar $x=\varepsilon $ y $\varphi_{1}=\varphi $.
 
-    CASO \(\varphi =Qx_{i}\psi \), con \(\psi \in F_{k}^{\tau }\), \(i\geq 1\) y \(Q\in \{\forall ,\exists \}\).
+    CASO $\varphi =Qx_{i}\psi $, con $\psi \in F_{k}^{\tau }$, $i\geq 1$ y $Q\in \{\forall ,\exists \}$.
 
-    Por HI hay \(\bar{x}\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) y \(\psi _{1}\in F^{\tau }\) tales que \( \psi =x\psi _{1}\) y \(\psi _{1}\) es de la forma \((\gamma _{1}\eta \gamma _{2}) \) o atomica. Entonces es claro que \(x=Qx_{i}\bar{x}\) y \(\varphi _{1}=\psi _{1}\) cumplen (b). \(\Box\)
+    Por HI hay $\bar{x}\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}$ y $v\in Var\})^{\ast }$ y $\psi_{1}\in \FT$ tales que $ \psi =x\psi_{1}$ y $\psi_{1}$ es de la forma $(\gamma_{1}\eta \gamma_{2}) $ o atomica. Entonces es claro que $x=Qx_{i}\bar{x}$ y $\varphi_{1}=\psi_{1}$ cumplen (b). $\Box$
   \end{proof}
 
-  % Lemma 126
+  % Lemma 126. Con prueba. Lemma 38.
   \begin{lemma}
-    Ninguna formula es tramo final propio de una formula atomica, es decir, si \( \varphi =x\psi \), con \(\varphi \in F_{0}^{\tau }\) y \(,\psi \in F^{\tau }\), entonces \(x=\varepsilon \).
+    \PN Ninguna fórmula es tramo final propio de una fórmula atómica, es decir, si $\varphi = x \psi$, con $\varphi \in
+    F_{0}^{\tau}$ y $\psi \in FT$, entonces $x = \varepsilon$.
   \end{lemma}
   \begin{proof}
-    Si \(\varphi \) es de la forma \((t\equiv s)\), entonces \(\left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}< 0\) para cada tramo final propio \(y\) de \(\varphi \), lo cual termina el caso ya que \(del(\psi )\) es balanceada. Supongamos entonces \(\varphi =r(t_{1},...,t_{n})\). Notese que \(\psi \) no puede ser tramo final de \(t_{1},...,t_{n})\) ya que \(del(\psi )\) es balanceada y \(\left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}< 0\) para cada tramo final \(y\) de \(t_{1},...,t_{n})\). Es decir que \(\psi =y(t_{1},...,t_{n})\), para algun tramo final \(y\) de \(r\). Ya que en \(\psi \) no ocurren cuantificadores ni nexos ni el simbolo \(\equiv \) el Lema 124 nos dice \(\psi =\tilde{r}(s_{1},...,s_{m})\), con \( \tilde{r}\in \mathcal{R}_{m}\), \(m\geq 1\) y \(s_{1},...,s_{m}\in T^{\tau }\). Ahora es facil usando un argumento paresido al usado en la prueba del Teorema 122 concluir que \(m=n\), \(s_{i}=t_{i}\), \( i=1,...,n\) y \(\tilde{r}\) es tramo final de \(r\). Por (3) de la definicion de tipo tenemos que \(\tilde{r}=r\) lo cual nos dice que \(\varphi =\psi \) y \( x=\varepsilon \) \(\Box\)
+    Si $\varphi $ es de la forma $(t\equiv s)$, entonces $\lvert del(y)\rvert_{(}-\lvert del(y)\rvert_{)}< 0$ para cada tramo final propio $y$ de $\varphi $, lo cual termina el caso ya que $del(\psi )$ es balanceada. Supongamos entonces $\varphi =r(t_{1}, \dotsc,t_{n})$. Notese que $\psi $ no puede ser tramo final de $t_{1}, \dotsc,t_{n})$ ya que $del(\psi )$ es balanceada y $\lvert del(y)\rvert_{(}-\lvert del(y)\rvert_{)}< 0$ para cada tramo final $y$ de $t_{1}, \dotsc,t_{n})$. Es decir que $\psi =y(t_{1}, \dotsc,t_{n})$, para algun tramo final $y$ de $r$. Ya que en $\psi $ no ocurren cuantificadores ni nexos ni el simbolo $\equiv $ el Lema 124 nos dice $\psi =\tilde{r}(s_{1}, \dotsc,s_{m})$, con $ \tilde{r}\in \mathcal{R}_{m}$, $m\geq 1$ y $s_{1}, \dotsc,s_{m}\in \TAU$. Ahora es facil usando un argumento paresido al usado en la prueba del Teorema 122 concluir que $m=n$, $s_{i}=t_{i}$, $ i=1, \dotsc,n$ y $\tilde{r}$ es tramo final de $r$. Por (3) de la definicion de tipo tenemos que $\tilde{r}=r$ lo cual nos dice que $\varphi =\psi $ y $ x=\varepsilon $ $\Box$
   \end{proof}
 
-  % Lemma 127
+  % Lemma 127. Con prueba. Lemma 39.
   \begin{lemma}
-    Si \(\varphi =x\psi \), con \(\varphi ,\psi \in F^{\tau }\) y \(x\) sin parentesis, entonces \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\)
+    \PN Si $\varphi = x \psi$, con $\varphi, \psi \in FT$ y $x$ sin paréntesis, entonces $x \in (\{\lnot\} \cup
+    \{Qv: Q \in \{\forall, \exists\}$ y $v \in Var\})^{\ast}$.
   \end{lemma}
   \begin{proof}
-    Por induccion en el \(k\) tal que \(\varphi \in F_{k}^{\tau }\). El caso \(k=0\) es probado en el lema anterior. Asumamos que el resultado vale cuando \( \varphi \in F_{k}^{\tau }\) y veamos que vale cuando \(\varphi \in F_{k+1}^{\tau }\). Mas aun supongamos \(\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }\). Primero haremos el caso en que \(\varphi =Qv\varphi _{1},\) con \(Q\in \{\forall ,\exists \},\;v\in Var\) y \(\varphi _{1}\in F_{k}^{\tau }\) . Supongamos \(x\neq \varepsilon \). Ya que \(\psi \) no comienza con simbolos de \(v\), tenemos que \(\psi \) debe ser tramo final de \(\varphi _{1}\) lo cual nos dice que hay una palabra \(x_{1}\) tal que \(x=Qvx_{1}\) y \(\varphi _{1}=x_{1}\psi \). Por HI tenemos que \(x_{1}\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) con lo cual \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\). El caso en el que \(\varphi =\lnot \varphi _{1}\) con \(\varphi _{1}\in F_{k}^{\tau }\), es similar. Note que no hay mas casos posibles ya que \(\varphi \) no puede comenzar con \((\) porque en \(x\) no ocurren parentesis por hipotesis \(\Box\)
+    Por induccion en el $k$ tal que $\varphi \in F_{k}^{\tau }$. El caso $k=0$ es probado en el lema anterior. Asumamos que el resultado vale cuando $ \varphi \in F_{k}^{\tau }$ y veamos que vale cuando $\varphi \in F_{k+1}^{\tau }$. Mas aun supongamos $\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }$. Primero haremos el caso en que $\varphi =Qv\varphi_{1}$, con $Q\in \{\forall ,\exists \},\;v\in Var$ y $\varphi_{1}\in F_{k}^{\tau }$ . Supongamos $x\neq \varepsilon $. Ya que $\psi $ no comienza con simbolos de $v$, tenemos que $\psi $ debe ser tramo final de $\varphi_{1}$ lo cual nos dice que hay una palabra $x_{1}$ tal que $x=Qvx_{1}$ y $\varphi_{1}=x_{1}\psi $. Por HI tenemos que $x_{1}\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}$ y $v\in Var\})^{\ast }$ con lo cual $x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}$ y $v\in Var\})^{\ast }$. El caso en el que $\varphi =\lnot \varphi_{1}$ con $\varphi_{1}\in F_{k}^{\tau }$, es similar. Note que no hay mas casos posibles ya que $\varphi $ no puede comenzar con $($ porque en $x$ no ocurren parentesis por hipotesis $\Box$
   \end{proof}
 
-  % Proposition 128
+  % Proposition 128. Con prueba. Lemma 40.
   \begin{proposition}
-    Si \(\varphi ,\psi \in F^{\tau }\) y \( x,y,z\) son tales que \(\varphi =xy,\) \(\psi =yz\) y \(y\neq \varepsilon ,\) entonces \(z=\varepsilon \) y \( x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) . En particular ningun tramo inicial propio de una formula es una formula.
+    \PN Si $\varphi, \psi \in FT$ y $x, y, z$ son tales que $\varphi = xy, \psi = yz$ y $y \neq \varepsilon$,
+    entonces $z = \varepsilon$ y $x \in (\{\lnot\} \cup \{Qv: Q \in \{\forall, \exists\}$ y $v \in Var\})^{\ast}$. En
+    particular ningún tramo inicial propio de una fórmula es una fórmula.
   \end{proposition}
   \begin{proof}
-    Ya que \(\varphi \) termina con \()\) tenemos que \(del(y)\neq \varepsilon .\) Ya que \(del(\varphi ),del(\psi )\in Bal\) y ademas
+    Ya que $\varphi $ termina con $)$ tenemos que $del(y)\neq \varepsilon .$ Ya que $del(\varphi ),del(\psi )\in Bal$ y ademas
 
-    \(\displaystyle \begin{array}{rcl} del(\varphi ) & =& del(x)del(y) \\ del(\psi ) & =& del(y)del(z) \end{array} \)
+    $\displaystyle \begin{array}{rcl} del(\varphi ) & =& del(x)del(y) \\ del(\psi ) & =& del(y)del(z) \end{array} $
 
-    tenemos que \(del(y)\) es tramo inicial y final de palabras balanceadas, lo cual nos dice que
-    \(\displaystyle \left\vert del(y)\right\vert _{(}-\left\vert del(y)\right\vert _{)}=0 \)
+    tenemos que $del(y)$ es tramo inicial y final de palabras balanceadas, lo cual nos dice que
+    $\displaystyle \lvert del(y)\rvert_{(}-\lvert del(y)\rvert_{)}=0 $
 
-    Pero esto por (3) del Lema 118 nos dice que \( del(x)=\varepsilon \). Similarmente obtenemos que \(del(z)=\varepsilon \). Pero \(\psi \) termina con \()\) lo cual nos dice que \(z=\varepsilon \). Es decir que \( \varphi =x\psi \). Por el lema anterior tenemos que \(x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}\) y \(v\in Var\})^{\ast }\) \(\Box\)
+    Pero esto por (3) del Lema 118 nos dice que $ del(x)=\varepsilon $. Similarmente obtenemos que $del(z)=\varepsilon $. Pero $\psi $ termina con $)$ lo cual nos dice que $z=\varepsilon $. Es decir que $ \varphi =x\psi $. Por el lema anterior tenemos que $x\in (\{\lnot \}\cup \{Qv:Q\in \{\forall ,\exists \}$ y $v\in Var\})^{\ast }$ $\Box$
   \end{proof}
 
-  % Theorem 129
+  % Theorem 129. Con prueba. Lemma 41.
   \begin{theorem}
-    (Lectura unica de formulas) Dada \(\varphi \in F^{\tau }\) se da una y solo una de las siguientes:
-    (1) \(\varphi =(t\equiv s),\) con \(t,s\in T^{\tau }\)
-    (2) \(\varphi =r(t_{1},...,t_{n}),\) con \(r\in \mathcal{R}_{n}\) , \(t_{1},...,t_{n}\in T^{\tau }\)
-    (3) \(\varphi =(\varphi _{1}\eta \varphi _{2}),\) con \(\eta \in \{\wedge ,\vee ,\rightarrow ,\leftrightarrow \},\;\varphi _{1},\varphi _{2}\in F^{\tau }\)
-    (4) \(\varphi =\lnot \varphi _{1},\) con \(\varphi _{1}\in F^{\tau }\)
-    (5) \(\varphi =Qv\varphi _{1},\) con \(Q\in \{\forall ,\exists \},\;\varphi _{1}\in F^{\tau }\) y \(v\in Var.\)
-    Mas aun, en los puntos (1), (2), (3), (4) y (5) tales descomposiciones son unicas.
+    \PN (Lectura única de fórmulas) Dada $\varphi \in FT$ se da una y solo una de las siguientes:
+    \begin{enumerate}[(1)]
+      \item $\varphi = (t \equiv s)$, con $t, s \in \TAU$
+      \item $\varphi = r(t_{1}, \dotsc, t_{n})$, con $r \in \mathcal{R}_{n}, t_{1}, \dotsc, t_{n} \in \TAU$
+      \item $\varphi = (\varphi_{1} \eta \varphi_{2})$, con $\eta \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}, \
+        \varphi_{1}, \varphi_{2} \in \FT$
+      \item $\varphi = \lnot \varphi_{1}$, con $\varphi_{1} \in \FT$
+      \item $\varphi = Qv \varphi_{1}$, con $Q \in \{\forall, \exists\}, \ \varphi_{1} \in \FT$ y $v \in Var$.
+    \end{enumerate}
+
+    \PN Más aún, en todos los puntos tales descomposiciones son únicas.
   \end{theorem}
   \begin{proof}
-    Si una formula \(\varphi \) satisface (1), entonces \(\varphi \) no puede contener simbolos del alfabeto \(\{\wedge ,\vee ,\rightarrow ,\leftrightarrow \}\) lo cual garantiza que \(\varphi \) no puede satisfacer (3). Ademas \( \varphi \) no puede satisfacer (2) o (4) o (5) ya que \(\varphi \) comienza con \((\). En forma analoga se puede terminar de ver que las propiedades (1),...,(5) son excluyentes.
+    Si una formula $\varphi $ satisface (1), entonces $\varphi $ no puede contener simbolos del alfabeto $\{\wedge ,\vee,
+    \rightarrow ,\leftrightarrow \}$ lo cual garantiza que $\varphi $ no puede satisfacer (3). Ademas $ \varphi $ no
+    puede satisfacer (2) o (4) o (5) ya que $\varphi $ comienza con $($. En forma analoga se puede terminar de ver que
+    las propiedades (1), $\dotsc$,(5) son excluyentes.
 
-    La unicidad en las descomposiciones de (4) y (5) es obvia. La de (3) se desprende facilmente del lema anterior y la de los puntos (1) y (2) del lema analogo para terminos. \(\Box\)
+    La unicidad en las descomposiciones de (4) y (5) es obvia. La de (3) se desprende facilmente del lema anterior y la de los puntos (1) y (2) del lema analogo para terminos. $\Box$
   \end{proof}
 
-  % Lemma 130
+  % Lemma 130. Con prueba. Lemma 42.
   \begin{lemma}
-    Sea \(\tau \) un tipo.
-    (a) Las formulas atomicas no tienen subformulas propias.
-    (b) Si \(\varphi \) ocurre propiamente en \((\psi \eta \varphi ),\) entonces tal ocurrencia es en \(\psi \) o en \(\varphi .\)
-    (c) Si \(\varphi \) ocurre propiamente en \(\lnot \psi \), entonces tal ocurrencia es en \(\psi .\)
-    (d) Si \(\varphi \) ocurre propiamente en \(Qx_{k}\psi ,\) entonces tal ocurrencia es en \(\psi .\)
-    (e) Si \(\varphi _{1},\varphi _{2}\) ocurren en \(\varphi ,\) entonces dichas ocurrencias son disjuntas o una contiene a la otra.
-    (f) Si \(\lambda ^{\prime }\) es el resultado de reemplazar alguna ocurrencia de \(\varphi \) en \(\lambda \) por \(\psi \), entonces \(\lambda ^{\prime }\in F^{\tau }\).
+    \PN Sea $\tau$ un tipo.
+    \begin{enumerate}[(a)]
+      \item Las fórmulas atómicas no tienen subfórmulas propias.
+      \item Si $\varphi$ ocurre propiamente en $(\psi \eta \varphi)$, entonces tal ocurrencia es en $\psi$ ó en
+        $\varphi$.
+      \item Si $\varphi$ ocurre propiamente en $\lnot \psi$, entonces tal ocurrencia es en $\psi$.
+      \item Si $\varphi$ ocurre propiamente en $Qx_{k} \psi$, entonces tal ocurrencia es en $\psi$.
+      \item Si $\varphi_{1}, \varphi_{2}$ ocurren en $\varphi$, entonces dichas ocurrencias son disjuntas o una contiene
+        a la otra.
+      \item Si $\lambda^{\prime}$ es el resultado de reemplazar alguna ocurrencia de $\varphi$ en $\lambda$ por $\psi$,
+        entonces $\lambda^{\prime} \in \FT$.
+    \end{enumerate}
   \end{lemma}
   \begin{proof}
     Ejercicio.

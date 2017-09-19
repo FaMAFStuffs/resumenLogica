@@ -494,43 +494,57 @@
   %   \end{multicols}
   % \end{proof}
   %
-  % Corollary 97: Con prueba. Corollary 9.
-  \begin{corollary}
-    \PN Sea $(L, \SU, \IN)$ un reticulado en el cual hay un elemento máximo $1$ (resp. mínimo $0$), entonces si $\theta$
-    es una congruencia sobre $(L, \SU, \IN), 1/\theta$ (resp. $0/\theta$) es un elemento máximo (resp. mínimo) de
-    $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$.
-  \end{corollary}
-  \begin{proof}
-    \PN Ya que $1 \ \theta \ (x \ \SU \ 1)$, para cada $x \in L$, tenemos que $x/\theta \ \tilde{\leq} \ 1/\theta$, para
-    cada $x \in L$.
-  \end{proof}
-
+  % % Corollary 97: Con prueba. Corollary 9.
+  % \begin{corollary}
+  %   \PN Sea $(L, \SU, \IN)$ un reticulado en el cual hay un elemento máximo $1$ (resp. mínimo $0$), entonces si $\theta$
+  %   es una congruencia sobre $(L, \SU, \IN), 1/\theta$ (resp. $0/\theta$) es un elemento máximo (resp. mínimo) de
+  %   $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$.
+  % \end{corollary}
+  % \begin{proof}
+  %   \PN Ya que $1 \ \theta \ (x \ \SU \ 1)$, para cada $x \in L$, tenemos que $x/\theta \ \tilde{\leq} \ 1/\theta$, para
+  %   cada $x \in L$.
+  % \end{proof}
+  %
   % % Lemma 98: Con prueba. Lemma 10.
   % \begin{lemma}
   %   \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un homomorfismo de reticulados,
   %   entonces $\ker F$ es una congruencia sobre $(L, \SU, \IN)$.
   % \end{lemma}
   % \begin{proof}
-  %   Dejamos al lector ver que $\ker F$ es una relacion de equivalencia. Supongamos $x\ker Fx^{\prime}$ y $y\ker Fy^{\prime}$. Entonces
+  %   \PN Veamos primero que $\ker F$ es una relación de equivalencia.
+  %   \begin{itemize} TODO
+  %     \item \underline{Reflexiva:}
+  %     \item \underline{Simétrica:}
+  %     \item \underline{Transitiva:}
+  %     \end{itemize}
   %
-  %   $\displaystyle F(x\mathsf{\;s\;}y)=F(x)\mathsf{\;s^{\prime}\;}F(y)=F(x^{\prime})\mathsf{ \;s^{\prime}\;}F(y^{\prime})=F(x^{\prime}\mathsf{\;s\;}y^{\prime}) $
-  %
-  %   lo cual nos dice que $(x\mathsf{\;s\;}y)\ker F(x^{\prime}\mathsf{\;s\;} y^{\prime})$. En forma similar tenemos que $(x \ \IN \ y)\ker F(x^{\prime} \ \IN \ y^{\prime})$. $\Box$
+  %   \PN Supongamos $x \ker F(x^{\prime})$ y $y \ker F(y^{\prime})$, entonces:
+  %   \begin{alignat*}{4}
+  %     F(x \ \SU \ y) &=& F(x) \ \mathsf{s^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{s^{\prime}} \ F(y^{\prime}) &=&
+  %       F(x^{\prime} \ \SU \ y^{\prime}) \\
+  %     F(x \ \IN \ y) &=& F(x) \ \mathsf{i^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{i^{\prime}} \ F(y^{\prime}) &=&
+  %       F(x^{\prime} \ \IN \ y^{\prime}) \\
+  %   \end{alignat*}
+  %   \PN lo cual nos dice que $(x \ \SU \ y) \ker F(x^{\prime} \ \SU \ y^{\prime})$ y $(x \ \IN \ y) \ker F(x^{\prime} \
+  %   \IN \ y^{\prime})$.
   % \end{proof}
   %
-  % % Lemma 99: Con prueba. Lemma 11.
-  % \begin{lemma}
-  %   \PN Sea $(L, \SU, \IN)$ un reticulado y sea $\theta$ una congruencia sobre $(L, \SU, \IN)$, entonces $\pi_{\theta}$
-  %   es un homomorfismo de $(L, \SU, \IN)$ en $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$. Además $\ker
-  %   \pi_{\theta} = \theta$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Sean $x,y\in L$. Tenemos que
-  %
-  %   $\displaystyle \pi _{\theta }(x\mathsf{\;s\;}y)=(x\mathsf{\;s\;}y)/\theta =x/\theta \mathsf{ \;\tilde{s}\;}y/\theta =\pi _{\theta }(x)\mathsf{\;\tilde{s}\;}\pi _{\theta }(y) $
-  %
-  %   por lo cual $\pi _{\theta }$ preserva la operacion supremo. Para la operacion infimo es similar. $\Box$
-  % \end{proof}
+  % Lemma 99: Con prueba. Lemma 11.
+  \begin{lemma}
+    \PN Sea $(L, \SU, \IN)$ un reticulado y sea $\theta$ una congruencia sobre $(L, \SU, \IN)$, entonces $\pi_{\theta}$
+    es un homomorfismo de $(L, \SU, \IN)$ en $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$. Además $\ker
+    \pi_{\theta} = \theta$.
+  \end{lemma}
+  \begin{proof}
+    \PN Sean $x, y \in L$ elementos cualquier. Tenemos que:
+      \begin{alignat*}{4}
+        \pi_{\theta}(x \ \SU \ y) &=& (x \ \SU \ y)/\theta &=& x/\theta \ \mathsf{\tilde{s}} \ y/\theta &=&
+          \pi_{\theta}(x) \ \mathsf{\tilde{s}} \ \pi_{\theta}(y) \\
+        \pi_{\theta}(x \ \IN \ y) &=& (x \ \IN \ y)/\theta &=& x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta &=&
+          \pi_{\theta}(x) \ \mathsf{\tilde{\imath}} \ \pi_{\theta}(y) \\
+      \end{alignat*}
+    \PN por lo cual $\pi_{\theta}$ preserva las operaciones de supremo e ínfimo.
+  \end{proof}
   %
   % % Lemma 100: Con prueba. Lemma 12.
   % \begin{lemma}

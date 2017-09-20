@@ -467,16 +467,28 @@
       \begin{enumerate}
         \item[(I1)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{s}} \ x/\theta = x/\theta \
           \mathsf{\tilde{\imath}} \ x/\theta = x/\theta$ \\\hline \end{tabular}
+          \begin{eqnarray*}
+            x/\theta \ \mathsf{\tilde{s}} \ x/\theta &=& (x \ \SU \ x)/\theta = x /\theta \\
+            x/\theta \ \mathsf{\tilde{\imath}} \ x/\theta &=& (x \ \IN \ x)/\theta = x /\theta
+          \end{eqnarray*}
         \item[(I2)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{s}} \ y/\theta = y/\theta \
           \mathsf{\tilde{s}} \ x/\theta$ \\\hline \end{tabular}
+          \begin{eqnarray*}
+            x/\theta \ \mathsf{\tilde{s}} \ y/\theta &=& (x \ \SU \ y)/\theta \\
+            &=& (y \ \SU \ x)/\theta \\
+            &=& y/\theta \ \mathsf{\tilde{s}} \ y/\theta
+          \end{eqnarray*}
         \item[(I3)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta = y/\theta \
           \mathsf{\tilde{\imath}} \ x/\theta$ \\\hline \end{tabular}
+          \begin{eqnarray*}
+            x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta &=& (x \ \IN \ y)/\theta \\
+            &=& (y \ \IN \ x)/\theta \\
+            &=& y/\theta \ \mathsf{\tilde{\imath}} \ y/\theta
+          \end{eqnarray*}
         \item[(I4)] \begin{tabular}{|c|} \hline $(x/\theta \ \mathsf{\tilde{s}} \ y/\theta) \ \mathsf{\tilde{s}} \
           z/\theta = x/\theta \ \mathsf{\tilde{s}} \ (y/\theta \ \mathsf{\tilde{s}} \ z/\theta)$ \\\hline \end{tabular}
-
-          \((x\mathsf{\;s\;}y)\;\mathsf{s}\;z=x\;\mathsf{s}\;(y\;\mathsf{s} \;z)\)
           \begin{eqnarray*}
-            (x/\theta \ \mathsf{\tilde{s}} \ y/\theta) \ \mathsf{\tilde{s}} \ z/\theta &=& (x \ \mathsf{s} \ y)/\theta \
+            (x/\theta \ \mathsf{\tilde{s}} \ y/\theta) \ \mathsf{\tilde{s}} \ z/\theta &=& (x \ \SU \ y)/\theta \
               \mathsf{\tilde{s}} \ z/\theta \\
             &=& ((x \ \SU \ y) \ \SU \ z) /\theta \\
             &=& (x \ \SU \ (y \ \SU \ z)) /\theta \\
@@ -486,10 +498,30 @@
         \item[(I5)] \begin{tabular}{|c|} \hline $(x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta) \
           \mathsf{\tilde{\imath}} \ z/\theta = x/\theta \ \mathsf{\tilde{\imath}} \ (y/\theta \ \mathsf{\tilde{\imath}}
           \ z/\theta)$ \\\hline \end{tabular}
+          \begin{eqnarray*}
+            (x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta) \ \mathsf{\tilde{\imath}} \ z/\theta &=& (x \ \IN \
+              y)/\theta \ \mathsf{\tilde{\imath}} \ z/\theta \\
+            &=& ((x \ \IN \ y) \ \IN \ z) /\theta \\
+            &=& (x \ \IN \ (y \ \IN \ z)) /\theta \\
+            &=& x/\theta \ \mathsf{\tilde{\imath}} \ (y \ \IN \ z) /\theta \\
+            &=& x/\theta \ \mathsf{\tilde{\imath}} \ (y /\theta \ \mathsf{\tilde{\imath}} \ z/\theta)
+          \end{eqnarray*}
         \item[(I6)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{s}} \ (x/\theta \ \mathsf{\tilde{\imath}} \
           y/\theta) = x/\theta$ \\\hline \end{tabular}
+          \begin{eqnarray*}
+            x/\theta \ \mathsf{\tilde{s}} \ (x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta) &=& x/\theta \ \mathsf{\tilde{s}}
+              \ (x \ \IN \ y)/\theta \\
+            &=& (x \ \SU \ (x \ \IN \ y))/\theta \\
+            &=& x/\theta
+          \end{eqnarray*}
         \item[(I7)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{\imath}} \ (x/\theta \ \mathsf{\tilde{s}} \
           y/\theta) = x/\theta$ \\\hline \end{tabular}
+          \begin{eqnarray*}
+            x/\theta \ \mathsf{\tilde{\imath}} \ (x/\theta \ \mathsf{\tilde{s}} \ y/\theta) &=& x/\theta \
+              \mathsf{\tilde{\imath}} \ (x \ \SU \ y)/\theta \\
+            &=& (x \ \IN \ (x \ \SU \ y))/\theta \\
+            &=& x/\theta
+          \end{eqnarray*}
       \end{enumerate}
     \end{multicols}
   \end{proof}
@@ -609,37 +641,37 @@
   %   \end{enumerate}
   % \end{lemma}
   %
-  % Lemma 104: Sin prueba. Lemma 16.
-  \begin{lemma}
-    \PN Si $F:(L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
-    1^{\prime})$ un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
-  \end{lemma}
-
-  % Lemma 105: Sin prueba. Lemma 17.
-  \begin{lemma}
-    \PN Si $F: (L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
-    1^{\prime})$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime}, \IN^{\prime},
-    ^{c^{\prime}}, 0^{\prime}, 1^{\prime})$.
-  \end{lemma}
-
-  % Lemma 106: Sin prueba. Lemma 18.
-  \begin{lemma}
-    \PN Si $F: (L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
-    1^{\prime})$ es un homomorfismo de reticulados complementados, entonces $\ker F$ es una congruencia sobre $(L, \SU,
-    \IN, ^{c}, 0, 1)$.
-  \end{lemma}
-
-  % Lemma 107: Sin prueba. Lemma 19.
-  \begin{lemma}
-    \PN Sea $(L, \SU, \IN, ^{c}, 0, 1)$ un reticulado complementado y sea $\theta$ una congruencia sobre $(L, \SU, \IN,
-    ^{c}, 0, 1)$.
-    \begin{enumerate}[a)]
-      \item $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, ^{\tilde{c}}, 0/\theta, 1/\theta)$ es un reticulado
-        complementado.
-      \item $\pi_{\theta}$ es un homomorfismo de $(L, \SU, \IN, ^{c}, 0, 1)$ en $(L/\theta, \mathsf{\tilde{s}},
-      \mathsf{\tilde{\imath}}, ^{\tilde{c}}, 0/\theta, 1/\theta)$ cuyo núcleo es $\theta$.
-    \end{enumerate}
-  \end{lemma}
+  % % Lemma 104: Sin prueba. Lemma 16.
+  % \begin{lemma}
+  %   \PN Si $F:(L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
+  %   1^{\prime})$ un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+  % \end{lemma}
+  %
+  % % Lemma 105: Sin prueba. Lemma 17.
+  % \begin{lemma}
+  %   \PN Si $F: (L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
+  %   1^{\prime})$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime}, \IN^{\prime},
+  %   ^{c^{\prime}}, 0^{\prime}, 1^{\prime})$.
+  % \end{lemma}
+  %
+  % % Lemma 106: Sin prueba. Lemma 18.
+  % \begin{lemma}
+  %   \PN Si $F: (L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
+  %   1^{\prime})$ es un homomorfismo de reticulados complementados, entonces $\ker F$ es una congruencia sobre $(L, \SU,
+  %   \IN, ^{c}, 0, 1)$.
+  % \end{lemma}
+  %
+  % % Lemma 107: Sin prueba. Lemma 19.
+  % \begin{lemma}
+  %   \PN Sea $(L, \SU, \IN, ^{c}, 0, 1)$ un reticulado complementado y sea $\theta$ una congruencia sobre $(L, \SU, \IN,
+  %   ^{c}, 0, 1)$.
+  %   \begin{enumerate}[a)]
+  %     \item $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, ^{\tilde{c}}, 0/\theta, 1/\theta)$ es un reticulado
+  %       complementado.
+  %     \item $\pi_{\theta}$ es un homomorfismo de $(L, \SU, \IN, ^{c}, 0, 1)$ en $(L/\theta, \mathsf{\tilde{s}},
+  %     \mathsf{\tilde{\imath}}, ^{\tilde{c}}, 0/\theta, 1/\theta)$ cuyo núcleo es $\theta$.
+  %   \end{enumerate}
+  % \end{lemma}
   %
   % % Lemma 108: Con prueba. Lemma 20.
   % \begin{lemma}

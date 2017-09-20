@@ -681,48 +681,55 @@
   %   \end{enumerate}
   % \end{lemma}
   %
-  % Lemma 108: Con prueba. Lemma 20.
-  \begin{lemma}
-    \PN Sea $(L, \SU, \IN)$ un reticulado. Son equivalentes:
-    \begin{enumerate}[(1)]
-      \item $x \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ (x \ \IN \ z)$, cualesquiera sean $x, y, z \in L$
-      \item $x \ \SU \ (y \ \IN \ z) = (x \ \SU \ y) \ \IN \ (x \ \SU \ z)$, cualesquiera sean $x, y, z \in L$.
-    \end{enumerate}
-  \end{lemma}
-  \begin{proof}
-    \PN \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$ \\\hline \end{tabular} Notar que:
-    \begin{eqnarray*}
-      (x \ \SU \ y) \ \IN \ (x \ \SU \ z) &=& ((x \ \SU \ y) \ \IN \ x) \ \SU \ ((x \ \SU \ y) \ \IN \ z) \\
-      &=& (x \ \SU \ (z \ \IN \ (x \ \SU \ y)) \\
-      &=& (x \ \SU \ ((z \ \IN \ x) \ \SU \ (z \ \IN \ y)) \\
-      &=& (x \ \SU \ (z \ \IN \ x)) \ \SU \ (z \ \IN \ y) \\
-      &=& x \ \SU \ (z \ \IN \ y) \\
-      &=& x \ \SU \ (y \ \IN \ z)
-    \end{eqnarray*}
-
-    \PN \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$ \\\hline \end{tabular} Notar que:
-    \begin{eqnarray*}
-      (x \ \IN \ y) \ \SU \ (x \ \IN \ z) &=& ((x \ \IN \ y) \ \SU \ x) \ \IN \ ((x \ \IN \ y) \ \SU \ z) \\
-      &=& (x \ \IN \ (z \ \SU \ (x \ \IN \ y)) \\
-      &=& (x \ \IN \ ((z \ \SU \ x) \ \IN \ (z \ \SU \ y)) \\
-      &=& (x \ \IN \ (z \ \SU \ x)) \ \IN \ (z \ \SU \ y) \\
-      &=& x \ \IN \ (z \ \SU \ y) \\
-      &=& x \ \IN \ (y \ \SU \ z)
-    \end{eqnarray*}
-  \end{proof}
-  %
-  % % Lemma 109: Con prueba. Lemma 21.
+  % % Lemma 108: Con prueba. Lemma 20.
   % \begin{lemma}
-  %   \PN Si $(L, \SU, \IN, 0, 1)$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un
-  %   complemento.
+  %   \PN Sea $(L, \SU, \IN)$ un reticulado. Son equivalentes:
+  %   \begin{enumerate}[(1)]
+  %     \item $x \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ (x \ \IN \ z)$, cualesquiera sean $x, y, z \in L$
+  %     \item $x \ \SU \ (y \ \IN \ z) = (x \ \SU \ y) \ \IN \ (x \ \SU \ z)$, cualesquiera sean $x, y, z \in L$.
+  %   \end{enumerate}
   % \end{lemma}
   % \begin{proof}
-  %   Supongamos $x\in L$ tiene complementos $y,z$. Se tiene
+  %   \PN \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$ \\\hline \end{tabular} Notar que:
+  %   \begin{eqnarray*}
+  %     (x \ \SU \ y) \ \IN \ (x \ \SU \ z) &=& ((x \ \SU \ y) \ \IN \ x) \ \SU \ ((x \ \SU \ y) \ \IN \ z) \\
+  %     &=& (x \ \SU \ (z \ \IN \ (x \ \SU \ y)) \\
+  %     &=& (x \ \SU \ ((z \ \IN \ x) \ \SU \ (z \ \IN \ y)) \\
+  %     &=& (x \ \SU \ (z \ \IN \ x)) \ \SU \ (z \ \IN \ y) \\
+  %     &=& x \ \SU \ (z \ \IN \ y) \\
+  %     &=& x \ \SU \ (y \ \IN \ z)
+  %   \end{eqnarray*}
   %
-  %   % $\displaystyle y=y \ \IN \ 1=y \ \IN \ (x\ \SU \z)=(y \ \IN \ x)\; \mathsf{s\;}(y \ \IN \ z)=0\ \SU \(y \ \IN \ z)=y\;\mathsf{ i\;}z, $
-  %
-  %   por lo cual $y\leq z$. En forma analoga se muestra que $z\leq y$. $\Box$
+  %   \PN \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$ \\\hline \end{tabular} Notar que:
+  %   \begin{eqnarray*}
+  %     (x \ \IN \ y) \ \SU \ (x \ \IN \ z) &=& ((x \ \IN \ y) \ \SU \ x) \ \IN \ ((x \ \IN \ y) \ \SU \ z) \\
+  %     &=& (x \ \IN \ (z \ \SU \ (x \ \IN \ y)) \\
+  %     &=& (x \ \IN \ ((z \ \SU \ x) \ \IN \ (z \ \SU \ y)) \\
+  %     &=& (x \ \IN \ (z \ \SU \ x)) \ \IN \ (z \ \SU \ y) \\
+  %     &=& x \ \IN \ (z \ \SU \ y) \\
+  %     &=& x \ \IN \ (y \ \SU \ z)
+  %   \end{eqnarray*}
   % \end{proof}
+  %
+  % Lemma 109: Con prueba. Lemma 21.
+  \begin{lemma}
+    \PN Si $(L, \SU, \IN, 0, 1)$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un
+    complemento.
+  \end{lemma}
+  \begin{proof}
+    \PN Supongamos $x \in L$ tiene complementos $y, z$. Se tiene:
+    \begin{alignat*}{3}
+      y \ \SU \ x &=& \ 1 &=& \ x \ \SU \ z \\
+      y \ \IN \ x &=& \ 0 &=& \ x \ \IN \ z
+    \end{alignat*}
+    \PN por lo cual:
+    \[
+      y = y \ \SU \ 0 = y \ \SU \ (x \ \IN \ z) = (y \ \SU \ x) \ \IN \ (y \ \SU \ z) = 1 \ \IN \ (y \ \SU \ z) = (x \
+      \SU \ z) \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ z = 0 \ \SU \ z = z
+    \]
+
+    \PN Por lo tanto, $y = z$.
+  \end{proof}
   %
   % % Lemma 110: Con prueba. Lemma 22.
   % \begin{lemma}

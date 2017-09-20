@@ -1,5 +1,5 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}[spanish]
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -10,11 +10,20 @@
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{stackrel}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{cleveref}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \newcounter{neq}
+
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \newcommand{\SIGMA}{\Sigma^{\ast}}
+\newcommand{\TAU}{T^{\tau}}
+\newcommand{\FT}{F^{\tau}}
+
 \newcommand{\PN}{\par\noindent}
+\newcommand{\SU}{\mathsf{s}}
+\newcommand{\IN}{\mathsf{i} }
 
 \newtheorem{theorem}[equation]{Theorem}
 \newtheorem{lemma}[equation]{Lemma}
@@ -28,8 +37,8 @@
 
 \begin{document}
 	\clearpage\maketitle
- 	\thispagestyle{empty}
- 	\tableofcontents
+	\thispagestyle{empty}
+	\tableofcontents
 
 	\vspace{5cm}
 	\PN \textbf{Nota:} Este resumen se corresponde con la materia dictada en el año 2017. Los autores no se
@@ -42,11 +51,10 @@
 		\includegraphics[width=1cm]{graphics/github.png} \\
 		https://github.com/ResumenesFaMAF/resumenLogica
 	\end{center}
-	
-	\input{1_ordered_algebraic_structures}
-	\input{2_terms_and_formulas}
-	\input{3_structures}
-	\input{4_first_order_theorys}
-	\input{5_peano_arithmetic}
 
+	\input{1_ordered_algebraic_structures}
+	%\input{2_terms_and_formulas}
+	%\input{3_structures}
+	%\input{4_first_order_theorys}
+	%\input{5_peano_arithmetic}
 \end{document}

@@ -587,38 +587,38 @@
   %     \end{alignat*}
   %   \PN por lo cual $\pi_{\theta}$ preserva las operaciones de supremo e ínfimo.
   % \end{proof}
-
-  % Lemma 100: Con prueba. Lemma 12.
-  \begin{lemma}
-    \PN Si $F: (L, \SU, \IN, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime}, 1^{\prime})$ un
-    homomorfismo biyectivo, entonces $F$ es un isomorfismo.
-  \end{lemma}
-  \begin{proof}
-      \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
-      tenemos que:
-      \begin{multicols}{2}
-        \begin{eqnarray*}
-          F^{-1}(F(1)) &=& F^{-1}(1^{\prime}) \\
-          F^{-1}(1^{\prime}) &=& 1 \\
-          \\
-          F^{-1}(F(x) \ \SU^{\prime} \ F(y)) &=& F^{-1}(F(x \ \SU \ y)) \\
-          &=& x \ \SU \ y \\
-          &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(y))
-        \end{eqnarray*}
-
-        \begin{eqnarray*}
-          F^{-1}(F(0)) &=& F^{-1}(0^{\prime}) \\
-          F^{-1}(0^{\prime}) &=& 0 \\
-          \\
-          F^{-1}(F(x) \ \IN^{\prime} \ F(y)) &=& F^{-1}(F(x \ \IN \ y)) \\
-          &=& x \ \IN \ y \\
-          &=& F^{-1}(F(x)) \ \IN \ F^{-1}(F(y))
-        \end{eqnarray*}
-      \end{multicols}
-
-      \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
-  \end{proof}
-
+  %
+  % % Lemma 100: Con prueba. Lemma 12.
+  % \begin{lemma}
+  %   \PN Si $F: (L, \SU, \IN, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime}, 1^{\prime})$ un
+  %   homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+  % \end{lemma}
+  % \begin{proof}
+  %     \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
+  %     tenemos que:
+  %     \begin{multicols}{2}
+  %       \begin{eqnarray*}
+  %         F^{-1}(F(1)) &=& F^{-1}(1^{\prime}) \\
+  %         F^{-1}(1^{\prime}) &=& 1 \\
+  %         \\
+  %         F^{-1}(F(x) \ \SU^{\prime} \ F(y)) &=& F^{-1}(F(x \ \SU \ y)) \\
+  %         &=& x \ \SU \ y \\
+  %         &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(y))
+  %       \end{eqnarray*}
+  %
+  %       \begin{eqnarray*}
+  %         F^{-1}(F(0)) &=& F^{-1}(0^{\prime}) \\
+  %         F^{-1}(0^{\prime}) &=& 0 \\
+  %         \\
+  %         F^{-1}(F(x) \ \IN^{\prime} \ F(y)) &=& F^{-1}(F(x \ \IN \ y)) \\
+  %         &=& x \ \IN \ y \\
+  %         &=& F^{-1}(F(x)) \ \IN \ F^{-1}(F(y))
+  %       \end{eqnarray*}
+  %     \end{multicols}
+  %
+  %     \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
+  % \end{proof}
+  %
   % % Lemma 101: Con prueba. Lemma 13.
   % \begin{lemma}
   %   \PN Si $F: (L, \SU, \IN, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime}, 1^{\prime})$ es un
@@ -681,21 +681,35 @@
   %   \end{enumerate}
   % \end{lemma}
   %
-  % % Lemma 108: Con prueba. Lemma 20.
-  % \begin{lemma}
-  %   \PN Sea $(L, \SU, \IN)$ un reticulado. Son equivalentes:
-  %   \begin{enumerate}[(1)]
-  %     \item $x \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ (x \ \IN \ z)$, cualesquiera sean $x, y, z \in L$
-  %     \item $x \ \SU \ (y \ \IN \ z) = (x \ \SU \ y) \ \IN \ (x \ \SU \ z)$, cualesquiera sean $x, y, z \in L$.
-  %   \end{enumerate}
-  % \end{lemma}
-  % \begin{proof}
-  %   (1)$\Rightarrow $(2). Notese que
-  %
-  %   $\displaystyle \begin{array}{rcl} (x\mathsf{\;s\;}y) \ \IN \ (x\;\SU\;z) & =& ((x\mathsf{\;s\;}y)  \ \IN \ x)\;\SU\;((x\mathsf{\;s\;}y) \ \IN \ z) \\ & =& (x\;\SU\;(z \ \IN \ (x\mathsf{\;s\;}y)) \\ & =& (x\;\SU\;((z \ \IN \ x)\mathsf{\;s\;}(z \ \IN \ y)) \\ & =& (x\;\SU\;(z \ \IN \ x))\mathsf{\;s\;}(z \ \IN \ y) \\ & =& x\mathsf{\;s\;}(z \ \IN \ y) \\ & =& x\mathsf{\ s\ }(y\ \mathsf{i\ }z) \end{array} $
-  %
-  %   (2)$\Rightarrow $(1) es similar. $\Box$
-  % \end{proof}
+  % Lemma 108: Con prueba. Lemma 20.
+  \begin{lemma}
+    \PN Sea $(L, \SU, \IN)$ un reticulado. Son equivalentes:
+    \begin{enumerate}[(1)]
+      \item $x \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ (x \ \IN \ z)$, cualesquiera sean $x, y, z \in L$
+      \item $x \ \SU \ (y \ \IN \ z) = (x \ \SU \ y) \ \IN \ (x \ \SU \ z)$, cualesquiera sean $x, y, z \in L$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \PN \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$ \\\hline \end{tabular} Notar que:
+    \begin{eqnarray*}
+      (x \ \SU \ y) \ \IN \ (x \ \SU \ z) &=& ((x \ \SU \ y) \ \IN \ x) \ \SU \ ((x \ \SU \ y) \ \IN \ z) \\
+      &=& (x \ \SU \ (z \ \IN \ (x \ \SU \ y)) \\
+      &=& (x \ \SU \ ((z \ \IN \ x) \ \SU \ (z \ \IN \ y)) \\
+      &=& (x \ \SU \ (z \ \IN \ x)) \ \SU \ (z \ \IN \ y) \\
+      &=& x \ \SU \ (z \ \IN \ y) \\
+      &=& x \ \SU \ (y \ \IN \ z)
+    \end{eqnarray*}
+
+    \PN \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$ \\\hline \end{tabular} Notar que:
+    \begin{eqnarray*}
+      (x \ \IN \ y) \ \SU \ (x \ \IN \ z) &=& ((x \ \IN \ y) \ \SU \ x) \ \IN \ ((x \ \IN \ y) \ \SU \ z) \\
+      &=& (x \ \IN \ (z \ \SU \ (x \ \IN \ y)) \\
+      &=& (x \ \IN \ ((z \ \SU \ x) \ \IN \ (z \ \SU \ y)) \\
+      &=& (x \ \IN \ (z \ \SU \ x)) \ \IN \ (z \ \SU \ y) \\
+      &=& x \ \IN \ (z \ \SU \ y) \\
+      &=& x \ \IN \ (y \ \SU \ z)
+    \end{eqnarray*}
+  \end{proof}
   %
   % % Lemma 109: Con prueba. Lemma 21.
   % \begin{lemma}

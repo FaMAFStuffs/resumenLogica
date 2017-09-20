@@ -711,49 +711,62 @@
   %   \end{eqnarray*}
   % \end{proof}
   %
-  % Lemma 109: Con prueba. Lemma 21.
-  \begin{lemma}
-    \PN Si $(L, \SU, \IN, 0, 1)$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un
-    complemento.
-  \end{lemma}
-  \begin{proof}
-    \PN Supongamos $x \in L$ tiene complementos $y, z$. Se tiene:
-    \begin{alignat*}{3}
-      y \ \SU \ x &=& \ 1 &=& \ x \ \SU \ z \\
-      y \ \IN \ x &=& \ 0 &=& \ x \ \IN \ z
-    \end{alignat*}
-    \PN por lo cual:
-    \[
-      y = y \ \SU \ 0 = y \ \SU \ (x \ \IN \ z) = (y \ \SU \ x) \ \IN \ (y \ \SU \ z) = 1 \ \IN \ (y \ \SU \ z) = (x \
-      \SU \ z) \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ z = 0 \ \SU \ z = z
-    \]
-
-    \PN Por lo tanto, $y = z$.
-  \end{proof}
-  %
-  % % Lemma 110: Con prueba. Lemma 22.
+  % % Lemma 109: Con prueba. Lemma 21.
   % \begin{lemma}
-  %   \PN Si $S \neq \emptyset$, entonces $[S)$ es un filtro. Más aún si $F$ es un filtro y $F \supseteq S$, entonces $F
-  %   \supseteq \lbrack S)$.
+  %   \PN Si $(L, \SU, \IN, 0, 1)$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un
+  %   complemento.
   % \end{lemma}
   % \begin{proof}
-  %   Ya que $S\subseteq \lbrack S)$, tenemos que $[S)\neq \varnothing $. Claramente $[S)$ cumple la propiedad (3). Veamos cumple la (2). Si $y\geq s_{1}\; \mathsf{i\;}s_{2} \ \IN \ \dotsc \ \IN \ s_{n}$ y $z\geq t_{1}\; \mathsf{i\;}t_{2} \ \IN \ $\dotsc$ \ \IN \ t_{m}$, con $ s_{1},s_{2}, \dotsc, s_{n}$, $t_{1},t_{2}, \dotsc, t_{m}\in S$, entonces
+  %   \PN Supongamos $x \in L$ tiene complementos $y, z$. Se tiene:
+  %   \begin{alignat*}{3}
+  %     y \ \SU \ x &=& \ 1 &=& \ x \ \SU \ z \\
+  %     y \ \IN \ x &=& \ 0 &=& \ x \ \IN \ z
+  %   \end{alignat*}
+  %   \PN por lo cual:
+  %   \[
+  %     y = y \ \SU \ 0 = y \ \SU \ (x \ \IN \ z) = (y \ \SU \ x) \ \IN \ (y \ \SU \ z) = 1 \ \IN \ (y \ \SU \ z) = (x \
+  %     \SU \ z) \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ z = 0 \ \SU \ z = z
+  %   \]
   %
-  %   $\displaystyle y \ \IN \ z\geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \  s_{n} \ \IN \ t_{1} \ \IN \ t_{2} \ \IN \ \dotsc \ \IN \  t_{m}, $
-  %
-  %   lo cual prueba (2).
+  %   \PN Por lo tanto, $y = z$.
   % \end{proof}
   %
-  % % Lemma 111: Sin prueba. Lemma 23.
-  % \begin{lemma}
-  %   \PN (\textbf{Zorn}) Sea $(P, \leq)$ un poset y supongamos que cada cadena de $P$ tiene una cota superior, entonces
-  %   existe un elemento maximal en $P$. Un filtro $F$ de un reticulado $(L, \SU, \IN)$ será llamado primo
-  %   cuando se cumplan:
-  %   \begin{enumerate}
-  %     \item $F \neq L$
-  %     \item $x \ \SU \ y \in F \Rightarrow x \in F$ ó $y \in F$.
-  %   \end{enumerate}
-  % \end{lemma}
+  % Lemma 110: Con prueba. Lemma 22.
+  \begin{lemma}
+    \PN Si $S \neq \emptyset$, entonces $[S)$ es un filtro. Más aún si $F$ es un filtro y $F \supseteq S$, entonces $F
+    \supseteq \lbrack S)$.
+  \end{lemma}
+  \begin{proof}
+    \PN Recordemos:
+    \[
+      [S) = \{y \in L: y \geq s_{1} \ \IN \ \dotsc \ \IN \ s_{n}, \text{ para algunos } s_{1}, \dotsc, s_{n} \in S,
+      n \geq 1\}
+    \]
+
+    \begin{enumerate}
+      \item \begin{tabular}{|c|} \hline $[S) \neq \emptyset$: \\\hline \end{tabular} Ya que $S \subseteq \lbrack S)$,
+        tenemos que $[S) \neq \emptyset$.
+      \item \begin{tabular}{|c|} \hline $x, y \in [S) \Rightarrow x \ \IN \ y \in [S)$: \\\hline \end{tabular} Sean $x,
+        y$ tales que:
+        \begin{eqnarray*}
+          y \geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \ s_{n}, \ \text{ i.e, } y \in [S) \\
+          z \geq t_{1} \ \IN \ t_{2} \ \IN \ \dotsc \ \IN \ t_{m}, \ \text{ i.e, } z \in [S)
+        \end{eqnarray*}
+        \PN con $s_{1}, s_{2}, \dotsc, s_{n}, t_{1}, t_{2}, \dotsc, t_{m} \in S$, entonces:
+        \[
+          y \ \IN \ z \geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \  s_{n} \ \IN \ t_{1} \ \IN \ t_{2} \ \IN \ \dotsc
+          \ \IN \ t_{m}
+        \]
+      \item \begin{tabular}{|c|} \hline $x \in [S)$ y $x \leq y \Rightarrow y \in [S)$: \\\hline \end{tabular} Por
+        construcción, claramente $[S)$ cumple esta propiedad.
+    \end{enumerate}
+  \end{proof}
+
+  % Lemma 111: Sin prueba. Lemma 23.
+  \begin{lemma}
+    \PN (\textbf{Zorn}) Sea $(P, \leq)$ un poset y supongamos que cada cadena de $P$ tiene una cota superior, entonces
+    existe un elemento maximal en $P$.
+  \end{lemma}
   %
   % % Theorem 112: Con prueba. Theorem 24.
   % \begin{theorem}

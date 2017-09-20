@@ -536,40 +536,40 @@
   %   \PN Ya que $1 \ \theta \ (x \ \SU \ 1)$, para cada $x \in L$, tenemos que $x/\theta \ \tilde{\leq} \ 1/\theta$, para
   %   cada $x \in L$.
   % \end{proof}
-
-  % Lemma 98: Con prueba. Lemma 10.
-  \begin{lemma}
-    \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un homomorfismo de reticulados,
-    entonces $\ker F$ es una congruencia sobre $(L, \SU, \IN)$.
-  \end{lemma}
-  \begin{proof}
-    \PN Veamos primero que $\ker F$ es una relación de equivalencia.
-    \begin{itemize}
-      \item \underline{Reflexiva:} $(x, x) \in$ ker $F$. Trivial pues $F(x) = F(x)$.
-      \item \underline{Simétrica:} Si $(x, y) \in$ ker $F \Rightarrow (y, x) \in$ ker $F$.
-        \PN Si $(x, y) \in$ ker $F \Rightarrow F(x) = F(y)$. Luego, vale también $F(y) = F(x)$.
-      \item \underline{Transitiva:} Si $(x, y), (y, z) \in$ ker $F \Rightarrow (x, z) \in$ ker $F$.
-        \begin{equation*}
-          \left.
-          \begin{array}{l}
-            (x, y) \in \text{ ker } F \Rightarrow F(x) = F(y) \\
-            (y, z) \in \text{ ker } F \Rightarrow F(y) = F(z)
-          \end{array}
-          \right \rbrace \Rightarrow F(x) = F(y) = F(z)
-        \end{equation*}
-        \PN Por lo tanto, $(x, z) \in$ ker $F$.
-      \end{itemize}
-
-    \PN Supongamos $x \ker F(x^{\prime})$ y $y \ker F(y^{\prime})$, entonces:
-    \begin{alignat*}{4}
-      F(x \ \SU \ y) &=& F(x) \ \mathsf{s^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{s^{\prime}} \ F(y^{\prime}) &=&
-        F(x^{\prime} \ \SU \ y^{\prime}) \\
-      F(x \ \IN \ y) &=& F(x) \ \mathsf{i^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{i^{\prime}} \ F(y^{\prime}) &=&
-        F(x^{\prime} \ \IN \ y^{\prime}) \\
-    \end{alignat*}
-    \PN lo cual nos dice que $(x \ \SU \ y) \ker F(x^{\prime} \ \SU \ y^{\prime})$ y $(x \ \IN \ y) \ker F(x^{\prime} \
-    \IN \ y^{\prime})$.
-  \end{proof}
+  %
+  % % Lemma 98: Con prueba. Lemma 10.
+  % \begin{lemma}
+  %   \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un homomorfismo de reticulados,
+  %   entonces $\ker F$ es una congruencia sobre $(L, \SU, \IN)$.
+  % \end{lemma}
+  % \begin{proof}
+  %   \PN Veamos primero que $\ker F$ es una relación de equivalencia.
+  %   \begin{itemize}
+  %     \item \underline{Reflexiva:} $(x, x) \in$ ker $F$. Trivial pues $F(x) = F(x)$.
+  %     \item \underline{Simétrica:} Si $(x, y) \in$ ker $F \Rightarrow (y, x) \in$ ker $F$.
+  %       \PN Si $(x, y) \in$ ker $F \Rightarrow F(x) = F(y)$. Luego, vale también $F(y) = F(x)$.
+  %     \item \underline{Transitiva:} Si $(x, y), (y, z) \in$ ker $F \Rightarrow (x, z) \in$ ker $F$.
+  %       \begin{equation*}
+  %         \left.
+  %         \begin{array}{l}
+  %           (x, y) \in \text{ ker } F \Rightarrow F(x) = F(y) \\
+  %           (y, z) \in \text{ ker } F \Rightarrow F(y) = F(z)
+  %         \end{array}
+  %         \right \rbrace \Rightarrow F(x) = F(y) = F(z)
+  %       \end{equation*}
+  %       \PN Por lo tanto, $(x, z) \in$ ker $F$.
+  %     \end{itemize}
+  %
+  %   \PN Supongamos $x \ker F(x^{\prime})$ y $y \ker F(y^{\prime})$, entonces:
+  %   \begin{alignat*}{4}
+  %     F(x \ \SU \ y) &=& F(x) \ \mathsf{s^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{s^{\prime}} \ F(y^{\prime}) &=&
+  %       F(x^{\prime} \ \SU \ y^{\prime}) \\
+  %     F(x \ \IN \ y) &=& F(x) \ \mathsf{i^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{i^{\prime}} \ F(y^{\prime}) &=&
+  %       F(x^{\prime} \ \IN \ y^{\prime}) \\
+  %   \end{alignat*}
+  %   \PN lo cual nos dice que $(x \ \SU \ y) \ker F(x^{\prime} \ \SU \ y^{\prime})$ y $(x \ \IN \ y) \ker F(x^{\prime} \
+  %   \IN \ y^{\prime})$.
+  % \end{proof}
   %
   % % Lemma 99: Con prueba. Lemma 11.
   % \begin{lemma}
@@ -598,23 +598,21 @@
       tenemos que:
       \begin{multicols}{2}
         \begin{eqnarray*}
+          F^{-1}(F(1)) &=& F^{-1}(1^{\prime}) \\
+          F^{-1}(1^{\prime}) &=& 1 \\
+          \\
           F^{-1}(F(x) \ \SU^{\prime} \ F(y)) &=& F^{-1}(F(x \ \SU \ y)) \\
           &=& x \ \SU \ y \\
           &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(y))
         \end{eqnarray*}
 
         \begin{eqnarray*}
+          F^{-1}(F(0)) &=& F^{-1}(0^{\prime}) \\
+          F^{-1}(0^{\prime}) &=& 0 \\
+          \\
           F^{-1}(F(x) \ \IN^{\prime} \ F(y)) &=& F^{-1}(F(x \ \IN \ y)) \\
           &=& x \ \IN \ y \\
           &=& F^{-1}(F(x)) \ \IN \ F^{-1}(F(y))
-        \end{eqnarray*}
-
-        \begin{eqnarray*}
-          F^{-1}(0)
-        \end{eqnarray*}
-
-        \begin{eqnarray*}
-          F^{-1}(1)
         \end{eqnarray*}
       \end{multicols}
 

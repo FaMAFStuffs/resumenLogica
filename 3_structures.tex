@@ -1,279 +1,321 @@
 \section{Estructuras}
 
-  % Lemma 131
-  \begin{lemma}
-    Sea \(\mathbf{A}\) una estructura de tipo \(\tau \) y sea \(t\in T^{\tau }\). Supongamos que \(\vec{a},\vec{b}\) son asignaciones tales que \(a_{i}=b_{i},\) cada vez que \(x_{i}\) ocurra en \(t\). Entonces \(t^{ \mathbf{A}}[\vec{a}]=t^{\mathbf{A}}[\vec{b}]\).
-  \end{lemma}
-  \begin{proof}
-    Sea
-
-    - Teo\(_{k}\): El lema vale para \(t\in T_{k}^{\tau }\).
-    Teo\(_{0}\) es facil de probar. Veamos Teo\(_{k}\Rightarrow \)Teo\(_{k+1}\). Supongamos \(t\in T_{k+1}^{\tau }-T_{k}^{\tau }\) y sean \(\vec{a},\vec{b}\) asignaciones tales que \(a_{i}=b_{i},\) cada vez que \(x_{i}\) ocurra en \(t\). Notese que \(t=f(t_{1},...,t_{n})\), con \(f\in \mathcal{F}_{n},\;n\geq 1\) y \( t_{1},...,t_{n}\in T^{\tau }\). Notese que para cada \(j=1,...,n\), tenemos que \(a_{i}=b_{i},\) cada vez que \(x_{i}\) ocurra en \(t_{j}\), lo cual por Teo\(_{k}\) nos dice que
-
-    \(\displaystyle t_{j}^{\mathbf{A}}[\vec{a}]=t_{j}^{\mathbf{A}}[\vec{b}]\text{, }j=1,...,n \)
-
-    Se tiene entonces que
-    \(\displaystyle \begin{array}{ccl} t^{\mathbf{A}}[\vec{a}] & = & i(f)(t_{1}^{\mathbf{A}}[\vec{a}],...,t_{n}^{ \mathbf{A}}[\vec{a}])\text{ (por def de }t^{\mathbf{A}}[\vec{a}]\text{)} \\ & = & i(f)(t_{1}^{\mathbf{A}}[\vec{b}],...,t_{n}^{\mathbf{A}}[\vec{b}]) \\ & = & t^{\mathbf{A}}[\vec{b}]\text{ (por def de }t^{\mathbf{A}}[\vec{a}] \text{)} \end{array} \)
-
-    \(\Box\)
-  \end{proof}
-
-  % Lemma 132
-  \begin{lemma}
-    (a) \(Li((t\equiv s))=\{v\in Var:v\) ocurre en \(t\) o \(v\) ocurre en \( s\}. \)
-    (b) \(Li(r(t_{1},...,t_{n}))=\{v\in Var:v\) ocurre en algun \(t_{i}\}.\)
-    (c) \(Li(\lnot \varphi )=Li(\varphi )\)
-    (d) \(Li((\varphi \eta \psi ))=Li(\varphi )\cup Li(\psi ).\)
-    (e) \(Li(Qx_{j}\varphi )=Li(\varphi )-\{x_{j}\}.\)
-  \end{lemma}
-  \begin{proof}
-    (a) y (b) son triviales de las definiciones, teniendo en cuenta que si una variable \(v\) ocurre en \((t\equiv s)\) (resp. en \(r(t_{1},...,t_{n})\)) entonces \(v\) ocurre en \(t\) o \(v\) ocurre en \(s\) (resp.\(v\) ocurre en algun \( t_{i}\))
-
-    (d) Supongamos \(v\in Li((\varphi \eta \psi ))\), entonces hay un \(i\) tal que \( v\) ocurre libremente en \((\varphi \eta \psi )\) a partir de \(i\). Por definicion tenemos que ya sea \(v\) ocurre libremente en \(\varphi \) a partir de \(i-1\) o \(v\) ocurre libremente en \(\psi \) a partir de \(i-\left\vert (\varphi \eta \right\vert \), con lo cual \(v\in Li(\varphi )\cup Li(\psi )\)
-
-    Supongamos ahora que \(v\in Li(\varphi )\cup Li(\psi )\). S.p.d.g. supongamos \( v\in Li(\psi )\). Por definicion tenemos que hay un \(i\) tal que \(v\) ocurre libremente en \(\psi \) a partir de \(i\). Pero notese que esto nos dice por definicion que \(v\) ocurre libremente en \((\varphi \eta \psi )\) a partir de \( i+\left\vert (\varphi \eta \right\vert \) con lo cual \(v\in Li((\varphi \eta \psi ))\).
-
-    (c) es similar a (d)
-
-    (e) Supongamos \(v\in Li(Qx_{j}\varphi )\), entonces hay un \(i\) tal que \(v\) ocurre libremente en \(Qx_{j}\varphi \) a partir de \(i\). Por definicion tenemos que \(v\neq x_{j}\) y \(v\) ocurre libremente en \(\varphi \) a partir de \( i-\left\vert Qx_{j}\right\vert \), con lo cual \(v\in Li(\varphi )-\{x_{j}\}\)
-
-    Supongamos ahora que \(v\in Li(\varphi )-\{x_{j}\}\). Por definicion tenemos que hay un \(i\) tal que \(v\) ocurre libremente en \(\varphi \) a partir de \(i\). Ya que \(v\neq x_{j}\) esto nos dice por definicion que \(v\) ocurre libremente en \(Qx_{j}\varphi \) a partir de \(i+\left\vert Qx_{j}\right\vert \), con lo cual \(v\in Li(Qx_{j}\varphi )\). \(\Box\)
-  \end{proof}
-
-  % Lemma 133
-  \begin{lemma}
-    Supongamos que \(\vec{a},\vec{b}\) son asignaciones tales que si \(x_{i}\in Li(\varphi ),\) entonces \(a_{i}=b_{i}.\) Entonces \( \mathbf{A}\models \varphi \lbrack \vec{a}]\) sii \(\mathbf{A}\models \varphi \lbrack \vec{b}]\)
-  \end{lemma}
-  \begin{proof}
-    Probaremos por induccion en \(k\) que el lema vale para cada \(\varphi \in F_{k}^{\tau }.\) El caso \(k=0\) se desprende del Lema 131. Veamos que Teo\(_{k}\) implica Teo\(_{k+1}.\) Sea \(\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }.\) Hay varios casos:
-
-    CASO \(\varphi =(\varphi _{1}\wedge \varphi _{2})\).
-
-    Ya que \(Li(\varphi _{i})\subseteq Li(\varphi )\), \(i=1,2\), Teo\(_{k}\) nos dice que \(\mathbf{A}\models \varphi _{i}[\vec{a}]\) sii \(\mathbf{A} \models \varphi _{i}[\vec{b}]\), para \(i=1,2\). Se tiene entonces que
-
-    \(\displaystyle \begin{array}{l} \mathbf{A}\models \varphi \lbrack \vec{a}] \\ \ \ \Updownarrow \text{ (por (3) en la def de }\mathbf{A}\models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A}\models \varphi _{1}[\vec{a}]\text{ y }\mathbf{A}\models \varphi _{2}[\vec{a}] \\ \ \ \Updownarrow \text{ (por Teo}_{k}\text{)} \\ \mathbf{A}\models \varphi _{1}[\vec{b}]\text{ y }\mathbf{A}\models \varphi _{2}[\vec{b}] \\ \ \ \Updownarrow \text{(por (3) en la def de }\mathbf{A}\models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A}\models \varphi \lbrack \vec{b}] \end{array} \)
-
-    CASO \(\varphi =(\varphi _{1}\wedge \varphi _{2})\).
-
-    Es completamente similar al anterior.
-
-    CASO \(\varphi =\lnot \varphi _{1}.\)
-
-    Es completamente similar al anterior.
-
-    CASO \(\varphi =\forall x_{j}\varphi _{1}.\)
-
-    Supongamos \(\mathbf{A}\models \varphi \lbrack \vec{a}]\). Entonces por (8) en la def de \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) se tiene que \(\mathbf{A}\models \varphi _{1}[\downarrow _{j}^{a}(\vec{a})]\), para todo \(a\in A\). Notese que \(\downarrow _{j}^{a}(\vec{a})\) y \(\downarrow _{j}^{a}(\vec{b})\) coinciden en toda \(x_{i}\) de \(x_{i}\in Li(\varphi _{1})\subseteq Li(\varphi _{1})\cup \{x_{j}\}\), con lo cual por Teo\(_{k}\) se tiene que \(\mathbf{A}\models \varphi _{1}[\downarrow _{j}^{a}(\vec{b})]\), para todo \(a\in A\), lo cual por (8) en la def de \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) nos dice que \(\mathbf{A}\models \varphi \lbrack \vec{b}]\). La prueba de que \(\mathbf{A}\models \varphi \lbrack \vec{b}]\) implica que \( \mathbf{A}\models \varphi \lbrack \vec{a}]\) es similar.
-
-    CASO \(\varphi =\exists x_{j}\varphi _{1}\).
-
-    Es similar al anterior. \(\Box\)
-  \end{proof}
-
-  % Corollary 134
-  \begin{corollary}
-    Si \(\varphi \) es una sentencia, entonces \(\mathbf{A}\models \varphi \lbrack \vec{a}]\) sii \(\mathbf{A}\models \varphi \lbrack \vec{b}]\), cualesquiera sean las asignaciones \(\vec{a},\vec{b}\).
-  \end{corollary}
-
-  % Lemma 135
-  \begin{lemma}
-    (a) Si \(Li(\varphi )\cup Li(\psi )\subseteq \{x_{i_{1}},...,x_{i_{n}}\},\) entonces \(\varphi \thicksim \psi \) si y solo si la sentencia \(\forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\) es universalmente valida.
-    (b) Si \(\varphi _{i}\thicksim \psi _{i},\) \(i=1,2,\) entonces \(\lnot \varphi _{1}\thicksim \lnot \psi _{1},\) \((\varphi _{1}\eta \varphi _{2})\thicksim (\psi _{1}\eta \psi _{2})\) y \(Qv\varphi _{1}\thicksim Qv\psi _{1}.\)
-    (c) Si \(\varphi \thicksim \psi \) y \(\alpha ^{\prime }\) es el resultado de reemplazar en una formula \(\alpha \) algunas (posiblemente \(0\)) ocurrencias de \(\varphi \) por \(\psi \), entonces \(\alpha \thicksim \alpha ^{\prime }.\)
-  \end{lemma}
-  \begin{proof}
-    Tenemos que
-
-    \(\displaystyle \begin{array}{l} \varphi \thicksim \psi \\ \ \ \Updownarrow \text{ (por (6) de la def de}\models \text{)} \\ \mathbf{A}\models (\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo } \mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A}\models (\varphi \leftrightarrow \psi )[\downarrow _{i_{n}}^{a}(\vec{a })]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow (\text{por (8) de la def de}\models ) \\ \mathbf{A}\models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}] \text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A}\models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\downarrow _{i_{n-1}}^{a}(\vec{a})]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \text{ (por (8) de la def de}\models \text{)} \\ \mathbf{A}\models \forall x_{i_{n-1}}\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \ \ \ \ \vdots \\ \ \ \Updownarrow \\ \mathbf{A}\models \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\text{ es universalmente valida} \end{array} \)
-
-    (b) Es dejado al lector.
-
-    (c) Por induccion en el \(k\) tal que \(\alpha \in F_{k}^{\tau }\). \(\Box\)
-  \end{proof}
-
-  % Lemma 136
-  \begin{lemma}
-    Sea \(F:\mathbf{A}\rightarrow \mathbf{B}\) un homomorfismo. Entonces
-    \(\displaystyle F(t^{\mathbf{A}}[(a_{1},a_{2},...)]=t^{\mathbf{B}}[F(a_{1}),F(a_{2}),...)] \)
-    para cada \(t\in T^{\tau }\), \((a_{1},a_{2},...)\in A^{\mathbf{N}}\).
-  \end{lemma}
-  \begin{proof}
-    Sea
-
-    - Teo\(_{k}\): Si \(F:\mathbf{A}\rightarrow \mathbf{B}\) es un homomorfismo, entonces
-    \(\displaystyle F(t^{\mathbf{A}}[(a_{1},a_{2},...)]=t^{\mathbf{B}}[F(a_{1}),F(a_{2}),...)] \)
-
-    para cada \(t\in T_{k}^{\tau }\), \((a_{1},a_{2},...)\in A^{\mathbf{N}}\).
-    Teo\(_{0}\) es trivial. Veamos que Teo\(_{k}\) implica Teo\(_{k+1}\). Supongamos que vale Teo\(_{k}\) y supongamos \(F:\mathbf{A}\rightarrow \mathbf{B}\) es un homomorfismo, \(t\in T_{k+1}^{\tau }-T_{k}^{\tau }\) y \(\vec{a} =(a_{1},a_{2},...)\in A^{\mathbf{N}}\). Denotemos \((F(a_{1}),F(a_{2}),...)\) con \(F(\vec{a})\). Por Lema 117, \(t=f(t_{1},...,t_{n})\), con \(n\geq 1 \),\(\;f\in \mathcal{F}_{n}\) y \(t_{1},...,t_{n}\in T_{k}^{\tau }\). Tenemos entonces
-
-    \(\displaystyle \begin{array}{ccl} F(t^{\mathbf{A}}[\vec{a}]) & = & F(f(t_{1},...,t_{n})^{\mathbf{A}}[\vec{a}]) \\ & = & F(f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[\vec{a}],...,t_{n}^{\mathbf{A}}[ \vec{a}])) \\ & = & f^{\mathbf{B}}(F(t_{1}^{\mathbf{A}}[\vec{a}]),...,F(t_{n}^{\mathbf{A}}[ \vec{a}])) \\ & = & f^{\mathbf{B}}(t_{1}^{\mathbf{B}}[F(\vec{a})],...,t_{n}^{\mathbf{B}}[F( \vec{a})])) \\ & = & f(t_{1},...,t_{n})^{\mathbf{B}}[F(\vec{a})] \\ & = & t^{\mathbf{B}}[F(\vec{a})] \end{array} \)
-
-    \(\Box\)
-  \end{proof}
-
-  % Lemma 137
-  \begin{lemma}
-    Supongamos que \(F:\mathbf{A}\rightarrow \mathbf{B}\) es un isomorfismo\(.\) Sea \(\varphi \in F^{\tau }.\) Entonces
-    \(\displaystyle \mathbf{A}\models \varphi \lbrack (a_{1},a_{2},...)]\text{ }sii\text{ } \mathbf{B}\models \varphi \lbrack (F(a_{1}),F(a_{2}),...)] \)
-    para cada \((a_{1},a_{2},...)\in A^{\mathbf{N}}\). En particular \(\mathbf{A}\) y \(\mathbf{B}\) satisfacen las mismas sentencias de tipo \(\tau \).
-  \end{lemma}
-
-  % Lemma 138
-  \begin{lemma}
-    Si \(F:\mathbf{A}\rightarrow \mathbf{B}\) es un homomorfismo biyectivo, entonces \(F\) es un isomorfismo
-  \end{lemma}
-  \begin{proof}
-    Solo falta probar que \(F^{-1}\) es un homomorfismo. Supongamos que \(c\in \mathcal{C}\). Ya que \(F(c^{\mathbf{A}})=c^{\mathbf{B}}\), tenemos que \( F^{-1}(c^{\mathbf{B}})=c^{\mathbf{A}}\), por lo cual \(F^{-1}\) cumple (1) de la definicion de homomorfismo. Supongamos ahora que \(f\in \mathcal{F}_{n}\) y sean \(b_{1},...,b_{n}\in B\). Sean \(a_{1},...,a_{n}\in A\) tales que \( F(a_{i})=b_{i}\), \(i=1,...,n\). Tenemos que
-
-    \(\displaystyle \begin{array}{ccl} F^{-1}(f^{\mathbf{B}}(b_{1},...,b_{n})) & = & F^{-1}(f^{\mathbf{B} }(F(a_{1}),...,F(a_{n}))) \\ & = & F^{-1}(F(f^{\mathbf{A}}(a_{1},...,a_{n})) \\ & = & f^{\mathbf{A}}(a_{1},...,a_{n}) \\ & = & f^{\mathbf{A}}(F^{-1}(b_{1}),...,F^{-1}(b_{n})) \end{array} \)
-
-    por lo cual \(F^{-1}\) satisface (2) de la definicion de homomorfismo \(\Box\)
-  \end{proof}
-
-  % Lema 139
-  \begin{lemma}
-    Si \(F:\mathbf{A}\rightarrow \mathbf{B}\) es un homomorfismo, entonces \(I_{F}\) es un subuniverso de \(\mathbf{B}\)
-  \end{lemma}
-  \begin{proof}
-    Ya que \(A\neq \varnothing ,\) tenemos que \(I_{F}\neq \varnothing .\) Es claro que \( c^{\mathbf{B}}=F(c^{\mathbf{A}})\in I_{F},\) para cada \(c\in \mathcal{C}\). Sea \(f\in \mathcal{F}_{n}\) y sean \(b_{1},...,b_{n}\in I_{F}\) Sean \( a_{1},...,a_{n}\) tales que \(F(a_{i})=b_{i},\) \(i=1,...,n\). Tenemos que
-
-    \(\displaystyle f^{\mathbf{B}}(b_{1},...,b_{n})=f^{\mathbf{B}}(F(a_{1}),...,F(a_{n}))=F(f^{ \mathbf{A}}(a_{1},...,a_{n}))\in I_{F} \)
-
-    por lo cual \(I_{F}\) es cerrada bajo \(f^{\mathbf{B}}\).
-  \end{proof}
-
-  % Lemma 140
-  \begin{lemma}
-    Si \(F:\mathbf{A}\rightarrow \mathbf{B}\) es un homomorfismo, entonces \(\ker F\) es una congruencia sobre \(\mathbf{A}\)
-  \end{lemma}
-  \begin{proof}
-    Sea \(f\in \mathcal{F}_{n}\). Supongamos que \(a_{1},...,a_{n},b_{1},...,b_{n} \in A\) son tales que \(a_{1}\ker Fb_{1},...,a_{n}\ker Fb_{n}\). Tenemos entonces que
-
-    \(\displaystyle \begin{array}{ccl} F(f^{\mathbf{A}}(a_{1},...,a_{n})) & = & f^{\mathbf{B} }(F(a_{1}),...,F(a_{n})) \\ & = & f^{\mathbf{B}}(F(b_{1}),...,F(b_{n})) \\ & = & F(f^{\mathbf{B}}(b_{1},...,b_{n})) \end{array} \)
-
-    lo cual nos dice que \(f^{\mathbf{A}}(a_{1},...,a_{n})\ker Ff^{\mathbf{B} }(b_{1},...,b_{n})\) \(\Box\)
-  \end{proof}
-
-  % Lemma 141
-  \begin{lemma}
-    \(\pi _{\theta }:\mathbf{A}\rightarrow \mathbf{A}/\theta \) es un homomorfismo cuyo nucleo es \(\theta \)
-  \end{lemma}
-  \begin{proof}
-    Sea \(c\in \mathcal{C}\). Tenemos que
-
-    \(\displaystyle \pi _{\theta }(c^{\mathbf{A}})=c^{\mathbf{A}}/\theta =c^{\mathbf{A}/\theta } \)
-
-    Sea \(f\in \mathcal{F}_{n}\), con \(n\geq 1\) y sean \(a_{1},...,a_{n}\in A\). Tenemos que
-    \(\displaystyle \begin{array}{ccl} \pi _{\theta }(f^{\mathbf{A}}(a_{1},...,a_{n})) & = & f^{\mathbf{A} }(a_{1},...,a_{n})/\theta \\ & = & f^{\mathbf{A}/\theta }(a_{1}/\theta ,...,a_{n}/\theta ) \\ & = & f^{\mathbf{A}/\theta }(\pi _{\theta }(a_{1}),...,\pi _{\theta }(a_{n})) \end{array} \)
-
-    con lo cual \(\pi _{\theta }\) es un homomorfismo. Es trivial que \(\ker \pi _{\theta }=\theta \) \(\Box\)
-  \end{proof}
-
-  % Corollary 142
-  \begin{corollary}
-    Para cada \(t\in T^{\tau }\), \(\vec{a}\in A^{\mathbf{N} },\) se tiene que \(t^{\mathbf{A}/\theta }[(a_{1}/\theta ,a_{2}/\theta ,...)]=t^{\mathbf{A}}[(a_{1},a_{2},...)]/\theta .\)
-  \end{corollary}
-  \begin{proof}
-    Ya que \(\pi _{\theta }\) es un homomorfismo, se puede aplicar el Lema 136. \(\Box\)
-  \end{proof}
-
-  % Theorem 143
-  \begin{theorem}
-    Sea \(F:\mathbf{A}\rightarrow \mathbf{B}\) un homomorfismo sobreyectivo. Entonces
-    \(\displaystyle \begin{array}{lll} A/\ker F & \rightarrow & B \\ a/\ker F & \rightarrow & F(a) \end{array} \)
-    define sin ambiguedad una funcion \(\bar{F}\) la cual es un isomorfismo de \( \mathbf{A}/\ker F\) en \(\mathbf{B}\)
-  \end{theorem}
-  \begin{proof}
-    Notese que la definicion de \(\bar{F}\) es inambigua ya que si \(a/\ker F=a^{\prime }/\ker F\), entonces \(F(a)=F(a^{\prime }).\) Ya que \(F\) es sobre, tenemos que \(\bar{F}\) lo es. Supongamos que \(\bar{F}(a/\ker F)=\bar{F} (a^{\prime }/\ker F).\) Claramente entonces tenemos que \(F(a)=F(a^{\prime })\) , lo cual nos dice que \(a/\ker F=a^{\prime }/\ker F\). Esto prueba que \(\bar{F }\) es inyectiva. Para ver que \(\bar{F}\) es un isomorfismo, por el Lema 138, basta con ver que \(\bar{F}\) es un homomorfismo. Sea \(c\in \mathcal{C}\). Tenemos que
-
-    \(\displaystyle \bar{F}(c^{\mathbf{A}/\ker F})=\bar{F}(c^{\mathbf{A}}/\ker F)=F(c^{\mathbf{A} })=c^{\mathbf{B}} \)
-
-    Sea \(f\in \mathcal{F}_{n}\). Sean \(a_{1},...,a_{n}\in A\). Tenemos que
-    \(\displaystyle \begin{array}{ccl} \bar{F}(f^{\mathbf{A}/\ker F}(a_{1}/\ker F,...,a_{n}/\ker F)) & = & \bar{F} (f^{\mathbf{A}}(a_{1},...,a_{n})/\ker F) \\ & = & F(f^{\mathbf{A}}(a_{1},...,a_{n})) \\ & = & f^{\mathbf{B}}(F(a_{1}),...,F(a_{n})) \\ & = & f^{\mathbf{B}}(\bar{F}(a_{1}/\ker F),...,\bar{F}(a_{n}/\ker F)) \end{array} \)
-
-    con lo cual \(\bar{F}\) cunple (2) de la definicion de homomorfismo
-  \end{proof}
-
-  % Lemma 144
-  \begin{lemma}
-    Los mapeos \(\pi _{1}:A\times B\rightarrow A\) y \(\pi _{2}:A\times B\rightarrow A\) son homomorfismos
-  \end{lemma}
-  \begin{proof}
-    Veamos que \(\pi _{1}\) es un homomorfismo. Primero notese que si \(c\in \mathcal{C}\), entonces
-
-    \(\displaystyle \pi _{1}(c^{\mathbf{A}\times \mathbf{B}})=\pi _{1}((c^{\mathbf{A}},c^{ \mathbf{B}}))=c^{\mathbf{A}} \)
-
-    Sea \(f\in \mathcal{F}_{n}\), con \(n\geq 1\) y sean \( (a_{1},b_{1}),...,(a_{n},b_{n})\in A\times B\). Tenemos que
-    \(\displaystyle \begin{array}{ccl} \pi _{1}(f^{\mathbf{A}\times \mathbf{B}}((a_{1},b_{1}),...,(a_{n},b_{n})) & = & \pi _{1}((f^{\mathbf{A}}(a_{1},...,a_{n}),f^{\mathbf{B}}(b_{1},...,b_{n})) \\ & = & f^{\mathbf{A}}(a_{1},...,a_{n}) \\ & = & f^{\mathbf{A}}(\pi _{1}(a_{1},b_{1}),...,\pi _{1}(a_{n},b_{n})) \end{array} \)
-
-    con lo cual hemos probado que \(\pi _{1}\) cumple (2) de la definicion de homomorfismo
-  \end{proof}
-
-  % Lemma 145
-  \begin{lemma}
-    Para cada \(t\in T^{\tau },\) \(((a_{1},b_{1}),(a_{2},b_{2}),...)\in (A\times B)^{\mathbf{N}},\) se tiene que \(t^{\mathbf{A}\times \mathbf{B} }[((a_{1},b_{1}),(a_{2},b_{2}),...)]=(t^{\mathbf{A}}[(a_{1},a_{2},...)],t^{ \mathbf{B}}[(b_{1},b_{2},...)])\)
-  \end{lemma}
-
-  % Lemma 146
-  \begin{lemma}
-    Sean \(w_{1},...,w_{k}\) variables, todas distintas. Sean \( v_{1},...,v_{n}\) variables, todas distintas. Supongamos \( t=_{d}t(w_{1},...,w_{k}),\) \( s_{1}=_{d}s_{1}(v_{1},...,v_{n}),...,s_{k}=_{d}s_{k}(v_{1},...,v_{n}).\) Entonces
-    (a) \(t(s_{1},...,s_{k})=_{d}t(s_{1},...,s_{k})(v_{1},...,v_{n})\)
-    (b) Para cada estructura \(\mathbf{A}\) y \(a_{1},....,a_{n}\in A,\) se tiene que
-    \(\displaystyle t(s_{1},...,s_{k})^{\mathbf{A}}[a_{1},....,a_{n}]=t^{\mathbf{A}}[s_{1}^{ \mathbf{A}}[a_{1},....,a_{n}],...,s_{k}^{\mathbf{A}}[a_{1},....,a_{n}]]. \)
-  \end{lemma}
-  \begin{proof}
-    Probaremos que valen (a) y (b), por induccion en el \(l\) tal que \(t\in T_{l}^{\tau }.\) El caso \(l=0\) es dejado al lector. Supongamos entonces que valen (a) y (b) siempre que \(t\in T_{l}^{\tau }\) y veamos que entonces valen (a) y (b) cuando \(t\in T_{l+1}^{\tau }-T_{l}^{\tau }\). Hay \(f\in \mathcal{F} _{m}\) y \(t_{1},...,t_{m}\in T_{l}^{\tau }\) tales que \( t_{1}=_{d}t_{1}(w_{1},...,w_{k}),...,t_{m}=_{d}t_{m}(w_{1},...,w_{k})\) y \( t=f(t_{1},...,t_{m})\). Notese que por (a) de la HI tenemos que
-
-    \(\displaystyle t_{i}(s_{1},...,s_{k})=_{d}t_{i}(s_{1},...,s_{k})(v_{1},...,v_{n})\text{, } i=1,...,m \)
-
-    lo cual ya que
-    \(\displaystyle t(s_{1},...,s_{k})=f(t_{1}(s_{1},...,s_{k}),...,t_{m}(s_{1},...,s_{k})) \)
-
-    nos dice que
-    \(\displaystyle t(s_{1},...,s_{k})=_{d}t(s_{1},...,s_{k})(v_{1},...,v_{n}) \)
-
-    obteniendo asi (a). Para probar (b) notemos que por (b) de la hipotesis inductiva
-    \(\displaystyle t_{j}(s_{1},...,s_{k})^{\mathbf{A}}[\vec{a}]=t_{j}^{\mathbf{A}}[s_{1}^{ \mathbf{A}}[\vec{a}],...,s_{k}^{\mathbf{A}}[\vec{a}]],j=1,...,m \)
-
-    lo cual nos dice que
-    \(\displaystyle \begin{array}{ccl} t(s_{1},...,s_{k})^{\mathbf{A}}[\vec{a}] & = & f(t_{1}(s_{1},...,s_{k}),...,t_{m}(s_{1},...,s_{k}))^{\mathbf{A}}[\vec{a}] \\ & = & f^{\mathbf{A}}(t_{1}(s_{1},...,s_{k})^{\mathbf{A}}[\vec{a} ],...,t_{m}(s_{1},...,s_{k})^{\mathbf{A}}[\vec{a}]) \\ & = & f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[s_{1}^{\mathbf{A}}[\vec{a} ],...,s_{k}^{\mathbf{A}}[\vec{a}]],...,t_{m}^{\mathbf{A}}[s_{1}^{\mathbf{A}}[ \vec{a}],...,s_{k}^{\mathbf{A}}[\vec{a}]]) \\ & = & t^{\mathbf{A}}[s_{1}^{\mathbf{A}}[\vec{a}],...,s_{k}^{\mathbf{A}}[\vec{ a}]] \end{array} \)
-  \end{proof}
-
-  % Lemma 147
-  \begin{lemma}
-    Si \(Qv\) ocurre en \(\varphi \) a partir de \(i\), entonces hay una unica formula \(\psi \) tal que \(Qv\psi \) ocurre en \(\varphi \) a partir de \(i\).
-  \end{lemma}
-  \begin{proof}
-    Por induccion en el \(k\) tal que \(\varphi \in F^{\tau }\).
-  \end{proof}
-
-  % Lemma 148
-  \begin{lemma}
-    Sean \(w_{1},...,w_{k}\) variables, todas distintas. Sean \( v_{1},...,v_{n}\) variables, todas distintas. Supongamos \(\varphi =_{d}\varphi (w_{1},...,w_{k}),\) \( t_{1}=_{d}t_{1}(v_{1},...,v_{n}),...,t_{k}=_{d}t_{k}(v_{1},...,v_{n})\) son tales que cada \(w_{j}\) es sustituible por \(t_{j}\) en \(\varphi .\) Entonces
-    (a) \(\varphi (t_{1},...,t_{k})=_{d}\varphi (t_{1},...,t_{k})(v_{1},...,v_{n})\)
-    (b) Para cada estructura \(\mathbf{A}\) y \(\vec{a}\in A^{n}\) se tiene
-    \(\displaystyle \mathbf{A}\models \varphi (t_{1},...,t_{k})[\vec{a}]\text{ si y solo si } \mathbf{A}\models \varphi \lbrack t_{1}^{\mathbf{A}}[\vec{a}],...,t_{k}^{ \mathbf{A}}[\vec{a}]] \)
-  \end{lemma}
-  \begin{proof}
-    Probaremos que se dan (a) y (b), por induccion en el \(l\) tal que \(\varphi \in F_{l}^{\tau }.\) El caso \(l=0\) es una consecuencia directa del Lema 146. Supongamos (a) y (b) valen para cada \(\varphi \in F_{l}^{\tau } \) y sea \(\varphi \in F_{l+1}^{\tau }-F_{l}^{\tau }.\) Notese que se puede suponer que cada \(v_{i}\) ocurre en algun \(t_{i},\) y que cada \(w_{i}\in Li(\varphi )\), ya que para cada \(\varphi ,\) el caso general se desprende del caso con estas restricciones. Hay varios casos
-
-    CASO \(\varphi =\forall w\varphi _{1},\) con \(w\not\in \{w_{1},...,w_{k}\}\) y \( \varphi _{1}=_{d}\varphi _{1}(w_{1},...,w_{k},w)\)
-
-    Notese que cada \(w_{j}\in Li(\varphi _{1})\). Ademas notese que \( w\not\in \{v_{1},...,v_{n}\}\) ya que de lo contrario \(w\) ocurriria en algun \( t_{j}\), y entonces \(w_{j}\) no seria sustituible por \(t_{j}\) en \(\varphi \). Sean
-
-    \(\displaystyle \begin{array}{ccc} \tilde{t}_{1} & = & t_{1} \\ & \vdots & \\ \tilde{t}_{k} & = & t_{k} \\ \tilde{t}_{k+1} & = & w \end{array} \)
-
-    Notese que
-    \(\displaystyle \tilde{t}_{j}=_{d}\tilde{t}_{j}(v_{1},...,v_{n},w) \)
-
-    Por (a) de la hipotesis inductiva tenemos que
-    \(\displaystyle Li(\varphi _{1}(t_{1},...,t_{k},w))=Li(\varphi _{1}(\tilde{t}_{1},...,\tilde{ t}_{k},\tilde{t}_{k+1}))\subseteq \{v_{1},...,v_{n},w\} \)
-
-    y por lo tanto
-    \(\displaystyle Li(\varphi (t_{1},...,t_{k}))\subseteq \{v_{1},...,v_{n}\} \)
-
-    lo cual prueba (a). Finalmente notese que
-    \(\displaystyle \begin{array}{c} \mathbf{A}\models \varphi (t_{1},...,t_{k})\mathbf{[}\vec{a}] \\ \Updownarrow \\ \mathbf{A}\models \varphi _{1}(\tilde{t}_{1},...,\tilde{t}_{k},\tilde{t} _{k+1})[\vec{a},a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A}\models \varphi _{1}[\tilde{t}_{1}^{\mathbf{A}}[\vec{a},a],..., \tilde{t}_{k}^{\mathbf{A}}[\vec{a},a],\tilde{t}_{k+1}^{\mathbf{A}}[\vec{a} ,a]],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A}\models \varphi _{1}[t_{1}^{\mathbf{A}}[\vec{a}],...,t_{k}^{ \mathbf{A}}[\vec{a}],a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A}\models \varphi \lbrack t_{1}^{\mathbf{A}}[\vec{a}],...,t_{k}^{ \mathbf{A}}[\vec{a}]] \end{array} \)
-
-    lo cual pueba (b). El caso del cuantificador \(\exists \) es analogo y los casos de nexos logicos son directos.
-  \end{proof}
+  % % Lemma 131. Con prueba. Lemma 43.
+  % \begin{lemma}
+  %   \PN Sea $\mathbf{A}$ una estructura de tipo $\tau$ y sea $t\in \TAU$. Supongamos que $\vec{a}, \vec{b}$ son
+  %   asignaciones tales que $a_{i} = b_{i},$ cada vez que $x_{i}$ ocurra en $t$, entonces $t^{\mathbf{A}}[\vec{a}] =
+  %   t^{\mathbf{A}}[\vec{b}]$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Sea
+  %
+  %   - Teo$_{k}$: El lema vale para $t\in T_{k}^{\tau }$.
+  %   Teo$_{0}$ es facil de probar. Veamos Teo$_{k}\Rightarrow $Teo$_{k+1}$. Supongamos $t\in T_{k+1}^{\tau }-T_{k}^{\tau }$ y sean $\vec{a},\vec{b}$ asignaciones tales que $a_{i}=b_{i},$ cada vez que $x_{i}$ ocurra en $t$. Notese que $t=f(t_{1}, \dotsc, t_{n})$, con $f\in \mathcal{F}_{n},\;n\geq 1$ y $ t_{1}, \dotsc, t_{n}\in \TAU$. Notese que para cada $j=1, \dotsc, n$, tenemos que $a_{i}=b_{i},$ cada vez que $x_{i}$ ocurra en $t_{j}$, lo cual por Teo$_{k}$ nos dice que
+  %
+  %   $\displaystyle t_{j}^{\mathbf{A}}[\vec{a}]=t_{j}^{\mathbf{A}}[\vec{b}]\text{, }j=1, \dotsc, n $
+  %
+  %   Se tiene entonces que
+  %   $\displaystyle \begin{array}{ccl} t^{\mathbf{A}}[\vec{a}] & = & i(f)(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{n}^{ \mathbf{A}}[\vec{a}])\text{ (por def de }t^{\mathbf{A}}[\vec{a}]\text{)} \\ & = & i(f)(t_{1}^{\mathbf{A}}[\vec{b}], \dotsc, t_{n}^{\mathbf{A}}[\vec{b}]) \\ & = & t^{\mathbf{A}}[\vec{b}]\text{ (por def de }t^{\mathbf{A}}[\vec{a}] \text{)} \end{array} $
+  %
+  %   $\Box$
+  % \end{proof}
+  %
+  % % Lemma 132. Con prueba. Lemma 44.
+  % \begin{lemma}
+  %   \begin{enumerate}[(a)]
+  %     \item $Li((t \equiv s)) = \{v \in Var: v$ ocurre en $t$ ó $v$ ocurre en $s\}$
+  %     \item $Li(r(t_{1}, \dotsc, ,t_{n})) = \{v \in Var: v$ ocurre en algún $t_{i}\}$
+  %     \item $Li(\lnot \varphi) = Li(\varphi)$
+  %     \item $Li((\varphi \eta \psi)) = Li(\varphi) \cup Li(\psi)$
+  %     \item $Li(Qx_{j}\varphi) = Li(\varphi)-\{x_{j}\}$
+  %   \end{enumerate}
+  % \end{lemma}
+  % \begin{proof}
+  %   (a) y (b) son triviales de las definiciones, teniendo en cuenta que si una variable $v$ ocurre en $(t\equiv s)$ (resp. en $r(t_{1}, \dotsc, t_{n})$) entonces $v$ ocurre en $t$ o $v$ ocurre en $s$ (resp.$v$ ocurre en algun $ t_{i}$)
+  %
+  %   (d) Supongamos $v\in Li((\varphi \eta \psi ))$, entonces hay un $i$ tal que $ v$ ocurre libremente en $(\varphi \eta \psi )$ a partir de $i$. Por definicion tenemos que ya sea $v$ ocurre libremente en $\varphi $ a partir de $i-1$ o $v$ ocurre libremente en $\psi $ a partir de $i-\left\vert (\varphi \eta \right\vert $, con lo cual $v\in Li(\varphi )\cup Li(\psi )$
+  %
+  %   Supongamos ahora que $v\in Li(\varphi )\cup Li(\psi )$. S.p.d.g. supongamos $ v\in Li(\psi )$. Por definicion tenemos que hay un $i$ tal que $v$ ocurre libremente en $\psi $ a partir de $i$. Pero notese que esto nos dice por definicion que $v$ ocurre libremente en $(\varphi \eta \psi )$ a partir de $ i+\left\vert (\varphi \eta \right\vert $ con lo cual $v\in Li((\varphi \eta \psi ))$.
+  %
+  %   (c) es similar a (d)
+  %
+  %   (e) Supongamos $v\in Li(Qx_{j}\varphi )$, entonces hay un $i$ tal que $v$ ocurre libremente en $Qx_{j}\varphi $ a partir de $i$. Por definicion tenemos que $v\neq x_{j}$ y $v$ ocurre libremente en $\varphi $ a partir de $ i-\left\vert Qx_{j}\right\vert $, con lo cual $v\in Li(\varphi )-\{x_{j}\}$
+  %
+  %   Supongamos ahora que $v\in Li(\varphi )-\{x_{j}\}$. Por definicion tenemos que hay un $i$ tal que $v$ ocurre libremente en $\varphi $ a partir de $i$. Ya que $v\neq x_{j}$ esto nos dice por definicion que $v$ ocurre libremente en $Qx_{j}\varphi $ a partir de $i+\left\vert Qx_{j}\right\vert $, con lo cual $v\in Li(Qx_{j}\varphi )$. $\Box$
+  % \end{proof}
+  %
+  % % Lemma 133. Con prueba. Lemma 45.
+  % \begin{lemma}
+  %   \PN Supongamos que $\vec{a}, \vec{b}$ son asignaciones tales que si $x_{i} \in Li(\varphi)$, entonces $a_{i} =
+  %   b_{i}$, entonces $\mathbf{A} \models \varphi \lbrack \vec{a}] \Leftrightarrow \mathbf{A} \models \varphi \lbrack
+  %   \vec{b}]$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Probaremos por induccion en $k$ que el lema vale para cada $\varphi \in F_{k}^{\tau }.$ El caso $k=0$ se desprende del Lema 131. Veamos que Teo$_{k}$ implica Teo$_{k+1}.$ Sea $\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }.$ Hay varios casos:
+  %
+  %   CASO $\varphi =(\varphi_{1}\wedge \varphi_{2})$.
+  %
+  %   Ya que $Li(\varphi_{i})\subseteq Li(\varphi )$, $i=1,2$, Teo$_{k}$ nos dice que $\mathbf{A} \models \varphi_{i}[\vec{a}]$ sii $\mathbf{A} \models \varphi_{i}[\vec{b}]$, para $i=1,2$. Se tiene entonces que
+  %
+  %   $\displaystyle \begin{array}{l} \mathbf{A} \models \varphi \lbrack \vec{a}] \\ \ \ \Updownarrow \text{ (por (3) en la def de }\mathbf{A} \models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A} \models \varphi_{1}[\vec{a}]\text{ y }\mathbf{A} \models \varphi_{2}[\vec{a}] \\ \ \ \Updownarrow \text{ (por Teo}_{k}\text{)} \\ \mathbf{A} \models \varphi_{1}[\vec{b}]\text{ y }\mathbf{A} \models \varphi_{2}[\vec{b}] \\ \ \ \Updownarrow \text{(por (3) en la def de }\mathbf{A} \models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A} \models \varphi \lbrack \vec{b}] \end{array} $
+  %
+  %   CASO $\varphi =(\varphi_{1}\wedge \varphi_{2})$.
+  %
+  %   Es completamente similar al anterior.
+  %
+  %   CASO $\varphi =\lnot \varphi_{1}.$
+  %
+  %   Es completamente similar al anterior.
+  %
+  %   CASO $\varphi =\forall x_{j}\varphi_{1}.$
+  %
+  %   Supongamos $\mathbf{A} \models \varphi \lbrack \vec{a}]$. Entonces por (8) en la def de $\mathbf{A} \models \varphi \lbrack \vec{a}]$ se tiene que $\mathbf{A} \models \varphi_{1}[\downarrow _{j}^{a}(\vec{a})]$, para todo $a\in A$. Notese que $\downarrow _{j}^{a}(\vec{a})$ y $\downarrow _{j}^{a}(\vec{b})$ coinciden en toda $x_{i}$ de $x_{i}\in Li(\varphi_{1})\subseteq Li(\varphi_{1})\cup \{x_{j}\}$, con lo cual por Teo$_{k}$ se tiene que $\mathbf{A} \models \varphi_{1}[\downarrow _{j}^{a}(\vec{b})]$, para todo $a\in A$, lo cual por (8) en la def de $\mathbf{A} \models \varphi \lbrack \vec{a}]$ nos dice que $\mathbf{A} \models \varphi \lbrack \vec{b}]$. La prueba de que $\mathbf{A} \models \varphi \lbrack \vec{b}]$ implica que $ \mathbf{A} \models \varphi \lbrack \vec{a}]$ es similar.
+  %
+  %   CASO $\varphi =\exists x_{j}\varphi_{1}$.
+  %
+  %   Es similar al anterior. $\Box$
+  % \end{proof}
+  %
+  % % Corollary 134. Sin prueba. Lemma 46.
+  % \begin{corollary}
+  %   \PN Si $\varphi$ es una sentencia, entonces $\mathbf{A} \models \varphi \lbrack \vec{a}] \Leftrightarrow \mathbf{A}
+  %   \models \varphi \lbrack \vec{b}]$, cualesquiera sean las asignaciones $\vec{a}, \vec{b}$.
+  % \end{corollary}
+  %
+  % % Lemma 135. Con prueba. Lemma 47.
+  % \begin{lemma}
+  %   \begin{enumerate}[(a)]
+  %     \item Si $Li(\varphi) \cup Li(\psi) \subseteq \{x_{i_{1}}, \dotsc, x_{i_{n}}\}$, entonces $\varphi \thicksim \psi$
+  %     si y solo si la sentencia $\forall x_{i_{1}} \dotsc \forall x_{i_{n}}(\varphi \leftrightarrow \psi)$ es
+  %     universalmente válida.
+  %     \item Si $\varphi_{i} \thicksim \psi_{i}, i = 1, 2$, entonces $\lnot \varphi_{1} \thicksim \lnot \psi_{1},
+  %     (\varphi_{1} \eta \varphi_{2}) \thicksim (\psi_{1} \eta \psi_{2})$ y $Qv\varphi_{1} \thicksim Qv \psi_{1}$.
+  %     \item Si $\varphi \thicksim \psi$ y $\alpha^{\prime}$ es el resultado de reemplazar en una fórmula $\alpha$
+  %     algunas (posiblemente $0$) ocurrencias de $\varphi$ por $\psi$, entonces $\alpha \thicksim \alpha^{\prime}$.
+  %   \end{enumerate}
+  % \end{lemma}
+  % \begin{proof}
+  %   Tenemos que
+  %
+  %   $\displaystyle \begin{array}{l} \varphi \thicksim \psi \\ \ \ \Updownarrow \text{ (por (6) de la def de}\models \text{)} \\ \mathbf{A} \models (\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo } \mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A} \models (\varphi \leftrightarrow \psi )[\downarrow _{i_{n}}^{a}(\vec{a })]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow (\text{por (8) de la def de}\models ) \\ \mathbf{A} \models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}] \text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A} \models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\downarrow _{i_{n-1}}^{a}(\vec{a})]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \text{ (por (8) de la def de}\models \text{)} \\ \mathbf{A} \models \forall x_{i_{n-1}}\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \ \ \ \ \vdots \\ \ \ \Updownarrow \\ \mathbf{A} \models \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\text{ es universalmente valida} \end{array} $
+  %
+  %   (b) Es dejado al lector.
+  %
+  %   (c) Por induccion en el $k$ tal que $\alpha \in F_{k}^{\tau }$. $\Box$
+  % \end{proof}
+  %
+  % % Lemma 136. Con prueba. Lemma 48.
+  % \begin{lemma}
+  %   \PN Sea $F: \mathbf{A} \rightarrow \mathbf{B}$ un homomorfismo, entonces:
+  %   \[
+  %     F(t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)] = t^{\mathbf{B}}[F(a_{1}), F(a_{2}), \dotsc)]
+  %   \]
+  %   \PN para cada $t \in \TAU, (a_{1}, a_{2}, \dotsc) \in A^{\mathbf{N}}$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Sea
+  %
+  %   - Teo$_{k}$: Si $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, entonces
+  %   $\displaystyle F(t^{\mathbf{A}}[(a_{1},a_{2},...)]=t^{\mathbf{B}}[F(a_{1}),F(a_{2}),...)] $
+  %
+  %   para cada $t\in T_{k}^{\tau }$, $(a_{1},a_{2},...)\in A^{\mathbf{N}}$.
+  %   Teo$_{0}$ es trivial. Veamos que Teo$_{k}$ implica Teo$_{k+1}$. Supongamos que vale Teo$_{k}$ y supongamos $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, $t\in T_{k+1}^{\tau }-T_{k}^{\tau }$ y $\vec{a} =(a_{1},a_{2},...)\in A^{\mathbf{N}}$. Denotemos $(F(a_{1}),F(a_{2}),...)$ con $F(\vec{a})$. Por Lema 117, $t=f(t_{1}, \dotsc, t_{n})$, con $n\geq 1 $,$\;f\in \mathcal{F}_{n}$ y $t_{1}, \dotsc, t_{n}\in T_{k}^{\tau }$. Tenemos entonces
+  %
+  %   $\displaystyle \begin{array}{ccl} F(t^{\mathbf{A}}[\vec{a}]) & = & F(f(t_{1}, \dotsc, t_{n})^{\mathbf{A}}[\vec{a}]) \\ & = & F(f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{n}^{\mathbf{A}}[ \vec{a}])) \\ & = & f^{\mathbf{B}}(F(t_{1}^{\mathbf{A}}[\vec{a}]), \dotsc, F(t_{n}^{\mathbf{A}}[ \vec{a}])) \\ & = & f^{\mathbf{B}}(t_{1}^{\mathbf{B}}[F(\vec{a})], \dotsc, t_{n}^{\mathbf{B}}[F( \vec{a})])) \\ & = & f(t_{1}, \dotsc, t_{n})^{\mathbf{B}}[F(\vec{a})] \\ & = & t^{\mathbf{B}}[F(\vec{a})] \end{array} $
+  %
+  %   $\Box$
+  % \end{proof}
+  %
+  % % Lemma 137. Sin prueba. Lemma 49.
+  % \begin{lemma}
+  %   \PN Supongamos que $F: \mathbf{A} \rightarrow \mathbf{B}$ es un isomorfismo. Sea $\varphi \in F^{\tau}$, entonces:
+  %   \[
+  %     \mathbf{A} \models \varphi \lbrack (a_{1}, a_{2}, \dotsc)] \Leftrightarrow \mathbf{B} \models \varphi \lbrack
+  %     (F(a_{1}), F(a_{2}), \dotsc)]
+  %   \]
+  %   \PN para cada $(a_{1}, a_{2}, \dotsc) \in A^{\mathbf{N}}$. En particular $\mathbf{A}$ y $\mathbf{B}$ satisfacen las
+  %   mismas sentencias de tipo $\tau$.
+  % \end{lemma}
+  %
+  % % Lemma 138. Con prueba. Lemma 50.
+  % \begin{lemma}
+  %   \PN Si $F: \mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+  % \end{lemma}
+  % \begin{proof}
+  %   Solo falta probar que $F^{-1}$ es un homomorfismo. Supongamos que $c\in \mathcal{C}$. Ya que $F(c^{\mathbf{A}})=c^{\mathbf{B}}$, tenemos que $ F^{-1}(c^{\mathbf{B}})=c^{\mathbf{A}}$, por lo cual $F^{-1}$ cumple (1) de la definicion de homomorfismo. Supongamos ahora que $f\in \mathcal{F}_{n}$ y sean $b_{1}, \dotsc, b_{n}\in B$. Sean $a_{1}, \dotsc, a_{n}\in A$ tales que $ F(a_{i})=b_{i}$, $i=1, \dotsc, n$. Tenemos que
+  %
+  %   $\displaystyle \begin{array}{ccl} F^{-1}(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) & = & F^{-1}(f^{\mathbf{B} }(F(a_{1}), \dotsc, F(a_{n}))) \\ & = & F^{-1}(F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) \\ & = & f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \\ & = & f^{\mathbf{A}}(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n})) \end{array} $
+  %
+  %   por lo cual $F^{-1}$ satisface (2) de la definicion de homomorfismo $\Box$
+  % \end{proof}
+  %
+  % % Lemma 139. Con prueba. Lemma 51.
+  % \begin{lemma}
+  %   \PN Si $F: \mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de
+  %   $\mathbf{B}$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Ya que $A\neq \varnothing ,$ tenemos que $I_{F}\neq \varnothing .$ Es claro que $ c^{\mathbf{B}}=F(c^{\mathbf{A}})\in I_{F},$ para cada $c\in \mathcal{C}$. Sea $f\in \mathcal{F}_{n}$ y sean $b_{1}, \dotsc, b_{n}\in I_{F}$ Sean $ a_{1}, \dotsc, a_{n}$ tales que $F(a_{i})=b_{i},$ $i=1, \dotsc, n$. Tenemos que
+  %
+  %   $\displaystyle f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})=f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n}))=F(f^{ \mathbf{A}}(a_{1}, \dotsc, a_{n}))\in I_{F} $
+  %
+  %   por lo cual $I_{F}$ es cerrada bajo $f^{\mathbf{B}}$.
+  % \end{proof}
+  %
+  % % Lemma 140. Con prueba. Lemma 52.
+  % \begin{lemma}
+  %   \PN Si $F: \mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, entonces $\ker F$ es una congruencia sobre
+  %   $\mathbf{A}$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Sea $f\in \mathcal{F}_{n}$. Supongamos que $a_{1}, \dotsc, a_{n},b_{1}, \dotsc, b_{n} \in A$ son tales que $a_{1}\ker Fb_{1}, \dotsc, a_{n}\ker Fb_{n}$. Tenemos entonces que
+  %
+  %   $\displaystyle \begin{array}{ccl} F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) & = & f^{\mathbf{B} }(F(a_{1}), \dotsc, F(a_{n})) \\ & = & f^{\mathbf{B}}(F(b_{1}), \dotsc, F(b_{n})) \\ & = & F(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) \end{array} $
+  %
+  %   lo cual nos dice que $f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})\ker Ff^{\mathbf{B} }(b_{1}, \dotsc, b_{n})$ $\Box$
+  % \end{proof}
+  %
+  % % Lemma 141. Con prueba. Lemma 53.
+  % \begin{lemma}
+  %   \PN $\pi_{\theta}: \mathbf{A} \rightarrow \mathbf{A}/\theta$ es un homomorfismo cuyo núcleo es $\theta$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Sea $c\in \mathcal{C}$. Tenemos que
+  %
+  %   $\displaystyle \pi _{\theta }(c^{\mathbf{A}})=c^{\mathbf{A}}/\theta =c^{\mathbf{A}/\theta } $
+  %
+  %   Sea $f\in \mathcal{F}_{n}$, con $n\geq 1$ y sean $a_{1}, \dotsc, a_{n}\in A$. Tenemos que
+  %   $\displaystyle \begin{array}{ccl} \pi _{\theta }(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) & = & f^{\mathbf{A} }(a_{1}, \dotsc, a_{n})/\theta \\ & = & f^{\mathbf{A}/\theta }(a_{1}/\theta , \dotsc, a_{n}/\theta ) \\ & = & f^{\mathbf{A}/\theta }(\pi _{\theta }(a_{1}), \dotsc, \pi _{\theta }(a_{n})) \end{array} $
+  %
+  %   con lo cual $\pi _{\theta }$ es un homomorfismo. Es trivial que $\ker \pi _{\theta }=\theta $ $\Box$
+  % \end{proof}
+  %
+  % % Corollary 142. Con prueba. Lemma 54.
+  % \begin{corollary}
+  %   \PN Para cada $t \in \TAU, \vec{a} \in A^{\mathbf{N}}$, se tiene que $t^{\mathbf{A}/\theta}[(a_{1}/\theta,
+  %   a_{2}/\theta, \dotsc)] = t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)]/\theta$.
+  % \end{corollary}
+  % \begin{proof}
+  %   Ya que $\pi _{\theta }$ es un homomorfismo, se puede aplicar el Lema 136. $\Box$
+  % \end{proof}
+  %
+  % % Theorem 143. Con prueba. Lemma 55.
+  % \begin{theorem}
+  %   \PN Sea $F: \mathbf{A} \rightarrow \mathbf{B}$ un homomorfismo sobreyectivo, entonces:
+  %   \begin{eqnarray*}
+  %     A/\ker F &\rightarrow& B \\
+  %     a/\ker F &\rightarrow& F(a)
+  %   \end{eqnarray*}
+  %   \PN define sin ambiguedad una función $\bar{F}$ la cual es un isomorfismo de $\mathbf{A}/\ker F$ en $\mathbf{B}$.
+  % \end{theorem}
+  % \begin{proof}
+  %   Notese que la definicion de $\bar{F}$ es inambigua ya que si $a/\ker F=a^{\prime }/\ker F$, entonces $F(a)=F(a^{\prime }).$ Ya que $F$ es sobre, tenemos que $\bar{F}$ lo es. Supongamos que $\bar{F}(a/\ker F)=\bar{F} (a^{\prime }/\ker F).$ Claramente entonces tenemos que $F(a)=F(a^{\prime })$ , lo cual nos dice que $a/\ker F=a^{\prime }/\ker F$. Esto prueba que $\bar{F }$ es inyectiva. Para ver que $\bar{F}$ es un isomorfismo, por el Lema 138, basta con ver que $\bar{F}$ es un homomorfismo. Sea $c\in \mathcal{C}$. Tenemos que
+  %
+  %   $\displaystyle \bar{F}(c^{\mathbf{A}/\ker F})=\bar{F}(c^{\mathbf{A}}/\ker F)=F(c^{\mathbf{A} })=c^{\mathbf{B}} $
+  %
+  %   Sea $f\in \mathcal{F}_{n}$. Sean $a_{1}, \dotsc, a_{n}\in A$. Tenemos que
+  %   $\displaystyle \begin{array}{ccl} \bar{F}(f^{\mathbf{A}/\ker F}(a_{1}/\ker F, \dotsc, a_{n}/\ker F)) & = & \bar{F} (f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})/\ker F) \\ & = & F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) \\ & = & f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n})) \\ & = & f^{\mathbf{B}}(\bar{F}(a_{1}/\ker F), \dotsc, \bar{F}(a_{n}/\ker F)) \end{array} $
+  %
+  %   con lo cual $\bar{F}$ cunple (2) de la definicion de homomorfismo
+  % \end{proof}
+  %
+  % % Lemma 144. Con prueba. Lemma 56.
+  % \begin{lemma}
+  %   \PN Los mapeos $\pi_{1}: A \times B \rightarrow A$ y $\pi_{2}: A \times B \rightarrow A$ son homomorfismos.
+  % \end{lemma}
+  % \begin{proof}
+  %   Veamos que $\pi _{1}$ es un homomorfismo. Primero notese que si $c\in \mathcal{C}$, entonces
+  %
+  %   $\displaystyle \pi _{1}(c^{\mathbf{A}\times \mathbf{B}})=\pi _{1}((c^{\mathbf{A}},c^{ \mathbf{B}}))=c^{\mathbf{A}} $
+  %
+  %   Sea $f\in \mathcal{F}_{n}$, con $n\geq 1$ y sean $ (a_{1},b_{1}), \dotsc, (a_{n},b_{n})\in A\times B$. Tenemos que
+  %   $\displaystyle \begin{array}{ccl} \pi _{1}(f^{\mathbf{A}\times \mathbf{B}}((a_{1},b_{1}), \dotsc, (a_{n},b_{n})) & = & \pi _{1}((f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}),f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) \\ & = & f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \\ & = & f^{\mathbf{A}}(\pi _{1}(a_{1},b_{1}), \dotsc, \pi _{1}(a_{n},b_{n})) \end{array} $
+  %
+  %   con lo cual hemos probado que $\pi _{1}$ cumple (2) de la definicion de homomorfismo
+  % \end{proof}
+  %
+  % % Lemma 145. Con prueba. Lemma 57.
+  % \begin{lemma}
+  %   \PN Para cada $t \in \TAU, ((a_{1}, b_{1}), (a_{2}, b_{2}), \dotsc) \in (A \times B)^{\mathbf{N}}$, se tiene que
+  %   $t^{\mathbf{A} \times \mathbf{B}}[((a_{1}, b_{1}), (a_{2}, b_{2}), \dotsc)] = (t^{\mathbf{A}}[(a_{1}, a_{2},
+  %   \dotsc)], t^{\mathbf{B}}[(b_{1}, b_{2}, \dotsc)])$.
+  % \end{lemma}
+  %
+  % % Lemma 146. Con prueba. Lemma 58.
+  % \begin{lemma}
+  %   \PN Sean $w_{1}, \dotsc, w_{k}$ variables, todas distintas. Sean $v_{1}, \dotsc, v_{n}$ variables, todas distintas.
+  %   Supongamos $t =_{d} t(w_{1}, \dotsc, w_{k}), s_{1} =_{d} s_{1}(v_{1}, \dotsc, v_{n}), \dotsc, s_{k} =_{d} s_{k}
+  %   (v_{1}, \dotsc, v_{n})$, entonces:
+  %   \begin{enumerate}[(a)]
+  %     \item $t(s_{1}, \dotsc, s_{k}) =_{d} t(s_{1}, \dotsc, s_{k})(v_{1}, \dotsc, v_{n})$
+  %     \item Para cada estructura $\mathbf{A}$ y $a_{1}, \dotsc, a_{n} \in A$, se tiene que:
+  %       \[
+  %         t(s_{1}, \dotsc, s_{k})^{\mathbf{A}}[a_{1}, \dotsc, a_{n}] = t^{\mathbf{A}}[s_{1}^{\mathbf{A}}[a_{1}, \dotsc,
+  %         a_{n}], \dotsc, s_{k}^{\mathbf{A}}[a_{1}, \dotsc, a_{n}]]
+  %       \]
+  %   \end{enumerate}
+  % \end{lemma}
+  % \begin{proof}
+  %   Probaremos que valen (a) y (b), por induccion en el $l$ tal que $t\in T_{l}^{\tau }.$ El caso $l=0$ es dejado al lector. Supongamos entonces que valen (a) y (b) siempre que $t\in T_{l}^{\tau }$ y veamos que entonces valen (a) y (b) cuando $t\in T_{l+1}^{\tau }-T_{l}^{\tau }$. Hay $f\in \mathcal{F} _{m}$ y $t_{1}, \dotsc, t_{m}\in T_{l}^{\tau }$ tales que $ t_{1}=_{d}t_{1}(w_{1}, \dotsc, w_{k}), \dotsc, t_{m}=_{d}t_{m}(w_{1}, \dotsc, w_{k})$ y $ t=f(t_{1}, \dotsc, t_{m})$. Notese que por (a) de la HI tenemos que
+  %
+  %   $\displaystyle t_{i}(s_{1}, \dotsc, s_{k})=_{d}t_{i}(s_{1}, \dotsc, s_{k})(v_{1}, \dotsc, v_{n})\text{, } i=1, \dotsc, m $
+  %
+  %   lo cual ya que
+  %   $\displaystyle t(s_{1}, \dotsc, s_{k})=f(t_{1}(s_{1}, \dotsc, s_{k}), \dotsc, t_{m}(s_{1}, \dotsc, s_{k})) $
+  %
+  %   nos dice que
+  %   $\displaystyle t(s_{1}, \dotsc, s_{k})=_{d}t(s_{1}, \dotsc, s_{k})(v_{1}, \dotsc, v_{n}) $
+  %
+  %   obteniendo asi (a). Para probar (b) notemos que por (b) de la hipotesis inductiva
+  %   $\displaystyle t_{j}(s_{1}, \dotsc, s_{k})^{\mathbf{A}}[\vec{a}]=t_{j}^{\mathbf{A}}[s_{1}^{ \mathbf{A}}[\vec{a}], \dotsc, s_{k}^{\mathbf{A}}[\vec{a}]],j=1, \dotsc, m $
+  %
+  %   lo cual nos dice que
+  %   $\displaystyle \begin{array}{ccl} t(s_{1}, \dotsc, s_{k})^{\mathbf{A}}[\vec{a}] & = & f(t_{1}(s_{1}, \dotsc, s_{k}), \dotsc, t_{m}(s_{1}, \dotsc, s_{k}))^{\mathbf{A}}[\vec{a}] \\ & = & f^{\mathbf{A}}(t_{1}(s_{1}, \dotsc, s_{k})^{\mathbf{A}}[\vec{a} ], \dotsc, t_{m}(s_{1}, \dotsc, s_{k})^{\mathbf{A}}[\vec{a}]) \\ & = & f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[s_{1}^{\mathbf{A}}[\vec{a} ], \dotsc, s_{k}^{\mathbf{A}}[\vec{a}]], \dotsc, t_{m}^{\mathbf{A}}[s_{1}^{\mathbf{A}}[ \vec{a}], \dotsc, s_{k}^{\mathbf{A}}[\vec{a}]]) \\ & = & t^{\mathbf{A}}[s_{1}^{\mathbf{A}}[\vec{a}], \dotsc, s_{k}^{\mathbf{A}}[\vec{ a}]] \end{array} $
+  % \end{proof}
+  %
+  % % Lemma 147. Con prueba. Lemma 59.
+  % \begin{lemma}
+  %   \PN Si $Qv$ ocurre en $\varphi$ a partir de $i$, entonces hay una única fórmula $\psi$ tal que $Qv\psi$ ocurre en
+  %   $\varphi$ a partir de $i$.
+  % \end{lemma}
+  % \begin{proof}
+  %   Por induccion en el $k$ tal que $\varphi \in F^{\tau }$.
+  % \end{proof}
+  % 
+  % % Lemma 148. Con prueba. Lemma 60.
+  % \begin{lemma}
+  %   \PN Sean $w_{1}, \dotsc, w_{k}$ variables, todas distintas. Sean $v_{1}, \dotsc, v_{n}$ variables, todas distintas.
+  %   Supongamos $\varphi =_{d} \varphi(w_{1}, \dotsc, w_{k}), t_{1} =_{d} t_{1}(v_{1}, \dotsc, v_{n}), \dotsc, t_{k}
+  %   =_{d}t_{k}(v_{1}, \dotsc, v_{n})$ son tales que cada $w_{j}$ es sustituible por $t_{j}$ en $\varphi$, entonces:
+  %   \begin{enumerate}[(a)]
+  %     \item $\varphi(t_{1}, \dotsc, t_{k}) =_{d} \varphi(t_{1}, \dotsc, t_{k})(v_{1}, \dotsc, v_{n})$
+  %     \item Para cada estructura $\mathbf{A}$ y $\vec{a} \in A^{n}$ se tiene:
+  %       \[
+  %         \mathbf{A} \models \varphi(t_{1}, \dotsc, t_{k})[\vec{a}] \Leftrightarrow \mathbf{A} \models \varphi \lbrack
+  %         t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{k}^{ \mathbf{A}}[\vec{a}]]
+  %       \]
+  %   \end{enumerate}
+  % \end{lemma}
+  % \begin{proof}
+  %   Probaremos que se dan (a) y (b), por induccion en el $l$ tal que $\varphi \in F_{l}^{\tau }.$ El caso $l=0$ es una consecuencia directa del Lema 146. Supongamos (a) y (b) valen para cada $\varphi \in F_{l}^{\tau } $ y sea $\varphi \in F_{l+1}^{\tau }-F_{l}^{\tau }.$ Notese que se puede suponer que cada $v_{i}$ ocurre en algun $t_{i},$ y que cada $w_{i}\in Li(\varphi )$, ya que para cada $\varphi ,$ el caso general se desprende del caso con estas restricciones. Hay varios casos
+  %
+  %   CASO $\varphi =\forall w\varphi_{1},$ con $w\not\in \{w_{1}, \dotsc, w_{k}\}$ y $ \varphi_{1}=_{d}\varphi_{1}(w_{1}, \dotsc, w_{k},w)$
+  %
+  %   Notese que cada $w_{j}\in Li(\varphi_{1})$. Ademas notese que $ w\not\in \{v_{1}, \dotsc, v_{n}\}$ ya que de lo contrario $w$ ocurriria en algun $ t_{j}$, y entonces $w_{j}$ no seria sustituible por $t_{j}$ en $\varphi $. Sean
+  %
+  %   $\displaystyle \begin{array}{ccc} \tilde{t}_{1} & = & t_{1} \\ & \vdots & \\ \tilde{t}_{k} & = & t_{k} \\ \tilde{t}_{k+1} & = & w \end{array} $
+  %
+  %   Notese que
+  %   $\displaystyle \tilde{t}_{j}=_{d}\tilde{t}_{j}(v_{1}, \dotsc, v_{n},w) $
+  %
+  %   Por (a) de la hipotesis inductiva tenemos que
+  %   $\displaystyle Li(\varphi_{1}(t_{1}, \dotsc, t_{k},w))=Li(\varphi_{1}(\tilde{t}_{1}, \dotsc, \tilde{ t}_{k},\tilde{t}_{k+1}))\subseteq \{v_{1}, \dotsc, v_{n},w\} $
+  %
+  %   y por lo tanto
+  %   $\displaystyle Li(\varphi(t_{1}, \dotsc, t_{k}))\subseteq \{v_{1}, \dotsc, v_{n}\} $
+  %
+  %   lo cual prueba (a). Finalmente notese que
+  %   $\displaystyle \begin{array}{c} \mathbf{A} \models \varphi(t_{1}, \dotsc, t_{k})\mathbf{[}\vec{a}] \\ \Updownarrow \\ \mathbf{A} \models \varphi_{1}(\tilde{t}_{1}, \dotsc, \tilde{t}_{k},\tilde{t} _{k+1})[\vec{a},a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A} \models \varphi_{1}[\tilde{t}_{1}^{\mathbf{A}}[\vec{a},a], \dotsc,  \tilde{t}_{k}^{\mathbf{A}}[\vec{a},a],\tilde{t}_{k+1}^{\mathbf{A}}[\vec{a} ,a]],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A} \models \varphi_{1}[t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{k}^{ \mathbf{A}}[\vec{a}],a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A} \models \varphi \lbrack t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{k}^{ \mathbf{A}}[\vec{a}]] \end{array} $
+  %
+  %   lo cual pueba (b). El caso del cuantificador $\exists $ es analogo y los casos de nexos logicos son directos.
+  % \end{proof}

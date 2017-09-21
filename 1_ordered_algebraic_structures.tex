@@ -799,71 +799,84 @@
   %   Se tiene que $x_{0}\geq (p \ \IN \ x)\ \SU \(p \ \IN \  y)=p \ \IN \ (x\ \SU \y)\in P$, lo cual es absurdo ya que $ x_{0}\notin P$. $\Box$
   % \end{proof}
   %
-  % Corollary 113: Con prueba. Corollary 25.
-  \begin{corollary}
-    \PN Sea $(L, \SU, \IN, 0, 1)$ un reticulado acotado distributivo. Si $\emptyset \neq S \subseteq L$ es tal que
-    $s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \ s_{n} \neq 0$, para cada $s_{1}, \dotsc, s_{n} \in S$, entonces hay un
-    filtro primo que contiene a $S$.
-  \end{corollary}
-  \begin{proof}
-    \PN Dado que $[S) \neq L$, se puede aplicar el \textbf{Theorem~\ref{theorem_24}} (Teorema del filtro primo).
-  \end{proof}
-
-  % Lemma 114: Con prueba. Lemma 26.
-  \begin{lemma}
-    \PN Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un algebra de Boole, entonces para un filtro $F \subseteq B$ las siguientes son
-    equivalentes:
-    \begin{enumerate}[(1)]
-      \item $F$ es primo
-      \item $x \in F$ ó $x^{c} \in F$, para cada $x \in B$.
-    \end{enumerate}
-  \end{lemma}
-  \begin{proof}
-    \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$\\\hline \end{tabular} Ya que $x \ \SU \ x^{c} = 1 \in F$, y F es
-      filtro primo, por definición de filtro primo se cumple que $x \in F$ ó $x^{c} \in F$.
-
-    \vspace{3mm}
-    \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$\\\hline \end{tabular} Supongamos que $x \ \SU \ y \in F$ y que
-    $x \notin F$, entonces por (2), $x^{c} \in F$ y por lo tanto tenemos que:
-    \[
-      y \geq x^{c} \ \IN \ y = 0 \ \SU \ (x^{c} \ \IN \ y) = (x^{c} \ \IN \ x) \ \SU \ (x^{c} \ \IN \ y) = x^{c} \ \IN \
-      (x \ \SU \ y) \in F
-    \]
-    \PN lo cual dice que $y \in F$.
-  \end{proof}
-
-  % Lemma 115: Con prueba. Lemma 27.
-  \begin{lemma}
-    \PN Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Supongamos que $b \neq 0$ y $a = \inf A$, con $A \subseteq
-    B$, entonces si $b \ \IN \ a = 0 \ \exists e \in A$ tal que $b \ \IN \ e^{c} \neq 0$.
-  \end{lemma}
-  \begin{proof}
-    \PN Supongamos que para cada $e \in A$, tengamos que $b \ \IN \ e^{c} = 0$, entonces tenemos que para cada
-    $e \in A$,
-    \[
-      b = b \ \IN \ (e \ \SU \ e^{c}) = (b \ \IN \ e)\ \SU \ (b \ \IN \ e^{c}) = b \ \IN \ e
-    \]
-    \PN lo cual nos dice que $b$ es cota inferior de $A$. Pero si $b \leq a$, entonces $b = b \ \IN \ a = 0$, es decir,
-    $b = 0$, lo cual es un absurdo dado que por hipótesis sabíamos que $b \neq 0$.
-  \end{proof}
-  %
-  % % Theorem 116: Con prueba. Theorem 28.
-  % \begin{theorem}
-  %   \PN \textbf{(Rasiova y Sikorski)} Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Sea $x \in B$, $x \neq 0$.
-  %   Supongamos que $A_{1}, A_{2}, \dotsc$ son subconjuntos de $B$ tales que existe $\inf(A_{j})$, para cada $j = 1, 2
-  %   \dotsc$, entonces hay un filtro primo $P$ el cual cumple:
-  %   \begin{enumerate}[a)]
-  %     \item $x \in P$
-  %     \item $P \supseteq A_{j} \Rightarrow P \ni \inf (A_{j})$, para cada $ j = 1, 2, \dotsc.$
-  %   \end{enumerate}
-  % \end{theorem}
+  % % Corollary 113: Con prueba. Corollary 25.
+  % \begin{corollary} \label{corollary_25}
+  %   \PN Sea $(L, \SU, \IN, 0, 1)$ un reticulado acotado distributivo. Si $\emptyset \neq S \subseteq L$ es tal que
+  %   $s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \ s_{n} \neq 0$, para cada $s_{1}, \dotsc, s_{n} \in S$, entonces hay un
+  %   filtro primo que contiene a $S$.
+  % \end{corollary}
   % \begin{proof}
-  %   Sean $a_{j}=\inf (A_{j})$, $j=1,2,\dotsc$. Construiremos inductivamente una sucesion $b_{0},b_{1},\dotsc$ de elementos de $B$ tal que:
-  %
-  %   (1) $b_{0}=x$
-  %   (2) $b_{0} \ \IN \ $\dotsc$ \ \IN \ b_{n}\neq 0$, para cada $ n\geq 0$
-  %   (3) $b_{j}=a_{j}$ o $b_{j}^{c}\in A_{j}$, para cada $j\geq 1$.
-  %   Definamos $b_{0}=x$. Supongamos ya definimos $b_{0}, \dotsc, b_{n}$, veamos como definir $b_{n+1}$. Si $(b_{0} \ \IN \ \dotsc \ \IN \  b_{n}) \ \IN \ a_{n+1}\neq 0$, entonces definamos $b_{n+1}=a_{n+1}$. Si $(b_{0} \ \IN \ \dotsc \ \IN \ b_{n}) \ \IN \ a_{n+1}=0$, entonces por el lema anterior, tenemos que hay un $e\in A_{n+1}$ tal que $ (b_{0} \ \IN \ \dotsc \ \IN \ b_{n}) \ \IN \ e^{c}\neq 0$, lo cual nos permite definir $b_{n+1}=e^{c}$.
-  %
-  %   Usando (2) se puede probar que el conjunto $S=\{b_{0},b_{1},\dotsc\}$ satisface la hipotesis del primer corolario del Teorema del filtro primo, por lo cual hay un filtro primo $P$ tal que $\{b_{0},b_{1},\dotsc\}\subseteq P$. Es facil chequear que $P$ satisface las propiedades (a) y (b). $\Box$
+  %   \PN Dado que $[S) \neq L$, se puede aplicar el \textbf{Theorem~\ref{theorem_24}} (Teorema del filtro primo).
   % \end{proof}
+  %
+  % % Lemma 114: Con prueba. Lemma 26.
+  % \begin{lemma}
+  %   \PN Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un algebra de Boole, entonces para un filtro $F \subseteq B$ las siguientes son
+  %   equivalentes:
+  %   \begin{enumerate}[(1)]
+  %     \item $F$ es primo
+  %     \item $x \in F$ ó $x^{c} \in F$, para cada $x \in B$.
+  %   \end{enumerate}
+  % \end{lemma}
+  % \begin{proof}
+  %   \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$\\\hline \end{tabular} Ya que $x \ \SU \ x^{c} = 1 \in F$, y F es
+  %     filtro primo, por definición de filtro primo se cumple que $x \in F$ ó $x^{c} \in F$.
+  %
+  %   \vspace{3mm}
+  %   \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$\\\hline \end{tabular} Supongamos que $x \ \SU \ y \in F$ y que
+  %   $x \notin F$, entonces por (2), $x^{c} \in F$ y por lo tanto tenemos que:
+  %   \[
+  %     y \geq x^{c} \ \IN \ y = 0 \ \SU \ (x^{c} \ \IN \ y) = (x^{c} \ \IN \ x) \ \SU \ (x^{c} \ \IN \ y) = x^{c} \ \IN \
+  %     (x \ \SU \ y) \in F
+  %   \]
+  %   \PN lo cual dice que $y \in F$.
+  % \end{proof}
+  %
+  % % Lemma 115: Con prueba. Lemma 27.
+  % \begin{lemma} \label{lemma_27}
+  %   \PN Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Supongamos que $b \neq 0$ y $a = \inf A$, con $A \subseteq
+  %   B$, entonces si $b \ \IN \ a = 0 \ \exists e \in A$ tal que $b \ \IN \ e^{c} \neq 0$.
+  % \end{lemma}
+  % \begin{proof}
+  %   \PN Supongamos que para cada $e \in A$, tengamos que $b \ \IN \ e^{c} = 0$, entonces tenemos que para cada
+  %   $e \in A$,
+  %   \[
+  %     b = b \ \IN \ (e \ \SU \ e^{c}) = (b \ \IN \ e)\ \SU \ (b \ \IN \ e^{c}) = b \ \IN \ e
+  %   \]
+  %   \PN lo cual nos dice que $b$ es cota inferior de $A$. Pero si $b \leq a$, entonces $b = b \ \IN \ a = 0$, es decir,
+  %   $b = 0$, lo cual es un absurdo dado que por hipótesis sabíamos que $b \neq 0$.
+  % \end{proof}
+  %
+  % Theorem 116: Con prueba. Theorem 28.
+  \begin{theorem}
+    \PN \textbf{(Rasiova y Sikorski)} Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Sea $x \in B$, tal que
+    $x \neq 0$. Supongamos que $A_{1}, A_{2}, \dotsc$ son subconjuntos de $B$ tales que existe $\inf(A_{j})$, para cada
+    $j = 1, 2, \dotsc$, entonces hay un filtro primo $P$ el cual cumple:
+    \begin{enumerate}[a)]
+      \item $x \in P$
+      \item $A_{j} \subseteq P \Rightarrow \inf(A_{j}) \in P$, para cada $j = 1, 2, \; \dotsc$
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    \PN Sea $a_{j} = \inf(A_{j})$, para $j = 1, 2, \; \dotsc $ construiremos inductivamente una sucesión $b_{0},
+    b_{1}, \dotsc$ de elementos de $B$ tal que:
+    \begin{itemize}
+      \item $b_{0} = x$
+      \item $b_{0} \ \IN \ \dotsc \ \IN \ b_{n} \neq 0$, para cada $n \geq 0$
+      \item $b_{j} = a_{j}$ ó $b_{j}^{c} \in A_{j}$, para cada $j \geq 1$
+    \end{itemize}
+    \begin{enumerate}[(1)]
+      \item Definamos $b_{0} = x$
+      \item Supongamos ya definimos $b_{0}, \dotsc, b_{n}$, veamos como definir $b_{n+1}$.
+        \begin{itemize}
+          \item Si $(b_{0} \ \IN \ \dotsc \ \IN \  b_{n}) \ \IN \ a_{n+1}\neq 0$, entonces definamos $b_{n+1} = a_{n+1}$.
+          \item Si $(b_{0} \ \IN \ \dotsc \ \IN \ b_{n}) \ \IN \ a_{n+1}=0$, entonces por el
+            \textbf{Lemma~\ref{lemma_27}}, tenemos que hay un $e \in A_{n+1}$ tal que $(b_{0} \ \IN \ \dotsc \ \IN \
+            b_{n}) \ \IN \ e^{c}\neq 0$, lo cual nos permite definir $b_{n+1} = e^{c}$.
+        \end{itemize}
+    \end{enumerate}
+
+    \PN Dado que el conjunto $S = \{b_{0}, b_{1}, \dotsc\}$ satisface la hipótesis del
+    \textbf{Corollary~\ref{corollary_25}}, por lo tanto hay un filtro primo $P$ tal que $\{b_{0}, b_{1}, \dotsc\}
+    \subseteq P$, el cual satisface las propiedades (a) y (b) dado que así lo construimos.
+  \end{proof}

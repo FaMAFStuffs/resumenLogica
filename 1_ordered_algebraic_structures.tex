@@ -448,7 +448,7 @@
   %
   %   \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos ahora que $F$ es un isomorfismo
   %   de $(L, \leq)$ en $(L^{\prime}, \leq^{\prime})$, entonces el \textbf{Lemma~\ref{lemma_1}} nos dice que $F$ y
-  %   $F^{\prime}$ respetan la operaciones de supremo e ínfimo, por lo cual $F$ es un isomorfismo de $(L, \SU, \IN)$ y
+  %   $F_{1}$ respetan la operaciones de supremo e ínfimo, por lo cual $F$ es un isomorfismo de $(L, \SU, \IN)$ y
   %   $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$.
   % \end{proof}
   %
@@ -763,42 +763,75 @@
   % \end{proof}
   %
   % % Lemma 111: Sin prueba. Lemma 23.
-  % \begin{lemma}
+  % \begin{lemma} \label{lemma_23}
   %   \PN (\textbf{Zorn}) Sea $(P, \leq)$ un poset y supongamos que cada cadena de $P$ tiene una cota superior, entonces
   %   existe un elemento maximal en $P$.
   % \end{lemma}
   %
-  % % Theorem 112: Con prueba. Theorem 24.
-  % \begin{theorem} \label{theorem_24}
-  %   \PN \textbf{(Teorema del Filtro Primo)} Sea $(L, \SU, \IN)$ un reticulado distributivo y $F$ un filtro. Supongamos
-  %   $x_{0} \in L-F$, entonces hay un filtro primo $P$ tal que $x_{0} \notin P$ y $F \subseteq P$.
-  % \end{theorem}
-  % \begin{proof}
-  %   Sea
-  %
-  %   $\displaystyle \mathcal{F}=\{F_{1}:F_{1}\text{ es un filtro, }x_{0}\notin F_{1}\text{ y } F\subseteq F_{1}\}. $
-  %
-  %   Notese que $\mathcal{F}\neq \varnothing $, por lo cual $(\mathcal{F},\subseteq )$ es un poset. Veamos que cada cadena en $(\mathcal{F},\subseteq )$ tiene una cota superior. Sea $C$ una cadena. Si $C=\varnothing $, entonces cualquier elemento de $\mathcal{F}$ es cota de $C$. Supongamos entonces $C\neq \varnothing $. Sea
-  %   $\displaystyle G=\{x\in L:x\in F_{1},\text{para algun }F_{1}\in C\}. $
-  %
-  %   Veamos que $G$ es un filtro. Es claro que $G$ es no vacio. Supongamos que $ x,y\in G$. Sean $F_{1},F_{2}\in \mathcal{F}$ tales que $x\in F_{1}$ y $y\in F_{2}$. Si $F_{1}\subseteq F_{2}$, entonces ya que $F_{2}$ es un filtro tenemos que $x \ \IN \ y\in F_{2}\subseteq G$. Si $F_{2}\subseteq F_{1}$ , entonces tenemos que $x \ \IN \ y\in F_{1}\subseteq G$. Ya que $C$ es una cadena, tenemos que siempre $x \ \IN \ y\in G$. En forma analoga se prueba la propiedad restante por lo cual tenemos que $G$ es un filtro. Ademas $x_{0}\notin G$, por lo que $G\in \mathcal{F}$ es cota superior de $C$ . Por el lema de Zorn, $(\mathcal{F},\subseteq )$ tiene un elemento maximal $ P$. Veamos que $P$ es un filtro primo. Supongamos $x\ \SU \y\in P$ y $ x,y\notin P$. Entonces ya que $P$ es maximal tenemos que
-  %   $\displaystyle x_{0}\in \lbrack P\cup \{x\})\cap \lbrack P\cup \{y\}) $
-  %
-  %   Ya que $x_{0}\in \lbrack P\cup \{x\})$, tenemos que hay elementos $ p_{1}, \dotsc, p_{n}\in P$, tales que
-  %   $\displaystyle x_{0}\geq p_{1} \ \IN \ \dotsc \ \IN \ p_{n} \ \IN \ x $
-  %
-  %   Ya que $x_{0}\in \lbrack P\cup \{y\})$, tenemos que hay elementos $ q_{1}, \dotsc, q_{m}\in P$, tales que
-  %   $\displaystyle x_{0}\geq q_{1} \ \IN \ \dotsc \ \IN \ q_{m} \ \IN \ y $
-  %
-  %   Si llamamos $p$ al siguiente elemento de $P$
-  %   $\displaystyle p_{1} \ \IN \ \dotsc \ \IN \ p_{n} \ \IN \ q_{1} \ \IN \  \dotsc \ \IN \ q_{m} $
-  %
-  %   tenemos que
-  %   $\displaystyle \begin{array}{rcl} x_{0} & \geq & p \ \IN \ x \\ x_{0} & \geq & p \ \IN \ y \end{array} $
-  %
-  %   Se tiene que $x_{0}\geq (p \ \IN \ x)\ \SU \(p \ \IN \  y)=p \ \IN \ (x\ \SU \y)\in P$, lo cual es absurdo ya que $ x_{0}\notin P$. $\Box$
-  % \end{proof}
-  %
+  % Theorem 112: Con prueba. Theorem 24.
+  \begin{theorem} \label{theorem_24}
+    \PN \textbf{(Teorema del Filtro Primo)} Sea $(L, \SU, \IN)$ un reticulado distributivo y $F$ un filtro. Supongamos
+    $x_{0} \in L-F$, entonces hay un filtro primo $P$ tal que $x_{0} \notin P$ y $F \subseteq P$.
+  \end{theorem}
+  \begin{proof}
+    \PN Sea:
+    \[
+      \mathcal{F} = \{F_{1}: F_{1} \text{ es un filtro, } x_{0} \notin F_{1} \text{ y } F \subseteq F_{1}\}
+    \]
+
+    \PN Notar que $\mathcal{F} \neq \emptyset$, por lo cual $(\mathcal{F}, \subseteq)$ es un poset.
+    \PN Veamos que cada cadena en $(\mathcal{F}, \subseteq)$ tiene una cota superior. Sea $C$ una cadena.
+    \begin{itemize}
+      \item Si $C = \emptyset$, entonces cualquier elemento de $\mathcal{F}$ es cota de $C$.
+      \item Si $C \neq \emptyset$. Sea:
+        \[
+          G = \{x \in L: x \in F_{1}, \text{ para algún } F_{1} \in C\}
+        \]
+    \end{itemize}
+
+    \PN Veamos que $G$ es un filtro.
+    \begin{enumerate}
+      \item Es claro que $G \neq \emptyset$.
+      \item Supongamos que $ x,y\in G$. Sean $F_{1},F_{2}\in \mathcal{F}$ tales que $x\in F_{1}$ y $y\in F_{2}$.
+      \begin{itemize}
+        \item Si $F_{1}\subseteq F_{2}$, entonces ya que $F_{2}$ es un filtro tenemos que $x \ \IN \ y\in F_{2}\subseteq G$.
+        \item Si $F_{2}\subseteq F_{1}$ , entonces tenemos que $x \ \IN \ y \in F_{1} \subseteq G$.
+      \end{itemize}
+      \PN Ya que $C$ es una cadena, tenemos que siempre $x \ \IN \ y \in G$.
+
+      \item En forma analoga se prueba la propiedad restante ...
+    \end{enumerate}
+
+    \PN Por lo tanto, tenemos que $G$ es un filtro. Además $x_{0} \notin G$, por lo que $G \in \mathcal{F}$ es cota
+    superior de $C$. Por el \textbf{Lemma~\ref{lemma_23}}, $(\mathcal{F}, \subseteq)$ tiene un elemento maximal $P$.
+    Veamos que $P$ es un filtro primo.
+
+    \vspace{2mm}
+    \PN Supongamos $x \ \SU \ y \in P$ y $x, y \notin P$, entonces ya que $P$ es maximal tenemos que:
+    \[
+      x_{0} \in \lbrack P \cup \{x\}) \cap \lbrack P \cup \{y\})
+    \]
+    \PN Ya que $x_{0} \in \lbrack P \cup \{x\})$, tenemos que hay elementos $p_{1}, \dotsc, p_{n} \in P$, tales que:
+    \[
+      x_{0} \geq p_{1} \ \IN \ \dotsc \ \IN \ p_{n} \ \IN \ x
+    \]
+    \PN Ya que $x_{0} \in \lbrack P \cup \{y\})$, tenemos que hay elementos $q_{1}, \dotsc, q_{m} \in P$, tales que:
+    \[
+      x_{0} \geq q_{1} \ \IN \ \dotsc \ \IN \ q_{m} \ \IN \ y
+    \]
+    \PN Denotemos:
+    \[
+      p = p_{1} \ \IN \ \dotsc \ \IN \ p_{n} \ \IN \ q_{1} \ \IN \  \dotsc \ \IN \ q_{m}
+    \]
+    \PN tenemos que:
+    \begin{eqnarray*}
+      x_{0} &\geq& p \ \IN \ x \\
+      x_{0} &\geq& p \ \IN \ y
+    \end{eqnarray*}
+    \PN Se tiene que $x_{0} \geq (p \ \IN \ x) \ \SU \ (p \ \IN \ y) = p \ \IN \ (x \ \SU \ y) \in P$, lo cual es
+    absurdo ya que $x_{0} \notin P$.
+  \end{proof}
+
   % % Corollary 113: Con prueba. Corollary 25.
   % \begin{corollary} \label{corollary_25}
   %   \PN Sea $(L, \SU, \IN, 0, 1)$ un reticulado acotado distributivo. Si $\emptyset \neq S \subseteq L$ es tal que
@@ -847,36 +880,36 @@
   %   $b = 0$, lo cual es un absurdo dado que por hipótesis sabíamos que $b \neq 0$.
   % \end{proof}
   %
-  % Theorem 116: Con prueba. Theorem 28.
-  \begin{theorem}
-    \PN \textbf{(Rasiova y Sikorski)} Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Sea $x \in B$, tal que
-    $x \neq 0$. Supongamos que $A_{1}, A_{2}, \dotsc$ son subconjuntos de $B$ tales que existe $\inf(A_{j})$, para cada
-    $j = 1, 2, \dotsc$, entonces hay un filtro primo $P$ el cual cumple:
-    \begin{enumerate}[a)]
-      \item $x \in P$
-      \item $A_{j} \subseteq P \Rightarrow \inf(A_{j}) \in P$, para cada $j = 1, 2, \; \dotsc$
-    \end{enumerate}
-  \end{theorem}
-  \begin{proof}
-    \PN Sea $a_{j} = \inf(A_{j})$, para $j = 1, 2, \; \dotsc $ construiremos inductivamente una sucesión $b_{0},
-    b_{1}, \dotsc$ de elementos de $B$ tal que:
-    \begin{itemize}
-      \item $b_{0} = x$
-      \item $b_{0} \ \IN \ \dotsc \ \IN \ b_{n} \neq 0$, para cada $n \geq 0$
-      \item $b_{j} = a_{j}$ ó $b_{j}^{c} \in A_{j}$, para cada $j \geq 1$
-    \end{itemize}
-    \begin{enumerate}[(1)]
-      \item Definamos $b_{0} = x$
-      \item Supongamos ya definimos $b_{0}, \dotsc, b_{n}$, veamos como definir $b_{n+1}$.
-        \begin{itemize}
-          \item Si $(b_{0} \ \IN \ \dotsc \ \IN \  b_{n}) \ \IN \ a_{n+1}\neq 0$, entonces definamos $b_{n+1} = a_{n+1}$.
-          \item Si $(b_{0} \ \IN \ \dotsc \ \IN \ b_{n}) \ \IN \ a_{n+1}=0$, entonces por el
-            \textbf{Lemma~\ref{lemma_27}}, tenemos que hay un $e \in A_{n+1}$ tal que $(b_{0} \ \IN \ \dotsc \ \IN \
-            b_{n}) \ \IN \ e^{c}\neq 0$, lo cual nos permite definir $b_{n+1} = e^{c}$.
-        \end{itemize}
-    \end{enumerate}
-
-    \PN Dado que el conjunto $S = \{b_{0}, b_{1}, \dotsc\}$ satisface la hipótesis del
-    \textbf{Corollary~\ref{corollary_25}}, por lo tanto hay un filtro primo $P$ tal que $\{b_{0}, b_{1}, \dotsc\}
-    \subseteq P$, el cual satisface las propiedades (a) y (b) dado que así lo construimos.
-  \end{proof}
+  % % Theorem 116: Con prueba. Theorem 28.
+  % \begin{theorem}
+  %   \PN \textbf{(Rasiova y Sikorski)} Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Sea $x \in B$, tal que
+  %   $x \neq 0$. Supongamos que $A_{1}, A_{2}, \dotsc$ son subconjuntos de $B$ tales que existe $\inf(A_{j})$, para cada
+  %   $j = 1, 2, \dotsc$, entonces hay un filtro primo $P$ el cual cumple:
+  %   \begin{enumerate}[a)]
+  %     \item $x \in P$
+  %     \item $A_{j} \subseteq P \Rightarrow \inf(A_{j}) \in P$, para cada $j = 1, 2, \; \dotsc$
+  %   \end{enumerate}
+  % \end{theorem}
+  % \begin{proof}
+  %   \PN Sea $a_{j} = \inf(A_{j})$, para $j = 1, 2, \; \dotsc $ construiremos inductivamente una sucesión $b_{0},
+  %   b_{1}, \dotsc$ de elementos de $B$ tal que:
+  %   \begin{itemize}
+  %     \item $b_{0} = x$
+  %     \item $b_{0} \ \IN \ \dotsc \ \IN \ b_{n} \neq 0$, para cada $n \geq 0$
+  %     \item $b_{j} = a_{j}$ ó $b_{j}^{c} \in A_{j}$, para cada $j \geq 1$
+  %   \end{itemize}
+  %   \begin{enumerate}[(1)]
+  %     \item Definamos $b_{0} = x$
+  %     \item Supongamos ya definimos $b_{0}, \dotsc, b_{n}$, veamos como definir $b_{n+1}$.
+  %       \begin{itemize}
+  %         \item Si $(b_{0} \ \IN \ \dotsc \ \IN \  b_{n}) \ \IN \ a_{n+1}\neq 0$, entonces definamos $b_{n+1} = a_{n+1}$.
+  %         \item Si $(b_{0} \ \IN \ \dotsc \ \IN \ b_{n}) \ \IN \ a_{n+1}=0$, entonces por el
+  %           \textbf{Lemma~\ref{lemma_27}}, tenemos que hay un $e \in A_{n+1}$ tal que $(b_{0} \ \IN \ \dotsc \ \IN \
+  %           b_{n}) \ \IN \ e^{c}\neq 0$, lo cual nos permite definir $b_{n+1} = e^{c}$.
+  %       \end{itemize}
+  %   \end{enumerate}
+  %
+  %   \PN Dado que el conjunto $S = \{b_{0}, b_{1}, \dotsc\}$ satisface la hipótesis del
+  %   \textbf{Corollary~\ref{corollary_25}}, por lo tanto hay un filtro primo $P$ tal que $\{b_{0}, b_{1}, \dotsc\}
+  %   \subseteq P$, el cual satisface las propiedades (a) y (b) dado que así lo construimos.
+  % \end{proof}

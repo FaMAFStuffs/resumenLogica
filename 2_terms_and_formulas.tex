@@ -1,59 +1,91 @@
 \section{Términos y fórmulas}
 
-  % Lemma 117. Con prueba. Lemma 29.
-  \begin{lemma}
-    \PN Supongamos $t \in T_{k}^{\tau}$, con $k \geq 1$, entonces ya sea $t \in Var \cup \mathcal{C}$ ó $t = f(t_{1},
-    \dotsc, t_{n})$, con $f \in \mathcal{F}_{n}, n \geq 1, \; t_{1}, \dotsc, t_{n} \in T_{k-1}^{\tau}$.
-  \end{lemma}
-  \begin{proof}
-    \PN Probaremos este teorema por inducción en $k$.
-
-    \vspace{3mm}
-    \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 1$ \\\hline \end{tabular} Es directo, ya que por
-    definición:
-    \[
-      T_{1}^{\tau} = Var \cup \mathcal{C} \cup \{f(t_{1}, t_{2}, \dotsc t_{n}): f \in \mathcal{F}_n, n \geq 1, t_{1},
-      t_{2}, \dotsc t_{n} \in T_{0}^{\tau}\}
-    \]
-
-		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 1$ \\\hline \end{tabular} Sea $t \in
-    T_{k+1}^{\tau}$. Por definición de $ T_{k+1}^{\tau}$ tenemos que:
-    \begin{itemize}
-      \item $t \in T_{k}^{\tau}$ ó
-      \item $t = f(t_{1}, \dotsc, t_{n})$ con $f \in \mathcal{F}_{n}, n \geq 1$ y $t_{1}, \dotsc,t_{n}\in T_{k}^{\tau}$.
-    \end{itemize}
-
-    \PN Si se da que $t \in T_{k}^{\tau}$, entonces podemos aplicar hipótesis inductiva y usar que $T_{k-1}^{\tau}
-    \subseteq T_{k}^{\tau}$.
-  \end{proof}
-
-  % % Lemma 118. Con prueba. Lemma 30.
+  % % Lemma 117. Con prueba. Lemma 29.
   % \begin{lemma}
-  %   \PN Sea $b \in Bal$. Se tiene:
-  %   \begin{enumerate}[(1)]
-  %     \item $\lvert b\rvert_{(}-\lvert b\rvert_{)}=0$
-  %     \item Si $x$ es tramo inicial propio de $b$, entonces $\lvert x\rvert_{(}-\lvert x\rvert_{)} >0$
-  %     \item Si $x$ es tramo final propio de $b$, entonces $\lvert x\rvert_{(}-\lvert x\rvert_{)}< 0$
-  %   \end{enumerate}
+  %   \PN Supongamos $t \in T_{k}^{\tau}$, con $k \geq 1$, entonces ya sea $t \in Var \cup \mathcal{C}$ ó $t = f(t_{1},
+  %   \dotsc, t_{n})$, con $f \in \mathcal{F}_{n}, n \geq 1, \; t_{1}, \dotsc, t_{n} \in T_{k-1}^{\tau}$.
   % \end{lemma}
   % \begin{proof}
-  %   Probaremos por induccion en $k$, que valen (1), (2) y (3) para cada $b\in Bal_{k}$. El caso $k=1$ es trivial. Supongamos $b\in Bal_{k+1}$. Si $b\in Bal_{k}$, se aplica directamente HI. Supongamos entonces que $ b=(b_{1}...b_{n})$, con $b_{1}, \dotsc,b_{n}\in Bal_{k}$, $n\geq 1$. Por HI, $ b_{1}, \dotsc,b_{n}$ cumplen (1) por lo cual $b$ cumple (1). Veamos que $b$ cumple (2). Sea $x$ un tramo inicial propio de $b$. Notese que $x$ es de la forma $x=(b_{1}...b_{i}x_{1}$ con $0\leq i\leq n-1$ y $x_{1}$ un tramo inicial de $b_{i+1}$ (en el caso $i=0$ interpretamos $b_{1}...b_{i}= \varepsilon )$. Pero entonces ya que
+  %   \PN Probaremos este teorema por inducción en $k$.
   %
-  %   $\displaystyle \lvert x\rvert_{(}-\lvert x\rvert_{)}=1+\left( \sum_{j=1}^{i}\lvert b_{j}\rvert_{(}-\lvert b_{j}\rvert_{)}\right) +\lvert x_{1}\rvert_{(}-\lvert x_{1}\rvert_{)} $
+  %   \vspace{3mm}
+  %   \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 1$ \\\hline \end{tabular} Es directo, ya que por
+  %   definición:
+  %   \[
+  %     T_{1}^{\tau} = Var \cup \mathcal{C} \cup \{f(t_{1}, t_{2}, \dotsc t_{n}): f \in \mathcal{F}_n, n \geq 1, t_{1},
+  %     t_{2}, \dotsc t_{n} \in T_{0}^{\tau}\}
+  %   \]
   %
-  %   tenemos que por HI, se da que $\lvert x\rvert_{(}-\lvert x\rvert_{)} >0$. En forma analoga se puede ver que $b$ cumple (3). $\Box$
+	% 	\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 1$ \\\hline \end{tabular} Sea $t \in
+  %   T_{k+1}^{\tau}$. Por definición de $ T_{k+1}^{\tau}$ tenemos que:
+  %   \begin{itemize}
+  %     \item $t \in T_{k}^{\tau}$ ó
+  %     \item $t = f(t_{1}, \dotsc, t_{n})$ con $f \in \mathcal{F}_{n}, n \geq 1$ y $t_{1}, \dotsc,t_{n}\in T_{k}^{\tau}$.
+  %   \end{itemize}
+  %
+  %   \PN Si se da que $t \in T_{k}^{\tau}$, entonces podemos aplicar hipótesis inductiva y usar que $T_{k-1}^{\tau}
+  %   \subseteq T_{k}^{\tau}$.
   % \end{proof}
   %
-  % % Lemma 119. Sin prueba. Lemma 31.
-  % \begin{lemma}
-  %   \PN $del(xy) = del(x)del(y) \ \forall x, y \in \SIGMA$
-  % \end{lemma}
-  %
-  % % Lemma 120. Sin prueba. Lemma 32.
-  % \begin{lemma}
-  %   \PN Supongamos que $\Sigma$ es tal que $\TAU \subseteq \SIGMA$, entonces $del(t) \in Bal$, para cada $t \in \TAU -
-  %   (Var \cup \mathcal{C})$.
-  % \end{lemma}
+  % Lemma 118. Con prueba. Lemma 30.
+  \begin{lemma}
+    \PN Sea $b \in Bal$. Se tiene:
+    \begin{enumerate}[(1)]
+      \item $\lvert b \rvert_{(} - \lvert b \rvert_{)} = 0$
+      \item Si $x$ es tramo inicial propio de $b$, entonces $\lvert x \rvert_{(} - \lvert x \rvert_{)} > 0$
+      \item Si $x$ es tramo final propio de $b$, entonces $\lvert x \rvert_{(} - \lvert x \rvert_{)} < 0$
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \PN Probaremos por inducción en $k$, que valen (1), (2) y (3) para cada $b \in Bal_{k}$.
+
+    \vspace{3mm}
+    \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 1$ \\\hline \end{tabular}
+    \begin{enumerate}[(1)]
+      \item $Bal_{1} = \{()\}$. Luego, $\lvert b \rvert_{(} = \lvert b \rvert_{)} = 1$. Por lo tanto, $\lvert b
+       \rvert_{(} - \lvert b \rvert_{)} = 0$.
+      \item Supongamos x tramo inicial propio de b. Luego $x = ($, es decir, $\lvert x \rvert_{(} = 1$ y $\lvert x
+      \rvert_{)} = 0$. Por lo tanto, $\lvert x \rvert_{(} - \lvert x \rvert_{)} > 0$.
+      \item Supongamos x tramo final propio de b. Luego $x = )$, es decir, $\lvert x \rvert_{(} = 0$ y $\lvert x
+      \rvert_{)} = 1$. Por lo tanto, $\lvert x \rvert_{(} - \lvert x \rvert_{)} < 0$.
+    \end{enumerate}
+
+  	\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 1$ \\\hline \end{tabular} Supongamos $b \in
+    Bal_{k+1}$. Si $b \in Bal_{k}$, se aplica directamente HI para cualquiera de los casos. Supongamos entonces que
+    $b = (b_{1} \dotsc b_{n})$, con $b_{1}, \dotsc, b_{n} \in Bal_{k}, n \geq 1$.
+
+    \begin{enumerate}[(1)]
+      \item Por HI, $b_{1}, \dotsc, b_{n}$ satifacen $\lvert b \rvert_{(} - \lvert b \rvert_{)} = 0$. Luego, $(b_{1},
+        \dotsc, b_{n})$ también satisface, es decir, al agregar un paréntesis de cada tipo, el balanceo se mantiene.
+
+      \item Sea $x$ un tramo inicial propio de $b$. Notese que $x$ es de la forma $x = (b_{1} \dotsc b_{i} y$ con
+        $0 \leq i \leq n-1$ y $y$ un tramo inicial de $b_{i+1}$, pero entonces:
+        \[
+          \lvert x \rvert_{(} - \lvert x \rvert_{)} = 1 + \left(\sum_{j=1}^{i} \lvert b_{j} \rvert_{(} - \lvert b_{j}
+          \rvert_{)}\right) + \lvert y \rvert_{(} - \lvert y \rvert_{)}
+        \]
+      tenemos que por HI, se da que $\lvert x \rvert_{(} - \lvert x \rvert_{)} > 0$.
+
+      \item Sea $x$ un tramo final propio de $b$. Notese que $x$ es de la forma $x = y b_{1} \dotsc b_{i})$ con
+        $1 \leq i \leq n$ y $y$ un tramo final de $b_{i+1}$, pero entonces:
+        \[
+          \lvert x \rvert_{(} - \lvert x \rvert_{)} = \lvert y \rvert_{(} - \lvert y \rvert_{)} + \left(\sum_{j=1}^{i}
+          \lvert b_{j} \rvert_{(} - \lvert b_{j} \rvert_{)}\right) + 1
+        \]
+      tenemos que por HI, se da que $\lvert x \rvert_{(} - \lvert x \rvert_{)} < 0$.
+    \end{enumerate}
+  \end{proof}
+
+  % Lemma 119. Sin prueba. Lemma 31.
+  \begin{lemma}
+    \PN $del(xy) = del(x)del(y) \ \forall x, y \in \SIGMA$.
+  \end{lemma}
+
+  % Lemma 120. Sin prueba. Lemma 32.
+  \begin{lemma}
+    \PN Supongamos que $\Sigma$ es tal que $\TAU \subseteq \SIGMA$, entonces $del(t) \in Bal$, para cada $t \in \TAU -
+    (Var \cup \mathcal{C})$.
+  \end{lemma}
   %
   % % Lemma 121. Con prueba. Lemma 33.
   % \begin{lemma}

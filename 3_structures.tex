@@ -97,7 +97,7 @@
   % \begin{proof}
   %   Tenemos que
   %
-  %   $\displaystyle \begin{array}{l} \varphi \thicksim \psi \\ \ \ \Updownarrow \text{ (por (6) de la def de}\models \text{)} \\ \mathbf{A} \models (\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo } \mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A} \models (\varphi \leftrightarrow \psi )[\downarrow _{i_{n}}^{a}(\vec{a })]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow (\text{por (8) de la def de}\models ) \\ \mathbf{A} \models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}] \text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \\ \mathbf{A} \models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\downarrow _{i_{n-1}}^{a}(\vec{a})]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{\mathbf{N}} \\ \ \ \Updownarrow \text{ (por (8) de la def de}\models \text{)} \\ \mathbf{A} \models \forall x_{i_{n-1}}\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \ \ \ \ \vdots \\ \ \ \Updownarrow \\ \mathbf{A} \models \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbf{N}} \\ \ \ \Updownarrow \\ \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\text{ es universalmente valida} \end{array} $
+  %   $\displaystyle \begin{array}{l} \varphi \thicksim \psi \\ \ \ \Updownarrow \text{ (por (6) de la def de}\models \text{)} \\ \mathbf{A} \models (\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo } \mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbb{N}} \\ \ \ \Updownarrow \\ \mathbf{A} \models (\varphi \leftrightarrow \psi )[\downarrow _{i_{n}}^{a}(\vec{a })]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{ \mathbb{N}} \\ \ \ \Updownarrow (\text{por (8) de la def de}\models ) \\ \mathbf{A} \models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}] \text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{\mathbb{N}} \\ \ \ \Updownarrow \\ \mathbf{A} \models \forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\downarrow _{i_{n-1}}^{a}(\vec{a})]\text{, para todo }\mathbf{A}\text{, }a\in A\text{ y toda }\vec{a}\in A^{\mathbb{N}} \\ \ \ \Updownarrow \text{ (por (8) de la def de}\models \text{)} \\ \mathbf{A} \models \forall x_{i_{n-1}}\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbb{N}} \\ \ \ \Updownarrow \\ \ \ \ \ \vdots \\ \ \ \Updownarrow \\ \mathbf{A} \models \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )[\vec{a}]\text{, para todo }\mathbf{A}\text{ y toda }\vec{a}\in A^{ \mathbb{N}} \\ \ \ \Updownarrow \\ \forall x_{i_{1}}...\forall x_{i_{n}}(\varphi \leftrightarrow \psi )\text{ es universalmente valida} \end{array} $
   %
   %   (b) Es dejado al lector.
   %
@@ -110,7 +110,7 @@
   %   \[
   %     F(t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)] = t^{\mathbf{B}}[F(a_{1}), F(a_{2}), \dotsc)]
   %   \]
-  %   \PN para cada $t \in \TAU, (a_{1}, a_{2}, \dotsc) \in A^{\mathbf{N}}$.
+  %   \PN para cada $t \in \TAU, (a_{1}, a_{2}, \dotsc) \in A^{\mathbb{N}}$.
   % \end{lemma}
   % \begin{proof}
   %   Sea
@@ -118,8 +118,8 @@
   %   - Teo$_{k}$: Si $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, entonces
   %   $\displaystyle F(t^{\mathbf{A}}[(a_{1},a_{2},...)]=t^{\mathbf{B}}[F(a_{1}),F(a_{2}),...)] $
   %
-  %   para cada $t\in T_{k}^{\tau }$, $(a_{1},a_{2},...)\in A^{\mathbf{N}}$.
-  %   Teo$_{0}$ es trivial. Veamos que Teo$_{k}$ implica Teo$_{k+1}$. Supongamos que vale Teo$_{k}$ y supongamos $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, $t\in T_{k+1}^{\tau }-T_{k}^{\tau }$ y $\vec{a} =(a_{1},a_{2},...)\in A^{\mathbf{N}}$. Denotemos $(F(a_{1}),F(a_{2}),...)$ con $F(\vec{a})$. Por Lema 117, $t=f(t_{1}, \dotsc, t_{n})$, con $n\geq 1 $,$\;f\in \mathcal{F}_{n}$ y $t_{1}, \dotsc, t_{n}\in T_{k}^{\tau }$. Tenemos entonces
+  %   para cada $t\in T_{k}^{\tau }$, $(a_{1},a_{2},...)\in A^{\mathbb{N}}$.
+  %   Teo$_{0}$ es trivial. Veamos que Teo$_{k}$ implica Teo$_{k+1}$. Supongamos que vale Teo$_{k}$ y supongamos $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, $t\in T_{k+1}^{\tau }-T_{k}^{\tau }$ y $\vec{a} =(a_{1},a_{2},...)\in A^{\mathbb{N}}$. Denotemos $(F(a_{1}),F(a_{2}),...)$ con $F(\vec{a})$. Por Lema 117, $t=f(t_{1}, \dotsc, t_{n})$, con $n\geq 1 $,$\;f\in \mathcal{F}_{n}$ y $t_{1}, \dotsc, t_{n}\in T_{k}^{\tau }$. Tenemos entonces
   %
   %   $\displaystyle \begin{array}{ccl} F(t^{\mathbf{A}}[\vec{a}]) & = & F(f(t_{1}, \dotsc, t_{n})^{\mathbf{A}}[\vec{a}]) \\ & = & F(f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{n}^{\mathbf{A}}[ \vec{a}])) \\ & = & f^{\mathbf{B}}(F(t_{1}^{\mathbf{A}}[\vec{a}]), \dotsc, F(t_{n}^{\mathbf{A}}[ \vec{a}])) \\ & = & f^{\mathbf{B}}(t_{1}^{\mathbf{B}}[F(\vec{a})], \dotsc, t_{n}^{\mathbf{B}}[F( \vec{a})])) \\ & = & f(t_{1}, \dotsc, t_{n})^{\mathbf{B}}[F(\vec{a})] \\ & = & t^{\mathbf{B}}[F(\vec{a})] \end{array} $
   %
@@ -133,7 +133,7 @@
   %     \mathbf{A} \models \varphi \lbrack (a_{1}, a_{2}, \dotsc)] \Leftrightarrow \mathbf{B} \models \varphi \lbrack
   %     (F(a_{1}), F(a_{2}), \dotsc)]
   %   \]
-  %   \PN para cada $(a_{1}, a_{2}, \dotsc) \in A^{\mathbf{N}}$. En particular $\mathbf{A}$ y $\mathbf{B}$ satisfacen las
+  %   \PN para cada $(a_{1}, a_{2}, \dotsc) \in A^{\mathbb{N}}$. En particular $\mathbf{A}$ y $\mathbf{B}$ satisfacen las
   %   mismas sentencias de tipo $\tau$.
   % \end{lemma}
   %
@@ -192,7 +192,7 @@
   %
   % % Corollary 142. Con prueba. Lemma 54.
   % \begin{corollary}
-  %   \PN Para cada $t \in \TAU, \vec{a} \in A^{\mathbf{N}}$, se tiene que $t^{\mathbf{A}/\theta}[(a_{1}/\theta,
+  %   \PN Para cada $t \in \TAU, \vec{a} \in A^{\mathbb{N}}$, se tiene que $t^{\mathbf{A}/\theta}[(a_{1}/\theta,
   %   a_{2}/\theta, \dotsc)] = t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)]/\theta$.
   % \end{corollary}
   % \begin{proof}
@@ -236,7 +236,7 @@
   %
   % % Lemma 145. Con prueba. Lemma 57.
   % \begin{lemma}
-  %   \PN Para cada $t \in \TAU, ((a_{1}, b_{1}), (a_{2}, b_{2}), \dotsc) \in (A \times B)^{\mathbf{N}}$, se tiene que
+  %   \PN Para cada $t \in \TAU, ((a_{1}, b_{1}), (a_{2}, b_{2}), \dotsc) \in (A \times B)^{\mathbb{N}}$, se tiene que
   %   $t^{\mathbf{A} \times \mathbf{B}}[((a_{1}, b_{1}), (a_{2}, b_{2}), \dotsc)] = (t^{\mathbf{A}}[(a_{1}, a_{2},
   %   \dotsc)], t^{\mathbf{B}}[(b_{1}, b_{2}, \dotsc)])$.
   % \end{lemma}
@@ -281,7 +281,7 @@
   % \begin{proof}
   %   Por induccion en el $k$ tal que $\varphi \in F^{\tau }$.
   % \end{proof}
-  % 
+  %
   % % Lemma 148. Con prueba. Lemma 60.
   % \begin{lemma}
   %   \PN Sean $w_{1}, \dotsc, w_{k}$ variables, todas distintas. Sean $v_{1}, \dotsc, v_{n}$ variables, todas distintas.

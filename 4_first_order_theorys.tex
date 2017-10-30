@@ -1,196 +1,210 @@
 \section{Teorias de primer orden}
 
-  % % Lemma 149. Con prueba. Lemma 61.
+  % Lemma 67. Con prueba.
+  \begin{lemma}
+    \PN Si $(\varphi_{1}, \varphi_{2}) \in Generaliz^{\tau}$, entonces el nombre de constante $c$ del cual habla la
+    definición de $Generaliz^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
+  \end{lemma}
+  \begin{proof}
+    \PN Notese que $c$ es el único nombre de constante que ocurre en $\varphi_{1}$ y no ocurre en $\varphi_{2}$.
+  \end{proof}
+
+  % Lemma 68. Con prueba.
+  \begin{lemma}
+    \PN Si $(\varphi_{1}, \varphi_{2}) \in Elec^{\tau}$, entonces el nombre de constante $e$ del cual habla la
+    definición de $Elec^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
+  \end{lemma}
+  \begin{proof}
+    \PN Notese que $e$ es el único nombre de constante que ocurre en $\varphi_{1}$ y no ocurre en $\varphi_{2}$.
+  \end{proof}
+
+  % Lemma 69. Con prueba.
+  \begin{lemma}
+    \PN Todas las reglas excepto las reglas de elección y generalización son universales en el sentido que si $\varphi$
+    se deduce de $\psi_{1}, \dotsc, \psi_{k}$ por alguna de estas reglas, entonces $\left((\psi_{1} \wedge \dotsc \wedge
+    \psi_{k}) \rightarrow \varphi \right)$ es una sentencia universalmente válida.
+  \end{lemma}
+  \begin{proof}
+    \begin{itemize}
+      \item \textbf{EXISTENCIA:} Supongamos $\varphi =_{d}\varphi (v)$, $t\in T_{c}^{\tau }$ y $\mathbf{A}$ es una
+      estructura de tipo $\tau $ tal que $\mathbf{A}\models \varphi (t)$. Sea $t^{\mathbf{A}}$ el valor que toma $t$ en
+      $\mathbf{A}$. Por el Lema 148 tenemos que $\mathbf{A}\models \varphi \left\lbrack t^{\mathbf{A}}\right\rbrack $,
+      por lo cual tenemos que $\mathbf{A}\models \exists v\varphi (v)$.
+
+      \item \textbf{REEMPLAZO:} Debemos probar que si $(\psi_{1},\psi_{2},\varphi )\in Reemp^{\tau }=Reemp1^{\tau }\cup Reemp2^{\tau }$ , entonces $\left( (\psi_{1}\wedge \psi_{2})\rightarrow \varphi \right) $ es una sentencia universalmente valida. El caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp1^{\tau }$ es facil y lo dejaremos al lector. Para el caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp2^{\tau }$ nos hara falta un resultado un poco mas general. Veamos por induccion en $k$ que si se dan las siguienes condiciones
+
+      - $\alpha \in F_{k}^{\tau }$ y $\varphi ,\psi \in F^{\tau }$
+      - $\mathbf{A}$ es una estructura de tipo $\tau $
+      - $\overline{\alpha }=$ resultado de reemplazar en $\alpha $ una ocurrencia de $\varphi$ por $\psi$,
+      - $\mathbf{A}\models \varphi \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \psi \left\lbrack \vec{a}\right\rbrack $, para cada $\vec{a}\in A^{ \mathbb{N}}$
+      entonces se da que
+
+      - $\mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack $, para cada $\vec{ a}\in A^{\mathbb{N}}$.
+      CASO $k=0.$
+
+      Entonces $\alpha $ es atomica y por lo tanto ya que $\alpha $ es la unica subformula de $\alpha $, la situacion es facil de probar.
+
+      CASO $\alpha =\forall x_{i}\alpha _{1}.$
+
+      Si $\varphi =\alpha $, entonces la situacion es facil de probar. Si $\varphi \neq \alpha $, entonces la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$ y por lo tanto $\overline{\alpha }=\forall x_{i} \overline{\alpha _{1}}.$ Se tiene entonces que para un $\vec{a}$ dado,
+
+      $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \downarrow _{i}^{a}\vec{a}\right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \downarrow _{i}^{a}\vec{a} \right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
+
+      CASO $\alpha =(\alpha _{1}\vee \alpha _{2})$.
+      Si $\varphi =\alpha $, entonces la situacion es facil de probar. Supongamos $\varphi \neq \alpha $ y supongamos que la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$. Entonces $\overline{\alpha }=( \overline{\alpha _{1}}\vee \alpha _{2})$ y tenemos que
+
+      $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \vec{a}\right\rbrack \text{ o }\mathbf{A} \models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \vec{a}\right\rbrack \text{ o } \mathbf{A}\models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
+
+      Los demas casos son dejados al lector.
+      Dejamos al lector el chequeo de la universalidad del resto de las reglas.
+    \end{itemize}
+  \end{proof}
+
+  % Lemma 70. Con prueba.
+  \begin{lemma}
+    \PN Sea $\pmb{\varphi} \in S^{\tau +}$, hay únicos $n \geq 1$ y $\varphi_{1}, \dotsc, \varphi_{n} \in S^{\tau}$
+    tales que $\pmb{\varphi} = \varphi_{1} \dotsc \varphi_{n}$.
+  \end{lemma}
+  \begin{proof}
+    \PN Solo hay que probar la unicidad la cual sigue de la Proposicion 128.
+  \end{proof}
+
+  % Lemma 71. Con prueba.
+  \begin{lemma}
+    \PN Sea $\mathbf{J} \in Just^{+}$, hay únicos $n \geq 1$ y $J_{1}, \dotsc, J_{n} \in Just$ tales que $\mathbf{J} =
+    J_{1} \dotsc J_{n}$.
+  \end{lemma}
+  \begin{proof}
+    \PN Supongamos $J_{1}, \dotsc, J_{n}$, $J_{1}^{\prime}, \dotsc, J_{m}^{\prime}$, con $ n,m\geq 1$, son
+    justificaciones tales que $J_{1}\dotsc J_{n}=J_{1}^{\prime}\dotsc J_{m}^{\prime}$. Es facil ver que entonces tenemos
+    $J_{1}=J_{1}^{\prime}$, por lo cual $J_{2}\dotsc J_{n}=J_{2}^{\prime}\dotsc J_{m}^{\prime}$. Un argumento inductivo
+    nos dice que entonces $n=m$ y $J_{i}=J_{i}^{\prime}$, $ i=1, \dotsc, n$
+  \end{proof}
+
+  % Lemma 72. Con prueba.
+  \begin{lemma}
+    \PN Sea $(\pmb{\varphi}, \mathbf{J})$ una prueba de $\varphi$ en $(\Sigma, \tau)$.
+    \begin{enumerate}
+      \item Sea $m \in \mathbb{N}$ tal que $\mathbf{J}_{i} \neq \mathrm{HIPOTESIS}\bar{m}$, para cada $i = 1, \dotsc,
+      n(\mathbf{\varphi})$. Supongamos que $\mathbf{J}_{i} = \mathrm{HIPOTESIS}\bar{k}$ y que $\mathbf{J}_{j} =
+      \mathrm{TESIS}\bar{k} \alpha$, con $\lbrack\alpha\rbrack_{1} \notin Num$. Sea $\mathbf{\tilde{J}}$ el resultado de
+      reemplazar en $\mathbf{J}$ la justificación $\mathbf{J}_{i}$ por $\mathrm{HIPOTESIS}\bar{m}$ y reemplazar la
+      justificación $\mathbf{J}_{j}$ por $\mathrm{TESIS}\bar{m}\alpha$, entonces $(\pmb{\varphi}, \mathbf{\tilde{J}})$
+      es una prueba de $\varphi$ en $(\Sigma, \tau)$.
+      \item Sea $\mathcal{C}_{1}$ el conjunto de nombres de constante que ocurren en alguna $\pmb{\varphi}_{i}$ y que
+      no pertenecen a $\mathcal{C}$. Sea $e \in \mathcal{C}_{1}-\mathcal{C}$. Sea $\tilde{e} \notin \mathcal{C} \cup
+      \mathcal{C}_{1}$ tal que $(\mathcal{C} \cup (\mathcal{C}_{1}-\{e\}) \cup \{\tilde{e}\}, \mathcal{F}, \mathcal{R},
+      a)$ es un tipo. Sea $\tilde{\varphi}_{i} =$ resultado de reemplazar en $\pmb{\varphi}_{i}$ cada ocurrencia de
+      $e$ por $\tilde{e}$, entonces $(\pmb{\tilde{\varphi}}_{1} \dotsc \pmb{\tilde{\varphi}}_{n(\mathbf{\varphi})},
+      \mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau)$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \begin{enumerate}
+      \item Obvio.
+      \item Sean
+
+      $\displaystyle \begin{array}{rcl} \tau _{1} & =& (\mathcal{C}\cup \mathcal{C}_{1},\mathcal{F},\mathcal{R},a) \\ \tau _{2} & =& (\mathcal{C}\cup (\mathcal{C}_{1}-\{e\})\cup \{\tilde{e}\}, \mathcal{F},\mathcal{R},a) \end{array} $
+
+      Para cada $c\in \mathcal{C}\cup (\mathcal{C}_{1}-\{e\})$ definamos $\tilde{c} =c$. Notese que el mapeo $c\rightarrow \tilde{c}$ es una biyeccion entre el conjunto de nombres de constante de $\tau _{1}$ y el conjunto de nombres de cte de $\tau _{2}$. Para cada $t\in T^{\tau _{1}}$ sea $\tilde{t}=$ resultado de reemplazar en $t$ cada ocurrencia de $c$ por $\tilde{c}$, para cada $c\in \mathcal{C}\cup \mathcal{C}_{1}$. Analogamente para una formula $ \psi \in F^{\tau _{1}}$, sea $\tilde{\psi}=$ resultado de reemplazar en $ \psi $ cada ocurrencia de $c$ por $\tilde{c}$, para cada $c\in \mathcal{C} \cup \mathcal{C}_{1}$. Notese que los mapeos $t\rightarrow \tilde{t}$ y $ \psi \rightarrow \tilde{\psi}$ son biyecciones naturales entre $T^{\tau _{1}} $ y $T^{\tau _{2}}$ y entre $F^{\tau _{1}}$ y $F^{\tau _{2}}$, respectivamente. Notese que cualesquiera sean $\psi_{1},\psi_{2}\in F^{\tau _{1}}$, tenemos que $\psi_{1}$ se deduce de $\psi_{2}$ por la regla de generalizacion con constante $c$ sii $\tilde{\psi}_{1}$ se deduce de $\tilde{\psi}_{2}$ por la regla de generalizacion con constante $\tilde{c} $. Para las otras reglas sucede lo mismo. Notese tambien que $c$ ocurre en $ \psi $ sii $\tilde{c}$ ocurre en $\tilde{\psi}.$ Mas aun notese que $c$ depende de $d$ en $(\mathbf{\varphi },\mathbf{J})$ sii $\tilde{c}$ depende de $\tilde{d}$ en $(\mathbf{\tilde{\varphi}},\mathbf{J})$, donde $\mathbf{ \tilde{\varphi}}=\widetilde{\mathbf{\varphi }_{1}}\dotsc\widetilde{\mathbf{ \varphi }_{n(\mathbf{\varphi })}}$. Ahora es facil chequear que $(\mathbf{ \tilde{\varphi}},\mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau) $ basandose en que $(\mathbf{\varphi },\mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau)$. $\Box$
+    \end{enumerate}
+  \end{proof}
+
+  % Lemma 73. Con prueba.
+  \begin{lemma}
+    \PN Sea $(\Sigma, \tau)$ una teoría.
+    \begin{enumerate}
+      \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $(\Sigma \cup \{\varphi_{1}, \dotsc,
+      \varphi_{n}\},\tau ) \vdash \varphi$ entonces $(\Sigma, \tau) \vdash \varphi$.
+      \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $\varphi$ se deduce por alguna regla universal
+      a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, entonces $(\Sigma, \tau) \vdash \varphi$.
+      \item Si $(\Sigma, \tau)$ es inconsistente, entonces $(\Sigma, \tau) \vdash \varphi$, para toda sentencia
+      $\varphi$.
+      \item Si $(\Sigma, \tau)$ es consistente y $(\Sigma, \tau) \vdash \varphi$, entonces $(\Sigma \cup \{\varphi\},
+      \tau)$ es consistente.
+      \item $(\Sigma, \tau) \vdash (\varphi \rightarrow \psi)$ si y solo si $ (\Sigma \cup \{\varphi\}, \tau) \vdash
+      \psi$.
+      \item Si $(\Sigma, \tau) \not \vdash \lnot \varphi$, entonces $(\Sigma \cup \{\varphi\}, \tau)$ es consistente.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \begin{enumerate}
+      \item Haremos el caso $n=2.$ Supongamos entonces que $(\Sigma, \tau)\vdash \varphi_{1},\varphi_{2}$ y $(\Sigma \cup \{\varphi_{1},\varphi_{2}\},\tau )\vdash \varphi $. Para $i=1,2$, sea $(\varphi_{1}^{i}\dotsc\varphi_{n_{i}}^{i},J_{1}^{i}\dotsc J_{n_{i}}^{i})$ una prueba de $ \varphi_{i}$ en $(\Sigma, \tau)$. Sea $(\psi_{1}\dotsc\psi_{n},J_{1}\dotsc J_{n})$ una prueba de $\varphi$ en $(\Sigma \cup \{\varphi_{1},\varphi_{2}\},\tau )$. Notese que por el Lema 154 podemos suponer que estas tres pruebas no comparten ningun nombre de constante auxiliar y que tampoco comparten numeros asociados a hipotesis o tesis. Para cada $i=1, \dotsc, n$, definamos $\widetilde{J_{i}}$ de la siguiente manera.
+
+      - Si $\psi_{i}=\varphi_{1}$ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(\overline{n_{1}})$
+      - Si $\psi_{i}=\varphi_{2}$ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(\overline{n_{1}+n_{2}})$.
+      - Si $\psi_{i}\notin \{\varphi_{1},\varphi_{2}\}$ y $J_{i}=\mathrm{ AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{AXIOMAPROPIO}$.
+      - Si $J_{i}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
+      - Si $J_{i}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}}=\mathrm{ CONCLUSION}$.
+      - Si $J_{i}=\mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
+      - Si $J_{i}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $ \alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}}=\alpha P(\overline{l_{1}+n_{1}+n_{2}}, \dotsc,  \overline{l_{k}+n_{1}+n_{2}})$
+      Para cada $i=1, \dotsc, n_{2}$, definamos $\widetilde{J_{i}^{2}}$ de la siguiente manera.
+
+      - Si $J_{i}^{2}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}^{2} }=\mathrm{AXIOMAPROPIO}$
+      - Si $J_{i}^{2}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}^{2} }=\mathrm{AXIOMALOGICO}$
+      - Si $J_{i}^{2}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}^{2}}= \mathrm{CONCLUSION}$.
+      - Si $J_{i}^{2}=\mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{ J_{i}^{2}}=\mathrm{HIPOTESIS}\bar{k}$
+      - Si $J_{i}^{2}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $\alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}^{2}}=\alpha P(\overline{l_{1}+n_{1}}, \dotsc,  \overline{l_{k}+n_{1}})$
+      Es facil chequear que
+
+      $\displaystyle (\varphi_{1}^{1}\dotsc\varphi_{n_{1}}^{1}\varphi_{1}^{2}\dotsc\varphi_{n_{2}}^{2}\psi_{1}\dotsc\psi_{n},J_{1}^{1}\dotsc J_{n_{1}}^{1}\widetilde{ J_{1}^{2}}\dotsc\widetilde{J_{n_{2}}^{2}}\widetilde{J_{1}}\dotsc\widetilde{J_{n}}) $
+
+      es una prueba de $\varphi$ en $(\Sigma, \tau)$
+
+      \item Supongamos que $(\Sigma, \tau)\vdash \varphi_{1}, \dotsc, \varphi_{n}$ y que $\varphi$ se deduce por regla R a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, con R universal. Notese que
+
+      $\displaystyle \begin{array}{llll} 1.\; & \varphi_{1} & & \text{AXIOMAPROPIO} \\ 2.\; & \varphi_{2} & & \text{AXIOMAPROPIO} \\ \vdots & \vdots & & \vdots \\ n. & \varphi_{n} & & \text{AXIOMAPROPIO} \\ n+1 & \varphi & & \text{R}(\bar{1}, \dotsc, \bar{n}) \end{array} $
+
+      es una prueba de $\varphi$ en $(\Sigma \cup \{\varphi_{1}, \dotsc, \varphi_{n}\},\tau )$, lo cual por (1) nos dice que $(\Sigma, \tau)\vdash \varphi $ .
+      \item Si $(\Sigma, \tau)$ es inconsistente, entonces por definicion tenemos que $(\Sigma, \tau)\vdash \psi \wedge \lnot \psi $ para alguna sentencia $ \psi $. Dada una sentencia cualquiera $\varphi$ tenemos que $\varphi$ se deduce por la regla del absurdo a partir de $\psi \wedge \lnot \psi $ con lo cual (2) nos dice que $(\Sigma, \tau)\vdash \varphi $
+
+      \item Supongamos $(\Sigma, \tau)$ es consistente y $(\Sigma, \tau)\vdash \varphi $. Si $(\Sigma \cup \{\varphi \},\tau )$ fuera inconsistente, entonces $(\Sigma \cup \{\varphi \},\tau )\vdash \psi \wedge \lnot \psi $, para alguna sentencia $\psi$, lo cual por (1) nos diria que $(\Sigma, \tau)\vdash \psi \wedge \lnot \psi $, es decir nos diria que $(\Sigma, \tau)$ es inconsistente.
+
+      \item Supongamos $(\Sigma, \tau)\vdash (\varphi \rightarrow \psi )$. Entonces tenemos que $(\Sigma \cup \{\varphi \},\tau )\vdash (\varphi \rightarrow \psi ),\varphi $, lo cual por (2) nos dice que $(\Sigma \cup \{\varphi \},\tau )\vdash \psi $. Supongamos ahora que $(\Sigma \cup \{\varphi \},\tau )\vdash \psi $. Sea $(\varphi_{1}\dotsc\varphi_{n},J_{1}\dotsc,J_{n})$ una prueba de $\psi$ en $(\Sigma \cup \{\varphi \},\tau )$. Notese que podemos suponer que $J_{n}$ es de la forma $P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$ . Definimos $\widetilde{J_{i}}=$ $\mathrm{TESIS}\bar{m}P(\overline{l_{1}+1} , \dotsc, \overline{l_{k}+1}$, donde $m$ es tal que ninguna $J_{i}$ es igual a $ \mathrm{HIPOTESIS}\bar{m}$. Para cada $i=1, \dotsc, n-1$, definamos $\widetilde{ J_{i}}$ de la siguiente manera.
+
+      - Si $\varphi_{i}=\varphi $ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(1)$
+      - Si $\varphi_{i}\neq \varphi $ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{AXIOMAPROPIO}$
+      - Si $J_{i}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
+      - Si $J_{i}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}}=\mathrm{ CONCLUSION}$
+      - Si $J_{i}=\mathrm{HIPOTESIS}\bar{k}$ entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
+      - Si $J_{i}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $ \alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}}=\alpha P(\overline{l_{1}+1}, \dotsc, \overline{l_{k}+1 })$
+      Es facil chequear que
+
+      $\displaystyle (\varphi \varphi_{1}\dotsc\varphi_{n}(\varphi \rightarrow \psi ),\text{ HIPOTESIS}\bar{m}\widetilde{J_{1}}\dotsc\widetilde{J_{n}}\text{CONCLUSION}) $
+
+      es una prueba de $(\varphi \rightarrow \psi )$ en $(\Sigma, \tau)$
+    \end{enumerate}
+  \end{proof}
+
+  % Theorem 74. Sin prueba.
+  \begin{theorem}
+    \PN \textbf{(Corrección)} $(\Sigma, \tau) \vdash \varphi$ implica $(\Sigma, \tau) \models \varphi$.
+  \end{theorem}
+
+  % Corollary 75. Con prueba.
+  \begin{corollary}
+    \PN Si $(\Sigma, \tau)$ tiene un modelo, entonces $(\Sigma, \tau)$ es consistente.
+  \end{corollary}
+  \begin{proof}
+    Supongamos $\mathbf{A}$ es un modelo de $(\Sigma, \tau).$ Si $(\Sigma, \tau)$ fuera inconsistente, tendriamos que hay una $\varphi \in S^{t}$ tal que $ (\Sigma, \tau)\vdash (\varphi \wedge \lnot \varphi )$, lo cual por el Teorema de Correccion nos diria que $\mathbf{A}\models (\varphi \wedge \lnot \varphi )$ $\Box$
+  \end{proof}
+
+  % Lemma 76. Con prueba.
+  \begin{lemma}
+    \PN $\dashv \vdash$ es una relación de equivalencia.
+  \end{lemma}
+  \begin{proof}
+    \begin{itemize}
+      \item \textit{Reflexiva:} La relacion es reflexiva ya que $(\varphi \leftrightarrow \varphi )$ es un axioma logico.
+      \item \textit{Simétrica:} Supongamos que $\varphi \dashv \vdash \psi $, es decir $(\Sigma, \tau)\vdash \left( \varphi \leftrightarrow \psi \right) $. Ya que $((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$ es un axioma logico, tenemos que $(\Sigma, \tau)\vdash ((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$. Notese que $\left( \psi \leftrightarrow \varphi \right) $ se deduce de $((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$ y $(\varphi \leftrightarrow \psi )$ por la regla de reemplazo, lo cual por (2) del Lema 155 nos dice que $(\Sigma, \tau)\vdash \left( \psi \leftrightarrow \varphi \right) $.
+
+      \item \textit{Transitiva:}   Analogamente, usando la regla de transitividad se puede probar que $\dashv \vdash $ es transitiva.
+    \end{itemize}
+  \end{proof}
+
+  % % Lemma 77. Con prueba.
   % \begin{lemma}
-  %   \PN Si $\varphi$ se deduce de $\psi$ por la regla de generalización, entonces el nombre de constante $c$ del cual
-  %   habla la propiedad que define al conjunto $Generaliz^{\tau}$ está univocamente determinado por el par $(\varphi,
-  %   \psi)$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Notese que $c$ es el unico nombre de constante que ocurre en $\psi$ y no ocurre en $\varphi$
-  % \end{proof}
-  %
-  % % Lemma 150. Con prueba. Lemma 62.
-  % \begin{lemma}
-  %   \PN Si $\varphi$ se deduce de $\psi$ por la regla de elección, entonces el nombre de constante $e$ del cual habla la
-  %   propiedad que define al conjunto $Elec^{\tau}$ está univocamente determinado por el par $(\varphi, \psi)$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Notese que $e$ es el unico nombre de constante que ocurre en $\varphi$ y no ocurre en $\psi$.
-  % \end{proof}
-  %
-  % % Lemma 151. Con prueba. Lemma 63.
-  % \begin{lemma}
-  %   \PN Todas las reglas excepto las reglas de elección y generalización son universales en el sentido que si $\varphi$
-  %   se deduce de $\psi_{1}, \dotsc, \psi_{k}$ por alguna de estas reglas, entonces $\left((\psi_{1}\wedge \dotsc \wedge
-  %   \psi_{k})\rightarrow \varphi\right) $ es una sentencia universalmente válida.
-  % \end{lemma}
-  % \begin{proof}
-  %   Veamos que la regla de existencia es universal. Supongamos $\varphi =_{d}\varphi (v)$, $t\in T_{c}^{\tau }$ y $\mathbf{A}$ es una estructura de tipo $\tau $ tal que $\mathbf{A}\models \varphi (t)$. Sea $t^{\mathbf{A}}$ el valor que toma $t$ en $\mathbf{A}$. Por el Lema 148 tenemos que $\mathbf{A}\models \varphi \left\lbrack t^{\mathbf{A}}\right\rbrack $, por lo cual tenemos que $\mathbf{A}\models \exists v\varphi (v)$.
-  %
-  %   Veamos que la regla de reemplazo es universal. Debemos probar que si $(\psi_{1},\psi_{2},\varphi )\in Reemp^{\tau }=Reemp1^{\tau }\cup Reemp2^{\tau }$ , entonces $\left( (\psi_{1}\wedge \psi_{2})\rightarrow \varphi \right) $ es una sentencia universalmente valida. El caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp1^{\tau }$ es facil y lo dejaremos al lector. Para el caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp2^{\tau }$ nos hara falta un resultado un poco mas general. Veamos por induccion en $k$ que si se dan las siguienes condiciones
-  %
-  %   - $\alpha \in F_{k}^{\tau }$ y $\varphi ,\psi \in F^{\tau }$
-  %   - $\mathbf{A}$ es una estructura de tipo $\tau $
-  %   - $\overline{\alpha }=$ resultado de reemplazar en $\alpha $ una ocurrencia de $\varphi$ por $\psi$,
-  %   - $\mathbf{A}\models \varphi \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \psi \left\lbrack \vec{a}\right\rbrack $, para cada $\vec{a}\in A^{ \mathbb{N}}$
-  %   entonces se da que
-  %
-  %   - $\mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack $, para cada $\vec{ a}\in A^{\mathbb{N}}$.
-  %   CASO $k=0.$
-  %
-  %   Entonces $\alpha $ es atomica y por lo tanto ya que $\alpha $ es la unica subformula de $\alpha $, la situacion es facil de probar.
-  %
-  %   CASO $\alpha =\forall x_{i}\alpha _{1}.$
-  %
-  %   Si $\varphi =\alpha $, entonces la situacion es facil de probar. Si $\varphi \neq \alpha $, entonces la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$ y por lo tanto $\overline{\alpha }=\forall x_{i} \overline{\alpha _{1}}.$ Se tiene entonces que para un $\vec{a}$ dado,
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \downarrow _{i}^{a}\vec{a}\right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \downarrow _{i}^{a}\vec{a} \right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
-  %
-  %   CASO $\alpha =(\alpha _{1}\vee \alpha _{2})$.
-  %   Si $\varphi =\alpha $, entonces la situacion es facil de probar. Supongamos $\varphi \neq \alpha $ y supongamos que la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$. Entonces $\overline{\alpha }=( \overline{\alpha _{1}}\vee \alpha _{2})$ y tenemos que
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \vec{a}\right\rbrack \text{ o }\mathbf{A} \models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \vec{a}\right\rbrack \text{ o } \mathbf{A}\models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
-  %
-  %   Los demas casos son dejados al lector.
-  %   Dejamos al lector el chequeo de la universalidad del resto de las reglas.
-  % \end{proof}
-  %
-  % % Lemma 152. Con prueba. Lemma 64.
-  % \begin{lemma}
-  %   \PN Sea $\mathbf{\varphi} \in S^{\tau +}$. Hay únicos $n \geq 1$ y $\varphi_{1}, \dotsc, \varphi_{n} \in S^{\tau}$
-  %   tales que $\mathbf{\varphi} = \varphi_{1} \dotsc \varphi_{n}$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Solo hay que probar la unicidad la cual sigue de la Proposicion 128.
-  % \end{proof}
-  %
-  % % Lemma 153. Con prueba. Lemma 65.
-  % \begin{lemma}
-  %   \PN Sea $\mathbf{J} \in Just^{+}$. Hay únicos $n \geq 1$ y $J_{1}, \dotsc, J_{n} \in Just$ tales que $\mathbf{J} =
-  %   J_{1} \dotsc J_{n}$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Supongamos $J_{1}, \dotsc, J_{n}$, $J_{1}^{\prime}, \dotsc, J_{m}^{\prime}$, con $ n,m\geq 1$, son justificaciones tales que $J_{1}\dotsc J_{n}=J_{1}^{\prime}\dotsc J_{m}^{\prime}$. Es facil ver que entonces tenemos $J_{1}=J_{1}^{\prime}$, por lo cual $J_{2}\dotsc J_{n}=J_{2}^{\prime}\dotsc J_{m}^{\prime}$. Un argumento inductivo nos dice que entonces $n=m$ y $J_{i}=J_{i}^{\prime}$, $ i=1, \dotsc, n$ $\Box$
-  % \end{proof}
-  %
-  % % Lemma 154. Con prueba. Lemma 66.
-  % \begin{lemma}
-  %   \PN Sea $(\mathbf{\varphi}, \mathbf{J})$ una prueba de $\varphi$ en $(\Sigma, \tau)$.
-  %   \begin{enumerate}\lbrack(1)\rbrack
-  %     \item Sea $m \in \mathbb{N}$ tal que $\mathbf{J}_{i} \neq \mathrm{ HIPOTESIS}\bar{m}$, para cada $i =
-  %     1, \dotsc, n(\mathbf{\varphi})$. Supongamos que $\mathbf{J}_{i} = \mathrm{HIPOTESIS}\bar{k}$ y que $\mathbf{J}_{j}
-  %     = \mathrm{TESIS}\bar{k} \alpha$, con $\lbrack\alpha\rbrack_{1} \notin Num$. Sea $\mathbf{\tilde{J}}$ el resultado de
-  %     reemplazar en $\mathbf{J}$ la justificación $\mathbf{J}_{i}$ por $\mathrm{HIPOTESIS}\bar{m}$ y reemplazar la
-  %     justificación $\mathbf{J}_{j}$ por $\mathrm{TESIS}\bar{m}\alpha$, entonces $(\mathbf{\varphi},
-  %     \mathbf{\tilde{J}})$ es una prueba de $\varphi$ en $(\Sigma, \tau)$.
-  %     \item Sea $\mathcal{C}_{1}$ el conjunto de nombres de constante que ocurren en alguna $\mathbf{\varphi}_{i}$ y que
-  %     no pertenecen a $\mathcal{C}$. Sea $e \in \mathcal{C}_{1}-\mathcal{C}$. Sea $\tilde{e} \notin \mathcal{C} \cup
-  %     \mathcal{C}_{1}$ tal que $(\mathcal{C} \cup (\mathcal{C}_{1}-\{e\}) \cup \{\tilde{e}\}, \mathcal{F}, \mathcal{R},
-  %     a)$ es un tipo. Sea $\tilde{\varphi}_{i} =$ resultado de reemplazar en $\mathbf{\varphi}_{i}$ cada ocurrencia de
-  %     $e$ por $\tilde{e}$, entonces $(\mathbf{\tilde{\varphi}}_{1} \dotsc \mathbf{\tilde{\varphi}}_{n(\mathbf{\varphi})},
-  %     \mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau)$.
-  %   \end{enumerate}
-  % \end{lemma}
-  % \begin{proof}
-  %   (1) Obvio.
-  %
-  %   (2) Sean
-  %
-  %   $\displaystyle \begin{array}{rcl} \tau _{1} & =& (\mathcal{C}\cup \mathcal{C}_{1},\mathcal{F},\mathcal{R},a) \\ \tau _{2} & =& (\mathcal{C}\cup (\mathcal{C}_{1}-\{e\})\cup \{\tilde{e}\}, \mathcal{F},\mathcal{R},a) \end{array} $
-  %
-  %   Para cada $c\in \mathcal{C}\cup (\mathcal{C}_{1}-\{e\})$ definamos $\tilde{c} =c$. Notese que el mapeo $c\rightarrow \tilde{c}$ es una biyeccion entre el conjunto de nombres de constante de $\tau _{1}$ y el conjunto de nombres de cte de $\tau _{2}$. Para cada $t\in T^{\tau _{1}}$ sea $\tilde{t}=$ resultado de reemplazar en $t$ cada ocurrencia de $c$ por $\tilde{c}$, para cada $c\in \mathcal{C}\cup \mathcal{C}_{1}$. Analogamente para una formula $ \psi \in F^{\tau _{1}}$, sea $\tilde{\psi}=$ resultado de reemplazar en $ \psi $ cada ocurrencia de $c$ por $\tilde{c}$, para cada $c\in \mathcal{C} \cup \mathcal{C}_{1}$. Notese que los mapeos $t\rightarrow \tilde{t}$ y $ \psi \rightarrow \tilde{\psi}$ son biyecciones naturales entre $T^{\tau _{1}} $ y $T^{\tau _{2}}$ y entre $F^{\tau _{1}}$ y $F^{\tau _{2}}$, respectivamente. Notese que cualesquiera sean $\psi_{1},\psi_{2}\in F^{\tau _{1}}$, tenemos que $\psi_{1}$ se deduce de $\psi_{2}$ por la regla de generalizacion con constante $c$ sii $\tilde{\psi}_{1}$ se deduce de $\tilde{\psi}_{2}$ por la regla de generalizacion con constante $\tilde{c} $. Para las otras reglas sucede lo mismo. Notese tambien que $c$ ocurre en $ \psi $ sii $\tilde{c}$ ocurre en $\tilde{\psi}.$ Mas aun notese que $c$ depende de $d$ en $(\mathbf{\varphi },\mathbf{J})$ sii $\tilde{c}$ depende de $\tilde{d}$ en $(\mathbf{\tilde{\varphi}},\mathbf{J})$, donde $\mathbf{ \tilde{\varphi}}=\widetilde{\mathbf{\varphi }_{1}}\dotsc\widetilde{\mathbf{ \varphi }_{n(\mathbf{\varphi })}}$. Ahora es facil chequear que $(\mathbf{ \tilde{\varphi}},\mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau) $ basandose en que $(\mathbf{\varphi },\mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau)$. $\Box$
-  % \end{proof}
-  %
-  % % Lemma 155. Con prueba. Lemma 67.
-  % \begin{lemma}
-  %   \PN Sea $(\Sigma, \tau)$ una teoría.
-  %   \begin{enumerate}
-  %     \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $(\Sigma \cup \{\varphi_{1}, \dotsc,
-  %     \varphi_{n}\},\tau ) \vdash \varphi$ entonces $(\Sigma, \tau) \vdash \varphi$.
-  %     \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $\varphi$ se deduce por alguna regla universal
-  %     a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, entonces $(\Sigma, \tau) \vdash \varphi$.
-  %     \item Si $(\Sigma, \tau)$ es inconsistente, entonces $(\Sigma, \tau) \vdash \varphi$, para toda sentencia
-  %     $\varphi$.
-  %     \item Si $(\Sigma, \tau)$ es consistente y $(\Sigma, \tau) \vdash \varphi$, entonces $(\Sigma \cup \{\varphi\},
-  %     \tau)$ es consistente.
-  %     \item $(\Sigma, \tau) \vdash (\varphi \rightarrow \psi)$ si y solo si $ (\Sigma \cup \{\varphi\}, \tau) \vdash
-  %     \psi$.
-  %     \item Si $(\Sigma, \tau) \not \vdash \lnot \varphi$, entonces $(\Sigma \cup \{\varphi\}, \tau)$ es consistente.
-  %   \end{enumerate}
-  % \end{lemma}
-  % \begin{proof}
-  %   (1) Haremos el caso $n=2.$ Supongamos entonces que $(\Sigma, \tau)\vdash \varphi_{1},\varphi_{2}$ y $(\Sigma \cup \{\varphi_{1},\varphi_{2}\},\tau )\vdash \varphi $. Para $i=1,2$, sea $(\varphi_{1}^{i}\dotsc\varphi_{n_{i}}^{i},J_{1}^{i}\dotsc J_{n_{i}}^{i})$ una prueba de $ \varphi_{i}$ en $(\Sigma, \tau)$. Sea $(\psi_{1}\dotsc\psi_{n},J_{1}\dotsc J_{n})$ una prueba de $\varphi$ en $(\Sigma \cup \{\varphi_{1},\varphi_{2}\},\tau )$. Notese que por el Lema 154 podemos suponer que estas tres pruebas no comparten ningun nombre de constante auxiliar y que tampoco comparten numeros asociados a hipotesis o tesis. Para cada $i=1, \dotsc, n$, definamos $\widetilde{J_{i}}$ de la siguiente manera.
-  %
-  %   - Si $\psi_{i}=\varphi_{1}$ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(\overline{n_{1}})$
-  %   - Si $\psi_{i}=\varphi_{2}$ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(\overline{n_{1}+n_{2}})$.
-  %   - Si $\psi_{i}\notin \{\varphi_{1},\varphi_{2}\}$ y $J_{i}=\mathrm{ AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{AXIOMAPROPIO}$.
-  %   - Si $J_{i}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
-  %   - Si $J_{i}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}}=\mathrm{ CONCLUSION}$.
-  %   - Si $J_{i}=\mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
-  %   - Si $J_{i}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $ \alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}}=\alpha P(\overline{l_{1}+n_{1}+n_{2}}, \dotsc,  \overline{l_{k}+n_{1}+n_{2}})$
-  %   Para cada $i=1, \dotsc, n_{2}$, definamos $\widetilde{J_{i}^{2}}$ de la siguiente manera.
-  %
-  %   - Si $J_{i}^{2}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}^{2} }=\mathrm{AXIOMAPROPIO}$
-  %   - Si $J_{i}^{2}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}^{2} }=\mathrm{AXIOMALOGICO}$
-  %   - Si $J_{i}^{2}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}^{2}}= \mathrm{CONCLUSION}$.
-  %   - Si $J_{i}^{2}=\mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{ J_{i}^{2}}=\mathrm{HIPOTESIS}\bar{k}$
-  %   - Si $J_{i}^{2}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $\alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}^{2}}=\alpha P(\overline{l_{1}+n_{1}}, \dotsc,  \overline{l_{k}+n_{1}})$
-  %   Es facil chequear que
-  %
-  %   $\displaystyle (\varphi_{1}^{1}\dotsc\varphi_{n_{1}}^{1}\varphi_{1}^{2}\dotsc\varphi_{n_{2}}^{2}\psi_{1}\dotsc\psi_{n},J_{1}^{1}\dotsc J_{n_{1}}^{1}\widetilde{ J_{1}^{2}}\dotsc\widetilde{J_{n_{2}}^{2}}\widetilde{J_{1}}\dotsc\widetilde{J_{n}}) $
-  %
-  %   es una prueba de $\varphi$ en $(\Sigma, \tau)$
-  %   (2) Supongamos que $(\Sigma, \tau)\vdash \varphi_{1}, \dotsc, \varphi_{n}$ y que $\varphi$ se deduce por regla R a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, con R universal. Notese que
-  %
-  %   $\displaystyle \begin{array}{llll} 1.\; & \varphi_{1} & & \text{AXIOMAPROPIO} \\ 2.\; & \varphi_{2} & & \text{AXIOMAPROPIO} \\ \vdots & \vdots & & \vdots \\ n. & \varphi_{n} & & \text{AXIOMAPROPIO} \\ n+1 & \varphi & & \text{R}(\bar{1}, \dotsc, \bar{n}) \end{array} $
-  %
-  %   es una prueba de $\varphi$ en $(\Sigma \cup \{\varphi_{1}, \dotsc, \varphi_{n}\},\tau )$, lo cual por (1) nos dice que $(\Sigma, \tau)\vdash \varphi $ .
-  %   (3) Si $(\Sigma, \tau)$ es inconsistente, entonces por definicion tenemos que $(\Sigma, \tau)\vdash \psi \wedge \lnot \psi $ para alguna sentencia $ \psi $. Dada una sentencia cualquiera $\varphi$ tenemos que $\varphi$ se deduce por la regla del absurdo a partir de $\psi \wedge \lnot \psi $ con lo cual (2) nos dice que $(\Sigma, \tau)\vdash \varphi $
-  %
-  %   (4) Supongamos $(\Sigma, \tau)$ es consistente y $(\Sigma, \tau)\vdash \varphi $. Si $(\Sigma \cup \{\varphi \},\tau )$ fuera inconsistente, entonces $(\Sigma \cup \{\varphi \},\tau )\vdash \psi \wedge \lnot \psi $, para alguna sentencia $\psi$, lo cual por (1) nos diria que $(\Sigma, \tau)\vdash \psi \wedge \lnot \psi $, es decir nos diria que $(\Sigma, \tau)$ es inconsistente.
-  %
-  %   (5) Supongamos $(\Sigma, \tau)\vdash (\varphi \rightarrow \psi )$. Entonces tenemos que $(\Sigma \cup \{\varphi \},\tau )\vdash (\varphi \rightarrow \psi ),\varphi $, lo cual por (2) nos dice que $(\Sigma \cup \{\varphi \},\tau )\vdash \psi $. Supongamos ahora que $(\Sigma \cup \{\varphi \},\tau )\vdash \psi $. Sea $(\varphi_{1}\dotsc\varphi_{n},J_{1}\dotsc,J_{n})$ una prueba de $\psi$ en $(\Sigma \cup \{\varphi \},\tau )$. Notese que podemos suponer que $J_{n}$ es de la forma $P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$ . Definimos $\widetilde{J_{i}}=$ $\mathrm{TESIS}\bar{m}P(\overline{l_{1}+1} , \dotsc, \overline{l_{k}+1}$, donde $m$ es tal que ninguna $J_{i}$ es igual a $ \mathrm{HIPOTESIS}\bar{m}$. Para cada $i=1, \dotsc, n-1$, definamos $\widetilde{ J_{i}}$ de la siguiente manera.
-  %
-  %   - Si $\varphi_{i}=\varphi $ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(1)$
-  %   - Si $\varphi_{i}\neq \varphi $ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{AXIOMAPROPIO}$
-  %   - Si $J_{i}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
-  %   - Si $J_{i}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}}=\mathrm{ CONCLUSION}$
-  %   - Si $J_{i}=\mathrm{HIPOTESIS}\bar{k}$ entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
-  %   - Si $J_{i}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $ \alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}}=\alpha P(\overline{l_{1}+1}, \dotsc, \overline{l_{k}+1 })$
-  %   Es facil chequear que
-  %
-  %   $\displaystyle (\varphi \varphi_{1}\dotsc\varphi_{n}(\varphi \rightarrow \psi ),\text{ HIPOTESIS}\bar{m}\widetilde{J_{1}}\dotsc\widetilde{J_{n}}\text{CONCLUSION}) $
-  %
-  %   es una prueba de $(\varphi \rightarrow \psi )$ en $(\Sigma, \tau)$
-  % \end{proof}
-  %
-  % % Theorem 156. Sin prueba. Theorem 68.
-  % \begin{theorem}
-  %   \PN \textbf{(Corrección)} $(\Sigma, \tau) \vdash \varphi \Rightarrow (\Sigma, \tau) \models \varphi$.
-  % \end{theorem}
-  %
-  % % Corollary 157. Con prueba. Corollary 69.
-  % \begin{corollary}
-  %   \PN Si $(\Sigma, \tau)$ tiene un modelo, entonces $(\Sigma, \tau)$ es consistente.
-  % \end{corollary}
-  % \begin{proof}
-  %   Supongamos $\mathbf{A}$ es un modelo de $(\Sigma, \tau).$ Si $(\Sigma, \tau)$ fuera inconsistente, tendriamos que hay una $\varphi \in S^{t}$ tal que $ (\Sigma, \tau)\vdash (\varphi \wedge \lnot \varphi )$, lo cual por el Teorema de Correccion nos diria que $\mathbf{A}\models (\varphi \wedge \lnot \varphi )$ $\Box$
-  % \end{proof}
-  %
-  % % Lemma 158. Con prueba. Lemma 70.
-  % \begin{lemma}
-  %   \PN $\dashv \vdash$ es una relación de equivalencia.
-  % \end{lemma}
-  % \begin{proof}
-  %   La relacion es reflexiva ya que $(\varphi \leftrightarrow \varphi )$ es un axioma logico. Veamos que es simetrica. Supongamos que $\varphi \dashv \vdash \psi $, es decir $(\Sigma, \tau)\vdash \left( \varphi \leftrightarrow \psi \right) $. Ya que $((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$ es un axioma logico, tenemos que $(\Sigma, \tau)\vdash ((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$. Notese que $\left( \psi \leftrightarrow \varphi \right) $ se deduce de $((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$ y $(\varphi \leftrightarrow \psi )$ por la regla de reemplazo, lo cual por (2) del Lema 155 nos dice que $(\Sigma, \tau)\vdash \left( \psi \leftrightarrow \varphi \right) $.
-  %
-  %   Analogamente, usando la regla de transitividad se puede probar que $\dashv \vdash $ es transitiva.
-  % \end{proof}
-  %
-  % % Lemma 159. Con prueba. Lemma 71.
-  % \begin{lemma}
-  %   \PN Dada una teoria $(\Sigma, \tau)$, el par $(S^{\tau}/\mathrm{\dashv \vdash}, \leq)$ es un reticulado en el cual:
+  %   \PN Dada una teoria $T = (\Sigma, \tau)$, el par $(S^{\tau}/\mathrm{\dashv \vdash}, \leq)$ es un reticulado en el cual:
   %   \begin{eqnarray*}
   %     \lbrack \varphi \rbrack \ \SU \ \lbrack\psi \rbrack &=& \lbrack(\varphi \vee \psi)\rbrack \\
   %     \lbrack \varphi \rbrack \ \IN \ \lbrack\psi \rbrack &=& \lbrack(\varphi \wedge \psi)\rbrack
@@ -363,78 +377,78 @@
   % \begin{theorem}
   %   \PN \textbf{(Completitud) (G{\"o}del)} $(\Sigma, \tau) \models \varphi \Rightarrow (\Sigma, \tau) \vdash \varphi$.
   % \end{theorem}
-  % \begin{proof} % TODO error de compilación.
-  %   Primero probaremos completitud para el caso en que $\tau $ tiene una cantidad infinita de nombres de cte que no ocurren en las sentencias de $ \Sigma $. Lo probaremos por el absurdo, es decir supongamos que $\varphi_{0} $ es tal que $(\Sigma, \tau)\models \varphi_{0}$ y $(\Sigma, \tau)\not\vdash \varphi_{0}.$ Notese que ya que $(\Sigma, \tau)\not\vdash \varphi_{0}$, tenemos que $\lbrack\lnot \varphi_{0}\rbrack\not=0^{\mathcal{A}_{(\Sigma, \tau)}}.$ Para cada $j\in \mathbb{N}$, sea $w_{j}\in Var$ tal que $ Li(\gamma _{j})\subseteq \{w_{j}\}$. Para cada $j$, declaremos $\gamma _{j}=_{d}\gamma _{j}(w_{j})$. Notese que por el Lema 163 tenemos que $\inf \{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}=\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack$, para cada $j=1,2,\dotsc$. Por el Teorema de Rasiova y Sikorski tenemos que hay un filtro primo de $\mathcal{A}_{(\Sigma, \tau)}$ , $\mathcal{U}$ el cual cumple:
-  %
-  %   (a) $\lbrack\lnot \varphi_{0}\rbrack\in \mathcal{U}$
-  %   (b) para cada $j\in \mathbb{N}$, $\{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ implica que $\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack\in \mathcal{U}$
-  %   Ya que la sucesion de las $\gamma _{i}$ cubre todas las formulas con a lo sumo una variable libre, podemos reescribir la propiedad (b) de la siguiente manera
-  %
-  %   (b)$^{\prime}$ para cada $\varphi =_{d}\varphi (v)\in F^{\tau }$, si $\{\lbrack\varphi (t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ entonces $ \lbrack\forall v\varphi (v)\rbrack\in \mathcal{U}$
-  %   Definamos sobre $T_{c}^{\tau }$ la siguiente relacion:
-  %
-  %   $\displaystyle t\bowtie s\text{ si y solo si }\lbrack(t\equiv s)\rbrack\in \mathcal{U}\text{.} $
-  %
-  %   Veamos entonces que:
-  %   (1) $\bowtie $ es de equivalencia.
-  %   (2) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F^{\tau }$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$, si $t_{1}\bowtie s_{1}$, $ t_{2}\bowtie s_{2}$, $\dotsc$, $t_{n}\bowtie s_{n}$, entonces $\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}$ si y solo si $\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U}$.
-  %   (3) Para cada $f\in \mathcal{F}_{n}$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$,
-  %   $\displaystyle t_{1}\bowtie s_{1},t_{2}\bowtie s_{2}, \dotsc, \;t_{n}\bowtie s_{n}\text{ implica }f(t_{1}, \dotsc, t_{n})\bowtie f(s_{1}, \dotsc, s_{n}). $
-  %
-  %   Probaremos (2). Notese que
-  %
-  %   $\displaystyle (\Sigma, \tau)\vdash \left( (t_{1}\equiv s_{1})\wedge (t_{2}\equiv s_{2})\wedge \dotsc\wedge (t_{n}\equiv s_{n})\wedge \varphi (t_{1}, \dotsc, t_{n})\right) \rightarrow \varphi (s_{1}, \dotsc, s_{n}) $
-  %
-  %   lo cual nos dice que
-  %   $\displaystyle \lbrack (t_{1}\equiv s_{1})\rbrack \ \IN \ \lbrack(t_{2}\equiv s_{2})\rbrack \ \IN \  \dotsc \ \IN \ \lbrack(t_{n}\equiv s_{n})\rbrack \ \IN \ \lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\leq \lbrack \varphi (s_{1}, \dotsc, s_{n})\rbrack $
-  %
-  %   de lo cual se desprende que
-  %   $\displaystyle \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{ implica }\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U} $
-  %
-  %   ya que $\mathcal{U}$ es un filtro. La otra implicacion es analoga.
-  %   Para probar (3) podemos tomar $\varphi =\left( f(v_{1}, \dotsc, v_{n})\equiv f(s_{1}, \dotsc, s_{n})\right) $ y aplicar (2).
-  %
-  %   Definamos ahora un modelo $\mathbf{A}_{\mathcal{U}}$ de tipo $\tau $ de la siguiente manera:
-  %
-  %   - Universo de $\mathbf{A}_{\mathcal{U}}=T_{c}^{\tau }/\mathrm{\bowtie }$
-  %   - $f^{\mathbf{A}_{\mathcal{U}}}(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie })=f(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie }$, $f\in \mathcal{F} _{n}$, $t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }\;$
-  %   - $r^{\mathbf{A}_{\mathcal{U}}}=\{(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie }):\lbrackr(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\}$, $r\in \mathcal{R} _{n}.$
-  %   Notese que la definicion de $f^{\mathbf{A}_{\mathcal{U}}}$ es inambigua por (3). Probaremos las siguientes propiedades basicas:
-  %
-  %   (4) Para cada $t=_{d}t(v_{1}, \dotsc, v_{n})\in \TAU$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
-  %   $\displaystyle t^{\mathbf{A}_{\mathcal{U}}}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{ \bowtie }\rbrack=t(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie } $
-  %
-  %   (5) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F^{\tau }$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
-  %   $\displaystyle \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{ si y solo si }\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. $
-  %
-  %   La prueba de (4) es directa por induccion. Probaremos (5) por induccion en el $k$ tal que $\varphi \in F_{k}^{\tau }$. El caso $k=0$ es dejado al lector. Supongamos (5) vale para $\varphi \in F_{k}^{\tau }$. Sea $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F_{k+1}^{\tau }-F_{k}^{\tau }.$ Hay varios casos:
-  %
-  %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\left( \varphi_{1}(v_{1}, \dotsc, v_{n})\vee \varphi_{2}(v_{1}, \dotsc, v_{n})\right) .$
-  %
-  %   Tenemos
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{ o }\mathbf{A}_{\mathcal{U}}\models \varphi_{2}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{ o }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\ \mathsf{s\ }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \left( \varphi_{1}(t_{1}, \dotsc, t_{n})\vee \varphi_{2}(t_{1}, \dotsc, t_{n})\right) \rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
-  %
-  %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\forall v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
-  %   Tenemos
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para todo }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para todo } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
-  %
-  %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\exists v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
-  %   Tenemos
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para algun } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack^{c}\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \lnot \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\not\in \mathcal{U} \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack^{c}\in \mathcal{U} \\ \Updownarrow \\ \lbrack \lnot \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U } \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
-  %
-  %   Pero ahora notese que (5) en particular nos dice que para cada sentencia $ \psi \in S^{\tau }$, $\mathbf{A}_{\mathcal{U}}\models \psi $ si y solo si $ \lbrack\psi \rbrack\in \mathcal{U}.$ De esta forma llegamos a que $\mathbf{A}_{\mathcal{U }}\models \Sigma $ y $\mathbf{A}_{\mathcal{U}}\models \lnot \varphi_{0}$, lo cual contradice la suposicion de que $(\Sigma, \tau)\models \varphi_{0}. $
-  %   Ahora supongamos que $\tau $ es cualquier tipo. Sean $s_{1}$ y $s_{2}$ un par de simbolos no pertenecientes a la lista
-  %
-  %   $\displaystyle \forall \ \ \exists \ \ \lnot \ \ \vee \ \ \wedge \ \ \rightarrow \ \ \leftrightarrow \ \ (\ \ )\ \ ,\ \equiv \ \ \mathsf{X}\ \ \mathit{0}\ \ \mathit{1}\ \ \dotsc\ \ \mathit{9}\ \ \mathbf{0}\ \ \mathbf{1}\ \ \dotsc\ \ \mathbf{9} $
-  %
-  %   y tales que ninguno ocurra en alguna palabra de $\mathcal{C}\cup \mathcal{F} \cup \mathcal{R}.$ Si $(\Sigma, \tau)\models \varphi $, entonces usando el Lema de Coincidencia se puede ver que $(\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\},\mathcal{F},\mathcal{R} ,a))\models \varphi $, por lo cual
-  %   $\displaystyle (\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\}, \mathcal{F},\mathcal{R},a))\vdash \varphi . $
-  %
-  %   Pero por Lema 162, tenemos que $(\Sigma, \tau)\vdash \varphi .$
-  % \end{proof}
+  % % \begin{proof} % TODO error de compilación.
+  % %   Primero probaremos completitud para el caso en que $\tau $ tiene una cantidad infinita de nombres de cte que no ocurren en las sentencias de $ \Sigma $. Lo probaremos por el absurdo, es decir supongamos que $\varphi_{0} $ es tal que $(\Sigma, \tau)\models \varphi_{0}$ y $(\Sigma, \tau)\not\vdash \varphi_{0}.$ Notese que ya que $(\Sigma, \tau)\not\vdash \varphi_{0}$, tenemos que $\lbrack\lnot \varphi_{0}\rbrack\not=0^{\mathcal{A}_{(\Sigma, \tau)}}.$ Para cada $j\in \mathbb{N}$, sea $w_{j}\in Var$ tal que $ Li(\gamma _{j})\subseteq \{w_{j}\}$. Para cada $j$, declaremos $\gamma _{j}=_{d}\gamma _{j}(w_{j})$. Notese que por el Lema 163 tenemos que $\inf \{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}=\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack$, para cada $j=1,2,\dotsc$. Por el Teorema de Rasiova y Sikorski tenemos que hay un filtro primo de $\mathcal{A}_{(\Sigma, \tau)}$ , $\mathcal{U}$ el cual cumple:
+  % %
+  % %   (a) $\lbrack\lnot \varphi_{0}\rbrack\in \mathcal{U}$
+  % %   (b) para cada $j\in \mathbb{N}$, $\{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ implica que $\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack\in \mathcal{U}$
+  % %   Ya que la sucesion de las $\gamma _{i}$ cubre todas las formulas con a lo sumo una variable libre, podemos reescribir la propiedad (b) de la siguiente manera
+  % %
+  % %   (b)$^{\prime}$ para cada $\varphi =_{d}\varphi (v)\in F^{\tau }$, si $\{\lbrack\varphi (t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ entonces $ \lbrack\forall v\varphi (v)\rbrack\in \mathcal{U}$
+  % %   Definamos sobre $T_{c}^{\tau }$ la siguiente relacion:
+  % %
+  % %   $\displaystyle t\bowtie s\text{ si y solo si }\lbrack(t\equiv s)\rbrack\in \mathcal{U}\text{.} $
+  % %
+  % %   Veamos entonces que:
+  % %   (1) $\bowtie $ es de equivalencia.
+  % %   (2) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F^{\tau }$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$, si $t_{1}\bowtie s_{1}$, $ t_{2}\bowtie s_{2}$, $\dotsc$, $t_{n}\bowtie s_{n}$, entonces $\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}$ si y solo si $\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U}$.
+  % %   (3) Para cada $f\in \mathcal{F}_{n}$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$,
+  % %   $\displaystyle t_{1}\bowtie s_{1},t_{2}\bowtie s_{2}, \dotsc, \;t_{n}\bowtie s_{n}\text{ implica }f(t_{1}, \dotsc, t_{n})\bowtie f(s_{1}, \dotsc, s_{n}). $
+  % %
+  % %   Probaremos (2). Notese que
+  % %
+  % %   $\displaystyle (\Sigma, \tau)\vdash \left( (t_{1}\equiv s_{1})\wedge (t_{2}\equiv s_{2})\wedge \dotsc\wedge (t_{n}\equiv s_{n})\wedge \varphi (t_{1}, \dotsc, t_{n})\right) \rightarrow \varphi (s_{1}, \dotsc, s_{n}) $
+  % %
+  % %   lo cual nos dice que
+  % %   $\displaystyle \lbrack (t_{1}\equiv s_{1})\rbrack \ \IN \ \lbrack(t_{2}\equiv s_{2})\rbrack \ \IN \  \dotsc \ \IN \ \lbrack(t_{n}\equiv s_{n})\rbrack \ \IN \ \lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\leq \lbrack \varphi (s_{1}, \dotsc, s_{n})\rbrack $
+  % %
+  % %   de lo cual se desprende que
+  % %   $\displaystyle \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{ implica }\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U} $
+  % %
+  % %   ya que $\mathcal{U}$ es un filtro. La otra implicacion es analoga.
+  % %   Para probar (3) podemos tomar $\varphi =\left( f(v_{1}, \dotsc, v_{n})\equiv f(s_{1}, \dotsc, s_{n})\right) $ y aplicar (2).
+  % %
+  % %   Definamos ahora un modelo $\mathbf{A}_{\mathcal{U}}$ de tipo $\tau $ de la siguiente manera:
+  % %
+  % %   - Universo de $\mathbf{A}_{\mathcal{U}}=T_{c}^{\tau }/\mathrm{\bowtie }$
+  % %   - $f^{\mathbf{A}_{\mathcal{U}}}(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie })=f(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie }$, $f\in \mathcal{F} _{n}$, $t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }\;$
+  % %   - $r^{\mathbf{A}_{\mathcal{U}}}=\{(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie }):\lbrackr(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\}$, $r\in \mathcal{R} _{n}.$
+  % %   Notese que la definicion de $f^{\mathbf{A}_{\mathcal{U}}}$ es inambigua por (3). Probaremos las siguientes propiedades basicas:
+  % %
+  % %   (4) Para cada $t=_{d}t(v_{1}, \dotsc, v_{n})\in \TAU$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
+  % %   $\displaystyle t^{\mathbf{A}_{\mathcal{U}}}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{ \bowtie }\rbrack=t(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie } $
+  % %
+  % %   (5) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F^{\tau }$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
+  % %   $\displaystyle \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{ si y solo si }\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. $
+  % %
+  % %   La prueba de (4) es directa por induccion. Probaremos (5) por induccion en el $k$ tal que $\varphi \in F_{k}^{\tau }$. El caso $k=0$ es dejado al lector. Supongamos (5) vale para $\varphi \in F_{k}^{\tau }$. Sea $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F_{k+1}^{\tau }-F_{k}^{\tau }.$ Hay varios casos:
+  % %
+  % %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\left( \varphi_{1}(v_{1}, \dotsc, v_{n})\vee \varphi_{2}(v_{1}, \dotsc, v_{n})\right) .$
+  % %
+  % %   Tenemos
+  % %
+  % %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{ o }\mathbf{A}_{\mathcal{U}}\models \varphi_{2}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{ o }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\ \mathsf{s\ }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \left( \varphi_{1}(t_{1}, \dotsc, t_{n})\vee \varphi_{2}(t_{1}, \dotsc, t_{n})\right) \rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
+  % %
+  % %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\forall v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
+  % %   Tenemos
+  % %
+  % %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para todo }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para todo } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
+  % %
+  % %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\exists v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
+  % %   Tenemos
+  % %
+  % %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para algun } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack^{c}\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \lnot \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\not\in \mathcal{U} \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack^{c}\in \mathcal{U} \\ \Updownarrow \\ \lbrack \lnot \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U } \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
+  % %
+  % %   Pero ahora notese que (5) en particular nos dice que para cada sentencia $ \psi \in S^{\tau }$, $\mathbf{A}_{\mathcal{U}}\models \psi $ si y solo si $ \lbrack\psi \rbrack\in \mathcal{U}.$ De esta forma llegamos a que $\mathbf{A}_{\mathcal{U }}\models \Sigma $ y $\mathbf{A}_{\mathcal{U}}\models \lnot \varphi_{0}$, lo cual contradice la suposicion de que $(\Sigma, \tau)\models \varphi_{0}. $
+  % %   Ahora supongamos que $\tau $ es cualquier tipo. Sean $s_{1}$ y $s_{2}$ un par de simbolos no pertenecientes a la lista
+  % %
+  % %   $\displaystyle \forall \ \ \exists \ \ \lnot \ \ \vee \ \ \wedge \ \ \rightarrow \ \ \leftrightarrow \ \ (\ \ )\ \ ,\ \equiv \ \ \mathsf{X}\ \ \mathit{0}\ \ \mathit{1}\ \ \dotsc\ \ \mathit{9}\ \ \mathbf{0}\ \ \mathbf{1}\ \ \dotsc\ \ \mathbf{9} $
+  % %
+  % %   y tales que ninguno ocurra en alguna palabra de $\mathcal{C}\cup \mathcal{F} \cup \mathcal{R}.$ Si $(\Sigma, \tau)\models \varphi $, entonces usando el Lema de Coincidencia se puede ver que $(\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\},\mathcal{F},\mathcal{R} ,a))\models \varphi $, por lo cual
+  % %   $\displaystyle (\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\}, \mathcal{F},\mathcal{R},a))\vdash \varphi . $
+  % %
+  % %   Pero por Lema 162, tenemos que $(\Sigma, \tau)\vdash \varphi .$
+  % % \end{proof}
   %
   % % Corollary 167. Con prueba. Corollary 79.
   % \begin{corollary}
@@ -566,7 +580,7 @@
   %
   %   una prueba ecuacional de $p\approx q$ en $(\Sigma, \tau).$ Usando el lema anterior se puede probar facilmente por induccion en $i$ que $(\Sigma, \tau)\models p_{i}\approx q_{i}$, por lo cual $(\Sigma, \tau)\models p\approx q. $ $\Box$
   % \end{proof}
-  % 
+  %
   % % Theorem 174. Con prueba. Theorem 85.
   % \begin{theorem}
   %   \PN \textbf{(Completitud) (Birkhoff)} Sea $(\Sigma, \tau)$ una teoría tal que los elementos de $\Sigma$ son

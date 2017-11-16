@@ -1,64 +1,89 @@
 \section{Teorias de primer orden}
 
-  % Lemma 67. Con prueba.
-  \begin{lemma}
-    \PN Si $(\varphi_{1}, \varphi_{2}) \in Generaliz^{\tau}$, entonces el nombre de constante $c$ del cual habla la
-    definición de $Generaliz^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
-  \end{lemma}
-  \begin{proof}
-    \PN Notese que $c$ es el único nombre de constante que ocurre en $\varphi_{1}$ y no ocurre en $\varphi_{2}$.
-  \end{proof}
-
-  % Lemma 68. Con prueba.
-  \begin{lemma}
-    \PN Si $(\varphi_{1}, \varphi_{2}) \in Elec^{\tau}$, entonces el nombre de constante $e$ del cual habla la
-    definición de $Elec^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
-  \end{lemma}
-  \begin{proof}
-    \PN Notese que $e$ es el único nombre de constante que ocurre en $\varphi_{1}$ y no ocurre en $\varphi_{2}$.
-  \end{proof}
-
-  % Lemma 69. Con prueba.
-  \begin{lemma}
-    \PN Todas las reglas excepto las reglas de elección y generalización son universales en el sentido que si $\varphi$
-    se deduce de $\psi_{1}, \dotsc, \psi_{k}$ por alguna de estas reglas, entonces $\left((\psi_{1} \wedge \dotsc \wedge
-    \psi_{k}) \rightarrow \varphi \right)$ es una sentencia universalmente válida.
-  \end{lemma}
-  \begin{proof}
-    \begin{itemize}
-      \item \textbf{EXISTENCIA:} Supongamos $\varphi =_{d}\varphi (v)$, $t\in T_{c}^{\tau }$ y $\mathbf{A}$ es una
-      estructura de tipo $\tau $ tal que $\mathbf{A}\models \varphi (t)$. Sea $t^{\mathbf{A}}$ el valor que toma $t$ en
-      $\mathbf{A}$. Por el Lema 148 tenemos que $\mathbf{A}\models \varphi \left\lbrack t^{\mathbf{A}}\right\rbrack $,
-      por lo cual tenemos que $\mathbf{A}\models \exists v\varphi (v)$.
-
-      \item \textbf{REEMPLAZO:} Debemos probar que si $(\psi_{1},\psi_{2},\varphi )\in Reemp^{\tau }=Reemp1^{\tau }\cup Reemp2^{\tau }$ , entonces $\left( (\psi_{1}\wedge \psi_{2})\rightarrow \varphi \right) $ es una sentencia universalmente valida. El caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp1^{\tau }$ es facil y lo dejaremos al lector. Para el caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp2^{\tau }$ nos hara falta un resultado un poco mas general. Veamos por induccion en $k$ que si se dan las siguienes condiciones
-
-      - $\alpha \in F_{k}^{\tau }$ y $\varphi ,\psi \in F^{\tau }$
-      - $\mathbf{A}$ es una estructura de tipo $\tau $
-      - $\overline{\alpha }=$ resultado de reemplazar en $\alpha $ una ocurrencia de $\varphi$ por $\psi$,
-      - $\mathbf{A}\models \varphi \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \psi \left\lbrack \vec{a}\right\rbrack $, para cada $\vec{a}\in A^{ \mathbb{N}}$
-      entonces se da que
-
-      - $\mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack $, para cada $\vec{ a}\in A^{\mathbb{N}}$.
-      CASO $k=0.$
-
-      Entonces $\alpha $ es atomica y por lo tanto ya que $\alpha $ es la unica subformula de $\alpha $, la situacion es facil de probar.
-
-      CASO $\alpha =\forall x_{i}\alpha _{1}.$
-
-      Si $\varphi =\alpha $, entonces la situacion es facil de probar. Si $\varphi \neq \alpha $, entonces la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$ y por lo tanto $\overline{\alpha }=\forall x_{i} \overline{\alpha _{1}}.$ Se tiene entonces que para un $\vec{a}$ dado,
-
-      $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \downarrow _{i}^{a}\vec{a}\right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \downarrow _{i}^{a}\vec{a} \right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
-
-      CASO $\alpha =(\alpha _{1}\vee \alpha _{2})$.
-      Si $\varphi =\alpha $, entonces la situacion es facil de probar. Supongamos $\varphi \neq \alpha $ y supongamos que la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$. Entonces $\overline{\alpha }=( \overline{\alpha _{1}}\vee \alpha _{2})$ y tenemos que
-
-      $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \vec{a}\right\rbrack \text{ o }\mathbf{A} \models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \vec{a}\right\rbrack \text{ o } \mathbf{A}\models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
-
-      Los demas casos son dejados al lector.
-      Dejamos al lector el chequeo de la universalidad del resto de las reglas.
-    \end{itemize}
-  \end{proof}
+  % % Lemma 67. Lemma 155. Con prueba.
+  % \begin{lemma}
+  %   \PN Si $(\varphi_{1}, \varphi_{2}) \in Generaliz^{\tau}$, entonces el nombre de constante $c$ del cual habla la
+  %   definición de $Generaliz^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
+  % \end{lemma}
+  % \begin{proof}
+  %   \PN Recordemos la definición de $Generaliz^{\tau}$.
+  %   \begin{eqnarray*}
+  %     Generaliz^{\tau} &=& \{(\psi, \forall v \tilde{\psi}): \psi \in S^{\tau}, \ v \ \text{no ocurre en} \ \psi \
+  %     \text{y existe } \ c \in \mathcal{C} \ \text{tal que} \ \tilde{\psi} = \text{resultado de} \\
+  %     && \text{reemplazar} \ \text{en} \ \psi \ \text{cada ocurrencia de} \ c \ \text{por} \ v\}
+  %   \end{eqnarray*}
+  %
+  %   \PN Notese que $c$ es el único nombre de constante que ocurre en $\varphi_{1}$ y no ocurre en $\varphi_{2}$.
+  % \end{proof}
+  %
+  % % Lemma 68. Lemma 156. Con prueba.
+  % \begin{lemma}
+  %   \PN Si $(\varphi_{1}, \varphi_{2}) \in Elec^{\tau}$, entonces el nombre de constante $e$ del cual habla la
+  %   definición de $Elec^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
+  % \end{lemma}
+  % \begin{proof}
+  %   \PN Recordemos la definición de $Elec^{\tau}$.
+  %   \begin{eqnarray*}
+  %     Elect^{\tau} = \{(\exists v \varphi(v), \varphi(e)): \varphi =_{d} \varphi(v), \ Li(\varphi) = \{v\} \ \text{y} \
+  %     e \in \mathcal{C} \ \text{no ocurre en} \ \varphi\}
+  %   \end{eqnarray*}
+  %
+  %   \PN Notese que $e$ es el único nombre de constante que ocurre en $\varphi_{1}$ y no ocurre en $\varphi_{2}$.
+  % \end{proof}
+  %
+  % % Lemma 69. Con prueba.
+  % \begin{lemma}
+  %   \PN Todas las reglas excepto las reglas de elección y generalización son universales en el sentido que si $\varphi$
+  %   se deduce de $\psi_{1}, \dotsc, \psi_{k}$ por alguna de estas reglas, entonces $\left((\psi_{1} \wedge \dotsc \wedge
+  %   \psi_{k}) \rightarrow \varphi \right)$ es una sentencia universalmente válida.
+  % \end{lemma}
+  % \begin{proof}
+  %   \begin{itemize}
+  %     \item \textbf{DISJUNCIÓN-INTRODUCCIÓN:}
+  %     \item \textbf{CONJUNCIÓN-INTRODUCCIÓN:}
+  %     \item \textbf{CONJUNCIÓN-ELIMINACIÓN:}
+  %     \item \textbf{EQUIVALENCIA-INTRODUCCIÓN:}
+  %     \item \textbf{EQUIVALENCIA-ELIMINACIÓN:}
+  %     \item \textbf{PARTICULARIZACIÓN:}
+  %
+  %     \item \textbf{EXISTENCIA:} Supongamos $\varphi =_{d}\varphi (v)$, $t\in T_{c}^{\tau }$ y $\mathbf{A}$ es una
+  %     estructura de tipo $\tau $ tal que $\mathbf{A}\models \varphi (t)$. Sea $t^{\mathbf{A}}$ el valor que toma $t$ en
+  %     $\mathbf{A}$. Por el Lema 148 tenemos que $\mathbf{A}\models \varphi \left\lbrack t^{\mathbf{A}}\right\rbrack $,
+  %     por lo cual tenemos que $\mathbf{A}\models \exists v\varphi (v)$.
+  %
+  %     \item \textbf{EVOCACIÓN:}
+  %     \item \textbf{ABSURDO:}
+  %     \item \textbf{CONMUTATIVIDAD:}
+  %     \item \textbf{MODUS-PONENS:}
+  %     \item \textbf{DIVISIÓN-POR-CASOS:}
+  %
+  %     \item \textbf{REEMPLAZO:} Debemos probar que si $(\psi_{1},\psi_{2},\varphi )\in Reemp^{\tau }=Reemp1^{\tau }\cup Reemp2^{\tau }$ , entonces $\left( (\psi_{1}\wedge \psi_{2})\rightarrow \varphi \right) $ es una sentencia universalmente valida. El caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp1^{\tau }$ es facil y lo dejaremos al lector. Para el caso en el que $(\psi_{1},\psi_{2},\varphi )\in Reemp2^{\tau }$ nos hara falta un resultado un poco mas general. Veamos por induccion en $k$ que si se dan las siguienes condiciones
+  %
+  %     - $\alpha \in F_{k}^{\tau }$ y $\varphi ,\psi \in F^{\tau }$
+  %     - $\mathbf{A}$ es una estructura de tipo $\tau $
+  %     - $\overline{\alpha }=$ resultado de reemplazar en $\alpha $ una ocurrencia de $\varphi$ por $\psi$,
+  %     - $\mathbf{A}\models \varphi \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \psi \left\lbrack \vec{a}\right\rbrack $, para cada $\vec{a}\in A^{ \mathbb{N}}$
+  %     entonces se da que
+  %
+  %     - $\mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack $ si y solo si $ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack $, para cada $\vec{ a}\in A^{\mathbb{N}}$.
+  %     CASO $k=0.$
+  %
+  %     Entonces $\alpha $ es atomica y por lo tanto ya que $\alpha $ es la unica subformula de $\alpha $, la situacion es facil de probar.
+  %
+  %     CASO $\alpha =\forall x_{i}\alpha _{1}.$
+  %
+  %     Si $\varphi =\alpha $, entonces la situacion es facil de probar. Si $\varphi \neq \alpha $, entonces la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$ y por lo tanto $\overline{\alpha }=\forall x_{i} \overline{\alpha _{1}}.$ Se tiene entonces que para un $\vec{a}$ dado,
+  %
+  %     $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \downarrow _{i}^{a}\vec{a}\right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \downarrow _{i}^{a}\vec{a} \right\rbrack ,\text{ para cada }a\in A \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
+  %
+  %     CASO $\alpha =(\alpha _{1}\vee \alpha _{2})$.
+  %     Si $\varphi =\alpha $, entonces la situacion es facil de probar. Supongamos $\varphi \neq \alpha $ y supongamos que la ocurrencia de $\varphi$ a reemplazar sucede en $\alpha _{1}$. Entonces $\overline{\alpha }=( \overline{\alpha _{1}}\vee \alpha _{2})$ y tenemos que
+  %
+  %     $\displaystyle \begin{array}{c} \mathbf{A}\models \alpha \left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \alpha _{1}\left\lbrack \vec{a}\right\rbrack \text{ o }\mathbf{A} \models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha _{1}}\left\lbrack \vec{a}\right\rbrack \text{ o } \mathbf{A}\models \alpha _{2}\left\lbrack \vec{a}\right\rbrack \\ \Updownarrow \\ \mathbf{A}\models \overline{\alpha }\left\lbrack \vec{a}\right\rbrack \end{array} $
+  %
+  %     \item \textbf{TRANSITIVIDAD:}
+  %   \end{itemize}
+  % \end{proof}
 
   % Lemma 70. Con prueba.
   \begin{lemma}
@@ -66,7 +91,8 @@
     tales que $\pmb{\varphi} = \varphi_{1} \dotsc \varphi_{n}$.
   \end{lemma}
   \begin{proof}
-    \PN Solo hay que probar la unicidad la cual sigue de la Proposicion 128.
+    \PN Debemos probar la unicidad de $\varphi_{1}, \dotsc, \varphi_{n}$, pero esto vale utilizando la
+    \textbf{Proposition~\ref{proposition_1}} Solo hay que probar la unicidad la cual sigue de la Proposicion 128.
   \end{proof}
 
   % Lemma 71. Con prueba.

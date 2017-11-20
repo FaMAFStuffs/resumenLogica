@@ -1,508 +1,567 @@
 \section{La aritmética de Peano}
 
-  % % Lemma 175. Con prueba. Lemma 86.
-  % \begin{lemma}
-  %   \PN $\mathbf{\omega}$ es un modelo de $Arit$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Sea $\psi =_{d}\psi (v_{1},...,v_{n},v)$, f\'{o}rmula de $\tau _{A}$. Veremos que $\mathbf{\omega }\vDash Ind_{\psi }$. Sea
-  %
-  %   $\displaystyle \varphi =((\psi (\vec{v},0)\wedge \forall v\ (\psi (\vec{v},v)\rightarrow \psi (\vec{v},v+1)))\rightarrow \forall v\ \psi (\vec{v},v)) $
-  %
-  %   Declaremos $\varphi =_{d}\varphi (v_{1},...,v_{n})$. Notese que $\mathbf{ \omega }\vDash Ind_{\psi }$ si y solo si para cada $a_{1},...,a_{n}\in \omega $ se tiene que $\mathbf{\omega }\vDash \varphi \lbrack \vec{a}]$. Sean $a_{1},...,a_{n}\in \omega $ fijos. Probaremos que $\mathbf{\omega } \vDash \varphi \lbrack \vec{a}]$. Notar que si
-  %   $\displaystyle \mathbf{\omega }\nvDash (\psi (\vec{v},0)\wedge \forall v\ (\psi (\vec{v} ,v)\rightarrow \psi (\vec{v},v+1)))[\vec{a}] $
-  %
-  %   entonces $\mathbf{\omega }\vDash \varphi \lbrack \vec{a}]$ por lo cual podemos hacer solo el caso en que
-  %   $\displaystyle \mathbf{\omega }\vDash (\psi (\vec{v},0)\wedge \forall v\ (\psi (\vec{v} ,v)\rightarrow \psi (\vec{v},v+1)))[\vec{a}] $
-  %
-  %   Sea $S=\{a\in \omega :\mathbf{\omega }\vDash \psi (\vec{v},v)[\vec{a},a]\}$. Ya que $\mathbf{\omega }\vDash \psi (\vec{v},0)[\vec{a}]$, es facil ver usando el lema de reemplazo que $\mathbf{\omega }\vDash \psi (\vec{v},v)[ \vec{a},0]$, lo cual nos dice que $0\in S$. Ya que $\mathbf{\omega }\vDash (\forall v\ (\psi (\vec{v},v)\rightarrow \psi (\vec{v},v+1)))[\vec{a}]$, tenemos que
-  %   (1) Para cada $a\in \omega $, si $\mathbf{\omega }\vDash \psi (\vec{v} ,v)[\vec{a},a]$, entonces $\mathbf{\omega }\vDash \psi (\vec{v},v+1)[\vec{a} ,a]$.
-  %   Pero por el lema de reemplazo, tenemos que $\mathbf{\omega }\vDash \psi ( \vec{v},v+1)[\vec{a},a]$ sii $\mathbf{\omega }\vDash \psi (\vec{v},v)[\vec{a} ,a+1]$, lo cual nos dice que
-  %
-  %   (2) Para cada $a\in \omega $, si $\mathbf{\omega }\vDash \psi (\vec{v} ,v)[\vec{a},a]$, entonces $\mathbf{\omega }\vDash \psi (\vec{v},v)[\vec{a} ,a+1]$.
-  %   Ya que (2) nos dice que $a\in S$ implica $a+1\in S$, tenemos que $S=\omega $ ya que $0\in S$. Es decir que para cada $a\in \omega $, se da que $\mathbf{ \omega }\vDash \psi (\vec{v},v)[\vec{a},a]$ lo cual nos dice que $\mathbf{ \omega }\vDash \forall v\ \psi (\vec{v},v)[\vec{a}]$.
-  %
-  %   Es rutina probar que $\mathbf{\omega }$ satisface los otros 15 axiomas de $ Arit$. $\Box$
-  % \end{proof}
-  %
-  % % Proposition 176. Con prueba. Proposition 87.
-  % \begin{proposition}
-  %   \PN Hay un modelo de $Arit$ el cual no es isomorfo a $\mathbf{\omega}$.
-  % \end{proposition}
-  % \begin{proof}
-  %   Sea $\tau =(\{0,1,\blacktriangle \},\{+^{2},.^{2}\},\{\leq ^{2}\},a)$ y sea $ \Sigma =\Sigma _{A}\cup \{\lnot (\widehat{n}\equiv \blacktriangle ):n\in \omega \}$. Por el Teorema de Compacidad la teoria $(\Sigma ,\tau )$ tiene un modelo $\mathbf{A}=(A,i)$. Ya que
-  %
-  %   $\displaystyle \mathbf{A}\vDash \lnot (\widehat{n}\equiv \blacktriangle )\text{, para cada } n\in \omega $
-  %
-  %   tenemos que
-  %   $\displaystyle i(\blacktriangle )\neq \widehat{n}^{\mathbf{A}}\text{, para cada }n\in \omega $
-  %
-  %   Por el Lema de Coincidencia la estructura $\mathbf{B}=(A,i\mid _{\{0,1,+,.,\leq \}})$ es un modelo de $Arit$. Ademas dicho lema nos garantiza que $\widehat{n}^{\mathbf{B}}=\widehat{n}^{\mathbf{A}}$, para cada $n\in \omega $, por lo cual tenemos que
-  %   $\displaystyle i(\blacktriangle )\neq \widehat{n}^{\mathbf{B}}\text{, para cada }n\in \omega $
-  %
-  %   Veamos que $\mathbf{B}$ no es isomorfo a $\mathbf{\omega }$. Supongamos $ F:\omega \rightarrow A$ es un isomorfismo de $\mathbf{\omega }$ en $\mathbf{B }$. Es facil de probar por induccion en $n$ que $F(n)=\widehat{n}^{\mathbf{B} }$, para cada $n\in \omega $. Pero esto produce un absurdo ya que nos dice que $i(\blacktriangle )$ no esta en la imagen de $F$. $\Box$
-  % \end{proof}
-  %
-  % % Lemma 177. Con prueba. Lemma 88.
-  % \begin{lemma}
-  %   \PN Las siguientes sentencias son teoremas de la aritmética de Peano:
-  %   \begin{enumerate}
-  %     \item $\forall x \; 0 \leq x$
-  %     \item $\forall x \; (x \leq 0 \rightarrow x \equiv 0)$
-  %     \item $\forall x \forall y \; (x+y \equiv 0 \rightarrow (x \equiv 0 \wedge y \equiv 0))$
-  %     \item $\forall x \; (\lnot (x \equiv 0) \rightarrow \exists z \ (x \equiv z+1))$
-  %     \item $\forall x \forall y \; (x< y \rightarrow x+1 \leq y)$
-  %     \item $\forall x \forall y \; (x< y+1 \rightarrow x \leq y)$
-  %     \item $\forall x \forall y \; (x \leq y+1 \rightarrow (x \leq y \vee x \equiv y+1))$
-  %     \item $\forall x \forall y \; (\lnot y \equiv 0 \rightarrow \exists q \exists r \; x \equiv q.y+r \wedge r < y)$
-  %   \end{enumerate}
-  % \end{lemma}
-  % \begin{proof}
-  %   $\displaystyle \begin{array}{lllll} \;1. & x_{0}\leq 0 & & & \text{HIPOTESIS}1 \\ \;2. & \forall x\;0\leq x & & & \text{TEOREMA} \\ \;3. & 0\leq x_{0} & & & \text{PARTICULARIZACION}(2) \\ \;4. & x_{0}\leq 0\wedge 0\leq x_{0} & & & \text{CONJUNCIONINTRODUCCION} (1,3) \\ \;5. & \forall x_{1}\forall x_{2}\;((x_{1}\leq x_{2}\wedge x_{2}\leq x_{1})\rightarrow x_{1}\equiv x_{2}) & & & \text{AXIOMAPROPIO} \\ \;6. & \forall x_{2}\;((x_{0}\leq x_{2}\wedge x_{2}\leq x_{0})\rightarrow x_{0}\equiv x_{2}) & & & \text{PARTICULARIZACION}(5) \\ \;7. & ((x_{0}\leq 0\wedge 0\leq x_{0})\rightarrow x_{0}\equiv 0) & & & \text{PARTICULARIZACION}(6) \\ \;8. & x_{0}\equiv 0 & & & \text{TESIS}1\text{MODUSPONENS}(4,7) \\ \;9. & x_{0}\leq 0\rightarrow x_{0}\equiv 0 & & & \text{CONCLUSION} \\ 10. & \forall x\ (x\leq 0\rightarrow x\equiv 0) & & & \text{GENERALIZACION} (9) \end{array} $
-  %
-  %   $\displaystyle \begin{array}{lllll} \;1. & x_{0}+y_{0}\equiv 0 & & & \text{HIPOTESIS}1 \\ & (x_{0}+y_{0}\equiv 0\leftrightarrow 0\equiv x_{0}+y_{0}) & & & \\ & 0\equiv x_{0}+y_{0} & & & \\ \;2. & \exists u\ (0\equiv x_{0}+u) & & & \text{TEOREMA} \\ \;3. & \forall x_{1}\forall x_{2}\;(x_{1}\leq x_{2}\leftrightarrow \exists x_{3}\;x_{2}\equiv x_{1}+x_{3}) & & & \text{PARTICULARIZACION}(2) \\ \;4. & x_{0}\leq 0 & & & \text{CONJUNCIONINTRODUCCION}(1,3) \\ \;5. & \forall x_{1}\forall x_{2}\;((x_{1}\leq x_{2}\wedge x_{2}\leq x_{1})\rightarrow x_{1}\equiv x_{2}) & & & \text{AXIOMAPROPIO} \\ \;6. & \forall x_{2}\;((x_{0}\leq x_{2}\wedge x_{2}\leq x_{0})\rightarrow x_{0}\equiv x_{2}) & & & \text{PARTICULARIZACION}(5) \\ \;7. & ((x_{0}\leq 0\wedge 0\leq x_{0})\rightarrow x_{0}\equiv 0) & & & \text{PARTICULARIZACION}(6) \\ \;8. & x_{0}\equiv 0 & & & \text{TESIS}1\text{MODUSPONENS}(4,7) \\ \;9. & x_{0}\leq 0\rightarrow x_{0}\equiv 0 & & & \text{CONCLUSION} \\ 10. & \forall x\ (x\leq 0\rightarrow x\equiv 0) & & & \text{GENERALIZACION} (9) \end{array} $
-  % \end{proof}
-  %
-  % % Lemma 178. Sin prueba. Lemma 89.
-  % \begin{lemma}
-  %   \PN Sean $n, m \in \omega$. Las siguientes sentencias son teoremas de la aritmética de Peano:
-  %   \begin{enumerate}
-  %     \item $(+(\widehat{n},\widehat{m})\equiv \widehat{n+m})$
-  %     \item $(.(\widehat{n},\widehat{m})\equiv \widehat{n.m})$
-  %     \item $\forall x \; (x \leq \widehat{n} \rightarrow (x \equiv \widehat{0} \vee x \equiv \widehat{1} \vee \dotsc
-  %       \vee x \equiv \widehat{n}))$
-  %   \end{enumerate}
-  % \end{lemma}
-  %
-  % % Lemma 179. Sin prueba. Lemma 90.
-  % \begin{lemma}
-  %   \PN Para cada término cerrado $t$, tenemos que $Arit \vdash (t \equiv \widehat{t^{\mathbf{\omega}}})$.
-  % \end{lemma}
-  %
-  % % Lemma 180. Sin prueba. Lemma 91.
-  % \begin{lemma}
-  %   \PN Si $\varphi$ es una sentencia atómica o negación de atómica y $\mathbf{\omega} \models \varphi$, entonces $Arit
-  %   \vdash \varphi$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Hay dos casos. Supongamos $\varphi =(t\equiv s)$, con $t,s$ terminos cerrados. Ya que $\mathbf{\omega }\models \varphi $, tenemos que $t^{\mathbf{ \omega }}=s^{\mathbf{\omega }}$ y por lo tanto $\widehat{t^{\mathbf{\omega }} }=\widehat{s^{\mathbf{\omega }}}$. Por el lema anterior tenemos que $ Arit\vdash (t\equiv \widehat{t^{\mathbf{\omega }}}),(s\equiv \widehat{s^{ \mathbf{\omega }}})$ lo cual, ya que $\widehat{t^{\mathbf{\omega }}}$ y $ \widehat{s^{\mathbf{\omega }}}$ son el mismo termino nos dice por la regla de transitividad que $Arit\vdash (t\equiv s)$. Supongamos $\varphi =(t\leq s) $, con $t,s$ terminos cerrados. Ya que $\mathbf{\omega }\models \varphi $ , tenemos que $t^{\mathbf{\omega }}\leq s^{\mathbf{\omega }}$ y por lo tanto hay un $k\in \omega $ tal que $t^{\mathbf{\omega }}+k=s^{\mathbf{\omega }}$. Se tiene entonces que $\widehat{t^{\mathbf{\omega }}+k}=\widehat{s^{\mathbf{ \omega }}}$. Por el lema anterior tenemos que $Arit\vdash +(\widehat{t^{ \mathbf{\omega }}},\widehat{k})\equiv \widehat{t^{\mathbf{\omega }}+k}$ lo cual nos dice que
-  %
-  %   $\displaystyle Arit\vdash +(\widehat{t^{\mathbf{\omega }}},\widehat{k})\equiv \widehat{s^{ \mathbf{\omega }}} $
-  %
-  %   Pero el lema anterior nos dice que
-  %   $\displaystyle Arit\vdash (t\equiv \widehat{t^{\mathbf{\omega }}}),(s\equiv \widehat{s^{ \mathbf{\omega }}}) $
-  %
-  %   y por lo tanto la regla de reemplazo nos asegura que $Arit\vdash +(t, \widehat{k})\equiv s$. Ya que
-  %   $\displaystyle \forall x_{1}\forall x_{2}\;(x_{1}\leq x_{2}\leftrightarrow \exists x_{3}\;x_{2}\equiv x_{1}+x_{3}) $
-  %
-  %   es un axioma de $Arit$, tenemos que $Arit\vdash (t\leq s)$.
-  % \end{proof}
-  %
-  % % Lemma 181. Con prueba. Lemma 92.
-  % \begin{lemma}
-  %   Sea $\varphi =_{d} \varphi(\vec{v}, v) \in F^{\tau_{A}}$. Supongamos $v$ es sustituible por $w$ en $\varphi$ y $w
-  %   \notin \{v_{1}, \dotsc, v_{n}\}$, entonces:
-  %   \[
-  %     Arit \vdash \forall \vec{v}((\varphi(\vec{v}, 0) \wedge \forall v(\forall w(w < v \rightarrow \varphi(\vec{v}, w))
-  %     \rightarrow \varphi(\vec{v} ,v))) \rightarrow \forall v\varphi(\vec{v}, v))
-  %   \]
-  % \end{lemma}
-  % \begin{proof}
-  %   Sea $\tilde{\varphi}=\forall w(w\leq v\rightarrow \varphi (\vec{v},w))$. Notar que $\tilde{\varphi}=_{d}\tilde{\varphi}(\vec{v},v)$. Sea $ IndCom_{\varphi }$ la sentencia
-  %
-  %   $\displaystyle \forall \vec{v}((\varphi (\vec{v},0)\wedge \forall v(\forall w(w< v\rightarrow \varphi (\vec{v},w))\rightarrow \varphi (\vec{v} ,v)))\rightarrow \forall v\varphi (\vec{v},v)) $
-  %
-  %   Salvo por el uso de algunos teoremas simples y el uso simultaneo de las reglas de particularizacion y generalizacion, la siguiente es la prueba buscada
-  %   $\displaystyle \begin{array}{lllll} \;1. & (\varphi (\vec{c},0)\wedge \forall v(\forall w(w< v\rightarrow \varphi (\vec{c},w))\rightarrow \varphi (\vec{c},v)) & & & \text{HIPOTESIS}1 \\ \;2. & \;\;\;w_{0}\leq 0 & & & \text{HIPOTESIS}2 \\ \;3. & \;\;\;\forall x\;(x\leq 0\rightarrow x\equiv 0) & & & \text{TEOREMA} \\ \;4. & \;\;\;w_{0}\leq 0\rightarrow w_{0}\equiv 0 & & & \text{ PARTICULARIZACION}(3) \\ \;5. & \;\;\;w_{0}\equiv 0 & & & \text{MODUSPONENS}(2,4) \\ \;6. & \;\;\;\varphi (\vec{c},0) & & & \text{CONJUNCIONELIMINACION}(1) \\ \;7. & \;\;\;\varphi (\vec{c},w_{0}) & & & \text{TESIS}2\text{REEMPLAZO} (5,6) \\ \;8. & w_{0}\leq 0\rightarrow \varphi (\vec{c},w_{0}) & & & \text{ CONCLUSION} \\ \;9. & \tilde{\varphi}(\vec{c},0) & & & \text{GENERALIZACION}(8) \\ 10. & \;\;\;\tilde{\varphi}(\vec{c},v_{0}) & & & \text{HIPOTESIS}3 \\ 11. & \;\;\;\;\;\;w_{0}< v_{0}+1 & & & \text{HIPOTESIS}4 \\ 12. & \;\;\;\;\;\;\forall x,y\;x< y+1\rightarrow x\leq y & & & \text{TEOREMA } \\ 13. & \;\;\;\;\;\;w_{0}< v_{0}+1\rightarrow w_{0}\leq v_{0} & & & \text{ PARTICULARIZACION}(12) \\ 14. & \;\;\;\;\;\;w_{0}\leq v_{0} & & & \text{MODUSPONENS}(11,13) \\ 15. & \;\;\;\;\;\;w_{0}\leq v_{0}\rightarrow \varphi (\vec{c},w_{0}) & & & \text{PARTICULARIZACION}(10) \\ 16. & \;\;\;\;\;\;\varphi (\vec{c},w_{0}) & & & \text{TESIS}4\text{ MODUSPONENS}(14,15) \\ 17. & \;\;\;w_{0}< v_{0}+1\rightarrow \varphi (\vec{c},w_{0}) & & & \text{ CONCLUSION} \\ 18. & \;\;\;\forall w\;w< v_{0}+1\rightarrow \varphi (\vec{c},w) & & & \text{GENERALIZACION}(17) \\ 19. & \;\;\;\forall v(\forall w(w< v\rightarrow \varphi (\vec{c} ,w))\rightarrow \varphi (\vec{c},v)) & & & \text{CONJUNCIONELIMINACION}(1) \\ 20. & \;\;\;(\forall w(w< v_{0}+1\rightarrow \varphi (\vec{c},w))\rightarrow \varphi (\vec{c},v_{0}+1)) & & & \text{PARTICULARIZACION}(19) \\ 21. & \;\;\;\varphi (\vec{c},v_{0}+1) & & & \text{MODUSPONENS}(18,20) \\ 22. & \;\;\;\;\;\;w_{0}\leq v_{0}+1 & & & \text{HIPOTESIS}5 \\ 23. & \;\;\;\;\;\;\forall x,y\;x\leq y+1\rightarrow (x\leq y\vee x\equiv y+1) & & & \text{TEOREMA} \\ 24. & \;\;\;\;\;\;w_{0}\leq v_{0}+1\rightarrow (w_{0}\leq v_{0}\vee w_{0}\equiv v_{0}+1) & & & \text{PARTICULARIZACION}(23) \\ 25. & \;\;\;\;\;\;(w_{0}\leq v_{0}\vee w_{0}\equiv v_{0}+1) & & & \text{ MODUSPONENS}(22,24) \\ 26. & \;\;\;\;\;\;w_{0}\leq v_{0}\rightarrow \varphi (\vec{c},w_{0}) & & & \text{PARTICULARIZACION}(10) \\ 27. & \;\;\;\;\;\;\;\;\;w_{0}\equiv v_{0}+1 & & & \text{HIPOTESIS}6 \\ 28. & \;\;\;\;\;\;\;\;\;\varphi (\vec{c},w_{0}) & & & \text{TESIS}6\text{ REEMPLAZO}(21,27) \\ 29. & \;\;\;w_{0}\equiv v_{0}+1\rightarrow \varphi (\vec{c},w_{0}) & & & \text{CONCLUSION} \\ 30. & \;\;\;\;\;\;\varphi (\vec{c},w_{0}) & & & \text{TESIS}5\text{ DISJUNCIONELIMINACION}(25,26,29) \\ 31. & \;\;\;w_{0}\leq v_{0}+1\rightarrow \varphi (\vec{c},w_{0}) & & & \text{CONCLUSION} \\ 32. & \;\;\;\tilde{\varphi}(\vec{c},v_{0}+1) & & & \text{TESIS}3\text{ GENERALIZACION}(31) \\ 33. & \tilde{\varphi}(\vec{c},v_{0})\rightarrow \tilde{\varphi}(\vec{c} ,v_{0}+1) & & & \text{CONCLUSION} \\ 34. & \forall v\tilde{\varphi}(\vec{c},v)\rightarrow \tilde{\varphi}(\vec{c} ,v+1) & & & \text{GENERALIZACION}(33) \\ 35. & \tilde{\varphi}(\vec{c},0)\wedge \forall v\tilde{\varphi}(\vec{c} ,v)\rightarrow \tilde{\varphi}(\vec{c},v+1) & & & \text{ CONJUNCIONINTRODUCCION}(9,34) \\ 36. & Ind_{\tilde{\varphi}} & & & \text{AXIOMAPROPIO} \\ 37. & (\tilde{\varphi}(\vec{c},0)\wedge \forall v(\tilde{\varphi}(\vec{c} ,v)\rightarrow \tilde{\varphi}(\vec{c},v+1))\rightarrow \forall v\tilde{ \varphi}(\vec{c},v) & & & \text{PARTICULARIZACION}(36) \\ 38. & \forall v\tilde{\varphi}(\vec{c},v) & & & \text{MODUSPONENS}(35,37) \\ 39. & \tilde{\varphi}(\vec{c},v_{0}) & & & \text{PARTICULARIZACION}(38) \\ 40. & v_{0}\leq v_{0}\rightarrow \varphi (\vec{c},v_{0}) & & & \text{ PARTICULARIZACION}(39) \\ 41. & \forall x\;x\leq x & & & \text{AXIOMAPROPIO} \\ 42. & v_{0}\leq v_{0} & & & \text{PARTICULARIZACION}(41) \\ 43. & \varphi (\vec{c},v_{0}) & & & \text{MODUSPONENS}(40,42) \\ 44. & \forall v\varphi (\vec{c},v) & & & \text{TESIS}1\text{GENERALIZACION} (43) \\ 45. & (\varphi (\vec{c},0)\wedge \forall v(\forall w(w< v\rightarrow \varphi ( \vec{c},w))\rightarrow \varphi (\vec{c},v)))\rightarrow \forall v\varphi ( \vec{c},v) & & & \text{CONCLUSION} \\ 46. & IndCom_{\varphi } & & & \text{GENERALIZACION}(45) \end{array} $
-  % \end{proof}
-  %
-  % % Lemma 182. Con prueba. Lemma 93.
-  % \begin{lemma}
-  %   \PN Los conjuntos $T^{\tau_{A}^{e}}, F^{\tau_{A}^{e}}, T^{\tau_{A}}$ y $F^{\tau_{A}}$ son $A$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Veamos que $T^{\tau_{A}^{e}}$ es $A$-p.r.. Fijemos un orden total estricto $ < $ sobre $A$. Sea $P=\lambda x[\ast ^{< }(x)\in T^{\tau_{A}^{e}}]$. Notese que $P(0)=0$ y $P(x+1)=1$ si y solo si se da alguna de las siguientes
-  %
-  %   - $\ast ^{< }(x+1)\in \{0,1\}\cup Aux$
-  %   - $(\exists u,v\in \omega )\ast ^{< }(x+1)=+(\mathrm{\ast }^{< }(u), \mathrm{\ast }^{< }(v))\wedge (P^{\downarrow }(x))_{u+1}\wedge (P^{\downarrow }(x))_{v+1}$
-  %   - $(\exists u,v\in \omega )\ast ^{< }(x+1)=\mathrm{.}(\mathrm{\ast } ^{< }(u),\mathrm{\ast }^{< }(v))\wedge (P^{\downarrow }(x))_{u+1}\wedge (P^{\downarrow }(x))_{v+1}$
-  %   Por el Lema 48 tenemos que $P$ es $A$-p.r., por lo cual $\chi _{T^{\tau_{A}^{e}}}=P\circ \#^{< }$ lo es. Notese que
-  %
-  %   $\displaystyle t\in T^{\tau _{A}}\text{ sii }t\in T^{\tau_{A}^{e}}\wedge \triangle \text{ no ocurre en }t\wedge \Box \text{ no ocurre en }t $
-  %
-  %   por lo cual $T^{\tau _{A}}$ es $A$-p.r.
-  % \end{proof}
-  %
-  % % Lemma 183. Con prueba. Lemma 94.
-  % \begin{lemma}
-  %   \PN Los siguientes predicados son $A$-PR:
-  %   \begin{enumerate}[(1)]
-  %     \item $"v$ ocurre libremente en $\varphi$ a partir de $i": \omega \times Var \times F^{\tau_{A}^{e}} \rightarrow
-  %       \omega$
-  %     \item $"v \in Li(\varphi)": Var \times F^{\tau_{A}^{e}} \rightarrow \omega$
-  %     \item $"v$ es sustituible por $t$ en $\varphi": Var \times T^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}} \rightarrow
-  %       \omega$
-  %   \end{enumerate}
-  % \end{lemma}
-  % \begin{proof}
-  %   (1). Veamos que $P:\omega \times Var\times F^{\tau_{A}^{e}}\rightarrow \omega $, dado por
-  %
-  %   $\displaystyle P(i,v,\varphi )=\left\{ \begin{array}{ccl} 1 & & \text{si }v\mathit{\ }\text{ocurre libremente en}\mathit{\ }\varphi \text{ a partir de }i \\ 0 & & \text{caso contrario} \end{array} \right. $
-  %
-  %   es $B$-p.r.. Sea $R:\omega \times Var\rightarrow \omega $ el predicado dado por $R(x,v)=1$ si y solo si $\ast ^{< }((x)_{1})\in F^{\tau_{A}^{e}}$ y $v \mathit{\ }$ocurre libremente en$\mathit{\ }\ast ^{< }((x)_{1})$ a partir de $ (x)_{2}$. Sea $\mathrm{Nex}=\{\wedge ,\vee ,\rightarrow ,\leftrightarrow \}$ . Notese que $F_{0}^{\tau_{A}^{e}}$ es $A$-p.r. ya que
-  %   $\displaystyle F_{0}^{\tau_{A}^{e}}=F^{\tau_{A}^{e}}\cap (A-\{\forall ,\exists ,\lnot ,\vee ,\wedge ,\rightarrow ,\leftrightarrow \})^{\ast } $
-  %
-  %   Notese que $R(0,v)=0$, para cada $v\in Var$ y que $R(x+1,v)=1$ si y solo si $ (x+1)_{2}\geq 1$ y se da alguna de las siguientes:
-  %   - $\ast ^{< }((x+1)_{1})\in F_{0}^{\tau_{A}^{e}}\wedge v$ ocurre en $ \ast ^{< }((x+1)_{1})$ a partir de $(x+1)_{2}$
-  %   - $(\exists \varphi _{1},\varphi _{2}\in F^{\tau_{A}^{e}})(\exists \eta \in \mathrm{Nex})\ast ^{< }((x+1)_{1})=(\varphi _{1}\eta \varphi _{2})\wedge $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{1}),(x+1)_{2}-1\right\rangle +1}\vee (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{2}),(x+1)_{2}-\left\vert (\varphi _{1}\eta \right\vert \right\rangle +1}\right) $
-  %
-  %   - $(\exists \varphi _{1}\in F^{\tau_{A}^{e}})\ast ^{< }((x+1)_{1})=\lnot \varphi _{1}\wedge (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{1}),(x+1)_{2}-1\right\rangle +1}$
-  %   - $(\exists \varphi _{1}\in F^{\tau_{A}^{e}})(\exists w\in Var)(Q\in \{\forall ,\exists \})\;w\neq v\wedge $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ast ^{< }((x+1)_{1})=Qw\varphi _{1}\wedge (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{1}),(x+1)_{2}-\left\vert (Qw\right\vert \right\rangle +1}$
-  %
-  %   Es decir que por el Lema 48 tenemos que $R$ es $A$ -p.r.. Notese que para $(i,v,\varphi )\in \omega \times Var\times F^{\tau_{A}^{e}}$, tenemos $P(i,v,\varphi )=R(\left\langle \#^{< }(\varphi ),i\right\rangle ,v)$. Ahora es facil obtener la funcion $P$ haciendo composiciones adecuadas con $R$.
-  % \end{proof}
-  %
-  % % Lemma 184. Con prueba. Lemma 95.
-  % \begin{lemma}
-  %   \PN Las funciones $\lambda svt[\downarrow_{v}^{t}(s)]$ y $\lambda \varphi vt[\downarrow_{v}^{t}(\varphi)]$ son
-  %   $A$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Sea $< $ un orden total estricto sobre $A$. Sea $h:\omega \times Var\times T^{\tau_{A}^{e}}\rightarrow \omega $ dada por
-  %
-  %   $\displaystyle h(x,v,t)=\left\{ \begin{array}{ccc} \#^{< }(\downarrow _{v}^{t}(\ast ^{< }(x))) & & \text{si }\ast ^{< }(x)\in T^{\tau_{A}^{e}} \\ 0 & & \text{caso contrario} \end{array} \right. $
-  %
-  %   Sea $P:\omega \times \omega \times Var\times T^{\tau_{A}^{e}}\times A^{\ast }\rightarrow \omega $ tal que $P(A,x,v,t,\alpha )=1$ si y solo si se da alguna de las siguientes
-  %   - $\ast ^{< }(x+1)\notin T^{\tau_{A}^{e}}\wedge \alpha =\varepsilon $
-  %   - $\ast ^{< }(x+1)=v\wedge \alpha =t$
-  %   - $\ast ^{< }(x+1)\in (\{0,1\}\cup Aux)-\{v\}\wedge \alpha =\ast ^{< }(x+1)$
-  %   - $(\exists r,s\in T^{\tau_{A}^{e}})\ast ^{< }(x+1)=+(r,s)\wedge \alpha =+(\ast ^{< }((A)_{\#^{< }(r)+1}),\ast ^{< }((A)_{\#^{< }(s)+1}))$
-  %   - $(\exists r,s\in T^{\tau_{A}^{e}})\ast ^{< }(x+1)=\mathrm{.} (r,s)\wedge \alpha =\mathrm{.}(\ast ^{< }((A)_{\#^{< }(r)+1}),\ast ^{< }((A)_{\#^{< }(s)+1}))$
-  %   Notese que $P(h^{\downarrow }(x,v,t),x,v,t,\alpha )=1$ si y solo si ya sea $\ast ^{< }(x+1)\notin T^{\tau }$ y $\alpha =\varepsilon $ o $\ast ^{< }(x+1)\in T^{\tau }$ y $\alpha =\mathrm{\downarrow }_{v}^{t}(\ast ^{< }(x+1))$. Tenemos entonces
-  %
-  %   $\displaystyle \begin{array}{rcl} h(0,v,t) & =& 0 \\ h(x+1,v,t) & =& \#^{< }(\min_{\alpha }^{< }P(h^{\downarrow }(x,v,t),x,v,t,\alpha )), \end{array} $
-  %
-  %   por lo cual el Lema 48 nos dice que $h$ es $A$-p.r. Ahora es facil obtener la funcion $\downarrow _{v}^{t}(s):T^{\tau_{A}^{e}}\times Var\times T^{\tau_{A}^{e}}\rightarrow T^{\tau_{A}^{e}}$ haciendo composiciones adecuadas con $h$. $\Box$
-  % \end{proof}
-  %
-  % % Lemma 185. Con prueba. Lemma 96.
-  % \begin{lemma}
-  %   \PN El predicado $R: F^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}}
-  %   \rightarrow \omega$, dado por:
-  %   \[
-  %     R(\varphi, \tilde{\varphi}, \psi_{1}, \psi_{2}) = \left\{\begin{array}{cccl}
-  %                                                               \begin{array}{c}
-  %                                                                 1 \\
-  %                                                                 \ \\
-  %                                                                 \
-  %                                                               \end{array}
-  %                                                               & & &
-  %                                                               \begin{array}{cl}
-  %                                                                 \text{si } \tilde{\varphi} = &\text{resultado de
-  %                                                                   reemplazar algunas} \\
-  %                                                                 &\text{(posiblemente } 0 \text{) ocurrencias de} \\
-  %                                                                 &\psi_{1} \text{ en } \varphi \text{ por } \psi_{2}
-  %                                                               \end{array} \\ 0 & & & \text{ caso contrario}
-  %                                                             \end{array}\right.
-  %   \]
-  %   \PN es $A$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Sea $\mathrm{Nex}=\{\wedge ,\vee ,\rightarrow ,\leftrightarrow \}$. Sea $< $ un orden total estricto sobre $A$. Notese que $R(\varphi ,\tilde{\varphi} ,\psi_{1},\psi_{2})=1$ sii se da alguna de las siguientes
-  %
-  %   - $\varphi =\tilde{\varphi}$
-  %   - $(\varphi =\psi_{1}\wedge \tilde{\varphi}=\psi_{2})$
-  %   - $(\exists \varphi _{1},\varphi _{2},\tilde{\varphi}_{1},\tilde{ \varphi}_{2}\in F^{\tau_{A}^{e}})(\exists \eta \in \mathrm{Nex})\varphi =(\varphi _{1}\eta \varphi _{2})\wedge \tilde{\varphi}=(\tilde{\varphi} _{1}\eta \tilde{\varphi}_{2})\wedge $
-  %   $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;R( \varphi _{1},\tilde{\varphi}_{1},\psi_{1},\psi_{2})\wedge R(\varphi _{2}, \tilde{\varphi}_{2},\psi_{1},\psi_{2})$
-  %
-  %   - $(\exists \varphi _{1},\tilde{\varphi}_{1}\in F^{\tau_{A}^{e}})\varphi =\lnot \varphi _{1}\wedge \tilde{\varphi}=\lnot \tilde{ \varphi}_{1}\wedge R(\varphi _{1},\tilde{\varphi}_{1},\psi_{1},\psi_{2})$
-  %   - $(\exists \varphi _{1},\tilde{\varphi}_{1}\in F^{\tau_{A}^{e}})(\exists v\in Var)(\exists Q\in \{\forall ,\exists \})\varphi =Qv\varphi _{1}\wedge $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \tilde{\varphi}=Qv\tilde{ \varphi}_{1}\wedge R(\varphi _{1},\tilde{\varphi}_{1},\psi_{1},\psi_{2})$
-  %
-  %   Se puede usar lo anterior para ver que $R^{\prime }:\omega \times F^{\tau_{A}^{e}}\times F^{\tau_{A}^{e}}\rightarrow \omega $, dado por
-  %
-  %   $\displaystyle R^{\prime }(x,\psi_{1},\psi_{2})=\left\{ \begin{array}{cc} \begin{array}{c} 1 \\ \; \end{array} & \begin{array}{c} \text{si }\ast ^{< }((x)_{1}),\ast ^{< }((x)_{2})\in F^{\tau_{A}^{e}}\text{ y }\ast ^{< }((x)_{2})=\text{resultado de} \\ \text{reemplazar algunas ocurrencias de }\psi_{1}\text{ en }\ast ^{< }((x)_{1})\text{ por }\psi_{2} \end{array} \\ 0 & \text{caso contrario} \end{array} \right. $
-  %
-  %   es $A$-p.r., via el Lema 48. Finalmente $R$ puede obtenerse haciendo composiciones adecuadas con $R^{\prime }$.
-  % \end{proof}
-  %
-  % % Lemma 186. Con prueba. Lemma 97.
-  % \begin{lemma}
-  %   \PN Sea $B$ un alfabeto finito. Sea $S\subseteq B^{\ast}$ un conjunto $B$-PR. El conjunto $S^{+}$ es $B$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Notese que $\alpha \in S^{+}$ si y solo si
-  %
-  %   $\displaystyle (\exists z\in \mathbb{N})(\forall i\in \mathbb{N})_{i\leq Lt(z)}\ast ^{< }((z)_{i})\in S\wedge \alpha =\mathrm{\subset }_{i=1}^{Lt(z)}\ast ^{< }((z)_{i}) $
-  %
-  %   Dejamos al lector completar los detalles faltantes.
-  % \end{proof}
-  %
-  % % Lemma 187. Con prueba. Lemma 98.
-  % \begin{lemma}
-  %   \PN Los conjuntos $ModPon^{\tau_{A}^{e}}$, $Elec^{\tau_{A}^{e}}$, $Reem^{\tau_{A}^{e}}$, $Reem_{2}^{\tau_{A}^{e}}$,
-  %   etc, son $A$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Veamos que $Reem_{2}^{\tau_{A}^{e}}$ es $A$-p.r.. Sea $Q:F^{\tau_{A}^{e}}\times F^{\tau_{A}^{e}}\times F^{\tau_{A}^{e}}\rightarrow \omega $ el predicado tal que $Q(\varphi ,\psi ,\sigma )=1$ si y solo si
-  %
-  %   $(\exists \alpha \in (\forall Var)^{+})(\exists \psi_{1},\psi_{2}\in F^{\tau_{A}^{e}})\ \psi =\alpha (\psi_{1}\leftrightarrow \psi_{2})\wedge $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Li(\psi_{1})=Li(\psi_{2})\wedge \left( (\forall v\in Var)\ v\notin Li(\psi_{1})\vee v\text{ ocurre en }\alpha \right) $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \wedge R(\varphi ,\sigma ,\psi_{1},\psi_{2})$
-  %   ($R$ es el predicado dado por el Lema 185). Es facil ver que $Q$ es $A$-p.r. y que $Reem_{2}^{\tau_{A}^{e}}=Q\mid _{S^{\tau_{A}^{e}}\times S^{\tau_{A}^{e}}\times S^{\tau_{A}^{e}}}$. $\Box$
-  % \end{proof}
-  %
-  % % Lemma 188. Con prueba. Lemma 99.
-  % \begin{lemma}
-  %   \PN El predicado $"\psi$ se deduce de $\varphi$ por generalización con constante $c": S^{\tau_{A}^{e}} \times
-  %   S^{\tau_{A}^{e}} \times Aux \rightarrow \omega$ es $A$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Notese que $\psi $ se deduce de $\varphi $ por generalizacion con constante $ c$ si y solo si hay una formula $\gamma $ y una variable $v$ tales que
-  %
-  %   - $Li(\gamma )=\{v\}$
-  %   - cada ocurrencia de $v$ en $\gamma $ es libre
-  %   - $c$ no ocurre en $\gamma $
-  %   - $\varphi =\mathrm{\downarrow }_{v}^{c}(\gamma )\wedge \psi =\forall v\gamma $
-  %   El lector podra usando esta equivalencia facilmente justificar que el predicado en cuestion es $A$-p.r..
-  % \end{proof}
-  %
-  % % Lemma 189. Sin prueba. Lemma 100.
-  % \begin{lemma}
-  %   \PN El predicado $"\psi$ se deduce de $\varphi$ por elección con constante $e": S^{\tau_{A}^{e}} \times
-  %   S^{\tau_{A}^{e}} \times Aux \rightarrow \omega$ es $A$-PR. Definamos
-  %   \[
-  %     AxLog^{\tau_{A}^{e}} = \{\varphi \in S^{\tau_{A}^{e}}: \varphi \text{ es un axioma lógico}\}
-  %   \]
-  % \end{lemma}
-  %
-  % % Lemma 190. Sin prueba. Lemma 101.
-  % \begin{lemma}
-  %   \PN $AxLog^{\tau_{A}^{e}}$ es $A$-PR.
-  % \end{lemma}
-  %
-  % % Lemma 191. Sin prueba. Lemma 102.
-  % \begin{lemma}
-  %   \PN Las funciones:
-  %   \begin{equation*}
-  %     \begin{aligned}
-  %       S^{\tau_{A}^{e}+} &\rightarrow& \omega \\
-  %       \mathbf{\varphi} &\rightarrow& n(\mathbf{\varphi}) \\
-  %     \end{aligned}
-  %     \qquad\qquad\qquad
-  %     \begin{aligned}
-  %       omega \times S^{\tau_{A}^{e}+} &\rightarrow& S^{\tau_{A}^{e}} \cup \{\varepsilon\} \\
-  %       (i, \mathbf{\varphi}) &\rightarrow& \mathbf{\varphi}_{i} \\
-  %     \end{aligned}
-  %   \end{equation*}
-  %   \PN son $A$-PR.
-  % \end{lemma}
-  %
-  % % Lemma 192. Con prueba. Lemma 103.
-  % \begin{lemma}
-  %   \PN $Just$ es $B$-PR. Las funciones:
-  %   \begin{equation*}
-  %     \begin{aligned}
-  %       Just^{+} &\rightarrow& \omega \\
-  %       \mathbf{J} &\rightarrow& n(\mathbf{J}) \\
-  %     \end{aligned}
-  %     \qquad\qquad\qquad
-  %     \begin{aligned}
-  %       omega \times Just^{+} &\rightarrow& Just \cup \{\varepsilon\} \\
-  %       (i, \mathbf{J}) &\rightarrow& \mathbf{J}_{i} \\
-  %     \end{aligned}
-  %   \end{equation*}
-  %   \PN son $B$-PR.
-  % \end{lemma}
-  % \begin{proof}
-  %   Sean
-  %
-  %   $\displaystyle \begin{array}{rcl} R & =& \{\gamma :\gamma \text{ es el nombre de alguna regla}\} \\ T & =& \{\varepsilon \}\cup \{\text{TESIS}\bar{k}:k\in \mathbb{N}\} \end{array} $
-  %
-  %   Notese que $Just$ es la union de una cantidad finita de conjuntos. Uno de ellos es el conjunto
-  %   $\displaystyle L=\{\beta \gamma (\overline{l_{1}},...,\overline{l_{k}}):\gamma \in R\text{, cada }l_{j}\in \mathbb{N}\text{ y }\beta \in T\} $
-  %
-  %   Veremos que $L$ es $B$-p.r., y dejamos al lector lor restantes. Dejamos al lector la prueba de que $T$ es $B$-p.r.. Notese que $\alpha \in L$ sii
-  %   $\displaystyle (\exists \beta \in T)(\exists \gamma \in R)(\exists z\in \mathbb{N})\ \alpha =\beta \gamma (\left( \subset _{i=1}^{Lt(z)-1}\overline{(z)_{i}},\right) \overline{(z)_{Lt(z)}}) $
-  %
-  %   Se deja al lector dar cotas de los cuantificadores, para poder aplicar el lema de cuantificacion acotada.
-  % \end{proof}
-  %
-  % % Lemma 193. Sin prueba. Lemma 104.
-  % \begin{lemma}
-  %   \PN El conjunto $\{\mathbf{J} \in Just^{+}: \mathbf{J}$ es balanceada $\}$ es $B$-PR.
-  % \end{lemma}
-  %
-  % % Lemma 194. Sin prueba. Lemma 105.
-  % \begin{lemma}
-  %   \[
-  %     \begin{array}{rcl}
-  %       \omega \times S^{\tau_{A}^{e}} \times S^{\tau_{A}^{e}+} \times Just^{+} &\rightarrow& \omega \\
-  %       (i, \varphi, \mathbf{\varphi}, \mathbf{J}) &\rightarrow& \left\{
-  %         \begin{array}{ccl}
-  %           1 && \text{si }(\mathbf{\varphi}, \mathbf{J}) \text{ es adecuado y } \varphi \text{ es hipótesis de }
-  %             \mathbf{\varphi}_{i} \text{ en }(\mathbf{\varphi}, \mathbf{J}) \\
-  %           0 && \text{caso contrario}
-  %         \end{array}\right.
-  %     \end{array}
-  %   \]
-  %   \PN es $(A \cup B)$-PR.
-  % \end{lemma}
-  %
-  % % Lemma 195. Sin prueba. Lemma 106.
-  % \begin{lemma}
-  %   \[
-  %     \begin{array}{rcl}
-  %       \mathcal{C} \times \mathcal{C} \times S^{\tau_{A}^{e}+} \times Just^{+} &\rightarrow& \omega \\
-  %       (e, d, \mathbf{\varphi}, \mathbf{J}) &\rightarrow& \left\{
-  %         \begin{array}{ccl}
-  %           1 && \text{si }(\mathbf{\varphi}, \mathbf{J}) \text{ es adecuado y } e \text{ depende de } d \text{ en }
-  %             (\mathbf{\varphi}, \mathbf{J}) \\
-  %           0 && \text{caso contrario}
-  %         \end{array}\right.
-  %     \end{array}
-  %   \]
-  %   \PN es $(A \cup B)$-PR.
-  % \end{lemma}
-  %
-  % % Lemma 196. Sin prueba. Lemma 107.
-  % \begin{lemma}
-  %   \PN Sea $(\Sigma, \tau_{A})$ una teoría tal que $\Sigma$ es $A$-recursivo (resp. $A$-RE), entonces
-  %   $Pruebas_{(\Sigma, \tau_{A})}$ es $(A \cup B)$-recursivo (resp. $(A \cup B)$-RE).
-  % \end{lemma}
-  %
-  % % Proposition 197. Con prueba. Proposition 108.
-  % \begin{lemma}
-  %   \PN Si $(\Sigma, \tau_{A})$ es una teoría tal que $\Sigma$ es $A$-RE., entonces $Teo_{(\Sigma, \tau_{A})}$ es
-  %   $A$-RE.
-  % \end{lemma}
-  % \begin{proof}
-  %   Ya que $Pruebas_{(\Sigma ,\tau _{A})}$ es $(A\cup B)$-r.e. tenemos que hay una funcion $F:\omega \rightarrow S^{\tau_{A}^{e}+}\times Just^{+}$ la cual cumple que $p_{1}^{0,2}\circ F$ y $p_{2}^{0,2}\circ F$ son $(A\cup B)$-r. y ademas $I_{F}=Pruebas_{(\Sigma ,\tau _{A})}$. Sea
-  %
-  %   $\displaystyle \begin{array}{ccc} g:S^{\tau_{A}^{e}+} & \rightarrow & S^{\tau_{A}^{e}} \\ \mathbf{\varphi } & \rightarrow & \mathbf{\varphi }_{n(\mathbf{\varphi })} \end{array} $
-  %
-  %   Por lemas anteriores $g$ es $A$-p.r.. Notese que $I_{(g\circ p_{1}^{0,2}\circ F)}=Teo_{(\Sigma ,\tau _{A})}$, lo cual dice que $ Teo_{(\Sigma ,\tau _{A})}$ es $(A\cup B)$-r.e.. Por el teorema de independencia del alfabeto tenemos que $Teo_{(\Sigma ,\tau _{A})}$ es $A$ -r.e.. $\Box$
-  % \end{proof}
-  %
-  % % Lemma 198. Con prueba. Proposition 109.
-  % \begin{lemma}
-  %   \PN Cualesquiera sean $z_{0}, \dotsc, z_{n} \in \omega, n \geq 0$, hay $x, y \in \omega$, tales que $\beta(x, y, i)
-  %   = z_{i}, i = 0, \dotsc, n$.
-  % \end{lemma}
-  % \begin{proof}
-  %   Dados $x,y,m\in \omega $ con $m\geq 1$, usaremos $x\equiv y(m)$ para expresar que $x$ es congruente a $y$ modulo $m$, es decir para expresar que $ x-y$ es divisible por $m$. Usaremos en esta prueba el Teorema Chino del Resto:
-  %
-  %   - Dados $m_{0},...,m_{n},z_{0},...,z_{n}\in \omega $ tales que $ m_{0},...,m_{n}$ son coprimos de a pares, hay un $x\in \omega $ tal que $ x\equiv z_{i}(m_{i})$, para $i=0,...,n.$
-  %   Sea $y=\max (z_{0},...,z_{n},n)!$. Sean $m_{i}=y(i+1)+1$, $i=0,...,n$. Veamos que $m_{0},...,m_{n}$ son coprimos de a pares. Supongamos $p$ divide a $m_{i}$ y a $m_{j}$ con $i< j$. Entonces $p$ divide a $m_{j}-m_{i}=y(j-i)$ y ya que $p$ no puede dividir a $y$, tenemos que $p$ divide a $j-i$. Pero ya que $j-i< n$ tenemos que $p< n$ lo cual es absurdo ya que implicaria que $p$ divide $y$.
-  %
-  %   Por el Teorema Chino del Resto hay un $x$ tal que $x\equiv z_{i}(m_{i})$, para $i=0,...,n$. Ya que $z_{i}< m_{i}$, tenemos que
-  %
-  %   $\displaystyle \beta (x,y,i)=r(x,y(i+1)+1)=r(x,m_{i})=z_{i}\text{, }i=0,...,n\text{.} $
-  % \end{proof}
-  %
-  % % Proposition 199. Con prueba. Proposition 110.
-  % \begin{proposition}
-  %   \PN Si $h$ es $\emptyset$-recursiva, entonces $h$ es representable.
-  % \end{proposition}
-  % \begin{proof}
-  %   Supongamos $f:S_{1}\times ...\times S_{n}\rightarrow \omega $ y $g:\omega \times \omega \times S_{1}\times ...\times S_{n}\rightarrow \omega $ son representables, con $S_{1},...,S_{n}\subseteq \omega $. Probaremos que $ R(f,g):\omega \times S_{1}\times ...\times S_{n}\rightarrow \omega $ lo es. Para esto primero notese que para $t,x_{1},...,x_{n},z\in \omega $, las siguientes son equivalentes
-  %
-  %   (1) $R(f,g)(t,\vec{x})=z$
-  %   (2) hay $z_{0},...,z_{t}\in \omega $ tales que
-  %   $\displaystyle \begin{array}{rcl} z_{0} & =& f(\vec{x}) \\ z_{i+1} & =& g(z_{i},i,\vec{x})\text{, }i=0,...,t-1 \\ z_{t} & =& z \end{array} $
-  %
-  %   (3) hay $x,y\in \omega $ tales que
-  %   $\displaystyle \begin{array}{rcl} \beta (x,y,0) & =& f(\vec{x}) \\ \beta (x,y,i+1) & =& g(\beta (x,y,i),i,\vec{x})\text{, }i=0,...,t-1 \\ \beta (x,y,t) & =& z \end{array} $
-  %
-  %   Sean
-  %
-  %   $\displaystyle \begin{array}{rcl} \varphi _{\beta } & =& _{d}\varphi _{\beta }(v_{1},v_{2},v_{3},v) \\ \varphi _{f} & =& _{d}\varphi _{f}(v_{1},...,v_{n},v) \\ \varphi _{g} & =& _{d}\varphi _{g}(v_{1},...,v_{n+2},v) \end{array} $
-  %
-  %   formulas que representen a las funciones $\beta $, $f$ y $g$, respectivamente. Sean $w_{1},...,w_{n+1},w$, $ y_{1},y_{2},y_{3},y_{4},z_{1},z_{2}$ variables todas distintas y tales que cada una de las variebles libres de $\varphi _{\beta }$, $\varphi _{f}$ y $ \varphi _{g}$ es sustituible por cada una de las variables $ w_{1},...,w_{n+1},w$, $y_{1},y_{2},y_{3},y_{4},z_{1},z_{2}$. Sea $\varphi _{R(f,g)}=\varphi _{R(f,g)}(w_{1},...,w_{n+1},w)$ la siguiente formula
-  %   $\exists z_{1},z_{2}\;(\exists y_{1}\varphi _{\beta }(z_{1},z_{2},0,y_{1})\wedge \varphi _{f}(w_{2},...,w_{n+1},y_{1}))\wedge $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \varphi _{\beta }(z_{1},z_{2},w_{1},w)\wedge \forall y_{2}(y_{2}< w_{1}\rightarrow \exists y_{3},y_{4}\;\varphi _{\beta }(z_{1},z_{2},y_{2}+1,y_{3})\wedge $
-  %   $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \varphi _{\beta }(z_{1},z_{2},y_{2},y_{4})\wedge \varphi _{g}(y_{4},y_{2},w_{2},...,w_{n+1},y_{3}))$
-  %   Es facil usando (3) ver que la formula $\varphi _{R(f,g)}$ representa a $R(f,g)$.
-  %
-  %   En forma analoga se puede probar que las reglas de composicion y minimizacion preservan representabilidad por lo cual ya que los elementos de $\mathrm{R}_{0}^{\emptyset }$ son representables, tenemos que lo es toda funcion $\emptyset $-r. $\Box$
-  % \end{proof}
-  %
-  % % Lemma 200. Con prueba. Lemma 111.
-  % \begin{lemma}
-  %   \PN Hay un predicado $P: \omega \times \omega \rightarrow \omega$ el cual es $\emptyset$-PR y tal que el predicado
-  %   $Q = \lambda x\left[(\exists t \in \omega) P(t, x)\right]: \omega \rightarrow \omega$ no es $\emptyset$-recursivo.
-  % \end{lemma}
-  % \begin{proof}
-  %   Sea $\Sigma =\Sigma _{p}$. Recordemos que el predicado
-  %
-  %   $\displaystyle P_{1}=\lambda t\mathcal{P}\left[ i^{0,1}(t,\mathcal{P},\mathcal{P})=n( \mathcal{P})+1\right] $
-  %
-  %   es $\Sigma _{p}$-p.r. ya que la funcion $i^{0,1}$ lo es. Notese que el dominio de $P_{1}$ es $\omega \times \mathrm{Pro}^{\Sigma _{p}}$. Por Lema 69 (de la materia de lenguajes) tenemos que
-  %   $\displaystyle Halt^{\Sigma _{p}}=\lambda \mathcal{P}\left[ (\exists t\in \omega )\;P_{1}(t, \mathcal{P})\right] $
-  %
-  %   no es $\Sigma _{p}$-recursivo. Sea $< $ un orden total sobre $\Sigma _{p}$. Definamos $P:\omega \times \omega \rightarrow \omega $ de la siguiente manera
-  %   $\displaystyle P(t,x)=\left\{ \begin{array}{ccc} P_{1}(t,\ast ^{< }(x)) & \text{si} & \ast ^{< }(x)\in \mathrm{Pro}^{\Sigma _{p}} \\ 0 & \text{si} & \ast ^{< }(x)\notin \mathrm{Pro}^{\Sigma _{p}} \end{array} \right. $
-  %
-  %   Claramente $P$ es $\Sigma _{p}$-p.r., por lo cual es $\emptyset $-p.r.. Sea $ Q=\lambda x\left[ (\exists t\in \omega )P(t,x)\right] .$ Notese que
-  %   $\displaystyle Halt^{\Sigma _{p}}=Q\circ \#^{< }\mathrm{\mid }_{\mathrm{Pro}^{\Sigma _{p}}} $
-  %
-  %   lo cual dice que $Q$ no es $\Sigma _{p}$-r. ya que de serlo, el predicado $ Halt^{\Sigma _{p}}$ lo seria. Por el teorema de independencia del alfabeto tenemos entonces que $Q$ no es $\emptyset $-recursivo.
-  % \end{proof}
-  %
-  % % Lemma 201. Con prueba. Lemma 112.
-  % \begin{lemma}
-  %   \PN Si $Verd_{\mathbf{\omega}}$ es $A$-RE, entonces es $A$-recursivo.
-  % \end{lemma}
-  % \begin{proof}
-  %   Supongamos $Verd_{\mathbf{\omega }}$ es $A$-r. e. Sea $f:\omega \rightarrow Verd_{\mathbf{\omega }}$ una funcion sobre y $A$-r. Sea $g:S^{\tau _{A}}\rightarrow S^{\tau _{A}}$, dada por
-  %
-  %   $\displaystyle g(\varphi )=\left\{ \begin{array}{ccc} ^{\curvearrowright }\varphi & \;\; & \text{si }\left[ \varphi \right] _{1}=\lnot \\ \lnot \varphi & \;\; & \text{caso contrario} \end{array} \right. $
-  %
-  %   Notar que $g$ es $A$-p.r. por lo cual $g\circ f$ es $A$-r. Ya que $I_{g\circ f}=S^{\tau _{A}}-Verd_{\mathbf{\omega }}$ (justifique), tenemos que $S^{\tau _{A}}-Verd_{\mathbf{\omega }}$ es $A$-r. e., por lo cual
-  %   $\displaystyle A^{\ast }-Verd_{\mathbf{\omega }}=(A^{\ast }-S^{\tau _{A}})\cup (S^{\tau _{A}}-Verd_{\mathbf{\omega }}) $
-  %
-  %   lo es. Es decir que $Verd_{\mathbf{\omega }}$ y su complemento son $A$-r.e. por lo cual $Verd_{\mathbf{\omega }}$ es $A$-r.
-  % \end{proof}
-  %
-  % % Lemma 202. Con prueba. Lemma 113.
-  % \begin{lemma}
-  %   \PN $Verd_{\mathbf{\omega}}$ no es $A$-RE.
-  % \end{lemma}
-  % \begin{proof}
-  %   Por el Lema 200 hay un predicado $\emptyset $-p.r., $ P:\omega \times \omega \rightarrow \omega $ tal que el predicado $Q=\lambda x \left[ (\exists t\in \omega )P(t,x)\right] :\omega \rightarrow \omega $ no es $\emptyset $-recursivo. Notese que $Q$ tampoco es $A$-recursivo. Ya que $P $ es representable, hay una formula $\varphi =_{d}\varphi (v_{1},v_{2},v)\in F^{\tau _{A}}$ la cual cumple
-  %
-  %   $\displaystyle \mathbf{\omega }\models \varphi \left[ t,x,k\right] \text{ si y solo si } P(t,x)=k, $
-  %
-  %   cualesquiera sean $t,x,k\in \omega .$ Sea $\psi =\varphi (v_{1},v_{2},1)$. Notese que $\psi =_{d}\psi (v_{1},v_{2})$ y que
-  %   $\displaystyle \mathbf{\omega }\models \psi \left[ t,x\right] \text{ si y solo si }P(t,x)=1 \text{,} $
-  %
-  %   cualesquiera sean $t,x\in \omega .$ Sea $\psi_{0}=\exists v_{1}\ \psi (v_{1},v_{2})$. Notese que $\psi_{0}=_{d}\psi_{0}(v_{2})$ y que
-  %   $\displaystyle \mathbf{\omega }\models \psi_{0}\left[ x\right] \text{ si y solo si }Q(x)=1 $
-  %
-  %   cualesquiera sea $x\in \omega $. Por el lema de reemplazo tenemos que para $ x\in \omega $,
-  %   $\displaystyle \mathbf{\omega }\models \psi_{0}\left[ x\right] \text{ si y solo si } \mathbf{\omega }\models \psi_{0}(\widehat{x}) $
-  %
-  %   (justifique), por lo cual
-  %   $\displaystyle \mathbf{\omega }\models \psi_{0}(\widehat{x})\text{ si y solo si }Q(x)=1 $
-  %
-  %   cualesquiera sea $x\in \omega $. Ya que $\psi_{0}(\widehat{x})$ es una sentencia,
-  %   $\displaystyle \psi_{0}(\widehat{x})\in Verd_{\mathbf{\omega }}\text{ si y solo si }Q(x)=1 $
-  %
-  %   Sea $h:\omega \rightarrow A^{\ast }$, dada por $h(x)=\psi_{0}(\widehat{x})$ . Es facil ver que $h$ es $A$-recursiva. Ya que $Q=\chi _{Verd_{\mathbf{ \omega }}}\circ h$ y $Q$ no es $A$-recursivo, tenemos que $\chi _{Verd_{ \mathbf{\omega }}}$ no es $A$-recursiva, es decir que $Verd_{\mathbf{\omega } }$ es un conjunto no $A$-recursivo. El lema anterior nos dice entonces que es $Verd_{\mathbf{\omega }}$ no es $A$-r.e..
-  % \end{proof}
-  % 
-  % % Theorem 203. Con prueba. Theorem 114.
-  % \begin{theorem}
-  %   \PN (Godel) Si $\Sigma \subseteq Verd_{\mathbf{\omega}}$ es $A$-RE, entonces $Teo_{(\Sigma, \tau_{A})} \subsetneq
-  %   Verd_{\mathbf{\omega}}$.
-  % \end{theorem}
-  % \begin{proof}
-  %   Por el Teorema de Correccion, tenemos que $Teo_{(\Sigma ,\tau _{A})}\subseteq Verd_{\mathbf{\omega }}$. Ya que $Teo_{(\Sigma ,\tau _{A})}$ es $A$-r.e y $Verd_{\mathbf{\omega }}$ no lo es, tenemos que $Teo_{(\Sigma ,\tau _{A})}\neq Verd_{\mathbf{\omega }}$. $\Box$
-  % \end{proof}
-  %
-  % % Corollary 204. Sin prueba. Corollary 115.
-  % \begin{corollary}
-  %   \PN Existe $\varphi \in S^{\tau_{A}}$ tal que $Arit \nvdash \varphi$ y $ Arit \nvdash \lnot \varphi$.
-  % \end{corollary}
+  % Lemma 182. Con prueba. Lemma 91.
+  \begin{lemma} \label{lemma_91}
+    \PN $\mathbf{\omega}$ es un modelo de $Arit$.
+  \end{lemma}
+  \begin{proof}
+    Sea $\psi =_{d}\psi (v_{1},...,v_{n},v)$, f\'{o}rmula de $\tau _{A}$. Veremos que $\mathbf{\omega }\vDash Ind_{\psi }$. Sea
+
+    $\displaystyle \varphi =((\psi (\vec{v},0)\wedge \forall v\ (\psi (\vec{v},v)\rightarrow \psi (\vec{v},v+1)))\rightarrow \forall v\ \psi (\vec{v},v)) $
+
+    Declaremos $\varphi =_{d}\varphi (v_{1},...,v_{n})$. Notese que $\mathbf{ \omega }\vDash Ind_{\psi }$ si y solo si para cada $a_{1},...,a_{n}\in \omega $ se tiene que $\mathbf{\omega }\vDash \varphi \lbrack \vec{a}]$. Sean $a_{1},...,a_{n}\in \omega $ fijos. Probaremos que $\mathbf{\omega } \vDash \varphi \lbrack \vec{a}]$. Notar que si
+    $\displaystyle \mathbf{\omega }\nvDash (\psi (\vec{v},0)\wedge \forall v\ (\psi (\vec{v} ,v)\rightarrow \psi (\vec{v},v+1)))[\vec{a}] $
+
+    entonces $\mathbf{\omega }\vDash \varphi \lbrack \vec{a}]$ por lo cual podemos hacer solo el caso en que
+    $\displaystyle \mathbf{\omega }\vDash (\psi (\vec{v},0)\wedge \forall v\ (\psi (\vec{v} ,v)\rightarrow \psi (\vec{v},v+1)))[\vec{a}] $
+
+    Sea $S=\{a\in \omega :\mathbf{\omega }\vDash \psi (\vec{v},v)[\vec{a},a]\}$. Ya que $\mathbf{\omega }\vDash \psi (\vec{v},0)[\vec{a}]$, es facil ver usando el lema de reemplazo que $\mathbf{\omega }\vDash \psi (\vec{v},v)[ \vec{a},0]$, lo cual nos dice que $0\in S$. Ya que $\mathbf{\omega }\vDash (\forall v\ (\psi (\vec{v},v)\rightarrow \psi (\vec{v},v+1)))[\vec{a}]$, tenemos que
+    (1) Para cada $a\in \omega $, si $\mathbf{\omega }\vDash \psi (\vec{v} ,v)[\vec{a},a]$, entonces $\mathbf{\omega }\vDash \psi (\vec{v},v+1)[\vec{a} ,a]$.
+    Pero por el lema de reemplazo, tenemos que $\mathbf{\omega }\vDash \psi ( \vec{v},v+1)[\vec{a},a]$ sii $\mathbf{\omega }\vDash \psi (\vec{v},v)[\vec{a} ,a+1]$, lo cual nos dice que
+
+    (2) Para cada $a\in \omega $, si $\mathbf{\omega }\vDash \psi (\vec{v} ,v)[\vec{a},a]$, entonces $\mathbf{\omega }\vDash \psi (\vec{v},v)[\vec{a} ,a+1]$.
+    Ya que (2) nos dice que $a\in S$ implica $a+1\in S$, tenemos que $S=\omega $ ya que $0\in S$. Es decir que para cada $a\in \omega $, se da que $\mathbf{ \omega }\vDash \psi (\vec{v},v)[\vec{a},a]$ lo cual nos dice que $\mathbf{ \omega }\vDash \forall v\ \psi (\vec{v},v)[\vec{a}]$.
+
+    Es rutina probar que $\mathbf{\omega }$ satisface los otros 15 axiomas de $ Arit$. $\Box$
+  \end{proof}
+
+  % Proposition 183. Con prueba. Proposition 92.
+  \begin{proposition} \label{proposition_92}
+    \PN Hay un modelo de $Arit$ el cual no es isomorfo a $\mathbf{\omega}$.
+  \end{proposition}
+  \begin{proof}
+    Sea $\tau =(\{0,1,\blacktriangle \},\{+^{2},.^{2}\},\{\leq ^{2}\},a)$ y sea $ \Sigma =\Sigma _{A}\cup \{\lnot (\widehat{n}\equiv \blacktriangle ):n\in \omega \}$. Por el Teorema de Compacidad la teoria $(\Sigma ,\tau )$ tiene un modelo $\mathbf{A}=(A,i)$. Ya que
+
+    $\displaystyle \mathbf{A}\vDash \lnot (\widehat{n}\equiv \blacktriangle )\text{, para cada } n\in \omega $
+
+    tenemos que
+    $\displaystyle i(\blacktriangle )\neq \widehat{n}^{\mathbf{A}}\text{, para cada }n\in \omega $
+
+    Por el Lema de Coincidencia la estructura $\mathbf{B}=(A,i\mid _{\{0,1,+,.,\leq \}})$ es un modelo de $Arit$. Ademas dicho lema nos garantiza que $\widehat{n}^{\mathbf{B}}=\widehat{n}^{\mathbf{A}}$, para cada $n\in \omega $, por lo cual tenemos que
+    $\displaystyle i(\blacktriangle )\neq \widehat{n}^{\mathbf{B}}\text{, para cada }n\in \omega $
+
+    Veamos que $\mathbf{B}$ no es isomorfo a $\mathbf{\omega }$. Supongamos $ F:\omega \rightarrow A$ es un isomorfismo de $\mathbf{\omega }$ en $\mathbf{B }$. Es facil de probar por induccion en $n$ que $F(n)=\widehat{n}^{\mathbf{B} }$, para cada $n\in \omega $. Pero esto produce un absurdo ya que nos dice que $i(\blacktriangle )$ no esta en la imagen de $F$. $\Box$
+  \end{proof}
+
+  % Lemma 184. Con prueba. Lemma 93.
+  \begin{lemma} \label{lemma_93}
+    \PN Las siguientes sentencias son teoremas de la aritmética de Peano:
+    \begin{enumerate}[(1)]
+      \item $\forall x \; 0 \leq x$
+      \item $\forall x \; (x \leq 0 \rightarrow x \equiv 0)$
+      \item $\forall x \forall y \; (x + y \equiv 0 \rightarrow (x \equiv 0 \wedge y \equiv 0))$
+      \item $\forall x \; (\lnot (x \equiv 0) \rightarrow \exists z \ (x \equiv z + 1))$
+      \item $\forall x \forall y \; (x < y \rightarrow x + 1 \leq y)$
+      \item $\forall x \forall y \; (x < y + 1 \rightarrow x \leq y)$
+      \item $\forall x \forall y \; (x \leq y+1 \rightarrow (x \leq y \vee x \equiv y+1))$
+      \item $\forall x \forall y \; (\lnot y \equiv 0 \rightarrow \exists q \exists r \; x \equiv q.y+r \wedge r < y)$
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \begin{enumerate}[(1)]
+      \item Prueba para $\forall x \; 0 \leq x$:
+
+      \item Prueba para $\forall x \; (x \leq 0 \rightarrow x \equiv 0)$:
+
+        $\begin{array}{lllll}
+          1. & x_{0} \leq 0 &&& \text{HIPOTESIS}1 \\
+          2. & \forall x \; 0 \leq x &&& \text{TEOREMA} \\
+          3. & 0 \leq x_{0} &&& \text{PARTICULARIZACION}(2) \\
+          4. & x_{0} \leq 0 \wedge 0 \leq x_{0} &&& \text{CONJUNCIONINTRODUCCION}(1,3) \\
+          5. & \forall x_{1} \forall x_{2} \; ((x_{1} \leq x_{2} \wedge x_{2} \leq x_{1}) \rightarrow x_{1} \equiv
+            x_{2}) &&& \text{AXIOMAPROPIO} \\
+          6. & \forall x_{2} \; ((x_{0} \leq x_{2} \wedge x_{2} \leq x_{0}) \rightarrow x_{0} \equiv x_{2}) &&&
+            \text{PARTICULARIZACION}(5) \\
+          7. & ((x_{0}\leq 0\wedge 0\leq x_{0})\rightarrow x_{0}\equiv 0) &&& \text{PARTICULARIZACION}(6) \\
+          8. & x_{0}\equiv 0 &&& \text{TESIS}1\text{MODUSPONENS}(4,7) \\
+          9. & x_{0}\leq 0\rightarrow x_{0}\equiv 0 &&& \text{CONCLUSION} \\
+          10. & \forall x\ (x\leq 0\rightarrow x\equiv 0) &&& \text{GENERALIZACION} (9)
+        \end{array}$
+
+        \item Prueba para $\forall x \forall y \; (x + y \equiv 0 \rightarrow (x \equiv 0 \wedge y \equiv 0))$:
+
+          $\begin{array}{lllll}
+            1. & x_{0} + y_{0} \equiv 0 &&& \text{HIPOTESIS}1 \\
+            2. & (x_{0} + y_{0} \equiv 0 \leftrightarrow 0 \equiv x_{0} + y_{0}) &&& \text{AXIOMALOGICO} \\
+            3. & 0\equiv x_{0} + y_{0} &&& \text{REEMPLAZO(1,2)} \\
+            4. & \exists X_{3} \ (0 \equiv x_{0} + X_{3}) &&& \text{EXISTENCIAL(3)} \\
+            5. & \forall x_{1}\forall x_{2}\;(x_{1}\leq x_{2}\leftrightarrow \exists x_{3}\;x_{2}\equiv x_{1}+x_{3}) &&& \text{PARTICULARIZACION}(2) \\
+            6. & x_{0}\leq 0 &&& \text{CONJUNCIONINTRODUCCION}(1,3) \\
+            7. & \forall x_{1}\forall x_{2}\;((x_{1}\leq x_{2}\wedge x_{2}\leq x_{1})\rightarrow x_{1}\equiv x_{2}) &&& \text{AXIOMAPROPIO} \\
+            8. & \forall x_{2}\;((x_{0}\leq x_{2}\wedge x_{2}\leq x_{0})\rightarrow x_{0}\equiv x_{2}) &&& \text{PARTICULARIZACION}(5) \\
+            9. & ((x_{0}\leq 0\wedge 0\leq x_{0})\rightarrow x_{0}\equiv 0) &&& \text{PARTICULARIZACION}(6) \\
+            10. & x_{0}\equiv 0 &&& \text{TESIS}1\text{MODUSPONENS}(4,7) \\
+            11. & x_{0} \leq 0 \rightarrow x_{0} \equiv 0 &&& \text{CONCLUSION} \\
+            12. & \forall x \ (x \leq 0 \rightarrow x \equiv 0) &&& \text{GENERALIZACION}(9)
+          \end{array}$
+
+        \item Prueba para $\forall x \; (\lnot (x \equiv 0) \rightarrow \exists z \ (x \equiv z + 1))$:
+        \item Prueba para $\forall x \forall y \; (x < y \rightarrow x + 1 \leq y)$:
+        \item Prueba para $\forall x \forall y \; (x < y + 1 \rightarrow x \leq y)$:
+        \item Prueba para $\forall x \forall y \; (x \leq y+1 \rightarrow (x \leq y \vee x \equiv y+1))$:
+        \item Prueba para $\forall x \forall y \; (\lnot y \equiv 0 \rightarrow \exists q \exists r \; x \equiv q.y+r
+          \wedge r < y)$:
+    \end{enumerate}
+
+  \end{proof}
+
+  % Lemma 185. Sin prueba. Lemma 94.
+  \begin{lemma} \label{lemma_94}
+    \PN Sean $n, m \in \omega$. Las siguientes sentencias son teoremas de la aritmética de Peano:
+    \begin{enumerate}
+      \item $(+(\widehat{n},\widehat{m})\equiv \widehat{n+m})$
+      \item $(.(\widehat{n},\widehat{m})\equiv \widehat{n.m})$
+      \item $\forall x \; (x \leq \widehat{n} \rightarrow (x \equiv \widehat{0} \vee x \equiv \widehat{1} \vee \dotsc
+        \vee x \equiv \widehat{n}))$
+    \end{enumerate}
+  \end{lemma}
+
+  % Lemma 186. Sin prueba. Lemma 95.
+  \begin{lemma} \label{lemma_95}
+    \PN Para cada término cerrado $t$, tenemos que $Arit \vdash (t \equiv \widehat{t^{\mathbf{\omega}}})$.
+  \end{lemma}
+
+  % Lemma 187. Sin prueba. Lemma 96.
+  \begin{lemma} \label{lemma_96}
+    \PN Si $\varphi$ es una sentencia atómica o negación de atómica y $\mathbf{\omega} \models \varphi$, entonces $Arit
+    \vdash \varphi$.
+  \end{lemma}
+  \begin{proof}
+    Hay dos casos. Supongamos $\varphi =(t\equiv s)$, con $t,s$ terminos cerrados. Ya que $\mathbf{\omega }\models \varphi $, tenemos que $t^{\mathbf{ \omega }}=s^{\mathbf{\omega }}$ y por lo tanto $\widehat{t^{\mathbf{\omega }} }=\widehat{s^{\mathbf{\omega }}}$. Por el lema anterior tenemos que $ Arit\vdash (t\equiv \widehat{t^{\mathbf{\omega }}}),(s\equiv \widehat{s^{ \mathbf{\omega }}})$ lo cual, ya que $\widehat{t^{\mathbf{\omega }}}$ y $ \widehat{s^{\mathbf{\omega }}}$ son el mismo termino nos dice por la regla de transitividad que $Arit\vdash (t\equiv s)$. Supongamos $\varphi =(t\leq s) $, con $t,s$ terminos cerrados. Ya que $\mathbf{\omega }\models \varphi $ , tenemos que $t^{\mathbf{\omega }}\leq s^{\mathbf{\omega }}$ y por lo tanto hay un $k\in \omega $ tal que $t^{\mathbf{\omega }}+k=s^{\mathbf{\omega }}$. Se tiene entonces que $\widehat{t^{\mathbf{\omega }}+k}=\widehat{s^{\mathbf{ \omega }}}$. Por el lema anterior tenemos que $Arit\vdash +(\widehat{t^{ \mathbf{\omega }}},\widehat{k})\equiv \widehat{t^{\mathbf{\omega }}+k}$ lo cual nos dice que
+
+    $\displaystyle Arit\vdash +(\widehat{t^{\mathbf{\omega }}},\widehat{k})\equiv \widehat{s^{ \mathbf{\omega }}} $
+
+    Pero el lema anterior nos dice que
+    $\displaystyle Arit\vdash (t\equiv \widehat{t^{\mathbf{\omega }}}),(s\equiv \widehat{s^{ \mathbf{\omega }}}) $
+
+    y por lo tanto la regla de reemplazo nos asegura que $Arit\vdash +(t, \widehat{k})\equiv s$. Ya que
+    $\displaystyle \forall x_{1}\forall x_{2}\;(x_{1}\leq x_{2}\leftrightarrow \exists x_{3}\;x_{2}\equiv x_{1}+x_{3}) $
+
+    es un axioma de $Arit$, tenemos que $Arit\vdash (t\leq s)$.
+  \end{proof}
+
+  % Lemma 188. Con prueba. Lemma 97.
+  \begin{lemma} \label{lemma_97}
+    Sea $\varphi =_{d} \varphi(\vec{v}, v) \in F^{\tau_{A}}$. Supongamos $v$ es sustituible por $w$ en $\varphi$ y $w
+    \notin \{v_{1}, \dotsc, v_{n}\}$, entonces:
+    \[
+      Arit \vdash \forall \vec{v}((\varphi(\vec{v}, 0) \wedge \forall v(\forall w(w < v \rightarrow \varphi(\vec{v}, w))
+      \rightarrow \varphi(\vec{v} ,v))) \rightarrow \forall v\varphi(\vec{v}, v))
+    \]
+  \end{lemma}
+  \begin{proof}
+    Sea $\tilde{\varphi}=\forall w(w\leq v\rightarrow \varphi (\vec{v},w))$. Notar que $\tilde{\varphi}=_{d}\tilde{\varphi}(\vec{v},v)$. Sea $ IndCom_{\varphi }$ la sentencia
+
+    $\displaystyle \forall \vec{v}((\varphi (\vec{v},0)\wedge \forall v(\forall w(w< v\rightarrow \varphi (\vec{v},w))\rightarrow \varphi (\vec{v} ,v)))\rightarrow \forall v\varphi (\vec{v},v)) $
+
+    Salvo por el uso de algunos teoremas simples y el uso simultaneo de las reglas de particularizacion y generalizacion, la siguiente es la prueba buscada
+    $\displaystyle \begin{array}{lllll} \;1. & (\varphi (\vec{c},0)\wedge \forall v(\forall w(w< v\rightarrow \varphi (\vec{c},w))\rightarrow \varphi (\vec{c},v)) &&& \text{HIPOTESIS}1 \\ \;2. & \;\;\;w_{0}\leq 0 &&& \text{HIPOTESIS}2 \\ \;3. & \;\;\;\forall x\;(x\leq 0\rightarrow x\equiv 0) &&& \text{TEOREMA} \\ \;4. & \;\;\;w_{0}\leq 0\rightarrow w_{0}\equiv 0 &&& \text{ PARTICULARIZACION}(3) \\ \;5. & \;\;\;w_{0}\equiv 0 &&& \text{MODUSPONENS}(2,4) \\ \;6. & \;\;\;\varphi (\vec{c},0) &&& \text{CONJUNCIONELIMINACION}(1) \\ \;7. & \;\;\;\varphi (\vec{c},w_{0}) &&& \text{TESIS}2\text{REEMPLAZO} (5,6) \\ \;8. & w_{0}\leq 0\rightarrow \varphi (\vec{c},w_{0}) &&& \text{ CONCLUSION} \\ \;9. & \tilde{\varphi}(\vec{c},0) &&& \text{GENERALIZACION}(8) \\ 10. & \;\;\;\tilde{\varphi}(\vec{c},v_{0}) &&& \text{HIPOTESIS}3 \\ 11. & \;\;\;\;\;\;w_{0}< v_{0}+1 &&& \text{HIPOTESIS}4 \\ 12. & \;\;\;\;\;\;\forall x,y\;x< y+1\rightarrow x\leq y &&& \text{TEOREMA } \\ 13. & \;\;\;\;\;\;w_{0}< v_{0}+1\rightarrow w_{0}\leq v_{0} &&& \text{ PARTICULARIZACION}(12) \\ 14. & \;\;\;\;\;\;w_{0}\leq v_{0} &&& \text{MODUSPONENS}(11,13) \\ 15. & \;\;\;\;\;\;w_{0}\leq v_{0}\rightarrow \varphi (\vec{c},w_{0}) &&& \text{PARTICULARIZACION}(10) \\ 16. & \;\;\;\;\;\;\varphi (\vec{c},w_{0}) &&& \text{TESIS}4\text{ MODUSPONENS}(14,15) \\ 17. & \;\;\;w_{0}< v_{0}+1\rightarrow \varphi (\vec{c},w_{0}) &&& \text{ CONCLUSION} \\ 18. & \;\;\;\forall w\;w< v_{0}+1\rightarrow \varphi (\vec{c},w) &&& \text{GENERALIZACION}(17) \\ 19. & \;\;\;\forall v(\forall w(w< v\rightarrow \varphi (\vec{c} ,w))\rightarrow \varphi (\vec{c},v)) &&& \text{CONJUNCIONELIMINACION}(1) \\ 20. & \;\;\;(\forall w(w< v_{0}+1\rightarrow \varphi (\vec{c},w))\rightarrow \varphi (\vec{c},v_{0}+1)) &&& \text{PARTICULARIZACION}(19) \\ 21. & \;\;\;\varphi (\vec{c},v_{0}+1) &&& \text{MODUSPONENS}(18,20) \\ 22. & \;\;\;\;\;\;w_{0}\leq v_{0}+1 &&& \text{HIPOTESIS}5 \\ 23. & \;\;\;\;\;\;\forall x,y\;x\leq y+1\rightarrow (x\leq y\vee x\equiv y+1) &&& \text{TEOREMA} \\ 24. & \;\;\;\;\;\;w_{0}\leq v_{0}+1\rightarrow (w_{0}\leq v_{0}\vee w_{0}\equiv v_{0}+1) &&& \text{PARTICULARIZACION}(23) \\ 25. & \;\;\;\;\;\;(w_{0}\leq v_{0}\vee w_{0}\equiv v_{0}+1) &&& \text{ MODUSPONENS}(22,24) \\ 26. & \;\;\;\;\;\;w_{0}\leq v_{0}\rightarrow \varphi (\vec{c},w_{0}) &&& \text{PARTICULARIZACION}(10) \\ 27. & \;\;\;\;\;\;\;\;\;w_{0}\equiv v_{0}+1 &&& \text{HIPOTESIS}6 \\ 28. & \;\;\;\;\;\;\;\;\;\varphi (\vec{c},w_{0}) &&& \text{TESIS}6\text{ REEMPLAZO}(21,27) \\ 29. & \;\;\;w_{0}\equiv v_{0}+1\rightarrow \varphi (\vec{c},w_{0}) &&& \text{CONCLUSION} \\ 30. & \;\;\;\;\;\;\varphi (\vec{c},w_{0}) &&& \text{TESIS}5\text{ DISJUNCIONELIMINACION}(25,26,29) \\ 31. & \;\;\;w_{0}\leq v_{0}+1\rightarrow \varphi (\vec{c},w_{0}) &&& \text{CONCLUSION} \\ 32. & \;\;\;\tilde{\varphi}(\vec{c},v_{0}+1) &&& \text{TESIS}3\text{ GENERALIZACION}(31) \\ 33. & \tilde{\varphi}(\vec{c},v_{0})\rightarrow \tilde{\varphi}(\vec{c} ,v_{0}+1) &&& \text{CONCLUSION} \\ 34. & \forall v\tilde{\varphi}(\vec{c},v)\rightarrow \tilde{\varphi}(\vec{c} ,v+1) &&& \text{GENERALIZACION}(33) \\ 35. & \tilde{\varphi}(\vec{c},0)\wedge \forall v\tilde{\varphi}(\vec{c} ,v)\rightarrow \tilde{\varphi}(\vec{c},v+1) &&& \text{ CONJUNCIONINTRODUCCION}(9,34) \\ 36. & Ind_{\tilde{\varphi}} &&& \text{AXIOMAPROPIO} \\ 37. & (\tilde{\varphi}(\vec{c},0)\wedge \forall v(\tilde{\varphi}(\vec{c} ,v)\rightarrow \tilde{\varphi}(\vec{c},v+1))\rightarrow \forall v\tilde{ \varphi}(\vec{c},v) &&& \text{PARTICULARIZACION}(36) \\ 38. & \forall v\tilde{\varphi}(\vec{c},v) &&& \text{MODUSPONENS}(35,37) \\ 39. & \tilde{\varphi}(\vec{c},v_{0}) &&& \text{PARTICULARIZACION}(38) \\ 40. & v_{0}\leq v_{0}\rightarrow \varphi (\vec{c},v_{0}) &&& \text{ PARTICULARIZACION}(39) \\ 41. & \forall x\;x\leq x &&& \text{AXIOMAPROPIO} \\ 42. & v_{0}\leq v_{0} &&& \text{PARTICULARIZACION}(41) \\ 43. & \varphi (\vec{c},v_{0}) &&& \text{MODUSPONENS}(40,42) \\ 44. & \forall v\varphi (\vec{c},v) &&& \text{TESIS}1\text{GENERALIZACION} (43) \\ 45. & (\varphi (\vec{c},0)\wedge \forall v(\forall w(w< v\rightarrow \varphi ( \vec{c},w))\rightarrow \varphi (\vec{c},v)))\rightarrow \forall v\varphi ( \vec{c},v) &&& \text{CONCLUSION} \\ 46. & IndCom_{\varphi } &&& \text{GENERALIZACION}(45) \end{array} $
+  \end{proof}
+
+  % Lemma 189. Con prueba. Lemma 98.
+  \begin{lemma} \label{lemma_98}
+    \PN Los conjuntos $T^{\tau_{A}^{e}}, F^{\tau_{A}^{e}}, T^{\tau_{A}}$ y $F^{\tau_{A}}$ son $\mathcal{A}$-recursivos.
+  \end{lemma}
+  \begin{proof}
+    \PN Notese que los conjuntos \(T^{\tau _{A}^{e}}\), \(F^{\tau _{A}^{e}}\), \(T^{\tau _{A}}\) y \(F^{\tau _{A}}\) son
+    \(\mathcal{A}\)-efectivamente computables (justifique). Entonces la Tesis de Church nos garantiza que dichos conjuntos
+    son \(\mathcal{A}\)-recursivos.
+
+    \PN A continuacion daremos una prueba de que dichos conjuntos son en realidad \( \mathcal{A}\)-primitivos recursivos.
+
+    Veamos que $T^{\tau_{A}^{e}}$ es $A$-p.r. Fijemos un orden total estricto $ < $ sobre $A$. Sea $P=\lambda x[\ast ^{< }(x)\in T^{\tau_{A}^{e}}]$. Notese que $P(0)=0$ y $P(x+1)=1$ si y solo si se da alguna de las siguientes
+
+    - $\ast ^{< }(x+1)\in \{0,1\}\cup Aux$
+    - $(\exists u,v\in \omega )\ast ^{< }(x+1)=+(\mathrm{\ast }^{< }(u), \mathrm{\ast }^{< }(v))\wedge (P^{\downarrow }(x))_{u+1}\wedge (P^{\downarrow }(x))_{v+1}$
+    - $(\exists u,v\in \omega )\ast ^{< }(x+1)=\mathrm{.}(\mathrm{\ast } ^{< }(u),\mathrm{\ast }^{< }(v))\wedge (P^{\downarrow }(x))_{u+1}\wedge (P^{\downarrow }(x))_{v+1}$
+    Por el Lema 48 tenemos que $P$ es $A$-p.r., por lo cual $\chi _{T^{\tau_{A}^{e}}}=P\circ \#^{< }$ lo es. Notese que
+
+    $\displaystyle t\in T^{\tau _{A}}\text{ sii }t\in T^{\tau_{A}^{e}}\wedge \triangle \text{ no ocurre en }t\wedge \Box \text{ no ocurre en }t $
+
+    por lo cual $T^{\tau _{A}}$ es $A$-p.r.
+  \end{proof}
+
+  % Lemma 190. Con prueba. Lemma 99.
+  \begin{lemma} \label{lemma_99}
+    \PN Los siguientes predicados son $\mathcal{A}$-recursivos:
+    \begin{enumerate}[(1)]
+      \item \CL $v$ ocurre libremente en $\varphi$ a partir de $i$\CR: $\omega \times Var \times F^{\tau_{A}^{e}}
+        \rightarrow \omega$
+      \item \CL $v \in Li(\varphi)$\CR: $Var \times F^{\tau_{A}^{e}} \rightarrow \omega$
+      \item \CL $v$ es sustituible por $t$ en $\varphi$\CR: $Var \times T^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}}
+        \rightarrow \omega$
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    (1). Veamos que $P:\omega \times Var\times F^{\tau_{A}^{e}}\rightarrow \omega $, dado por
+
+    $\displaystyle P(i,v,\varphi )=\left\{ \begin{array}{ccl} 1 & & \text{si }v\mathit{\ }\text{ocurre libremente en}\mathit{\ }\varphi \text{ a partir de }i \\ 0 & & \text{caso contrario} \end{array} \right. $
+
+    es $B$-p.r.. Sea $R:\omega \times Var\rightarrow \omega $ el predicado dado por $R(x,v)=1$ si y solo si $\ast ^{< }((x)_{1})\in F^{\tau_{A}^{e}}$ y $v \mathit{\ }$ocurre libremente en$\mathit{\ }\ast ^{< }((x)_{1})$ a partir de $ (x)_{2}$. Sea $\mathrm{Nex}=\{\wedge ,\vee ,\rightarrow ,\leftrightarrow \}$ . Notese que $F_{0}^{\tau_{A}^{e}}$ es $A$-p.r. ya que
+    $\displaystyle F_{0}^{\tau_{A}^{e}}=F^{\tau_{A}^{e}}\cap (A-\{\forall ,\exists ,\lnot ,\vee ,\wedge ,\rightarrow ,\leftrightarrow \})^{\ast } $
+
+    Notese que $R(0,v)=0$, para cada $v\in Var$ y que $R(x+1,v)=1$ si y solo si $ (x+1)_{2}\geq 1$ y se da alguna de las siguientes:
+    - $\ast ^{< }((x+1)_{1})\in F_{0}^{\tau_{A}^{e}}\wedge v$ ocurre en $ \ast ^{< }((x+1)_{1})$ a partir de $(x+1)_{2}$
+    - $(\exists \varphi _{1},\varphi _{2}\in F^{\tau_{A}^{e}})(\exists \eta \in \mathrm{Nex})\ast ^{< }((x+1)_{1})=(\varphi _{1}\eta \varphi _{2})\wedge $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{1}),(x+1)_{2}-1\right\rangle +1}\vee (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{2}),(x+1)_{2}-\left\vert (\varphi _{1}\eta \right\vert \right\rangle +1}\right) $
+
+    - $(\exists \varphi _{1}\in F^{\tau_{A}^{e}})\ast ^{< }((x+1)_{1})=\lnot \varphi _{1}\wedge (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{1}),(x+1)_{2}-1\right\rangle +1}$
+    - $(\exists \varphi _{1}\in F^{\tau_{A}^{e}})(\exists w\in Var)(Q\in \{\forall ,\exists \})\;w\neq v\wedge $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ast ^{< }((x+1)_{1})=Qw\varphi _{1}\wedge (R^{\downarrow }(x,v))_{\left\langle \#^{< }(\varphi _{1}),(x+1)_{2}-\left\vert (Qw\right\vert \right\rangle +1}$
+
+    Es decir que por el Lema 48 tenemos que $R$ es $A$ -p.r.. Notese que para $(i,v,\varphi )\in \omega \times Var\times F^{\tau_{A}^{e}}$, tenemos $P(i,v,\varphi )=R(\left\langle \#^{< }(\varphi ),i\right\rangle ,v)$. Ahora es facil obtener la funcion $P$ haciendo composiciones adecuadas con $R$.
+  \end{proof}
+
+  % Lemma 191. Con prueba. Lemma 100.
+  \begin{lemma} \label{lemma_100}
+    \PN Las funciones $\lambda svt[\downarrow_{v}^{t}(s)]$ y $\lambda \varphi vt[\downarrow_{v}^{t}(\varphi)]$ son
+    $\mathcal{A}$-recursivas.
+  \end{lemma}
+  \begin{proof}
+    Sea $< $ un orden total estricto sobre $A$. Sea $h:\omega \times Var\times T^{\tau_{A}^{e}}\rightarrow \omega $ dada por
+
+    $\displaystyle h(x,v,t)=\left\{ \begin{array}{ccc} \#^{< }(\downarrow _{v}^{t}(\ast ^{< }(x))) & & \text{si }\ast ^{< }(x)\in T^{\tau_{A}^{e}} \\ 0 & & \text{caso contrario} \end{array} \right. $
+
+    Sea $P:\omega \times \omega \times Var\times T^{\tau_{A}^{e}}\times A^{\ast }\rightarrow \omega $ tal que $P(A,x,v,t,\alpha )=1$ si y solo si se da alguna de las siguientes
+    - $\ast ^{< }(x+1)\notin T^{\tau_{A}^{e}}\wedge \alpha =\varepsilon $
+    - $\ast ^{< }(x+1)=v\wedge \alpha =t$
+    - $\ast ^{< }(x+1)\in (\{0,1\}\cup Aux)-\{v\}\wedge \alpha =\ast ^{< }(x+1)$
+    - $(\exists r,s\in T^{\tau_{A}^{e}})\ast ^{< }(x+1)=+(r,s)\wedge \alpha =+(\ast ^{< }((A)_{\#^{< }(r)+1}),\ast ^{< }((A)_{\#^{< }(s)+1}))$
+    - $(\exists r,s\in T^{\tau_{A}^{e}})\ast ^{< }(x+1)=\mathrm{.} (r,s)\wedge \alpha =\mathrm{.}(\ast ^{< }((A)_{\#^{< }(r)+1}),\ast ^{< }((A)_{\#^{< }(s)+1}))$
+    Notese que $P(h^{\downarrow }(x,v,t),x,v,t,\alpha )=1$ si y solo si ya sea $\ast ^{< }(x+1)\notin T^{\tau }$ y $\alpha =\varepsilon $ o $\ast ^{< }(x+1)\in T^{\tau }$ y $\alpha =\mathrm{\downarrow }_{v}^{t}(\ast ^{< }(x+1))$. Tenemos entonces
+
+    $\displaystyle \begin{array}{rcl} h(0,v,t) & =& 0 \\ h(x+1,v,t) & =& \#^{< }(\min_{\alpha }^{< }P(h^{\downarrow }(x,v,t),x,v,t,\alpha )), \end{array} $
+
+    por lo cual el Lema 48 nos dice que $h$ es $A$-p.r. Ahora es facil obtener la funcion $\downarrow _{v}^{t}(s):T^{\tau_{A}^{e}}\times Var\times T^{\tau_{A}^{e}}\rightarrow T^{\tau_{A}^{e}}$ haciendo composiciones adecuadas con $h$. $\Box$
+  \end{proof}
+
+  % Lemma 192. Con prueba. Lemma 101.
+  \begin{lemma} \label{lemma_101}
+    \PN El predicado $R: F^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}} \times F^{\tau_{A}^{e}}
+    \rightarrow \omega$, dado por:
+    \[
+      R(\varphi, \tilde{\varphi}, \psi_{1}, \psi_{2}) = \left\{\begin{array}{cccl}
+                                                                \begin{array}{c}
+                                                                  1 \\
+                                                                  \ \\
+                                                                \end{array}
+                                                                &&&
+                                                                \begin{array}{cl}
+                                                                  \text{si } \tilde{\varphi} = &\text{resultado de
+                                                                    reemplazar algunas} \\
+                                                                  &\text{(posiblemente } 0 \text{) ocurrencias de} \\
+                                                                  &\psi_{1} \text{ en } \varphi \text{ por } \psi_{2}
+                                                                \end{array} \\ 0 &&& \text{ caso contrario}
+                                                              \end{array}\right.
+    \]
+    \PN es $\mathcal{A}$-recursivo.
+  \end{lemma}
+  \begin{proof}
+    Sea $\mathrm{Nex}=\{\wedge ,\vee ,\rightarrow ,\leftrightarrow \}$. Sea $< $ un orden total estricto sobre $A$. Notese que $R(\varphi ,\tilde{\varphi} ,\psi_{1},\psi_{2})=1$ sii se da alguna de las siguientes
+
+    - $\varphi =\tilde{\varphi}$
+    - $(\varphi =\psi_{1}\wedge \tilde{\varphi}=\psi_{2})$
+    - $(\exists \varphi _{1},\varphi _{2},\tilde{\varphi}_{1},\tilde{ \varphi}_{2}\in F^{\tau_{A}^{e}})(\exists \eta \in \mathrm{Nex})\varphi =(\varphi _{1}\eta \varphi _{2})\wedge \tilde{\varphi}=(\tilde{\varphi} _{1}\eta \tilde{\varphi}_{2})\wedge $
+    $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;R( \varphi _{1},\tilde{\varphi}_{1},\psi_{1},\psi_{2})\wedge R(\varphi _{2}, \tilde{\varphi}_{2},\psi_{1},\psi_{2})$
+
+    - $(\exists \varphi _{1},\tilde{\varphi}_{1}\in F^{\tau_{A}^{e}})\varphi =\lnot \varphi _{1}\wedge \tilde{\varphi}=\lnot \tilde{ \varphi}_{1}\wedge R(\varphi _{1},\tilde{\varphi}_{1},\psi_{1},\psi_{2})$
+    - $(\exists \varphi _{1},\tilde{\varphi}_{1}\in F^{\tau_{A}^{e}})(\exists v\in Var)(\exists Q\in \{\forall ,\exists \})\varphi =Qv\varphi _{1}\wedge $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \tilde{\varphi}=Qv\tilde{ \varphi}_{1}\wedge R(\varphi _{1},\tilde{\varphi}_{1},\psi_{1},\psi_{2})$
+
+    Se puede usar lo anterior para ver que $R^{\prime }:\omega \times F^{\tau_{A}^{e}}\times F^{\tau_{A}^{e}}\rightarrow \omega $, dado por
+
+    $\displaystyle R^{\prime }(x,\psi_{1},\psi_{2})=\left\{ \begin{array}{cc} \begin{array}{c} 1 \\ \; \end{array} & \begin{array}{c} \text{si }\ast ^{< }((x)_{1}),\ast ^{< }((x)_{2})\in F^{\tau_{A}^{e}}\text{ y }\ast ^{< }((x)_{2})=\text{resultado de} \\ \text{reemplazar algunas ocurrencias de }\psi_{1}\text{ en }\ast ^{< }((x)_{1})\text{ por }\psi_{2} \end{array} \\ 0 & \text{caso contrario} \end{array} \right. $
+
+    es $A$-p.r., via el Lema 48. Finalmente $R$ puede obtenerse haciendo composiciones adecuadas con $R^{\prime }$.
+  \end{proof}
+
+  % Lemma 193. Con prueba. Lemma 102.
+  \begin{lemma} \label{lemma_102}
+    \PN Sea $\Sigma$ un alfabeto finito. Sea $S \subseteq \Sigma^{\ast}$ un conjunto $\Sigma$-recursivo. El conjunto
+    $S^{+}$ es $\Sigma$-recursivo.
+  \end{lemma}
+  \begin{proof}
+    Notese que $\alpha \in S^{+}$ si y solo si
+
+    $\displaystyle (\exists z\in \mathbb{N})(\forall i\in \mathbb{N})_{i\leq Lt(z)}\ast ^{< }((z)_{i})\in S\wedge \alpha =\mathrm{\subset }_{i=1}^{Lt(z)}\ast ^{< }((z)_{i}) $
+
+    Dejamos al lector completar los detalles faltantes.
+  \end{proof}
+
+  % Lemma 194. Con prueba. Lemma 103.
+  \begin{lemma} \label{lemma_103}
+    \PN Los conjuntos $ModPon^{\tau^{e}_{A}}, Elect^{\tau^{e}_{A}}, Reemp^{\tau^{e}_{A}}, ConjInt^{\tau^{e}_{A}},
+    ConjElim^{\tau^{e}_{A}}, EquivInt^{\tau^{e}_{A}}, \linebreak DisjElim^{\tau^{e}_{A}}, DisjInt^{\tau^{e}_{A}},
+    EquivElim^{\tau^{e}_{A}}, Generaliz^{\tau^{e}_{A}}, Commut^{\tau^{e}_{A}}, Trans^{\tau^{e}_{A}},
+    Exist^{\tau^{e}_{A}}, Evoc^{\tau^{e}_{A}}, \linebreak Absur^{\tau^{e}_{A}}, DivPorCas^{\tau^{e}_{A}},
+    Partic^{\tau^{e}_{A}}$, son $\mathcal{A}$-recursivos.
+  \end{lemma}
+  \begin{proof}
+    Veamos que $Reem_{2}^{\tau_{A}^{e}}$ es $A$-p.r.. Sea $Q:F^{\tau_{A}^{e}}\times F^{\tau_{A}^{e}}\times F^{\tau_{A}^{e}}\rightarrow \omega $ el predicado tal que $Q(\varphi ,\psi ,\sigma )=1$ si y solo si
+
+    $(\exists \alpha \in (\forall Var)^{+})(\exists \psi_{1},\psi_{2}\in F^{\tau_{A}^{e}})\ \psi =\alpha (\psi_{1}\leftrightarrow \psi_{2})\wedge $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Li(\psi_{1})=Li(\psi_{2})\wedge \left( (\forall v\in Var)\ v\notin Li(\psi_{1})\vee v\text{ ocurre en }\alpha \right) $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \wedge R(\varphi ,\sigma ,\psi_{1},\psi_{2})$
+    ($R$ es el predicado dado por el Lema 185). Es facil ver que $Q$ es $A$-p.r. y que $Reem_{2}^{\tau_{A}^{e}}=Q\mid _{S^{\tau_{A}^{e}}\times S^{\tau_{A}^{e}}\times S^{\tau_{A}^{e}}}$. $\Box$
+  \end{proof}
+
+  % Lemma 195. Con prueba. Lemma 104.
+  \begin{lemma} \label{lemma_104}
+    \PN El predicado \CL$\psi$ se deduce de $\varphi$ por generalización con constante $c$, con respecto a
+    $\tau^{e}_{A}$\CR: $S^{\tau_{A}^{e}} \times S^{\tau_{A}^{e}} \times Aux \rightarrow \omega$ es $\mathcal{A}$-recursivo.
+  \end{lemma}
+  \begin{proof}
+    Notese que $\psi $ se deduce de $\varphi $ por generalizacion con constante $ c$ si y solo si hay una formula $\gamma $ y una variable $v$ tales que
+
+    - $Li(\gamma )=\{v\}$
+    - cada ocurrencia de $v$ en $\gamma $ es libre
+    - $c$ no ocurre en $\gamma $
+    - $\varphi =\mathrm{\downarrow }_{v}^{c}(\gamma )\wedge \psi =\forall v\gamma $
+    El lector podra usando esta equivalencia facilmente justificar que el predicado en cuestion es $A$-p.r..
+  \end{proof}
+
+  % Lemma 196. Sin prueba. Lemma 105.
+  \begin{lemma} \label{lemma_105}
+    \PN El predicado \CL$\psi$ se deduce de $\varphi$ por elección con constante $e$, con respecto a $\tau^{e}_{A}$\CR:
+    $S^{\tau_{A}^{e}} \times S^{\tau_{A}^{e}} \times Aux \rightarrow \omega$ es $\mathcal{A}$-PR.
+  \end{lemma}
+
+  % Lemma 197. Sin prueba. Lemma 106.
+  \begin{lemma} \label{lemma_106}
+    \PN $AxLog^{\tau_{A}^{e}}$ es $\mathcal{A}$-recursivo.
+  \end{lemma}
+
+  % Lemma 198. Sin prueba. Lemma 107.
+  \begin{lemma} \label{lemma_107}
+    \PN Las funciones:
+    \begin{equation*}
+      \begin{aligned}
+        S^{\tau_{A}^{e}+} &\rightarrow& \omega \\
+        \mathbf{\varphi} &\rightarrow& n(\mathbf{\varphi}) \\
+      \end{aligned}
+      \qquad\qquad\qquad
+      \begin{aligned}
+        \omega \times S^{\tau_{A}^{e}+} &\rightarrow& S^{\tau_{A}^{e}} \cup \{\varepsilon\} \\
+        (i, \mathbf{\varphi}) &\rightarrow& \mathbf{\varphi}_{i} \\
+      \end{aligned}
+    \end{equation*}
+    \PN son $\mathcal{A}$-recursivas.
+  \end{lemma}
+
+  % Lemma 199. Con prueba. Lemma 108.
+  \begin{lemma} \label{lemma_108}
+    \PN $Just$ es $\mathcal{B}$-PR. Las funciones:
+    \begin{equation*}
+      \begin{aligned}
+        Just^{+} &\rightarrow& \omega \\
+        \mathbf{J} &\rightarrow& n(\mathbf{J}) \\
+      \end{aligned}
+      \qquad\qquad\qquad
+      \begin{aligned}
+        \omega \times Just^{+} &\rightarrow& Just \cup \{\varepsilon\} \\
+        (i, \mathbf{J}) &\rightarrow& \mathbf{J}_{i} \\
+      \end{aligned}
+    \end{equation*}
+    \PN son $\mathcal{B}$-recursivas.
+  \end{lemma}
+  \begin{proof}
+    Sean
+
+    $\displaystyle \begin{array}{rcl} R & =& \{\gamma :\gamma \text{ es el nombre de alguna regla}\} \\ T & =& \{\varepsilon \}\cup \{\text{TESIS}\bar{k}:k\in \mathbb{N}\} \end{array} $
+
+    Notese que $Just$ es la union de una cantidad finita de conjuntos. Uno de ellos es el conjunto
+    $\displaystyle L=\{\beta \gamma (\overline{l_{1}},...,\overline{l_{k}}):\gamma \in R\text{, cada }l_{j}\in \mathbb{N}\text{ y }\beta \in T\} $
+
+    Veremos que $L$ es $B$-p.r., y dejamos al lector lor restantes. Dejamos al lector la prueba de que $T$ es $B$-p.r.. Notese que $\alpha \in L$ sii
+    $\displaystyle (\exists \beta \in T)(\exists \gamma \in R)(\exists z\in \mathbb{N})\ \alpha =\beta \gamma (\left( \subset _{i=1}^{Lt(z)-1}\overline{(z)_{i}},\right) \overline{(z)_{Lt(z)}}) $
+
+    Se deja al lector dar cotas de los cuantificadores, para poder aplicar el lema de cuantificacion acotada.
+  \end{proof}
+
+  % Lemma 200. Sin prueba. Lemma 109.
+  \begin{lemma} \label{lemma_109}
+    \PN El conjunto $\{\mathbf{J} \in Just^{+}: \mathbf{J}$ es balanceada $\}$ es $\mathcal{B}$-recursivo.
+  \end{lemma}
+
+  % Lemma 201. Sin prueba. Lemma 110.
+  \begin{lemma} \label{lemma_110}
+    \PN El predicado
+    \[
+      \begin{array}{rcl}
+        \omega \times S^{\tau_{A}^{e}} \times S^{\tau_{A}^{e}+} \times Just^{+} &\rightarrow& \omega \\
+        (i, \varphi, \mathbf{\varphi}, \mathbf{J}) &\rightarrow& \left\{
+          \begin{array}{ccl}
+            1 && \text{si }(\mathbf{\varphi}, \mathbf{J}) \text{ es adecuado y } \varphi \text{ es hipótesis de }
+              \mathbf{\varphi}_{i} \text{ en }(\mathbf{\varphi}, \mathbf{J}) \\
+            0 && \text{caso contrario}
+          \end{array}\right.
+      \end{array}
+    \]
+    \PN es $(\mathcal{A} \cup \mathcal{B})$-recursivo.
+  \end{lemma}
+
+  % Lemma 202. Sin prueba. Lemma 111.
+  \begin{lemma} \label{lemma_111}
+    \PN El predicado
+    \[
+      \begin{array}{rcl}
+        \mathcal{C} \times \mathcal{C} \times S^{\tau_{A}^{e}+} \times Just^{+} &\rightarrow& \omega \\
+        (e, d, \mathbf{\varphi}, \mathbf{J}) &\rightarrow& \left\{
+          \begin{array}{ccl}
+            1 && \text{si }(\mathbf{\varphi}, \mathbf{J}) \text{ es adecuado y } e \text{ depende de } d \text{ en }
+              (\mathbf{\varphi}, \mathbf{J}) \\
+            0 && \text{caso contrario}
+          \end{array}\right.
+      \end{array}
+    \]
+    \PN es $(\mathcal{A} \cup \mathcal{B})$-recursivo.
+  \end{lemma}
+
+  % Lemma 203. Sin prueba. Lemma 112.
+  \begin{lemma} \label{lemma_112}
+    \PN Sea $(\Sigma, \tau_{A})$ una teoría tal que $\Sigma$ es $\mathcal{A}$-recursivo (resp. $\mathcal{A}$-RE),
+    entonces $Pruebas_{(\Sigma, \tau_{A})}$ es $(\mathcal{A} \cup \mathcal{B})$-recursivo (resp. $(\mathcal{A} \cup
+    \mathcal{B})$-RE).
+  \end{lemma}
+
+  % Proposition 204. Con prueba. Proposition 113.
+  \begin{lemma}
+    \PN Si $(\Sigma, \tau_{A})$ es una teoría tal que $\Sigma$ es $\mathcal{A}$-RE., entonces $Teo_{(\Sigma, \tau_{A})}$
+    es $\mathcal{A}$-RE.
+  \end{lemma}
+  \begin{proof}
+    Ya que $Pruebas_{(\Sigma ,\tau _{A})}$ es $(A\cup B)$-r.e. tenemos que hay una funcion $F:\omega \rightarrow S^{\tau_{A}^{e}+}\times Just^{+}$ la cual cumple que $p_{1}^{0,2}\circ F$ y $p_{2}^{0,2}\circ F$ son $(A\cup B)$-r. y ademas $I_{F}=Pruebas_{(\Sigma ,\tau _{A})}$. Sea
+
+    $\displaystyle \begin{array}{ccc} g:S^{\tau_{A}^{e}+} & \rightarrow & S^{\tau_{A}^{e}} \\ \mathbf{\varphi } & \rightarrow & \mathbf{\varphi }_{n(\mathbf{\varphi })} \end{array} $
+
+    Por lemas anteriores $g$ es $A$-p.r.. Notese que $I_{(g\circ p_{1}^{0,2}\circ F)}=Teo_{(\Sigma ,\tau _{A})}$, lo cual dice que $ Teo_{(\Sigma ,\tau _{A})}$ es $(A\cup B)$-r.e.. Por el teorema de independencia del alfabeto tenemos que $Teo_{(\Sigma ,\tau _{A})}$ es $A$ -r.e.. $\Box$
+  \end{proof}
+
+  % Lemma 205. Con prueba. Proposition 114.
+  \begin{lemma} \label{lemma_114}
+    \PN Cualesquiera sean $z_{0}, \dotsc, z_{n} \in \omega, n \geq 0$, hay $x, y \in \omega$, tales que $\beta(x, y, i)
+    = z_{i}, i = 0, \dotsc, n$.
+  \end{lemma}
+  \begin{proof}
+    Dados $x,y,m\in \omega $ con $m\geq 1$, usaremos $x\equiv y(m)$ para expresar que $x$ es congruente a $y$ modulo $m$, es decir para expresar que $ x-y$ es divisible por $m$. Usaremos en esta prueba el Teorema Chino del Resto:
+
+    - Dados $m_{0},...,m_{n},z_{0},...,z_{n}\in \omega $ tales que $ m_{0},...,m_{n}$ son coprimos de a pares, hay un $x\in \omega $ tal que $ x\equiv z_{i}(m_{i})$, para $i=0,...,n.$
+    Sea $y=\max (z_{0},...,z_{n},n)!$. Sean $m_{i}=y(i+1)+1$, $i=0,...,n$. Veamos que $m_{0},...,m_{n}$ son coprimos de a pares. Supongamos $p$ divide a $m_{i}$ y a $m_{j}$ con $i< j$. Entonces $p$ divide a $m_{j}-m_{i}=y(j-i)$ y ya que $p$ no puede dividir a $y$, tenemos que $p$ divide a $j-i$. Pero ya que $j-i< n$ tenemos que $p< n$ lo cual es absurdo ya que implicaria que $p$ divide $y$.
+
+    Por el Teorema Chino del Resto hay un $x$ tal que $x\equiv z_{i}(m_{i})$, para $i=0,...,n$. Ya que $z_{i}< m_{i}$, tenemos que
+
+    $\displaystyle \beta (x,y,i)=r(x,y(i+1)+1)=r(x,m_{i})=z_{i}\text{, }i=0,...,n\text{.} $
+  \end{proof}
+
+  % Proposition 206. Con prueba. Proposition 115.
+  \begin{proposition} \label{proposition_115}
+    \PN Si $h$ es $\emptyset$-recursiva, entonces $h$ es representable.
+  \end{proposition}
+  \begin{proof}
+    Supongamos $f:S_{1}\times ...\times S_{n}\rightarrow \omega $ y $g:\omega \times \omega \times S_{1}\times ...\times S_{n}\rightarrow \omega $ son representables, con $S_{1},...,S_{n}\subseteq \omega $. Probaremos que $ R(f,g):\omega \times S_{1}\times ...\times S_{n}\rightarrow \omega $ lo es. Para esto primero notese que para $t,x_{1},...,x_{n},z\in \omega $, las siguientes son equivalentes
+
+    (1) $R(f,g)(t,\vec{x})=z$
+    (2) hay $z_{0},...,z_{t}\in \omega $ tales que
+    $\displaystyle \begin{array}{rcl} z_{0} & =& f(\vec{x}) \\ z_{i+1} & =& g(z_{i},i,\vec{x})\text{, }i=0,...,t-1 \\ z_{t} & =& z \end{array} $
+
+    (3) hay $x,y\in \omega $ tales que
+    $\displaystyle \begin{array}{rcl} \beta (x,y,0) & =& f(\vec{x}) \\ \beta (x,y,i+1) & =& g(\beta (x,y,i),i,\vec{x})\text{, }i=0,...,t-1 \\ \beta (x,y,t) & =& z \end{array} $
+
+    Sean
+
+    $\displaystyle \begin{array}{rcl} \varphi _{\beta } & =& _{d}\varphi _{\beta }(v_{1},v_{2},v_{3},v) \\ \varphi _{f} & =& _{d}\varphi _{f}(v_{1},...,v_{n},v) \\ \varphi _{g} & =& _{d}\varphi _{g}(v_{1},...,v_{n+2},v) \end{array} $
+
+    formulas que representen a las funciones $\beta $, $f$ y $g$, respectivamente. Sean $w_{1},...,w_{n+1},w$, $ y_{1},y_{2},y_{3},y_{4},z_{1},z_{2}$ variables todas distintas y tales que cada una de las variebles libres de $\varphi _{\beta }$, $\varphi _{f}$ y $ \varphi _{g}$ es sustituible por cada una de las variables $ w_{1},...,w_{n+1},w$, $y_{1},y_{2},y_{3},y_{4},z_{1},z_{2}$. Sea $\varphi _{R(f,g)}=\varphi _{R(f,g)}(w_{1},...,w_{n+1},w)$ la siguiente formula
+    $\exists z_{1},z_{2}\;(\exists y_{1}\varphi _{\beta }(z_{1},z_{2},0,y_{1})\wedge \varphi _{f}(w_{2},...,w_{n+1},y_{1}))\wedge $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \varphi _{\beta }(z_{1},z_{2},w_{1},w)\wedge \forall y_{2}(y_{2}< w_{1}\rightarrow \exists y_{3},y_{4}\;\varphi _{\beta }(z_{1},z_{2},y_{2}+1,y_{3})\wedge $
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \varphi _{\beta }(z_{1},z_{2},y_{2},y_{4})\wedge \varphi _{g}(y_{4},y_{2},w_{2},...,w_{n+1},y_{3}))$
+    Es facil usando (3) ver que la formula $\varphi _{R(f,g)}$ representa a $R(f,g)$.
+
+    En forma analoga se puede probar que las reglas de composicion y minimizacion preservan representabilidad por lo cual ya que los elementos de $\mathrm{R}_{0}^{\emptyset }$ son representables, tenemos que lo es toda funcion $\emptyset $-r. $\Box$
+  \end{proof}
+
+  % Lemma 207. Con prueba. Lemma 116.
+  \begin{lemma} \label{lemma_116}
+    \PN Hay un predicado $P: \omega \times \omega \rightarrow \omega$ el cual es $\emptyset$-PR y tal que el predicado
+    $Q = \lambda x\left[(\exists t \in \omega) P(t, x)\right]: \omega \rightarrow \omega$ no es $\emptyset$-recursivo.
+  \end{lemma}
+  \begin{proof}
+    Sea $\Sigma =\Sigma _{p}$. Recordemos que el predicado
+
+    $\displaystyle P_{1}=\lambda t\mathcal{P}\left[ i^{0,1}(t,\mathcal{P},\mathcal{P})=n( \mathcal{P})+1\right] $
+
+    es $\Sigma _{p}$-p.r. ya que la funcion $i^{0,1}$ lo es. Notese que el dominio de $P_{1}$ es $\omega \times \mathrm{Pro}^{\Sigma _{p}}$. Por Lema 69 (de la materia de lenguajes) tenemos que
+    $\displaystyle Halt^{\Sigma _{p}}=\lambda \mathcal{P}\left[ (\exists t\in \omega )\;P_{1}(t, \mathcal{P})\right] $
+
+    no es $\Sigma _{p}$-recursivo. Sea $< $ un orden total sobre $\Sigma _{p}$. Definamos $P:\omega \times \omega \rightarrow \omega $ de la siguiente manera
+    $\displaystyle P(t,x)=\left\{ \begin{array}{ccc} P_{1}(t,\ast ^{< }(x)) & \text{si} & \ast ^{< }(x)\in \mathrm{Pro}^{\Sigma _{p}} \\ 0 & \text{si} & \ast ^{< }(x)\notin \mathrm{Pro}^{\Sigma _{p}} \end{array} \right. $
+
+    Claramente $P$ es $\Sigma _{p}$-p.r., por lo cual es $\emptyset $-p.r.. Sea $ Q=\lambda x\left[ (\exists t\in \omega )P(t,x)\right] .$ Notese que
+    $\displaystyle Halt^{\Sigma _{p}}=Q\circ \#^{< }\mathrm{\mid }_{\mathrm{Pro}^{\Sigma _{p}}} $
+
+    lo cual dice que $Q$ no es $\Sigma _{p}$-r. ya que de serlo, el predicado $ Halt^{\Sigma _{p}}$ lo seria. Por el teorema de independencia del alfabeto tenemos entonces que $Q$ no es $\emptyset $-recursivo.
+  \end{proof}
+
+  % Lemma 208. Con prueba. Lemma 117.
+  \begin{lemma} \label{lemma_117}
+    \PN No toda función representable es $\emptyset$-recursiva.
+  \end{lemma}
+  \begin{proof}
+    HACER!
+  \end{proof}
+
+  % Lemma 209. Con prueba. Lemma 118.
+  \begin{lemma} \label{lemma_118}
+    \PN Si $Verd_{\mathbf{\omega}}$ es $\mathcal{A}$-RE, entonces es $\mathcal{A}$-recursivo.
+  \end{lemma}
+  \begin{proof}
+    Supongamos $Verd_{\mathbf{\omega }}$ es $A$-r. e. Sea $f:\omega \rightarrow Verd_{\mathbf{\omega }}$ una funcion sobre y $A$-r. Sea $g:S^{\tau _{A}}\rightarrow S^{\tau _{A}}$, dada por
+
+    $\displaystyle g(\varphi )=\left\{ \begin{array}{ccc} ^{\curvearrowright }\varphi & \;\; & \text{si }\left[ \varphi \right] _{1}=\lnot \\ \lnot \varphi & \;\; & \text{caso contrario} \end{array} \right. $
+
+    Notar que $g$ es $A$-p.r. por lo cual $g\circ f$ es $A$-r. Ya que $I_{g\circ f}=S^{\tau _{A}}-Verd_{\mathbf{\omega }}$ (justifique), tenemos que $S^{\tau _{A}}-Verd_{\mathbf{\omega }}$ es $A$-r. e., por lo cual
+    $\displaystyle A^{\ast }-Verd_{\mathbf{\omega }}=(A^{\ast }-S^{\tau _{A}})\cup (S^{\tau _{A}}-Verd_{\mathbf{\omega }}) $
+
+    lo es. Es decir que $Verd_{\mathbf{\omega }}$ y su complemento son $A$-r.e. por lo cual $Verd_{\mathbf{\omega }}$ es $A$-r.
+  \end{proof}
+
+  % Lemma 210. Con prueba. Lemma 119.
+  \begin{lemma} \label{lemma_119}
+    \PN $Verd_{\mathbf{\omega}}$ no es $\mathcal{A}$-RE.
+  \end{lemma}
+  \begin{proof}
+    Por el Lema 200 hay un predicado $\emptyset $-p.r., $ P:\omega \times \omega \rightarrow \omega $ tal que el predicado $Q=\lambda x \left[ (\exists t\in \omega )P(t,x)\right] :\omega \rightarrow \omega $ no es $\emptyset $-recursivo. Notese que $Q$ tampoco es $A$-recursivo. Ya que $P $ es representable, hay una formula $\varphi =_{d}\varphi (v_{1},v_{2},v)\in F^{\tau _{A}}$ la cual cumple
+
+    $\displaystyle \mathbf{\omega }\models \varphi \left[ t,x,k\right] \text{ si y solo si } P(t,x)=k, $
+
+    cualesquiera sean $t,x,k\in \omega .$ Sea $\psi =\varphi (v_{1},v_{2},1)$. Notese que $\psi =_{d}\psi (v_{1},v_{2})$ y que
+    $\displaystyle \mathbf{\omega }\models \psi \left[ t,x\right] \text{ si y solo si }P(t,x)=1 \text{,} $
+
+    cualesquiera sean $t,x\in \omega .$ Sea $\psi_{0}=\exists v_{1}\ \psi (v_{1},v_{2})$. Notese que $\psi_{0}=_{d}\psi_{0}(v_{2})$ y que
+    $\displaystyle \mathbf{\omega }\models \psi_{0}\left[ x\right] \text{ si y solo si }Q(x)=1 $
+
+    cualesquiera sea $x\in \omega $. Por el lema de reemplazo tenemos que para $ x\in \omega $,
+    $\displaystyle \mathbf{\omega }\models \psi_{0}\left[ x\right] \text{ si y solo si } \mathbf{\omega }\models \psi_{0}(\widehat{x}) $
+
+    (justifique), por lo cual
+    $\displaystyle \mathbf{\omega }\models \psi_{0}(\widehat{x})\text{ si y solo si }Q(x)=1 $
+
+    cualesquiera sea $x\in \omega $. Ya que $\psi_{0}(\widehat{x})$ es una sentencia,
+    $\displaystyle \psi_{0}(\widehat{x})\in Verd_{\mathbf{\omega }}\text{ si y solo si }Q(x)=1 $
+
+    Sea $h:\omega \rightarrow A^{\ast }$, dada por $h(x)=\psi_{0}(\widehat{x})$ . Es facil ver que $h$ es $A$-recursiva. Ya que $Q=\chi _{Verd_{\mathbf{ \omega }}}\circ h$ y $Q$ no es $A$-recursivo, tenemos que $\chi _{Verd_{ \mathbf{\omega }}}$ no es $A$-recursiva, es decir que $Verd_{\mathbf{\omega } }$ es un conjunto no $A$-recursivo. El lema anterior nos dice entonces que es $Verd_{\mathbf{\omega }}$ no es $A$-r.e..
+  \end{proof}
+
+  % Theorem 211. Con prueba. Theorem 120.
+  \begin{theorem} \label{theorem_120}
+    \PN (Godel) Si $\Sigma \subseteq Verd_{\mathbf{\omega}}$ es $\mathcal{A}$-RE, entonces $Teo_{(\Sigma, \tau_{A})}
+    \subsetneq Verd_{\mathbf{\omega}}$.
+  \end{theorem}
+  \begin{proof}
+    Por el Teorema de Correccion, tenemos que $Teo_{(\Sigma ,\tau _{A})}\subseteq Verd_{\mathbf{\omega }}$. Ya que $Teo_{(\Sigma ,\tau _{A})}$ es $A$-r.e y $Verd_{\mathbf{\omega }}$ no lo es, tenemos que $Teo_{(\Sigma ,\tau _{A})}\neq Verd_{\mathbf{\omega }}$. $\Box$
+  \end{proof}
+
+  % Corollary 212. Sin prueba. Corollary 121.
+  \begin{corollary} \label{corollary_121}
+    \PN Existe $\varphi \in S^{\tau_{A}}$ tal que $Arit \nvdash \varphi$ y $Arit \nvdash \lnot \varphi$.
+  \end{corollary}

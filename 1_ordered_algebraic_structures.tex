@@ -2,13 +2,12 @@
 
   % Lemma 91: Con prueba. Lemma 1.
   \begin{lemma} \label{lemma_1}
-    \PN Sean $(P, \leq)$ y $(P^{\prime}, \leq^{\prime})$ posets. Supongamos que $F$ es un isomorfismo de $(P, \leq)$ en
-    $(P^{\prime}, \leq^{\prime})$, entonces:
-
+    \PN Sean $\POSET$ y $\POSETPRIMO$ posets. Supongamos que $F$ es un isomorfismo de $\POSET$ en $\POSETPRIMO$,
+    entonces:
     \begin{enumerate}[a)]
       \item Para cada $S \subseteq P$ y cada $a \in P$, se tiene que $a$ es \textbf{cota superior} (resp.
         \textbf{inferior}) de $S$ si y solo si $F(a)$ es \textbf{cota superior} (resp. \textbf{inferior}) de $F(S)$.
-      \item Para cada $S \subseteq P$, se tiene que $\exists \ \sup (S)$ si y solo si $\exists \ \sup (F(S))$ y en el
+      \item Para cada $S \subseteq P$, se tiene que existe $\sup (S)$ si y solo si existe $\sup (F(S))$ y en el
         caso de que existan tales elementos se tiene que $F(\sup (S)) = \sup (F(S))$.
       \item $P$ tiene $1$ (resp. $0$) si y solo si $P^{\prime}$ tiene $1$ (resp. $0$) y en tal caso tales elementos
         están conectados por $F$.
@@ -50,24 +49,24 @@
       \item Se desprende del inciso (b) tomando $S = P$.
       \item Probaremos solo el caso \textbf{maximal}.
         \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $m$ es maximal de
-        $(P, \leq)$. Veamos que $F(m)$ es maximal de $(P^{\prime}, \leq^{\prime})$. Supongamos que $F(m)$ no es maximal
-        de $(P^{\prime}, \leq^{\prime})$, es decir, $F(m) <^{\prime} b^{\prime} \ \forall b^{\prime} \in P^{\prime}$.
+        $\POSET$. Veamos que $F(m)$ es maximal de $\POSETPRIMO$. Supongamos que $F(m)$ no es maximal
+        de $\POSETPRIMO$, es decir, $F(m) <^{\prime} b^{\prime} \ \forall b^{\prime} \in P^{\prime}$.
         Dado que $F$ es isomorfismo:
         \begin{eqnarray*}
     			F^{-1}(F(m)) < F^{-1}(b^{\prime}) \\
     			m < F^{-1}(b^{\prime})
     		\end{eqnarray*}
-        \PN Lo cual es un absurdo, dado que $m$ es maximal de $(P, \leq)$. Por lo tanto, $F(m)$ es maximal de
-        $(P^{\prime}, \leq^{\prime})$.
+        \PN Lo cual es un absurdo, dado que $m$ es maximal de $\POSET$. Por lo tanto, $F(m)$ es maximal de
+        $\POSETPRIMO$.
 
         \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos que $F(m)$ es maximal de
-        $(P^{\prime}, \leq^{\prime})$. Veamos que $m$ es maximal de $(P, \leq)$. Supongamos que $m$ no es maximal
-        de $(P, \leq)$, es decir, $m < b \ \forall b \in P$. Dado que $F$ es isomorfismo:
+        $\POSETPRIMO$. Veamos que $m$ es maximal de $\POSET$. Supongamos que $m$ no es maximal
+        de $\POSET$, es decir, $m < b \ \forall b \in P$. Dado que $F$ es isomorfismo:
         \[
     			F(m) < F(b)
     		\]
-        \PN Lo cual es un absurdo, dado que $F(m)$ es maximal de $(P^{\prime}, \leq^{\prime})$. Por lo tanto, $m$ es
-        maximal de $(P, \leq)$.
+        \PN Lo cual es un absurdo, dado que $F(m)$ es maximal de $\POSETPRIMO$. Por lo tanto, $m$ es
+        maximal de $\POSET$.
 
       \item \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos $a \prec b$, veamos que $F(a)
         \prec^{\prime} F(b)$. Debemos ver:
@@ -93,7 +92,7 @@
         \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos $F(a) \prec^{\prime} F(b)$,
         veamos que $a \prec b$.
 
-		    \PN Ya que $F^{-1}: (P^{\prime}, \leq^{\prime}) \rightarrow (P, \leq)$ es isomorfismo, por lo ya visto tenemos:
+		    \PN Ya que $F^{-1}: \POSETPRIMO \rightarrow \POSET$ es isomorfismo, por lo ya visto tenemos:
     		\begin{eqnarray*}
     			F^{-1}(F(a)) &\prec& F^{-1}(F(b)) \\
     			a &\prec& b
@@ -316,11 +315,10 @@
 
   % Theorem 94: Con prueba. Theorem 4.
   \begin{theorem} \label{theorem_4}
-    \PN Sea $(L, \SU, \IN)$ un reticulado, la relación binaria definida por:
+    \PN Sea $\RET$ un reticulado, la relación binaria definida por:
     \[
       x \leq y \Leftrightarrow x \ \SU \ y = y
     \]
-
     \PN es un orden parcial sobre $L$ para el cual se cumple:
     \[
       \begin{array}{rcl}
@@ -377,8 +375,7 @@
 
   % Lemma 95: Con prueba. Lemma 5.
   \begin{lemma} \label{lemma_5}
-    \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un
-    homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+    \PN Si $F: \RET \rightarrow \RETPRIMO$ es un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
   \end{lemma}
   \begin{proof}
     \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
@@ -402,9 +399,8 @@
 
   % Lemma 96: Con prueba. Lemma 6.
   \begin{lemma} \label{lemma_6}
-    \PN Sean $(L, \SU, \IN)$ y $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$ reticulados y sea $F: (L, \SU, \IN)
-    \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ un homomorfismo, entonces $I_{F}$ es un subuniverso de
-    $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$.
+    \PN Sean $\RET$ y $\RETPRIMO$ reticulados y sea $F: \RET \rightarrow \RETPRIMO$ un homomorfismo, entonces $I_{F}$ es
+    un subuniverso de $\RETPRIMO$.
   \end{lemma}
   \begin{proof}
     \PN Ya que $L \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$. Sean $a, b \in I_{F}, \ x, y \in L$ tales que
@@ -419,14 +415,13 @@
 
   % Lemma 97: Con prueba. Lemma 7.
   \begin{lemma} \label{lemma_7}
-    \PN Sean $(L, \SU, \IN)$ y $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$ reticulados y sean $(L, \leq)$ y $(L^{\prime},
-    \leq^{\prime})$ los posets asociados. Sea $F: L \rightarrow L^{\prime}$ una función, entonces $F$ es un isomorfismo
-    de $(L, \SU, \IN)$ en $ (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ si y solo si $F$ es un isomorfismo de $(L, \leq)$
-    en $(L^{\prime}, \leq^{\prime})$.
+    \PN Sean $\RET$ y $\RETPRIMO$ reticulados y sean $(L, \leq)$ y $(L^{\prime}, \leq^{\prime})$ los posets asociados.
+    Sea $F: L \rightarrow L^{\prime}$ una función, entonces $F$ es un isomorfismo de $\RET$ en $ \RETPRIMO$ si y solo si
+    $F$ es un isomorfismo de $(L, \leq)$ en $(L^{\prime}, \leq^{\prime})$.
   \end{lemma}
   \begin{proof}
     \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $F$ es un isomorfismo de
-    $(L, \SU, \IN)$ en $ (L^{\prime}, \SU^{\prime}, \IN^{\prime})$.
+    $\RET$ en $ \RETPRIMO$.
 
     \PN Sean $x, y \in L$ tales que $x \leq y$. Tenemos:
     \begin{eqnarray*}
@@ -448,20 +443,19 @@
 
     \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos ahora que $F$ es un isomorfismo
     de $(L, \leq)$ en $(L^{\prime}, \leq^{\prime})$, entonces el \textbf{Lemma~\ref{lemma_1}} nos dice que $F$ y
-    $F_{1}$ respetan la operaciones de supremo e ínfimo, por lo cual $F$ es un isomorfismo de $(L, \SU, \IN)$ y
-    $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$.
+    $F_{1}$ respetan la operaciones de supremo e ínfimo, por lo cual $F$ es un isomorfismo de $\RET$ y
+    $\RETPRIMO$.
   \end{proof}
 
   % Lemma 98: Con prueba. Lemma 8.
   \begin{lemma} \label{lemma_8}
-    \PN Sea $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$ un reticulado. El orden parcial $\tilde{\leq}$
-    asociado a este reticulado cumple:
+    \PN Sea $\RETCOCIENTADO$ un reticulado. El orden parcial $\tilde{\leq}$ asociado a este reticulado cumple:
     \[
       x/\theta \ \tilde{\leq} \ y/\theta \Leftrightarrow y \ \theta \ (x \ \SU \ y)
     \]
   \end{lemma}
   \begin{proof}
-    \PN Veamos que $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$ satisface las 7 identidades de la
+    \PN Veamos que $\RETCOCIENTADO$ satisface las 7 identidades de la
     definición de reticulado. Sean $x/\theta, y/\theta, z/\theta$ elementos cualesquiera de $L/\theta$.
     \begin{multicols}{2}
       \begin{enumerate}
@@ -528,9 +522,8 @@
 
   % Corollary 99: Con prueba. Corollary 9.
   \begin{corollary} \label{corrolary_9}
-    \PN Sea $(L, \SU, \IN)$ un reticulado en el cual hay un elemento máximo $1$ (resp. mínimo $0$), entonces si $\theta$
-    es una congruencia sobre $(L, \SU, \IN), 1/\theta$ (resp. $0/\theta$) es un elemento máximo (resp. mínimo) de
-    $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$.
+    \PN Sea $\RET$ un reticulado en el cual hay un elemento máximo $1$ (resp. mínimo $0$), entonces si $\theta$ es una
+    congruencia sobre $\RET, 1/\theta$ (resp. $0/\theta$) es un elemento máximo (resp. mínimo) de $\RETCOCIENTADO$.
   \end{corollary}
   \begin{proof}
     \PN Ya que $1 \ \theta \ (x \ \SU \ 1)$, para cada $x \in L$, tenemos que $x/\theta \ \tilde{\leq} \ 1/\theta$, para
@@ -539,8 +532,8 @@
 
   % Lemma 100: Con prueba. Lemma 10.
   \begin{lemma} \label{lemma_10}
-    \PN Si $F: (L, \SU, \IN) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ es un homomorfismo de reticulados,
-    entonces $\ker F$ es una congruencia sobre $(L, \SU, \IN)$.
+    \PN Si $F: \RET \rightarrow \RETPRIMO$ es un homomorfismo de reticulados, entonces $\ker F$ es una congruencia sobre
+    $\RET$.
   \end{lemma}
   \begin{proof}
     \PN Veamos primero que $\ker F$ es una relación de equivalencia.
@@ -573,16 +566,15 @@
 
   % Lemma 101: Con prueba. Lemma 11.
   \begin{lemma} \label{lemma_11}
-    \PN Sea $(L, \SU, \IN)$ un reticulado y sea $\theta$ una congruencia sobre $(L, \SU, \IN)$, entonces $\pi_{\theta}$
-    es un homomorfismo de $(L, \SU, \IN)$ en $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})$. Además $\ker
-    \pi_{\theta} = \theta$.
+    \PN Sea $\RET$ un reticulado y sea $\theta$ una congruencia sobre $\RET$, entonces $\pi_{\theta}$ es un homomorfismo
+    de $\RET$ en $\RETCOCIENTADO$. Además $\ker \pi_{\theta} = \theta$.
   \end{lemma}
   \begin{proof}
     \PN Sean $x, y \in L$ elementos cualquier. Tenemos que:
       \begin{alignat*}{4}
-        \pi_{\theta}(x \ \SU \ y) &=& (x \ \SU \ y)/\theta &=& x/\theta \ \mathsf{\tilde{s}} \ y/\theta &=&
+        \pi_{\theta}(x \ \SU \ y) &=& (x \ \SU \ y)/\theta &=& x/\theta \ \mathsf{\tilde{s}} \ y/\theta &=&
           \pi_{\theta}(x) \ \mathsf{\tilde{s}} \ \pi_{\theta}(y) \\
-        \pi_{\theta}(x \ \IN \ y) &=& (x \ \IN \ y)/\theta &=& x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta &=&
+        \pi_{\theta}(x \ \IN \ y) &=& (x \ \IN \ y)/\theta &=& x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta &=&
           \pi_{\theta}(x) \ \mathsf{\tilde{\imath}} \ \pi_{\theta}(y) \\
       \end{alignat*}
     \PN por lo cual $\pi_{\theta}$ preserva las operaciones de supremo e ínfimo.
@@ -590,8 +582,7 @@
 
   % Lemma 102: Con prueba. Lemma 12.
   \begin{lemma} \label{lemma_12}
-    \PN Si $F: (L, \SU, \IN, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime}, 1^{\prime})$ un
-    homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+    \PN Si $F: \ACOTADO \rightarrow \ACOTADOPRIMO$ un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
   \end{lemma}
   \begin{proof}
       \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
@@ -621,70 +612,68 @@
 
   % Lemma 103: Con prueba. Lemma 13.
   \begin{lemma} \label{lemma_13}
-    \PN Si $F: (L, \SU, \IN, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime}, 1^{\prime})$ es un
-    homomorfismo, entonces $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime},
-    1^{\prime})$.
+    \PN Si $F: \ACOTADO \rightarrow \ACOTADOPRIMO$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de $\ACOTADOPRIMO$.
   \end{lemma}
   \begin{proof}
-    \PN Dado que $F$ es un homomorfismo de $(L, \SU, \IN)$ en $ (L^{\prime}, \SU^{\prime}, \IN^{\prime})$ utilizando el
-    \textbf{Lemma~\ref{lemma_6}} tenemos que $I_{F}$ es subuniverso de $(L^{\prime}, \SU^{\prime}, \IN^{\prime})$ lo
+    \PN Dado que $F$ es un homomorfismo de $\RET$ en $ \RETPRIMO$ utilizando el
+    \textbf{Lemma~\ref{lemma_6}} tenemos que $I_{F}$ es subuniverso de $\RETPRIMO$ lo
     cual ya que $0^{\prime}, 1^{\prime} \in I_{F}$ implica que $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime},
     \IN^{\prime}, 0^{\prime}, 1^{\prime})$.
   \end{proof}
 
   % Lemma 104: Sin prueba. Lemma 14.
   \begin{lemma} \label{lemma_14}
-    \PN Si $F: (L, \SU, \IN, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime},
-    0^{\prime}, 1^{\prime})$ es un homomorfismo de reticulados acotados, entonces $\ker F$ es una congruencia sobre $(L,
-    \SU, \IN, 0, 1)$.
+    \PN Si $F: \ACOTADO \rightarrow \ACOTADOPRIMO$ es un homomorfismo de reticulados acotados, entonces $\ker F$ es una
+    congruencia sobre $\ACOTADO$.
   \end{lemma}
+  \begin{proof}
+    \PN Dado que $F$ es un homomorfismo de $\RET$ en $ \RETPRIMO$ utilizando el
+    \textbf{Lemma~\ref{lemma_}} tenemos que $ker F$ es una congruencia sobre $\RET$ lo cual por definción nos
+    dice que $ker F$ es una congruencia sobre $\ACOTADO$.
+  \end{proof}
 
   % Lemma 105: Sin prueba. Lemma 15.
   \begin{lemma} \label{lemma_15}
-    \PN Sea $(L, \SU, \IN, 0, 1)$ un reticulado acotado y $\theta$ una congruencia sobre $(L, \SU, \IN, 0, 1)$, entonces:
+    \PN Sea $\ACOTADO$ un reticulado acotado y $\theta$ una congruencia sobre $\ACOTADO$, entonces:
     \begin{enumerate}[a)]
-      \item $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, 0/\theta, 1/\theta)$ es un reticulado acotado.
-      \item $\pi_{\theta}$ es un homomorfismo de $(L, \SU, \IN, 0, 1)$ en $(L/\theta, \mathsf{\tilde{s}},
-        \mathsf{\tilde{\imath}}, 0/\theta, 1/\theta)$ cuyo núcleo es $\theta$.
+      \item $\ACOTADOCOCIENTADO$ es un reticulado acotado.
+      \item $\pi_{\theta}$ es un homomorfismo de $\ACOTADO$ en $\ACOTADOCOCIENTADO$ cuyo núcleo es $\theta$.
     \end{enumerate}
   \end{lemma}
 
   % Lemma 106: Sin prueba. Lemma 16.
   \begin{lemma} \label{lemma_16}
-    \PN Si $F:(L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
-    1^{\prime})$ un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
+    \PN Si $F:\COMPLEMENTADO \rightarrow \COMPLEMENTADOPRIMO$ un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
   \end{lemma}
+  \begin{proof}
+  \end{proof}
 
   % Lemma 107: Sin prueba. Lemma 17.
   \begin{lemma} \label{lemma_17}
-    \PN Si $F: (L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
-    1^{\prime})$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime}, \IN^{\prime},
-    ^{c^{\prime}}, 0^{\prime}, 1^{\prime})$.
+    \PN Si $F: \COMPLEMENTADO \rightarrow \COMPLEMENTADOPRIMO$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de
+    $\COMPLEMENTADOPRIMO$.
   \end{lemma}
+  \begin{proof}
+  \end{proof}
 
   % Lemma 108: Con prueba. Lemma 18.
   \begin{lemma} \label{lemma_18}
-    \PN Si $F: (L, \SU, \IN, ^{c}, 0, 1) \rightarrow (L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}}, 0^{\prime},
-    1^{\prime})$ es un homomorfismo de reticulados complementados, entonces $\ker F$ es una congruencia sobre $(L, \SU,
-    \IN, ^{c}, 0, 1)$.
+    \PN Si $F: \COMPLEMENTADO \rightarrow \COMPLEMENTADOPRIMO$ es un homomorfismo de reticulados complementados,
+    entonces $\ker F$ es una congruencia sobre $\COMPLEMENTADO$.
   \end{lemma}
   \begin{proof}
-    \PN Ya que $F$ es un homomorfismo de $(L, \SU, \IN, ^{c}, 0, 1)$ en $(L^{\prime}, \SU^{\prime}, \IN^{\prime},
+    \PN Ya que $F$ es un homomorfismo de $\COMPLEMENTADO$ en $(L^{\prime}, \SU^{\prime}, \IN^{\prime},
     ^{c^{\prime}}, 0^{\prime}$, tenemos por \textbf{Lemma~\ref{lemma_14}} que $ker F$ es una congruencia sobre $(L, \SU,
     \IN, ^{c}, 0, 1)$, es decir, solo falta probar que para todos $x, y \in L$ se tiene que $x / ker F = y / ker F$
     implica $x^{c} / ker F = y^{c} / ker F$, lo cual es dejado al lector.
   \end{proof}
 
-  TODO
   % Lemma 109: Con prueba. Lemma 19.
   \begin{lemma} \label{lemma_19}
-    \PN Sea $(L, \SU, \IN, ^{c}, 0, 1)$ un reticulado complementado y sea $\theta$ una congruencia sobre $(L, \SU, \IN,
-    ^{c}, 0, 1)$.
+    \PN Sea $\COMPLEMENTADO$ un reticulado complementado y sea $\theta$ una congruencia sobre $\COMPLEMENTADO$.
     \begin{enumerate}[a)]
-      \item $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, ^{\tilde{c}}, 0/\theta, 1/\theta)$ es un reticulado
-        complementado.
-      \item $\pi_{\theta}$ es un homomorfismo de $(L, \SU, \IN, ^{c}, 0, 1)$ en $(L/\theta, \mathsf{\tilde{s}},
-      \mathsf{\tilde{\imath}}, ^{\tilde{c}}, 0/\theta, 1/\theta)$ cuyo núcleo es $\theta$.
+      \item $\COMPLEMENTADOCOCIENTADO$ es un reticulado complementado.
+      \item $\pi_{\theta}$ es un homomorfismo de $\COMPLEMENTADO$ en $\COMPLEMENTADOCOCIENTADO$ cuyo núcleo es $\theta$.
     \end{enumerate}
   \end{lemma}
   \begin{proof}
@@ -695,7 +684,7 @@
 
   % Lemma 110: Con prueba. Lemma 20.
   \begin{lemma} \label{lemma_20}
-    \PN Sea $(L, \SU, \IN)$ un reticulado. Son equivalentes:
+    \PN Sea $\RET$ un reticulado. Son equivalentes:
     \begin{enumerate}[(1)]
       \item $x \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ (x \ \IN \ z)$, cualesquiera sean $x, y, z \in L$
       \item $x \ \SU \ (y \ \IN \ z) = (x \ \SU \ y) \ \IN \ (x \ \SU \ z)$, cualesquiera sean $x, y, z \in L$.
@@ -725,8 +714,7 @@
 
   % Lemma 111: Con prueba. Lemma 21.
   \begin{lemma} \label{lemma_21}
-    \PN Si $(L, \SU, \IN, 0, 1)$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un
-    complemento.
+    \PN Si $\ACOTADO$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un complemento.
   \end{lemma}
   \begin{proof}
     \PN Supongamos $x \in L$ tiene complementos $y, z$. Se tiene:
@@ -743,7 +731,7 @@
     \PN Por lo tanto, $y = z$.
   \end{proof}
 
-  Lemma 112: Con prueba. Lemma 22.
+  % Lemma 112: Con prueba. Lemma 22.
   \begin{lemma} \label{lemma_22}
     \PN Si $S \neq \emptyset$, entonces $[S)$ es un filtro. Más aún si $F$ es un filtro y $F \supseteq S$, entonces $F
     \supseteq \lbrack S)$, es decir, \lbrack S) es el menor filtro que contiene a S.
@@ -776,14 +764,14 @@
 
   % Lemma 113: Sin prueba. Lemma 23.
   \begin{lemma} \label{lemma_23}
-    \PN (\textbf{Zorn}) Sea $(P, \leq)$ un poset y supongamos que cada cadena de $(P, \leq)$ tiene una cota superior,
-    entonces existe un elemento maximal en $(P, \leq)$.
+    \PN (\textbf{Zorn}) Sea $\POSET$ un poset y supongamos que cada cadena de $\POSET$ tiene una cota superior, entonces
+    existe un elemento maximal en $\POSET$.
   \end{lemma}
 
   % Theorem 114: Con prueba. Theorem 24.
   \begin{theorem} \label{theorem_24}
-    \PN \textbf{(Teorema del Filtro Primo)} Sea $(L, \SU, \IN)$ un reticulado distributivo y $F$ un filtro. Supongamos
-    $x_{0} \in L-F$, entonces hay un filtro primo $P$ tal que $x_{0} \notin P$ y $F \subseteq P$.
+    \PN \textbf{(Teorema del Filtro Primo)} Sea $\RET$ un reticulado distributivo y $F$ un filtro. Supongamos $x_{0} \in
+    L-F$, entonces hay un filtro primo $P$ tal que $x_{0} \notin P$ y $F \subseteq P$.
   \end{theorem}
   \begin{proof}
     \PN Sea:
@@ -846,9 +834,9 @@
 
   % Corollary 115: Con prueba. Corollary 25.
   \begin{corollary} \label{corollary_25}
-    \PN Sea $(L, \SU, \IN, 0, 1)$ un reticulado acotado distributivo. Si $\emptyset \neq S \subseteq L$ es tal que
-    $s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \ s_{n} \neq 0$, para cada $s_{1}, \dotsc, s_{n} \in S$, entonces hay un
-    filtro primo que contiene a $S$.
+    \PN Sea $\ACOTADO$ un reticulado acotado distributivo. Si $\emptyset \neq S \subseteq L$ es tal que $s_{1} \ \IN \
+    s_{2} \ \IN \ \dotsc \ \IN \ s_{n} \neq 0$, para cada $s_{1}, \dotsc, s_{n} \in S$, entonces hay un filtro primo que
+    contiene a $S$.
   \end{corollary}
   \begin{proof}
     \PN Dado que $[S) \neq L$, se puede aplicar el \textbf{Theorem~\ref{theorem_24}} (Teorema del filtro primo).
@@ -856,8 +844,7 @@
 
   % Lemma 116: Con prueba. Lemma 26.
   \begin{lemma} \label{lemma_26}
-    \PN Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un algebra de Boole, entonces para un filtro $F \subseteq B$ las siguientes son
-    equivalentes:
+    \PN Sea $\BOOLE$ un algebra de Boole, entonces para un filtro $F \subseteq B$ las siguientes son equivalentes:
     \begin{enumerate}[(1)]
       \item $F$ es primo
       \item $x \in F$ ó $x^{c} \in F$, para cada $x \in B$.
@@ -879,8 +866,8 @@
 
   % Lemma 117: Con prueba. Lemma 27.
   \begin{lemma} \label{lemma_27}
-    \PN Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Supongamos que $b \neq 0$ y $a = \inf A$, con $A \subseteq
-    B$, entonces si $b \ \IN \ a = 0$ existe un $e \in A$ tal que $b \ \IN \ e^{c} \neq 0$.
+    \PN Sea $\BOOLE$ un álgebra de Boole. Supongamos que $b \neq 0$ y $a = \inf A$, con $A \subseteq B$, entonces si $b
+    \ \IN \ a = 0$ existe un $e \in A$ tal que $b \ \IN \ e^{c} \neq 0$.
   \end{lemma}
   \begin{proof}
     \PN Supongamos que para cada $e \in A$, tengamos que $b \ \IN \ e^{c} = 0$, entonces tenemos que para cada
@@ -894,9 +881,9 @@
 
   % Theorem 118: Con prueba. Theorem 28.
   \begin{theorem} \label{theorem_28}
-    \PN \textbf{(Rasiova y Sikorski)} Sea $(B, \SU, \IN, ^{c}, 0, 1)$ un álgebra de Boole. Sea $x \in B$, tal que
-    $x \neq 0$. Supongamos que $A_{1}, A_{2}, \dotsc$ son subconjuntos de $B$ tales que existe $\inf(A_{j})$, para cada
-    $j = 1, 2, \dotsc$, entonces hay un filtro primo $P$ el cual cumple:
+    \PN \textbf{(Rasiova y Sikorski)} Sea $\BOOLE$ un álgebra de Boole. Sea $x \in B$, tal que $x \neq 0$. Supongamos
+    que $A_{1}, A_{2}, \dotsc$ son subconjuntos de $B$ tales que existe $\inf(A_{j})$, para cada $j = 1, 2, \dotsc$,
+    entonces hay un filtro primo $P$ el cual cumple:
     \begin{enumerate}[a)]
       \item $x \in P$
       \item $A_{j} \subseteq P \Rightarrow \inf(A_{j}) \in P$, para cada $j = 1, 2, \; \dotsc$

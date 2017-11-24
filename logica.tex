@@ -15,51 +15,89 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\newcounter{neq}
-
 \providecommand{\abs}[1]{\lvert#1\rvert}
+
+% Párrafo
+\newcommand{\PN}{\par\noindent}
+% Comillas izquierdas
+\newcommand{\CL}{\textquotedblleft}
+% Comillas derechas
+\newcommand{\CR}{\textquotedblright}
+
+
+% Conjuntos
 \newcommand{\SIGMA}{\Sigma^{\ast}}
 \newcommand{\TAU}{T^{\tau}}
 \newcommand{\FT}{F^{\tau}}
 
-\newcommand{\PN}{\par\noindent}
+
+% Supremo e ínfimo
 \newcommand{\SU}{\mathsf{s}}
 \newcommand{\IN}{\mathsf{i}}
-\newcommand{\CL}{\textquotedblleft}
-\newcommand{\CR}{\textquotedblright}
 
+
+% Poset
+\newcommand{\POSET}{(P, \leq)}
+% Poset primo
+\newcommand{\POSETPRIMO}{(P^{\prime}, \leq^{\prime})}
+
+% Reticulado
+\newcommand{\RET}{(L, \SU, \IN)}
+% Reticulado primo
+\newcommand{\RETPRIMO}{(L^{\prime}, \SU^{\prime}, \IN^{\prime})}
+% Reticulado cocientado
+\newcommand{\RETCOCIENTADO}{(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}})}
+
+% Reticulado acotado
+\newcommand{\ACOTADO}{(L, \SU, \IN, 0, 1)}
+% Reticulado acotado primo
+\newcommand{\ACOTADOPRIMO}{(L^{\prime}, \SU^{\prime}, \IN^{\prime}, 0^{\prime}, 1^{\prime})}
+% Reticulado acotado cocientado
+\newcommand{\ACOTADOCOCIENTADO}{(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, 0/\theta, 1/\theta)}
+
+% Reticulado complementado
+\newcommand{\COMPLEMENTADO}{(L, \SU, \IN, ^{c}, 0, 1)}
+% Reticulado complementado primo
+\newcommand{\COMPLEMENTADOPRIMO}{(L^{\prime}, \SU^{\prime}, \IN^{\prime}, ^{c^{\prime}} 0^{\prime}, 1^{\prime})}
+% Reticulado complementado cocientado
+\newcommand{\COMPLEMENTADOCOCIENTADO}{(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, ^{c}/\theta, 0/\theta, 1/\theta)}
+
+% Álgebra de Boole
+\newcommand{\BOOLE}{(B, \SU, \IN, ^{c}, 0, 1)}
+
+
+% Teoremas
 \newtheorem{theorem}[equation]{Theorem}
 \newtheorem{lemma}[equation]{Lemma}
 \newtheorem{proposition}[equation]{Proposition}
 \newtheorem{corollary}[equation]{Corollary}
 
-\author{Agustín Curto, agucurto95@gmail.com \\
-			 Francisco Nievas, frannievas@gmail.com}
+\author{Agustín Curto, agucurto95@gmail.com}
 \title{Resumen de teoremas para el final \\ de Lógica}
 \date{2017}
 
 \begin{document}
-	% \clearpage\maketitle
-	% \thispagestyle{empty}
-	% \tableofcontents
-	%
-	% \vspace{5cm}
-	% \PN \textbf{Nota:} Este resumen se corresponde con la materia dictada en el año 2017. Los autores no se
-	% responsabilizan de posibles cambios que pudiesen realizarse en los temas dictados en la misma, así como tampoco de
-	% errores involuntarios que pudiesen existir en dicho resumen.
-	%
-	% \vspace{\fill}
-	% \begin{center}
-	% 	Por favor, mejorá este documento en github
-	% 	\includegraphics[width=1cm]{graphics/github.png} \\
-	% 	https://github.com/ResumenesFaMAF/resumenLogica
-	% \end{center}
-	%
-	% \pagebreak
-	%
-	%\input{1_ordered_algebraic_structures}
-	%\input{2_terms_and_formulas}
-	% \input{3_structures}
-	%\input{4_first_order_theorys}
+	\clearpage\maketitle
+	\thispagestyle{empty}
+	\tableofcontents
+
+	\vspace{5cm}
+	\PN \textbf{Nota:} Este resumen se corresponde con la materia dictada en el año 2017. El autor no se
+	responsabiliza de posibles cambios que pudiesen realizarse en los temas dictados en la misma, así como tampoco de
+	errores involuntarios que pudiesen existir en dicho resumen.
+
+	\vspace{\fill}
+	\begin{center}
+		Por favor, mejorá este documento en github
+		\includegraphics[width=1cm]{graphics/github.png} \\
+		https://github.com/ResumenesFaMAF/resumenLogica
+	\end{center}
+
+	\pagebreak
+
+	\input{1_ordered_algebraic_structures}
+	\input{2_terms_and_formulas}
+	\input{3_structures}
+	\input{4_first_order_theorys}
 	\input{5_peano_arithmetic}
 \end{document}

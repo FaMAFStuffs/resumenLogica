@@ -1,7 +1,7 @@
 \section{Teorias de primer orden}
 
   % Lemma 155. Con prueba. Lemma 65.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_65}
     \PN Si $(\varphi_{1}, \varphi_{2}) \in Generaliz^{\tau}$, entonces el nombre de constante $c$ del cual habla la
     definición de $Generaliz^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
   \end{lemma}
@@ -17,7 +17,7 @@
   \end{proof}
 
   % Lemma 156. Con prueba. Lemma 66.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_66}
     \PN Si $(\varphi_{1}, \varphi_{2}) \in Elec^{\tau}$, entonces el nombre de constante $e$ del cual habla la
     definición de $Elec^{\tau}$ está unívocamente determinado por el par $(\varphi_{1}, \varphi_{2})$.
   \end{lemma}
@@ -32,7 +32,7 @@
   \end{proof}
 
   % Lemma 157. Con prueba. Lemma 67.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_67}
     \PN Todas las reglas excepto las reglas de elección y generalización son universales en el sentido que si $\varphi$
     se deduce de $\psi_{1}, \dotsc, \psi_{k}$ por alguna de estas reglas, entonces $\left((\psi_{1} \wedge \dotsc \wedge
     \psi_{k}) \rightarrow \varphi \right)$ es una sentencia universalmente válida.
@@ -86,7 +86,7 @@
   \end{proof}
 
   % Lemma 158. Con prueba. Lemma 68.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_68}
     \PN Sea $\pmb{\varphi} \in S^{\tau +}$, hay únicos $n \geq 1$ y $\varphi_{1}, \dotsc, \varphi_{n} \in S^{\tau}$
     tales que $\pmb{\varphi} = \varphi_{1} \dotsc \varphi_{n}$.
   \end{lemma}
@@ -96,7 +96,7 @@
   \end{proof}
 
   % Lemma 159. Con prueba. Lemma 69.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_69}
     \PN Sea $\mathbf{J} \in Just^{+}$, hay únicos $n \geq 1$ y $J_{1}, \dotsc, J_{n} \in Just$ tales que $\mathbf{J} =
     J_{1} \dotsc J_{n}$.
   \end{lemma}
@@ -108,7 +108,7 @@
   \end{proof}
 
   % Lemma 160. Con prueba. Lemma 70.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_70}
     \PN Sea $(\pmb{\varphi}, \mathbf{J})$ una prueba de $\varphi$ en $(\Sigma, \tau)$.
     \begin{enumerate}
       \item Sea $m \in \mathbb{N}$ tal que $\mathbf{J}_{i} \neq \mathrm{HIPOTESIS}\bar{m}$, para cada $i = 1, \dotsc,
@@ -137,7 +137,7 @@
   \end{proof}
 
   % Lemma 161. Con prueba. Lemma 71.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_71}
     \PN Sea $(\Sigma, \tau)$ una teoría.
     \begin{enumerate}
       \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $(\Sigma \cup \{\varphi_{1}, \dotsc,
@@ -203,12 +203,12 @@
   \end{proof}
 
   % Lemma 162. Sin prueba. Theorem 72.
-  \begin{theorem}
+  \begin{theorem} \label{theorem_72}
     \PN \textbf{(Corrección)} $(\Sigma, \tau) \vdash \varphi$ implica $(\Sigma, \tau) \models \varphi$.
   \end{theorem}
 
   % Lemma 163. Con prueba. Corollary 73.
-  \begin{corollary}
+  \begin{corollary} \label{corollary_73}
     \PN Si $(\Sigma, \tau)$ tiene un modelo, entonces $(\Sigma, \tau)$ es consistente.
   \end{corollary}
   \begin{proof}
@@ -216,7 +216,7 @@
   \end{proof}
 
   % Lemma 164. Con prueba. Lemma 74.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_74}
     \PN $\dashv \vdash$ es una relación de equivalencia.
   \end{lemma}
   \begin{proof}
@@ -230,7 +230,7 @@
   \end{proof}
 
   % Lemma 165. Con prueba. Lemma 75.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_75}
     \PN Dada una teoria $T = (\Sigma, \tau)$, se tiene que:
     \begin{enumerate}[(1)]
       \item $\{\varphi \in S^{\tau}: \varphi \ \text{es un teorema de T}\} \in S^{\tau}/ \dashv \vdash_{T}$
@@ -241,7 +241,7 @@
   \end{proof}
 
   % Lemma 166. Con prueba. Lemma 76.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_76}
     \PN Sea $T = (\Sigma, \tau)$ una teoría, entonces $(S^{\tau}/\mathrm{\dashv \vdash}, \SU^{T}, \IN^{T}, 0^{T},
     1^{T})$ es un álgebra de Boole.
   \end{lemma}
@@ -249,7 +249,7 @@
   \end{proof}
 
   % Lemma 167. Con prueba. Lemma 77.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_77}
     \PN Sea T una teoría y sea $\leq^{T}$ el orden parcial asociado al álgebra de Boole $\mathcal{A}_{T}$ (es decir
     $[\varphi]_{T} \leq^{T} [\psi]_{T}$ si y solo si $[\varphi]_{T} \ \SU^{T} \ [\psi]_{T} = [\psi]_{T})$, entonces se
     tiene que:
@@ -266,7 +266,7 @@
   \end{proof}
 
   % Lemma 168. Con prueba. Lemma 78.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_78}
     \PN Sean $\tau = (\mathcal{C}, \mathcal{F}, \mathcal{R}, a)$ y $\tau^{\prime} = (\mathcal{C}^{\prime},
     \mathcal{F}^{\prime}, \mathcal{R}^{\prime}, a^{\prime})$ tipos.
     \begin{enumerate}
@@ -288,7 +288,7 @@
   \end{proof}
 
   % Lemma 169. Con prueba. Lemma 79.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_79}
     \PN Sea $(\Sigma, \tau)$ una teoría y supongamos que $\tau$ tiene una cantidad infinita de nombres de constante que
     no ocurren en las sentencias de $\Sigma$, entonces para cada formula $\varphi =_{d} \varphi(v)$, se tiene que
     $\lbrack \forall v\varphi (v) \rbrack_{T} = \inf(\{\lbrack \varphi(t) \rbrack_{T}: t$ es un término cerrado$\})$.
@@ -305,7 +305,7 @@
   \end{proof}
 
   % Lemma 170. Con prueba. Lemma 80.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_80}
     \PN \textbf{(Coincidencia)} Sean $\tau$ y $\tau^{\prime}$ dos tipos cualesquiera y sea $\tau_{\cap}$ dado por:
     \begin{itemize}
       \item $\mathcal{C}_{\cap} = \mathcal{C} \cap \mathcal{C}^{\prime}$
@@ -348,7 +348,7 @@
   \end{proof}
 
   % Lemma 171. Con prueba. Lemma 81.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_81}
     \PN Sea $\tau$ un tipo. Hay una infinitupla $(\gamma_{1}, \gamma_{2}, \dotsc) \in F^{\tau_{\mathbb{N}}}$ tal que:
     \begin{enumerate}
       \item $\lvert Li(\gamma_{j}) \rvert \leq 1$, para cada $j = 1, 2, \dotsc$
@@ -364,7 +364,7 @@
   \end{proof}
 
   % Theorem 172. Con prueba. Theorem 82.
-  \begin{theorem}
+  \begin{theorem} \label{theorem_82}
     \PN \textbf{(Completitud) (G{\"o}del)} Sea $T = (\Sigma, \tau)$ una teoría de primer orden. Si $T \models \varphi$
     entonces $T \vdash \varphi$.
   \end{theorem}
@@ -442,7 +442,7 @@
   % \end{proof}
 
   % Corollary 173. Con prueba. Corollary 83.
-  \begin{corollary}
+  \begin{corollary} \label{corollary_83}
     \PN Toda teoría consistente tiene un modelo.
   \end{corollary}
   \begin{proof}
@@ -452,7 +452,7 @@
   \end{proof}
 
   % Corollary 174. Con prueba. Corollary 84.
-  \begin{corollary}
+  \begin{corollary} \label{corollary_84}
     \PN \textbf{(Teorema de Compacidad)}
     \begin{enumerate}[(a)]
       \item Si $(\Sigma, \tau)$ es tal que $(\Sigma_{0}, \tau)$ tiene un modelo, para cada subconjunto finito
@@ -470,7 +470,7 @@
   % El número 175 es usado para un ejemplo.
 
   % Lemma 176. Con prueba. Lemma 85.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_85}
     \PN Dados $t_{1}, \dotsc, t_{n}, t =_{d} t(x_{1}, \dotsc, x_{n}) \in \TAU$, se tiene que $t^{\mathbf{T}^{\tau}}
     \lbrack t_{1}, \dotsc, t_{n} \rbrack = t(t_{1}, \dotsc, t_{n})$.
   \end{lemma}
@@ -499,7 +499,7 @@
   \end{proof}
 
   % Lemma 177. Con prueba. Lemma 86.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_86}
     \PN \textbf{(Universal Mapping Property)} Si $\mathbf{A}$ es cualquier $\tau$-álgebra y $F: Var \rightarrow A$, es
     una función cualquiera, entonces $F$ puede ser extendida a un homomorfismo $\bar{F}: \mathbf{T}^{\tau} \rightarrow
     \mathbf{A}$.
@@ -519,7 +519,7 @@
   \end{proof}
 
   % Lemma 178. Con prueba. Lemma 87.
-  \begin{lemma}
+  \begin{lemma} \label{lemma_87}
     \PN Todas las reglas excepto las reglas anteriores son universales en el sentido que si $\varphi$ se deduce de
     $\psi_{1}, \dotsc, \psi_{k}$ por alguna de estas reglas, entonces $\left((\psi_{1} \wedge \dotsc \wedge \psi_{k})
     \rightarrow \varphi \right)$ es una sentencia universalmente válida.
@@ -544,7 +544,7 @@
   \end{proof}
 
   % Theorem 179. Con prueba. Theorem 88.
-  \begin{theorem}
+  \begin{theorem} \label{theorem_88}
     \PN \textbf{(Corrección)} Si $(\Sigma, \tau) \vdash_{ec} p \approx q$, entonces $(\Sigma, \tau) \models p \approx q$.
   \end{theorem}
   \begin{proof}
@@ -556,7 +556,7 @@
   \end{proof}
 
   % Theorem 180. Con prueba. Theorem 89.
-  \begin{theorem}
+  \begin{theorem} \label{theorem_89}
     \PN \textbf{(Completitud) (Birkhoff)} Sea $(\Sigma, \tau)$ una teoría ecuacional. Si $(\Sigma, \tau) \models p
     \approx q$, entonces $(\Sigma, \tau) \vdash_{ec} p \approx q$.
   \end{theorem}

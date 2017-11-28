@@ -148,7 +148,7 @@
     \]
   \end{proof}
 
-  % Lemma 139. Sin prueba. Lemma 49.
+  % Lemma 139. Con prueba. Lemma 49.
   \begin{lemma} \label{lemma_49}
     \PN Supongamos que $F: \mathbf{A} \rightarrow \mathbf{B}$ es un isomorfismo. Sea $\varphi \in F^{\tau}$, entonces:
     \[
@@ -158,6 +158,9 @@
     \PN para cada $(a_{1}, a_{2}, \dotsc) \in A^{\mathbb{N}}$. En particular $\mathbf{A} \ \text{y} \ \mathbf{B}$ satisfacen las
     mismas sentencias de tipo $\tau$.
   \end{lemma}
+  \begin{proof}
+    %TODO
+  \end{proof}
 
   % Lemma 140. Con prueba. Lemma 50.
   \begin{lemma} \label{lemma_50}
@@ -258,34 +261,14 @@
     con lo cual $\bar{F}$ cunple (2) de la definicion de homomorfismo.
   \end{proof}
 
-  % Lemma 146. Con prueba. Lemma 56.
-  \begin{lemma} \label{lemma_56}
-    \PN Los mapeos $\pi_{1}: \mathbf{A} \times \mathbf{B} \rightarrow \mathbf{A} \ \text{y} \ \pi_{2}: \mathbf{A} \times
-    \mathbf{B} \rightarrow \mathbf{A}$ son homomorfismos.
+  % Lemma 146. Nada. Lemma 56.
+  \begin{lemma}
+    \PN Este lema no se evalua.
   \end{lemma}
-  \begin{proof}
-    Veamos que $\pi _{1}$ es un homomorfismo. Primero notese que si $c\in \mathcal{C}$, entonces
 
-    $\displaystyle \pi _{1}(c^{\mathbf{A}\times \mathbf{B}})=\pi _{1}((c^{\mathbf{A}},c^{ \mathbf{B}}))=c^{\mathbf{A}} $
-
-    Sea $f\in \mathcal{F}_{n}$, con $n\geq 1$ y sean $ (a_{1},b_{1}), \dotsc, (a_{n},b_{n})\in A\times B$. Tenemos que
-    \[
-      \begin{array}{ccl}
-        \pi_{1}(f^{\mathbf{A} \times \mathbf{B}}((a_{1}, b_{1}), \dotsc, (a_{n}, b_{n})) &=& \pi_{1}((f^{\mathbf{A}}
-          (a_{1}, \dotsc, a_{n}), f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) \\
-        &=& f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \\
-        &=& f^{\mathbf{A}}(\pi_{1}(a_{1}, b_{1}), \dotsc, \pi_{1}(a_{n}, b_{n}))
-      \end{array}
-    \]
-
-    con lo cual hemos probado que $\pi _{1}$ cumple (2) de la definicion de homomorfismo
-  \end{proof}
-
-  % Lemma 147. Con prueba. Lemma 57.
-  \begin{lemma} \label{lemma_57}
-    \PN Para cada $t \in \TAU, ((a_{1}, b_{1}), (a_{2}, b_{2}), \dotsc) \in (A \times B)^{\mathbb{N}}$, se tiene que
-    $t^{\mathbf{A} \times \mathbf{B}}[((a_{1}, b_{1}), \linebreak (a_{2}, b_{2}), \dotsc)] = (t^{\mathbf{A}}[(a_{1},
-    a_{2}, \dotsc)], t^{\mathbf{B}}[(b_{1}, b_{2}, \dotsc)])$.
+  % Lemma 147. Nada. Lemma 57.
+  \begin{lemma}
+    \PN Este lema no se evalua.
   \end{lemma}
 
   % Lemma 148. Con prueba. Lemma 58.
@@ -461,16 +444,13 @@
   \begin{proof}
   \end{proof}
 
-  % Lemma 153. Con prueba. Lemma 63.
+  % Lemma 153. Sin prueba. Lemma 63.
   \begin{lemma} \label{lemma_63}
     \PN Si $Qv$ ocurre en $\varphi$ a partir de $i$, entonces hay una única fórmula $\psi$ tal que $Qv\psi$ ocurre en
     $\varphi$ a partir de $i$.
   \end{lemma}
-  \begin{proof}
-    Por induccion en el $k$ tal que $\varphi \in F^{\tau}$.
-  \end{proof}
 
-  % Lemma 154. Con prueba. Lemma 64.
+  % Lemma 154. Sin prueba. Lemma 64.
   \begin{lemma} \label{lemma_64}
     \PN Supongamos $\varphi =_{d} \varphi(w_{1}, \dotsc, w_{k}), t_{1} =_{d} t_{1}(v_{1}, \dotsc, v_{n}), \dotsc, t_{k}
     =_{d} t_{k}(v_{1}, \dotsc, v_{n})$ y supongamos además que cada $w_{j}$ es sustituible por $t_{j}$ en $\varphi$,
@@ -485,26 +465,3 @@
         \]
     \end{enumerate}
   \end{lemma}
-  \begin{proof}
-    Probaremos que se dan (a) y (b), por induccion en el $l$ tal que $\varphi \in F_{l}^{\tau }.$ El caso $l=0$ es una consecuencia directa del Lema 146. Supongamos (a) y (b) valen para cada $\varphi \in F_{l}^{\tau } $ y sea $\varphi \in F_{l+1}^{\tau }-F_{l}^{\tau }.$ Notese que se puede suponer que cada $v_{i}$ ocurre en algun $t_{i}$ y que cada $w_{i}\in Li(\varphi )$, ya que para cada $\varphi $ el caso general se desprende del caso con estas restricciones. Hay varios casos
-
-    CASO $\varphi =\forall w\varphi_{1}$ con $w\not\in \{w_{1}, \dotsc, w_{k}\} \ \text{y} \  \varphi_{1}=_{d}\varphi_{1}(w_{1}, \dotsc, w_{k},w)$
-
-    Notese que cada $w_{j}\in Li(\varphi_{1})$. Ademas notese que $ w\not\in \{v_{1}, \dotsc, v_{n}\}$ ya que de lo contrario $w$ ocurriria en algun $ t_{j}$, y entonces $w_{j}$ no seria sustituible por $t_{j}$ en $\varphi $. Sean
-
-    $\displaystyle \begin{array}{ccc} \tilde{t}_{1} & = & t_{1} \\ & \vdots & \\ \tilde{t}_{k} & = & t_{k} \\ \tilde{t}_{k+1} & = & w \end{array} $
-
-    Notese que
-    $\displaystyle \tilde{t}_{j}=_{d}\tilde{t}_{j}(v_{1}, \dotsc, v_{n},w) $
-
-    Por (a) de la hipotesis inductiva tenemos que
-    $\displaystyle Li(\varphi_{1}(t_{1}, \dotsc, t_{k},w))=Li(\varphi_{1}(\tilde{t}_{1}, \dotsc, \tilde{ t}_{k},\tilde{t}_{k+1}))\subseteq \{v_{1}, \dotsc, v_{n},w\} $
-
-    y por lo tanto
-    $\displaystyle Li(\varphi(t_{1}, \dotsc, t_{k}))\subseteq \{v_{1}, \dotsc, v_{n}\} $
-
-    lo cual prueba (a). Finalmente notese que
-    $\displaystyle \begin{array}{c} \mathbf{A} \models \varphi(t_{1}, \dotsc, t_{k})\mathbf{[}\vec{a}] \\ \Updownarrow \\ \mathbf{A} \models \varphi_{1}(\tilde{t}_{1}, \dotsc, \tilde{t}_{k},\tilde{t} _{k+1})[\vec{a},a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A} \models \varphi_{1}[\tilde{t}_{1}^{\mathbf{A}}[\vec{a},a], \dotsc,  \tilde{t}_{k}^{\mathbf{A}}[\vec{a},a],\tilde{t}_{k+1}^{\mathbf{A}}[\vec{a} ,a]],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A} \models \varphi_{1}[t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{k}^{ \mathbf{A}}[\vec{a}],a],\text{ para todo }a\in A \\ \Updownarrow \\ \mathbf{A} \models \varphi \lbrack t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{k}^{ \mathbf{A}}[\vec{a}]] \end{array} $
-
-    lo cual pueba (b). El caso del cuantificador $\exists $ es analogo y los casos de nexos logicos son directos.
-  \end{proof}

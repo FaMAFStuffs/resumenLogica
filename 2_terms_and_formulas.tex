@@ -6,7 +6,7 @@
     \dotsc, t_{n})$, con $f \in \mathcal{F}_{n}, n \geq 1, \; t_{1}, \dotsc, t_{n} \in T_{k-1}^{\tau}$.
   \end{lemma}
   \begin{proof}
-    \PN Probaremos este teorema por inducción en $k$.
+    \PN Probaremos este lema por inducción en $k$.
 
     \vspace{3mm}
     \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 1$ \\\hline \end{tabular} Es directo, ya que por
@@ -16,7 +16,7 @@
       t_{2}, \dotsc t_{n} \in T_{0}^{\tau}\}
     \]
 
-		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 1$ \\\hline \end{tabular} Sea $t \in
+		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k \Rightarrow k + 1$ \\\hline \end{tabular} Sea $t \in
     T_{k+1}^{\tau}$. Por definición de $ T_{k+1}^{\tau}$ tenemos que:
     \begin{itemize}
       \item $t \in T_{k}^{\tau}$ ó
@@ -108,8 +108,9 @@
       &\cup& \ \{Qv\varphi: \varphi \in F_{k-1}^{\tau}, v \in Var, Q \in \{\forall, \exists\}\}
     \end{eqnarray*}
 
-    \PN Luego, si $\varphi \in F_{k-1}^{\tau}$ aplicando HI obtenemos que $\varphi$ es de alguna de las formas de la
-    lista anterior. Caso contrario, se dá alguna de las siguientes:
+    \PN Luego, si $\varphi \in F_{k-1}^{\tau}$ aplicando HI y el hecho de que $F_{k-2}^{\tau} \subseteq F_{k-1}^{\tau}$,
+    obtenemos que $\varphi$ es de alguna de las formas de la lista anterior. Caso contrario, se dá alguna de las
+    siguientes:
     \begin{itemize}
       \item $\varphi = (\varphi_{1} \eta \varphi_{2})$, con $\varphi_{1}, \varphi_{2} \in F_{k-1}^{\tau}, \eta \in
       \{\wedge, \vee, \rightarrow, \leftrightarrow\}$.

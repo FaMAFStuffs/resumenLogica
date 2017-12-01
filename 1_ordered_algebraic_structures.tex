@@ -50,7 +50,7 @@
       \item Probaremos solo el caso \textbf{maximal}.
         \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $m$ es maximal de
         $\POSET$. Veamos que $F(m)$ es maximal de $\POSETPRIMO$. Supongamos que $F(m)$ no es maximal
-        de $\POSETPRIMO$, es decir, $F(m) <^{\prime} b^{\prime} \ \forall b^{\prime} \in P^{\prime}$.
+        de $\POSETPRIMO$, es decir, $\exists b^{\prime} \in P^{\prime} \ F(m) <^{\prime} b^{\prime}$.
         Dado que $F$ es isomorfismo:
         \begin{eqnarray*}
     			F^{-1}(F(m)) < F^{-1}(b^{\prime}) \\
@@ -61,7 +61,7 @@
 
         \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos que $F(m)$ es maximal de
         $\POSETPRIMO$. Veamos que $m$ es maximal de $\POSET$. Supongamos que $m$ no es maximal
-        de $\POSET$, es decir, $m < b \ \forall b \in P$. Dado que $F$ es isomorfismo:
+        de $\POSET$, es decir, $\exists b \in P \ m < b$. Dado que $F$ es isomorfismo:
         \[
     			F(m) < F(b)
     		\]
@@ -70,7 +70,7 @@
 
       \item \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos $a \prec b$, veamos que $F(a)
         \prec^{\prime} F(b)$. Debemos ver:
-        \begin{enumerate}[1)]
+        \begin{enumerate}[(1)]
           \item $F(a) <^{\prime} F(b)$
           \item $\nexists z^{\prime}$ tal que $F(a) < z^{\prime} < F(b)$
         \end{enumerate}
@@ -131,15 +131,16 @@
       \begin{multicols}{2}
         \item[(7)]
           \begin{alignat*}{3}
-            x \ \IN \ y &\leq& x \qquad &\text{Por } (2) \\
-            (x \ \IN \ y) \ \SU \ x &=& x \qquad &\text{Por } (6) \\
-            x \ \SU \ (x \ \IN \ y) &=& x \qquad &\text{Por } (3)
+            x \ \IN \ y &\leq& \ x \qquad &\text{Por } (2) \\
+            (x \ \IN \ y) \ \SU \ x &=& \ x \qquad &\text{Por } (6) \\
+            x \ \SU \ (x \ \IN \ y) &=& \ x \qquad &\text{Por } (4) \\
           \end{alignat*}
 
         \item[(8)]
           \begin{alignat*}{3}
-            x &\leq& x \ \SU \ y \qquad \; && \text{Por } (1) \\
-            x \ \IN \ (y \ \SU \ x) &=& x \qquad\qquad &&\text{Por } (6)
+            x &\leq& \ x \ \SU \ y \qquad \; && \text{Por } (1) \\
+            x \ \IN \ (x \ \SU \ y) &=& \ x \qquad\qquad &&\text{Por } (6) \\
+            x \ \IN \ (y \ \SU \ x) &=& \ x \qquad\qquad &&\text{Por } (4)
           \end{alignat*}
           \vspace{3mm}
       \end{multicols}
@@ -176,28 +177,28 @@
       \item[(10)] Para probar la igualdad probaremos las siguientes desigualdades:
         \begin{itemize}
           \item \begin{tabular}{|c|} \hline $(x \ \IN \ y) \ \IN \ z \leq x \ \IN \ (y \ \IN \ z)$\\\hline \end{tabular}
+            \PN Notese que $(x \ \IN \ y) \ \IN \ z$ es cota inferior de $\{x, y, z\}$ ya que:
+            \begin{eqnarray*}
+              (x \ \IN \ y) \ \IN \ z \leq (x \ \IN \ y) &\leq& x \\
+              (x \ \IN \ y) \ \IN \ z \leq (x \ \IN \ y) &\leq& y \\
+              (x \ \IN \ y) \ \IN \ z &\leq& z
+            \end{eqnarray*}
+
+            \PN Por otro lado, $(x \ \IN \ y) \ \IN \ z$ es cota inferior de $\{y, z\}$, tenemos que $(x \ \IN \ y) \
+            \IN \ z \leq y \ \IN \ z$, por lo cual $(x \ \IN \ y) \ \IN \ z$ es cota inferior del conjunto $\{x, y \ \IN
+            \ z\}$, lo cual dice que $(x \ \IN \ y) \ \IN \ z \leq x \ \IN \ (y \ \IN \ z)$.
+
+          \item \begin{tabular}{|c|} \hline $(x \ \IN \ y) \ \IN \ z \geq x \ \IN \ (y \ \IN \ z)$\\\hline \end{tabular}
             \PN Notese que $x \ \IN \ (y \ \IN \ z)$ es cota inferior de $\{x, y, z\}$ ya que:
             \begin{eqnarray*}
               x \ \IN \ (y \ \IN \ z) &\leq& x \\
-              (y \ \IN \ z) \leq x \ \IN \ (y \ \IN \ z) &\leq& y \\
-              z &\leq& (y \ \IN \ z) \leq x \ \IN \ (y \ \IN \ z)
+              x \ \IN \ (y \ \IN \ z) \leq (y \ \IN \ z) &\leq& y \\
+              x \ \IN \ (y \ \IN \ z) \leq (y \ \IN \ z) &\leq& z
             \end{eqnarray*}
 
-            \PN Por otro lado, $x \ \IN \ (y \ \IN \ z)$ es cota inferior de $\{x, y\}$, tenemos que $x \ \IN \ y \leq x
-            \ \IN \ (y \ \IN \ z)$, por lo cual $x \ \IN \ (y \ \IN \ z)$ es cota inferior del conjunto $\{x \ \IN \ y,
-            z\}$, lo cual dice que $(x \ \IN \ y) \ \IN \ z \leq x \ \IN \ (y \ \IN \ z)$.
-
-          \item \begin{tabular}{|c|} \hline $(x \ \IN \ y) \ \IN \ z \geq x \ \IN \ (y \ \IN \ z)$\\\hline \end{tabular}
-            \PN Notese que $(x \ \IN \ y) \ \IN \ z$ es cota inferior de $\{x, y, z\}$ ya que:
-            \begin{eqnarray*}
-              x &\leq& x \ \IN \ y \leq (x \ \SU \ y) \ \IN \ z \\
-              y &\leq& x \ \IN \ y \leq (x \ \SU \ y) \ \IN \ z \\
-              z &\leq& (x \ \IN \ y) \ \IN \ z
-            \end{eqnarray*}
-
-            \PN Por otro lado, $(x \ \IN \ y) \ \IN \ z$ es cota inferior de $\{y, z\}$, tenemos que $y \ \IN \ z \leq
-            (x \ \IN \ y) \ \IN \ z$, por lo cual $(x \ \IN \ y) \ \IN \ z$ es cota inferior del conjunto $\{x, y \ \IN
-            \ z\}$, lo cual dice que $(x \ \IN \ y) \ \IN \ z \geq x \ \IN \ (y \ \IN \ z)$.
+            \PN Por otro lado, $x \ \IN \ (y \ \IN \ z)$ es cota inferior de $\{x, y\}$, tenemos que $x \ \IN \ (y \ \IN
+            \ z) \leq x \ \IN \ y$, por lo cual $x \ \IN \ (y \ \IN \ z)$ es cota inferior del conjunto $\{x \ \IN \ y,
+            z\}$, lo cual dice que $(x \ \IN \ y) \ \IN \ z \geq x \ \IN \ (y \ \IN \ z)$.
         \end{itemize}
 
         \PN Por lo tanto, $(x \ \IN \ y) \ \IN \ z = x \ \IN \ (y \ \IN \ z)$
@@ -205,13 +206,13 @@
       \item[(11)]
         \begin{multicols}{2}
           \begin{alignat*}{3}
-            x &\leq& z &\leq& z \ \SU \ w \\
-            y &\leq& w &\leq& z \ \SU \ w \\
+            x &\leq& \ z &\leq& \ z \ \SU \ w \\
+            y &\leq& \ w &\leq& \ z \ \SU \ w \\
           \end{alignat*}
           \begin{alignat*}{3}
             \\
-            x &\leq& z \Rightarrow x \ \IN \ y &\leq& z \\
-            y &\leq& w \Rightarrow x \ \IN \ y &\leq& w
+            x &\leq& \ z \Rightarrow x \ \IN \ y &\leq& \ z \\
+            y &\leq& \ w \Rightarrow x \ \IN \ y &\leq& \ w
           \end{alignat*}
         \end{multicols}
         \PN Luego, $z \ \SU \ w$ es cota superior de $\{x, y\}$ y $x \ \IN \ y$ es cota inferior de $\{z, w\}$, por lo
@@ -268,7 +269,7 @@
     \end{eqnarray*}
 
 
-    \PN Veamos entonces que:
+    \PN Veamos entonces que vale:
     \begin{eqnarray*}
       ((\dotsc(x_{1} \ \SU \ x_{2}) \ \SU \ \dotsc) \ \SU \ x_{n}) \ \SU \ x_{n+1} &=& \sup(\{x_{1}, \dotsc, x_{n+1}\})
         \ \ (\dag_{1}) \\
@@ -328,6 +329,7 @@
     \]
   \end{theorem}
   \begin{proof}
+    \PN \newline
     \begin{itemize}
       \item \underline{Reflexiva:} Sea $x \in L$ un elemento cualquiera. Luego,
         \begin{equation*}
@@ -350,11 +352,11 @@
           \right \rbrace \Rightarrow x = y
         \end{equation*}
 
-      \item \underline{Transitiva:} Supongamos que $x \leq y$ e $y \leq z$, entonces:
+      \item \underline{Transitiva:} Supongamos que $x \leq y$ e $y \leq z$, es decir, $x \ \SU \ y = y$ y $y \ \SU \ z =
+      z$ entonces:
         \[
           x \ \SU \ z = x \ \SU \ (y \ \SU \ z) = (x \ \SU \ y) \ \SU \ z = y \ \SU \ z = z
         \]
-
         \PN por lo cual $x \leq z$.
 
         \PN Veamos ahora que $\sup(\{x, y\}) = x \ \SU \ y$. Es claro que $x \ \SU \ y$ es una cota superior del
@@ -403,14 +405,18 @@
     un subuniverso de $\RETPRIMO$.
   \end{lemma}
   \begin{proof}
-    \PN Ya que $L \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$. Sean $a, b \in I_{F}, \ x, y \in L$ tales que
-    $F(x) = a$ y $F(y) = b$. Se tiene que:
-    \begin{alignat*}{3}
-      a \ \SU^{\prime} \ b &=& F(x) \ \SU^{\prime} \ F(y) &=& F(x \ \SU \ y) \in I_{F} \\
-      a \ \IN^{\prime} \ b &=& F(x) \ \IN^{\prime} \ F(y) &=& F(x \ \IN \ y) \in I_{F}
-    \end{alignat*}
+    \PN Para probar que $I_{F}$ es un subuniverso de $\RETPRIMO$, debemos ver:
+    \begin{itemize}
+      \item $I_{F} \neq \emptyset$: Ya que $L \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$.
+      \item $I_{F}$ es cerrado bajo la operaciones $\SU^{\prime}$ e $\IN^{\prime}$: Sean $a, b \in I_{F}, \ x, y \in L$
+      tales que $F(x) = a$ y $F(y) = b$. Se tiene que:
+      \begin{alignat*}{3}
+        a \ \SU^{\prime} \ b &=& \ F(x) \ \SU^{\prime} \ F(y) &=& \ F(x \ \SU \ y) \in I_{F} \\
+        a \ \IN^{\prime} \ b &=& \ F(x) \ \IN^{\prime} \ F(y) &=& \ F(x \ \IN \ y) \in I_{F}
+      \end{alignat*}
 
-    \PN por lo cual $I_{F}$ es cerrada bajo $\SU^{\prime}$ e $\IN^{\prime}$.
+      \PN por lo cual $I_{F}$ es cerrada bajo $\SU^{\prime}$ e $\IN^{\prime}$.
+    \end{itemize}
   \end{proof}
 
   % Lemma 97: Con prueba. Lemma 7.
@@ -423,7 +429,7 @@
     \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos que $F$ es un isomorfismo de
     $\RET$ en $ \RETPRIMO$.
 
-    \PN Sean $x, y \in L$ tales que $x \leq y$. Tenemos:
+    \PN \underline{Para F}: Sean $x, y \in L$ tales que $x \leq y$. Tenemos:
     \begin{eqnarray*}
       y &=& x \ \SU \ y \\
       F(y) &=& F(x \ \SU \ y) \\
@@ -431,19 +437,20 @@
       \therefore F(x) &\leq^{\prime}& F(y)
     \end{eqnarray*}
 
-    \PN Sean $x^{\prime}, y^{\prime} \in L^{\prime}$ tales que $x^{\prime} \leq^{\prime} y^{\prime}$. Tenemos:
+    \PN \underline{Para $F^{-1}$}: Sean $x^{\prime}, y^{\prime} \in L^{\prime}$ tales que $x^{\prime} \leq^{\prime}
+    y^{\prime}$. Tenemos:
     \begin{eqnarray*}
       y^{\prime} &=& x^{\prime} \ \SU^{\prime} \ y^{\prime} \\
       F^{-1}(y^{\prime}) &=& F^{-1}(x^{\prime} \ \SU^{\prime} \ y^{\prime}) \\
       &=& F^{-1}(x^{\prime}) \ \SU \ F^{-1}(y^{\prime}) \\
-      \therefore F^{-1}(x) &\leq& F^{-1}(y)
+      \therefore F^{-1}(x^{\prime}) &\leq& F^{-1}(y^{\prime})
     \end{eqnarray*}
 
     \PN Por lo tanto, $F$ es un isomorfismo de $(L, \leq)$ en $(L^{\prime}, \leq^{\prime})$.
 
     \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos ahora que $F$ es un isomorfismo
     de $(L, \leq)$ en $(L^{\prime}, \leq^{\prime})$, entonces el \textbf{Lemma~\ref{lemma_1}} nos dice que $F$ y
-    $F_{1}$ respetan la operaciones de supremo e ínfimo, por lo cual $F$ es un isomorfismo de $\RET$ y
+    $F^{-1}$ respetan la operaciones de supremo e ínfimo, por lo cual $F$ es un isomorfismo de $\RET$ y
     $\RETPRIMO$.
   \end{proof}
 
@@ -462,8 +469,8 @@
         \item[(I1)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{s}} \ x/\theta = x/\theta \
           \mathsf{\tilde{\imath}} \ x/\theta = x/\theta$ \\\hline \end{tabular}
           \begin{eqnarray*}
-            x/\theta \ \mathsf{\tilde{s}} \ x/\theta &=& (x \ \SU \ x)/\theta = x /\theta \\
-            x/\theta \ \mathsf{\tilde{\imath}} \ x/\theta &=& (x \ \IN \ x)/\theta = x /\theta
+            x/\theta \ \mathsf{\tilde{s}} \ x/\theta &=& (x \ \SU \ x)/\theta \ =\ x /\theta \\
+            x/\theta \ \mathsf{\tilde{\imath}} \ x/\theta &=& (x \ \IN \ x)/\theta \ = \ x /\theta
           \end{eqnarray*}
         \item[(I2)] \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{s}} \ y/\theta = y/\theta \
           \mathsf{\tilde{s}} \ x/\theta$ \\\hline \end{tabular}
@@ -518,6 +525,10 @@
           \end{eqnarray*}
       \end{enumerate}
     \end{multicols}
+
+    \PN Por definición, $x/\theta \ \tilde{\leq} \ y/\theta \Leftrightarrow y/\theta = x/\theta \ \mathsf{\tilde{s}} \
+    y/\theta$, por lo cual $x/\theta \ \tilde{\leq} \ y/\theta \Leftrightarrow y/\theta = (x \ \SU \ y)/\theta$ y por lo
+    tanto $y \theta (x \ \SU \ y)$.
   \end{proof}
 
   % Corollary 99: Con prueba. Corollary 9.
@@ -526,8 +537,9 @@
     congruencia sobre $\RET, 1/\theta$ (resp. $0/\theta$) es un elemento máximo (resp. mínimo) de $\RETCOCIENTADO$.
   \end{corollary}
   \begin{proof}
-    \PN Ya que $1 \ \theta \ (x \ \SU \ 1)$, para cada $x \in L$, tenemos que $x/\theta \ \tilde{\leq} \ 1/\theta$, para
-    cada $x \in L$.
+    \PN Ya que $1 = x \ \SU \ 1$ para cada $x \in L$ tenemos que $1/\theta = x/\theta \ \mathsf{\tilde{s}} \ 1/\theta$,
+    es decir, $1/\theta = (x \ \SU \ 1)/\theta$ para cada $x \in L$. Utilizando el \textbf{Lemma~\ref{lemma_8}} tenemos
+    que $x/\theta \ \tilde{\leq} \ 1/\theta$, para cada $x \in L$.
   \end{proof}
 
   % Lemma 100: Con prueba. Lemma 10.
@@ -553,15 +565,18 @@
         \PN Por lo tanto, $(x, z) \in$ ker $F$.
       \end{itemize}
 
-    \PN Supongamos $x \ker F(x^{\prime})$ y $y \ker F(y^{\prime})$, entonces:
+    \PN Veamos ahora que, si $x \ \ker F \ x^{\prime}$ y $y \ \ker F \ y^{\prime}$ entonces $(x \ \SU \ y) \ \ker F \
+    (x^{\prime} \ \SU \ y^{\prime})$ y $(x \ \IN \ y) \ \ker F \ (x^{\prime} \ \IN \ y^{\prime})$, es decir, $F(x \ \SU
+    \ y) = F(x^{\prime} \ \SU \ y^{\prime})$ y $F(x \ \IN \ y) = F(x^{\prime} \ \IN \ y^{\prime})$.
+
+    \vspace{3mm}
+    \PN Supongamos $x \ \ker F \ x^{\prime}$ y $y \ \ker F \ y^{\prime}$, entonces:
     \begin{alignat*}{4}
-      F(x \ \SU \ y) &=& F(x) \ \mathsf{s^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{s^{\prime}} \ F(y^{\prime}) &=&
-        F(x^{\prime} \ \SU \ y^{\prime}) \\
-      F(x \ \IN \ y) &=& F(x) \ \mathsf{i^{\prime}} \ F(y) &=& F(x^{\prime}) \ \mathsf{i^{\prime}} \ F(y^{\prime}) &=&
-        F(x^{\prime} \ \IN \ y^{\prime}) \\
+      F(x \ \SU \ y) &=& \ F(x) \ \mathsf{s^{\prime}} \ F(y) &=& \ F(x^{\prime}) \ \mathsf{s^{\prime}} \ F(y^{\prime})
+        &=& \ F(x^{\prime} \ \SU \ y^{\prime}) \\
+      F(x \ \IN \ y) &=& \ F(x) \ \mathsf{i^{\prime}} \ F(y) &=& \ F(x^{\prime}) \ \mathsf{i^{\prime}} \ F(y^{\prime})
+        &=& \ F(x^{\prime} \ \IN \ y^{\prime})
     \end{alignat*}
-    \PN lo cual nos dice que $(x \ \SU \ y) \ker F(x^{\prime} \ \SU \ y^{\prime})$ y $(x \ \IN \ y) \ker F(x^{\prime} \
-    \IN \ y^{\prime})$.
   \end{proof}
 
   % Lemma 101: Con prueba. Lemma 11.
@@ -570,14 +585,14 @@
     de $\RET$ en $\RETCOCIENTADO$. Además $\ker \pi_{\theta} = \theta$.
   \end{lemma}
   \begin{proof}
-    \PN Sean $x, y \in L$ elementos cualquier. Tenemos que:
+    \PN Sean $x, y \in L$ elementos cualquiera. Tenemos que:
       \begin{alignat*}{4}
-        \pi_{\theta}(x \ \SU \ y) &=& (x \ \SU \ y)/\theta &=& x/\theta \ \mathsf{\tilde{s}} \ y/\theta &=&
-          \pi_{\theta}(x) \ \mathsf{\tilde{s}} \ \pi_{\theta}(y) \\
-        \pi_{\theta}(x \ \IN \ y) &=& (x \ \IN \ y)/\theta &=& x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta &=&
-          \pi_{\theta}(x) \ \mathsf{\tilde{\imath}} \ \pi_{\theta}(y) \\
+        \pi_{\theta}(x \ \SU \ y) &=& \ (x \ \SU \ y)/\theta &=& \ x/\theta \ \mathsf{\tilde{s}} \ y/\theta &=&
+          \ \pi_{\theta}(x) \ \mathsf{\tilde{s}} \ \pi_{\theta}(y) \\
+        \pi_{\theta}(x \ \IN \ y) &=& \ (x \ \IN \ y)/\theta &=& \ x/\theta \ \mathsf{\tilde{\imath}} \ y/\theta &=&
+          \ \pi_{\theta}(x) \ \mathsf{\tilde{\imath}} \ \pi_{\theta}(y)
       \end{alignat*}
-    \PN por lo cual $\pi_{\theta}$ preserva las operaciones de supremo e ínfimo.
+    \PN por lo cual $\pi_{\theta}$ preserva las operaciones de supremo e ínfimo, es decir, es un homomorfismo.
   \end{proof}
 
   % Lemma 102: Con prueba. Lemma 12.
@@ -615,10 +630,19 @@
     \PN Si $F: \ACOTADO \rightarrow \ACOTADOPRIMO$ es un homomorfismo, entonces $I_{F}$ es un subuniverso de $\ACOTADOPRIMO$.
   \end{lemma}
   \begin{proof}
-    \PN Dado que $F$ es un homomorfismo de $\RET$ en $ \RETPRIMO$ utilizando el
-    \textbf{Lemma~\ref{lemma_6}} tenemos que $I_{F}$ es subuniverso de $\RETPRIMO$ lo
-    cual ya que $0^{\prime}, 1^{\prime} \in I_{F}$ implica que $I_{F}$ es un subuniverso de $(L^{\prime}, \SU^{\prime},
-    \IN^{\prime}, 0^{\prime}, 1^{\prime})$.
+    \PN Para probar que $I_{F}$ es un subuniverso de $\ACOTADOPRIMO$, debemos ver:
+    \begin{itemize}
+      \item $I_{F} \neq \emptyset$: Ya que $L \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$.
+      \item Preserva $0$ y $1$: $0, 1 \in I_{F}$
+      \item $I_{F}$ es cerrado bajo la operaciones $\SU^{\prime}$ e $\IN^{\prime}$: Sean $a, b \in I_{F}, \ x, y \in L$
+      tales que $F(x) = a$ y $F(y) = b$. Se tiene que:
+      \begin{alignat*}{3}
+        a \ \SU^{\prime} \ b &=& \ F(x) \ \SU^{\prime} \ F(y) &=& \ F(x \ \SU \ y) \in I_{F} \\
+        a \ \IN^{\prime} \ b &=& \ F(x) \ \IN^{\prime} \ F(y) &=& \ F(x \ \IN \ y) \in I_{F}
+      \end{alignat*}
+
+      \PN por lo cual $I_{F}$ es cerrada bajo $\SU^{\prime}$ e $\IN^{\prime}$.
+    \end{itemize}.
   \end{proof}
 
   % Lemma 104: Con prueba. Lemma 14.
@@ -627,9 +651,9 @@
     congruencia sobre $\ACOTADO$.
   \end{lemma}
   \begin{proof}
-    \PN Dado que $F$ es un homomorfismo de $\RET$ en $ \RETPRIMO$ utilizando el
-    \textbf{Lemma~\ref{lemma_}} tenemos que $ker F$ es una congruencia sobre $\RET$ lo cual por definción nos
-    dice que $ker F$ es una congruencia sobre $\ACOTADO$.
+    \PN Dado que $F$ es un homomorfismo de $\RET$ en $ \RETPRIMO$ utilizando el \textbf{Lemma~\ref{lemma_10}} tenemos
+    que $\ker F$ es una congruencia sobre $\RET$ lo cual por definición, nos dice que $\ker F$ es una congruencia sobre
+    $\ACOTADO$.
   \end{proof}
 
   % Lemma 105: Con prueba. Lemma 15.
@@ -641,7 +665,14 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    %TODO
+    \PN \newline
+    \begin{enumerate}[a)]
+      \item Sabemos por el \textbf{Lemma~\ref{lemma_11}} que $\RETCOCIENTADO$ es un reticulado. Además, por el
+      \textbf{Lemma~\ref{lemma_9}} se tiene que $\ACOTADOCOCIENTADO$ es un reticulado acotado.
+      \item Por el \textbf{Lemma~\ref{lemma_11}} se tiene que $\pi_{\theta}$ es un homomorfismo de $\RET$ en
+      $\RETCOCIENTADO$. Además, dado que $\pi_{\theta}(1) = 1/\theta$ y $\pi_{\theta}(0) = 0/\theta$, tenemos que
+      $\pi_{\theta}$ es homomorfismo de $\ACOTADO$ en $\ACOTADOCOCIENTADO$.
+    \end{enumerate}
   \end{proof}
 
   % Lemma 106: Con prueba. Lemma 16.
@@ -649,6 +680,53 @@
     \PN Si $F:\COMPLEMENTADO \rightarrow \COMPLEMENTADOPRIMO$ un homomorfismo biyectivo, entonces $F$ es un isomorfismo.
   \end{lemma}
   \begin{proof}
+      \PN Debemos probar que $F^{-1}$ es un homomorfismo. Sean $F(x), F(y)$ dos elementos cualesquiera de $L^{\prime}$,
+      tenemos que:
+      \begin{multicols}{2}
+        \begin{eqnarray*}
+          1^{\prime} &=& F(1) \\
+          F^{-1}(1^{\prime}) &=& F^{-1}(F(1)) \\
+          F^{-1}(1^{\prime}) &=& 1 \\
+          \\
+          F(x) \ \SU^{\prime} \ F(y) &=& F(x \ \SU \ y) \\
+          F^{-1}(F(x) \ \SU^{\prime} \ F(y)) &=& F^{-1}(F(x \ \SU \ y)) \\
+          &=& x \ \SU \ y \\
+          &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(y)) \\
+          \\
+          1^{\prime} &=& F(1) \\
+          &=& F(x \ \SU \ x^{c}) \\
+          &=& F(x) \ \SU^{\prime} \ F(x^{c}) \\
+          &=& F(x) \ \SU^{\prime} \ F(x)^{c^{\prime}} \\
+          F^{-}(1^{\prime}) &=& F^{-1}(F(x) \ \SU^{\prime} \ F(x)^{c^{\prime}}) \\
+          &=& F^{-1}(F(x)) \ \SU \ F^{-1}(F(x)^{c^{\prime}})) \\
+          F^{-}(1^{\prime}) &=& x \ \SU \ F^{-1}(F(x)^{c^{\prime}}) \qquad (\star_{1})
+        \end{eqnarray*}
+
+        \begin{eqnarray*}
+          0^{\prime} &=& F(0) \\
+          F^{-1}(0^{\prime}) &=& F^{-1}(F(0)) \\
+          F^{-1}(0^{\prime}) &=& 0 \\
+          \\
+          F(x) \ \IN^{\prime} \ F(y) &=& F(x \ \IN \ y) \\
+          F^{-1}(F(x) \ \IN^{\prime} \ F(y)) &=& F^{-1}(F(x \ \IN \ y)) \\
+          &=& x \ \IN \ y \\
+          &=& F^{-1}(F(x)) \ \IN \ F^{-1}(F(y)) \\
+          \\
+          0^{\prime} &=& F(0) \\
+          &=& F(x \ \IN \ x^{c}) \\
+          &=& F(x) \ \IN^{\prime} \ F(x^{c}) \\
+          &=& F(x) \ \IN^{\prime} \ F(x)^{c^{\prime}} \\
+          F^{-}(1^{\prime}) &=& F^{-1}(F(x) \ \IN^{\prime} \ F(x)^{c^{\prime}}) \\
+          &=& F^{-1}(F(x)) \ \IN \ F^{-1}(F(x)^{c^{\prime}})) \\
+          F^{-}(1^{\prime}) &=& x \ \IN \ F^{-1}(F(x)^{c^{\prime}}) \qquad (\star_{2})
+        \end{eqnarray*}
+      \end{multicols}
+
+      \PN Por lo tanto, de $(\star_{1})$ y $(\star_{2})$ obtenemos:
+      \[
+        F^{-1}(F(x)^{c}) = x^{c} = F^{-1}(F(x))^{c}
+      \]
+      \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
   \end{proof}
 
   % Lemma 107: Con prueba. Lemma 17.
@@ -657,6 +735,20 @@
     $\COMPLEMENTADOPRIMO$.
   \end{lemma}
   \begin{proof}
+    \PN Para probar que $I_{F}$ es un subuniverso de $\COMPLEMENTADOPRIMO$, debemos ver:
+    \begin{itemize}
+      \item $I_{F} \neq \emptyset$: Ya que $L \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$.
+      \item Preserva $0$ y $1$: $0, 1 \in I_{F}$
+      \item $I_{F}$ es cerrado bajo la operaciones $\SU^{\prime}, \IN^{\prime}$ y $^{c^{\prime}}$: Sean $a, b \in I_{F},
+      \ x, y \in L$ tales que $F(x) = a$ y $F(y) = b$. Se tiene que:
+      \begin{eqnarray*}
+        a \ \SU^{\prime} \ b &=& F(x) \ \SU^{\prime} \ F(y) = F(x \ \SU \ y) \in I_{F} \\
+        a \ \IN^{\prime} \ b &=& F(x) \ \IN^{\prime} \ F(y) \ = F(x \ \IN \ y) \in I_{F} \\
+        a^{c^{\prime}} &=& F(x)^{c^{\prime}} = \ F(x^{c}) \in I_{F}
+      \end{eqnarray*}
+
+      \PN por lo cual $I_{F}$ es cerrada bajo $\SU^{\prime}, \IN^{\prime}$ y $^{c^{\prime}}$:
+    \end{itemize}.
   \end{proof}
 
   % Lemma 108: Con prueba. Lemma 18.
@@ -665,10 +757,15 @@
     entonces $\ker F$ es una congruencia sobre $\COMPLEMENTADO$.
   \end{lemma}
   \begin{proof}
-    \PN Ya que $F$ es un homomorfismo de $\COMPLEMENTADO$ en $(L^{\prime}, \SU^{\prime}, \IN^{\prime},
-    ^{c^{\prime}}, 0^{\prime}$, tenemos por \textbf{Lemma~\ref{lemma_14}} que $ker F$ es una congruencia sobre $(L, \SU,
-    \IN, ^{c}, 0, 1)$, es decir, solo falta probar que para todos $x, y \in L$ se tiene que $x / ker F = y / ker F$
-    implica $x^{c} / ker F = y^{c} / ker F$, lo cual es dejado al lector.
+    \PN Ya que $F$ es un homomorfismo de $\COMPLEMENTADO$ en $\COMPLEMENTADOPRIMO$, tenemos por
+    \textbf{Lemma~\ref{lemma_14}} que $ker F$ es una congruencia sobre $\COMPLEMENTADO$, es decir, solo falta probar que
+    para todos $x, y \in L$ se tiene que $x / ker F = y / ker F$ implica $x^{c} / ker F = y^{c} / ker F$, veamos esto.
+    Supongamos $x / ker F = y / ker F$, es decir, por definición tenemos que $F(x) = F(y)$, luego:
+    \begin{eqnarray*}
+      F(x) = F(y) &\Leftrightarrow & F(x)^{c} = F(y)^{c} \\
+      &\Leftrightarrow & F(x^{c}) = F(y^{c})
+    \end{eqnarray*}
+    \PN Por lo tanto, $x^{c} / ker F = y^{c} / ker F$.
   \end{proof}
 
   % Lemma 109: Con prueba. Lemma 19.
@@ -680,9 +777,33 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    \begin{itemize}[a)]
-      \item
-    \end{itemize}
+    \PN \newline
+    \begin{enumerate}[a)]
+      \item Sabemos por el \textbf{Lemma~\ref{lemma_11}} que $\ACOTADOCOCIENTADO$ es un reticulado acotado, es decir,
+      solo nos falta ver que $\COMPLEMENTADOCOCIENTADO$ satisface:
+      \begin{itemize}
+        \item \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{s}} \ (x/\theta)^{\tilde{c}} = 1/\theta$ \\\hline
+          \end{tabular} para cada $x/\theta \in L/\theta$: Sea $x/\theta$ un elemento cualquiera de $L/\theta$. Ya que
+          $\COMPLEMENTADO$ satisface (I10), tenemos que $x \ \SU \ x^{c} = 1$. Osea que:
+          \begin{eqnarray*}
+            x \ \SU \ x^{c} = 1 &\Leftrightarrow& (x \ \SU \ x^{c})/\theta = 1/\theta \\
+            &\Leftrightarrow& x/\theta \ \mathsf{\tilde{s}} \ x^{c}/\theta = 1/\theta \\
+            &\Leftrightarrow& x/\theta \ \mathsf{\tilde{s}} \ (x/\theta)^{\tilde{c}} = 1/\theta
+          \end{eqnarray*}
+        \item \begin{tabular}{|c|} \hline $x/\theta \ \mathsf{\tilde{\imath}} \ (x/\theta)^{\tilde{c}} = 0/\theta$ \\
+          \hline \end{tabular} para cada $x/\theta \in L/\theta$: Sea $x/\theta$ un elemento cualquiera de $L/\theta$.
+          Ya que $\COMPLEMENTADO$ satisface (I11), tenemos que $x \ \IN \ x^{c} = 0$. Osea que:
+          \begin{eqnarray*}
+            x \ \IN \ x^{c} = 0 &\Leftrightarrow& (x \ \IN \ x^{c})/\theta = 0/\theta \\
+            &\Leftrightarrow& x/\theta \ \mathsf{\tilde{\imath}} \ x^{c}/\theta = 0/\theta \\
+            &\Leftrightarrow& x/\theta \ \mathsf{\tilde{\imath}} \ (x/\theta)^{\tilde{c}} = 0/\theta
+          \end{eqnarray*}
+      \end{itemize}
+      \item Por el Lema \textbf{Lemma~\ref{lemma_15}} tenemos que $\pi_{\theta}$ es un homomorfismo de $\ACOTADO$ en
+      $(L/\theta, \mathsf{\tilde{s}}, \mathsf{\tilde{\imath}}, 0/\theta, \linebreak 1/\theta)$, cuyo núcleo es $\theta$.
+      Notar que por definición de $^{\tilde{c}}$ tenemos que $x^{c}/\theta = (x/\theta)^{\tilde{c}}$, es decir,
+      $\pi_{\theta}(x^{c}) = (\pi_{\theta}(x))^{\tilde{c}}$, cualquiera sea $x \in L$.
+    \end{enumerate}
   \end{proof}
 
   % Lemma 110: Con prueba. Lemma 20.
@@ -697,8 +818,9 @@
     \PN \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$ \\\hline \end{tabular} Notar que:
     \begin{eqnarray*}
       (x \ \SU \ y) \ \IN \ (x \ \SU \ z) &=& ((x \ \SU \ y) \ \IN \ x) \ \SU \ ((x \ \SU \ y) \ \IN \ z) \\
-      &=& (x \ \SU \ (z \ \IN \ (x \ \SU \ y)) \\
-      &=& (x \ \SU \ ((z \ \IN \ x) \ \SU \ (z \ \IN \ y)) \\
+      &=& x \ \SU \ ((x \ \SU \ y) \ \IN \ z) \\
+      &=& x \ \SU \ (z \ \IN \ (x \ \SU \ y)) \\
+      &=& x \ \SU \ ((z \ \IN \ x) \ \SU \ (z \ \IN \ y)) \\
       &=& (x \ \SU \ (z \ \IN \ x)) \ \SU \ (z \ \IN \ y) \\
       &=& x \ \SU \ (z \ \IN \ y) \\
       &=& x \ \SU \ (y \ \IN \ z)
@@ -707,8 +829,9 @@
     \PN \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$ \\\hline \end{tabular} Notar que:
     \begin{eqnarray*}
       (x \ \IN \ y) \ \SU \ (x \ \IN \ z) &=& ((x \ \IN \ y) \ \SU \ x) \ \IN \ ((x \ \IN \ y) \ \SU \ z) \\
-      &=& (x \ \IN \ (z \ \SU \ (x \ \IN \ y)) \\
-      &=& (x \ \IN \ ((z \ \SU \ x) \ \IN \ (z \ \SU \ y)) \\
+      &=& x \ \IN \ ((x \ \IN \ y) \ \SU \ z) \\
+      &=& x \ \IN \ (z \ \SU \ (x \ \IN \ y)) \\
+      &=& x \ \IN \ ((z \ \SU \ x) \ \IN \ (z \ \SU \ y)) \\
       &=& (x \ \IN \ (z \ \SU \ x)) \ \IN \ (z \ \SU \ y) \\
       &=& x \ \IN \ (z \ \SU \ y) \\
       &=& x \ \IN \ (y \ \SU \ z)
@@ -720,18 +843,18 @@
     \PN Si $\ACOTADO$ un reticulado acotado y distributivo, entonces todo elemento tiene a lo sumo un complemento.
   \end{lemma}
   \begin{proof}
-    \PN Supongamos $x \in L$ tiene complementos $y, z$. Se tiene:
-    \begin{alignat*}{3}
-      y \ \SU \ x &=& \ 1 &=& \ x \ \SU \ z \\
-      y \ \IN \ x &=& \ 0 &=& \ x \ \IN \ z
-    \end{alignat*}
-    \PN por lo cual:
-    \[
-      y = y \ \SU \ 0 = y \ \SU \ (x \ \IN \ z) = (y \ \SU \ x) \ \IN \ (y \ \SU \ z) = 1 \ \IN \ (y \ \SU \ z) = (x \
-      \SU \ z) \ \IN \ (y \ \SU \ z) = (x \ \IN \ y) \ \SU \ z = 0 \ \SU \ z = z
-    \]
-
-    \PN Por lo tanto, $y = z$.
+    \PN Supongamos $x \in L$ tiene complementos $y, z$. Se tiene $y \ \SU \ x = \ 1 = \ x \ \SU \ z$ y $y \ \IN \ x = \
+    0 = \ x \ \IN \ z$. Luego:
+    \begin{eqnarray*}
+      y &=& y \ \SU \ 0 \\
+      &=& y \ \SU \ (x \ \IN \ z) \\
+      &=& (y \ \SU \ x) \ \IN \ (y \ \SU \ z) \\
+      &=& 1 \ \IN \ (y \ \SU \ z) \\
+      &=& (x \ \SU \ z) \ \IN \ (y \ \SU \ z) \\
+      &=& (x \ \IN \ y) \ \SU \ z \\
+      &=& 0 \ \SU \ z \\
+      &=& z
+    \end{eqnarray*}
   \end{proof}
 
   % Lemma 112: Con prueba. Lemma 22.
@@ -752,12 +875,12 @@
       \item \begin{tabular}{|c|} \hline $x, y \in [S) \Rightarrow x \ \IN \ y \in [S)$: \\\hline \end{tabular} Sean $x,
         y$ tales que:
         \begin{eqnarray*}
-          y \geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \ s_{n}, \ \text{ i.e, } y \in [S) \\
-          z \geq t_{1} \ \IN \ t_{2} \ \IN \ \dotsc \ \IN \ t_{m}, \ \text{ i.e, } z \in [S)
+          x \geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \ s_{n}, \ \text{ i.e, } x \in [S) \\
+          y \geq t_{1} \ \IN \ t_{2} \ \IN \ \dotsc \ \IN \ t_{m}, \ \text{ i.e, } y \in [S)
         \end{eqnarray*}
         \PN con $s_{1}, s_{2}, \dotsc, s_{n}, t_{1}, t_{2}, \dotsc, t_{m} \in S$, entonces:
         \[
-          y \ \IN \ z \geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \  s_{n} \ \IN \ t_{1} \ \IN \ t_{2} \ \IN \ \dotsc
+          x \ \IN \ y \geq s_{1} \ \IN \ s_{2} \ \IN \ \dotsc \ \IN \  s_{n} \ \IN \ t_{1} \ \IN \ t_{2} \ \IN \ \dotsc
           \ \IN \ t_{m}
         \]
       \item \begin{tabular}{|c|} \hline $x \in [S)$ y $x \leq y \Rightarrow y \in [S)$: \\\hline \end{tabular} Por
@@ -771,6 +894,7 @@
     existe un elemento maximal en $\POSET$.
   \end{lemma}
 
+  TODO
   % Theorem 114: Con prueba. Theorem 24.
   \begin{theorem} \label{theorem_24}
     \PN \textbf{(Teorema del Filtro Primo)} Sea $\RET$ un reticulado distributivo y $F$ un filtro. Supongamos $x_{0} \in
@@ -854,8 +978,9 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$\\\hline \end{tabular} Ya que $x \ \SU \ x^{c} = 1 \in F$, y F es
-      filtro primo, por definición de filtro primo se cumple que $x \in F$ ó $x^{c} \in F$.
+    \begin{tabular}{|c|} \hline $(1) \Rightarrow (2)$\\\hline \end{tabular} Ya que $1 \in F$ por definición de filtro,
+      y $1 = x \ \SU \ x^{c}$ entonces $x \ \SU \ x^{c} \in F$. Finalmente, por definición de filtro primo se cumple que
+      $x \in F$ ó $x^{c} \in F$.
 
     \vspace{3mm}
     \begin{tabular}{|c|} \hline $(2) \Rightarrow (1)$\\\hline \end{tabular} Supongamos que $x \ \SU \ y \in F$ y que
@@ -878,8 +1003,9 @@
     \[
       b = b \ \IN \ (e \ \SU \ e^{c}) = (b \ \IN \ e)\ \SU \ (b \ \IN \ e^{c}) = b \ \IN \ e
     \]
-    \PN lo cual nos dice que $b$ es cota inferior de $A$. Pero si $b \leq a$, entonces $b = b \ \IN \ a = 0$, es decir,
-    $b = 0$, lo cual es un absurdo dado que por hipótesis sabíamos que $b \neq 0$.
+    \PN es decir, $b \leq e \ \forall e \in A$, lo cual nos dice que $b$ es cota inferior de $A$. Pero si $b \leq a$,
+    entonces $b = b \ \IN \ a = 0$, es decir, $b = 0$, lo cual es un absurdo dado que por hipótesis sabíamos que
+    $b \neq 0$.
   \end{proof}
 
   % Theorem 118: Con prueba. Theorem 28.

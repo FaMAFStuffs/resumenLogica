@@ -69,7 +69,6 @@
     \end{enumerate}
   \end{lemma}
 
-  TODO: detalle
   % Lemma 161. Con prueba. Lemma 71.
   \begin{lemma} \label{lemma_71}
     \PN Sea $(\Sigma, \tau)$ una teoría.
@@ -303,6 +302,7 @@
     \end{enumerate}
   \end{proof}
 
+  % TODO: detalle
   % Lemma 166. Con prueba. Lemma 76.
   \begin{lemma} \label{lemma_76}
     \PN Sea $T = (\Sigma, \tau)$ una teoría, entonces $(S^{\tau}/\mathrm{\dashv \vdash}, \SU^{T}, \IN^{T}, 0^{T},
@@ -312,250 +312,250 @@
     \PN Por definición de Álgebra de Boole, debemos probar que cualesquiera sean $\varphi_{1}, \varphi_{2}, \varphi_{3}
     \in S^{\tau}$, se cumplen las siguientes igualdades:
     \begin{enumerate}[(1)]
-      % \item $[\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Sea $\varphi_{1} \in S^{\tau}$ fija.
-      %   Por la definición de la operación $\IN^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \wedge \varphi_{1})]_{T} = [\varphi_{1}]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge \varphi_{1}) \leftrightarrow \varphi_{1})$.
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \wedge \varphi_{1}) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{1} && \text{TESIS1CONJUNCIONELIMINACION}(1) \\
-      %       3. & (\varphi_{1} \wedge \varphi_{1}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
-      %       4. & \varphi_{1} && \text{HIPOTESIS2} \\
-      %       5. & (\varphi_{1} \wedge \varphi_{1}) && \text{TESIS2CONJUNCIONINTRODUCCION}(4) \\
-      %       6. & \varphi_{1} \rightarrow (\varphi_{1} \wedge \varphi_{1}) && \text{CONCLUSION} \\
-      %       7. & (\varphi_{1} \wedge \varphi_{1}) \leftrightarrow \varphi_{1} && \text{EQUIVALENCIAINTRODUCCION}(3,6)
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Sea $\varphi_{1} \in S^{\tau}$ fija.
-      %   Por la definición de la operación $\SU^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \vee \varphi_{1})]_{T} = [\varphi_{1}]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \varphi_{1}) \leftrightarrow \varphi_{1})$.
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \vee \varphi_{1}) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{1} \leftrightarrow \varphi_{1} && \text{AXIOMALOGICO} \\
-      %       3. & \varphi_{1} \rightarrow \varphi_{1} && \text{EQUIVALENCIAELIMINACION}(2) \\
-      %       4. & \varphi_{1} && \text{TESIS1DIVISIONPORCASOS}(1,3,3) \\
-      %       5. & (\varphi_{1} \vee \varphi_{1}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
-      %       6. & \varphi_{1} && \text{HIPOTESIS3} \\
-      %       7. & (\varphi_{1} \vee \varphi_{1}) && \text{TESIS3DISJUNCIONINTRODUCCION}(6) \\
-      %       8. & \varphi \rightarrow (\varphi_{1} \vee \varphi_{1}) && \text{CONCLUSION} \\
-      %       9. & (\varphi_{1} \vee \varphi_{1}) \leftrightarrow \varphi_{1} && \text{EQUIVALENCIAINTRODUCCION}(5,8)
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{2}]_{T} = [\varphi_{2}]_{T} \ \IN^{T} \ [\varphi_{1}]_{T}$: Sean
-      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \wedge \varphi_{2})]_{T} = [(\varphi_{2} \wedge \varphi_{1})]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge \varphi_{2}) \leftrightarrow (\varphi_{2} \wedge
-      %   \varphi_{1}))$.
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
-      %       3. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(1) \\
-      %       4. & (\varphi_{2} \wedge \varphi_{1}) && \text{TESIS1CONJUNCIONINTRODUCCION}(3,2) \\
-      %       5. & (\varphi_{1} \wedge \varphi_{2}) \rightarrow (\varphi_{2} \wedge \varphi_{1}) && \text{CONCLUSION} \\
-      %       6. & (\varphi_{2} \wedge \varphi_{1}) && \text{HIPOTESIS2} \\
-      %       7. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(6) \\
-      %       8. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(6) \\
-      %       9. & (\varphi_{1} \wedge \varphi_{2}) && \text{TESIS1CONJUNCIONINTRODUCCION}(8,7) \\
-      %       10. & (\varphi_{2} \wedge \varphi_{1}) \rightarrow (\varphi_{1} \wedge \varphi_{2}) && \text{CONCLUSION} \\
-      %       11. & (\varphi_{1} \wedge \varphi_{2}) \leftrightarrow (\varphi_{2} \wedge \varphi_{1}) &&
-      %         \text{EQUIVALENCIAINTRODUCCION}(5,10)
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{2}]_{T} = [\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{1}]_{T}$: Sean
-      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \vee \varphi_{2})]_{T} = [(\varphi_{2} \vee \varphi_{1})]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \varphi_{2}) \leftrightarrow (\varphi_{2} \vee
-      %   \varphi_{1}))$.
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \vee \varphi_{2}) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{1} && \text{HIPOTESIS2} \\
-      %       3. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS2DISJUNCIONINTRODUCCION}(2) \\
-      %       4. & \varphi_{1} \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
-      %       5. & \varphi_{2} && \text{HIPOTESIS3} \\
-      %       6. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS3DISJUNCIONINTRODUCCION}(2) \\
-      %       7. & \varphi_{2} \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
-      %       8. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS1DIVISIONPORCASOS}(1,4,7) \\
-      %       9. & (\varphi_{1} \vee \varphi_{2}) \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
-      %       10. & (\varphi_{2} \vee \varphi_{1}) && \text{HIPOTESIS4} \\
-      %       11. & \varphi_{2} && \text{HIPOTESIS5} \\
-      %       12. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
-      %       13. & \varphi_{2} \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
-      %       14. & \varphi_{1} && \text{HIPOTESIS6} \\
-      %       15. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS6DISJUNCIONINTRODUCCION}(14) \\
-      %       16. & \varphi_{1} \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
-      %       17. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS4DIVISIONPORCASOS}(10,13,16) \\
-      %       18. & (\varphi_{2} \vee \varphi_{1}) \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
-      %       19. & (\varphi_{1} \vee \varphi_{2}) \leftrightarrow (\varphi_{2} \vee \varphi_{1}) &&
-      %         \text{EQUIVALENCIAINTRODUCCION}(9,18)
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{2}]_{T} \ \IN^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \ \IN^{T}
-      %   \ [\varphi_{2}]_{T}) \ \IN^{T} \ [\varphi_{3}]_{T}$: Sean $\varphi_{1}, \varphi_{2}, \varphi_{3} \in
-      %   S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3}))]_{T} = [((\varphi_{1} \wedge \varphi_{2}) \wedge
-      %     \varphi_{3})]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3}))
-      %   \leftrightarrow ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}))$.
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
-      %       3. & (\varphi_{2} \wedge \varphi_{3}) && \text{CONJUNCIONELIMINACION}(1) \\
-      %       4. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(3) \\
-      %       5. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(3) \\
-      %       6. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONINTRODUCCION}(2,4) \\
-      %       7. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) && \text{TESIS1CONJUNCIONINTRODUCCION}(6,5) \\
-      %       8. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) \rightarrow ((\varphi_{1} \wedge \varphi_{2})
-      %         \wedge \varphi_{3}) && \text{CONCLUSION} \\
-      %       9. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) && \text{HIPOTESIS2} \\
-      %       10. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONELIMINACION}(9) \\
-      %       11. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(9) \\
-      %       12. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(10) \\
-      %       13. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(10) \\
-      %       14. & (\varphi_{2} \wedge \varphi_{3}) && \text{CONJUNCIONINTRODUCCION}(13,11) \\
-      %       15. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) && \text{TESIS1CONJUNCIONINTRODUCCION}(12,14) \\
-      %       16. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) \rightarrow (\varphi_{1} \wedge (\varphi_{2}
-      %         \wedge \varphi_{3})) && \text{CONCLUSION} \\
-      %       17. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) \leftrightarrow ((\varphi_{1} \wedge
-      %         \varphi_{2}) \wedge \varphi_{3}) && \text{EQUIVALENCIAINTRODUCCION}(8,16) \\
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \
-      %   \SU^{T} \ [\varphi_{2}]_{T}) \ \SU^{T} \ [\varphi_{3}]_{T}$: Sean $\varphi_{1}, \varphi_{2}, \varphi_{3} \in
-      %   S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3}))]_{T} = [((\varphi_{1} \vee \varphi_{2}) \vee
-      %     \varphi_{3})]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \leftrightarrow
-      %   ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}))$. Notese que por el \textbf{Lemma~\ref{lemma_71}}, basta con
-      %   probar que:
-      %   \[
-      %     \begin{array}{rcl}
-      %       T & \vdash & ((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2})
-      %         \vee \varphi_{3})) \\
-      %       T & \vdash & (((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) \rightarrow (\varphi_{1} \vee (\varphi_{2}
-      %         \vee \varphi_{3})))
-      %     \end{array}
-      %   \]
-      %   \PN Prueba de $((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2})
-      %   \vee \varphi_{3}))$
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{1} && \text{HIPOTESIS2} \\
-      %       3. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(2) \\
-      %       4. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS2DISJUNCIONINTRODUCCION}(3) \\
-      %       5. & \varphi_{1} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
-      %       6. & (\varphi_{2} \vee \varphi_{3}) && \text{HIPOTESIS3} \\
-      %       7. & \varphi_{2} && \text{HIPOTESIS4} \\
-      %       8. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(7) \\
-      %       9. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS4DISJUNCIONINTRODUCCION}(8) \\
-      %       10. & \varphi_{2} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
-      %       11. & \varphi_{3} && \text{HIPOTESIS5} \\
-      %       12. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
-      %       13. & \varphi_{3} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
-      %       14. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS3DIVISIONPORCASOS}(6,10,13) \\
-      %       15. & (\varphi_{2} \vee \varphi_{3}) \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) &&
-      %         \text{CONCLUSION} \\
-      %       16. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS1DIVISIONPORCASOS}(1,5,15) \\
-      %       17. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee
-      %         \varphi_{3}) && \text{CONCLUSION}
-      %     \end{array}
-      %   \]
-      %
-      %   \PN Prueba de $((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee (\varphi_{2}
-      %   \vee \varphi_{3}))$
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{HIPOTESIS1} \\
-      %       2. & \varphi_{3} && \text{HIPOTESIS2} \\
-      %       3. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(2) \\
-      %       4. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS2DISJUNCIONINTRODUCCION}(3) \\
-      %       5. & \varphi_{3} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
-      %       6. & (\varphi_{1} \vee \varphi_{2}) && \text{HIPOTESIS3} \\
-      %       7. & \varphi_{1} && \text{HIPOTESIS4} \\
-      %       8. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS4DISJUNCIONINTRODUCCION}(7) \\
-      %       9. & \varphi_{1} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
-      %       10. & \varphi_{2} && \text{HIPOTESIS5} \\
-      %       11. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(10) \\
-      %       12. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
-      %       13. & \varphi_{2} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
-      %       14. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS3DIVISIONPORCASOS}(6,9,13) \\
-      %       15. & (\varphi_{1} \vee \varphi_{2}) \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) &&
-      %         \text{CONCLUSION} \\
-      %       16. & (\varphi_{1} \vee (\varphi_{2}) \vee \varphi_{3})) && \text{TESIS1DIVISIONPORCASOS}(1,15,5) \\
-      %       17. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee
-      %         \varphi_{3})) && \text{CONCLUSION}
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{2}]_{T}) = [\varphi_{1}]_{T}$: Sean
-      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2}))]_{T} = [\varphi_{1}]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \leftrightarrow
-      %   \varphi_{1})$.
-      %   \[
-      %   \begin{array}{llll}
-      %     1. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) && \text{HIPOTESIS1} \\
-      %     2. & \varphi_{1} \leftrightarrow \varphi_{1} && \text{AXIOMALOGICO} \\
-      %     3. & \varphi_{1} \rightarrow \varphi_{1} && \text{EQUIVALENCIAELIMINACION}(2) \\
-      %     4. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS2} \\
-      %     5. & \varphi_{1} && \text{TESIS2CONJUNCIONELIMINACION}(4) \\
-      %     6. & (\varphi_{1} \wedge \varphi_{2}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
-      %     7. & \varphi_{1} && \text{TESIS1DIVISIONPORCASOS}(1,3,6) \\
-      %     8. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
-      %     9. & \varphi_{1} && \text{HIPOTESIS3} \\
-      %     10. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2} )) && \text{TESIS3DISJUNCIONINTRODUCCION}(9) \\
-      %     11. & \varphi_{1} \rightarrow (\varphi_{1} \vee (\varphi \wedge \varphi_{2})) && \text{CONCLUSION} \\
-      %     12. & ((\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \leftrightarrow \varphi_{1}) &&
-      %       \text{EQUIVALENCIAINTRODUCCION}(8,11)
-      %   \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{2}]_{T}) = [\varphi_{1}]_{T}$: Sean
-      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}))]_{T} = [\varphi_{1}]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \leftrightarrow
-      %   \varphi_{1})$.
-      %   \[
-      %   \begin{array}{llll}
-      %     1. & (\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) && \text{HIPOTESIS1} \\
-      %     2. & \varphi_{1} && \text{TESIS1CONJUNCIONELIMINACION}(1) \\
-      %     3. & (\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
-      %     4. & \varphi_{1} && \text{HIPOTESIS2} \\
-      %     5. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(4) \\
-      %     6. & \varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}) && \text{TESIS2CONJUNCIONINTRODUCCION}(4,5) \\
-      %     7. & \varphi_{1} \rightarrow \varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
-      %     8. & ((\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \leftrightarrow \varphi_{1}) &&
-      %       \text{EQUIVALENCIAINTRODUCCION}(3,7)
-      %   \end{array}
-      %   \]
-      %
+      \item $[\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Sea $\varphi_{1} \in S^{\tau}$ fija.
+        Por la definición de la operación $\IN^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \wedge \varphi_{1})]_{T} = [\varphi_{1}]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge \varphi_{1}) \leftrightarrow \varphi_{1})$.
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \wedge \varphi_{1}) && \text{HIPOTESIS1} \\
+            2. & \varphi_{1} && \text{TESIS1CONJUNCIONELIMINACION}(1) \\
+            3. & (\varphi_{1} \wedge \varphi_{1}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+            4. & \varphi_{1} && \text{HIPOTESIS2} \\
+            5. & (\varphi_{1} \wedge \varphi_{1}) && \text{TESIS2CONJUNCIONINTRODUCCION}(4) \\
+            6. & \varphi_{1} \rightarrow (\varphi_{1} \wedge \varphi_{1}) && \text{CONCLUSION} \\
+            7. & (\varphi_{1} \wedge \varphi_{1}) \leftrightarrow \varphi_{1} && \text{EQUIVALENCIAINTRODUCCION}(3,6)
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Sea $\varphi_{1} \in S^{\tau}$ fija.
+        Por la definición de la operación $\SU^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \vee \varphi_{1})]_{T} = [\varphi_{1}]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \varphi_{1}) \leftrightarrow \varphi_{1})$.
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \vee \varphi_{1}) && \text{HIPOTESIS1} \\
+            2. & \varphi_{1} \leftrightarrow \varphi_{1} && \text{AXIOMALOGICO} \\
+            3. & \varphi_{1} \rightarrow \varphi_{1} && \text{EQUIVALENCIAELIMINACION}(2) \\
+            4. & \varphi_{1} && \text{TESIS1DIVISIONPORCASOS}(1,3,3) \\
+            5. & (\varphi_{1} \vee \varphi_{1}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+            6. & \varphi_{1} && \text{HIPOTESIS3} \\
+            7. & (\varphi_{1} \vee \varphi_{1}) && \text{TESIS3DISJUNCIONINTRODUCCION}(6) \\
+            8. & \varphi \rightarrow (\varphi_{1} \vee \varphi_{1}) && \text{CONCLUSION} \\
+            9. & (\varphi_{1} \vee \varphi_{1}) \leftrightarrow \varphi_{1} && \text{EQUIVALENCIAINTRODUCCION}(5,8)
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{2}]_{T} = [\varphi_{2}]_{T} \ \IN^{T} \ [\varphi_{1}]_{T}$: Sean
+        $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \wedge \varphi_{2})]_{T} = [(\varphi_{2} \wedge \varphi_{1})]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge \varphi_{2}) \leftrightarrow (\varphi_{2} \wedge
+        \varphi_{1}))$.
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS1} \\
+            2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
+            3. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(1) \\
+            4. & (\varphi_{2} \wedge \varphi_{1}) && \text{TESIS1CONJUNCIONINTRODUCCION}(3,2) \\
+            5. & (\varphi_{1} \wedge \varphi_{2}) \rightarrow (\varphi_{2} \wedge \varphi_{1}) && \text{CONCLUSION} \\
+            6. & (\varphi_{2} \wedge \varphi_{1}) && \text{HIPOTESIS2} \\
+            7. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(6) \\
+            8. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(6) \\
+            9. & (\varphi_{1} \wedge \varphi_{2}) && \text{TESIS1CONJUNCIONINTRODUCCION}(8,7) \\
+            10. & (\varphi_{2} \wedge \varphi_{1}) \rightarrow (\varphi_{1} \wedge \varphi_{2}) && \text{CONCLUSION} \\
+            11. & (\varphi_{1} \wedge \varphi_{2}) \leftrightarrow (\varphi_{2} \wedge \varphi_{1}) &&
+              \text{EQUIVALENCIAINTRODUCCION}(5,10)
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{2}]_{T} = [\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{1}]_{T}$: Sean
+        $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \vee \varphi_{2})]_{T} = [(\varphi_{2} \vee \varphi_{1})]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \varphi_{2}) \leftrightarrow (\varphi_{2} \vee
+        \varphi_{1}))$.
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \vee \varphi_{2}) && \text{HIPOTESIS1} \\
+            2. & \varphi_{1} && \text{HIPOTESIS2} \\
+            3. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS2DISJUNCIONINTRODUCCION}(2) \\
+            4. & \varphi_{1} \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
+            5. & \varphi_{2} && \text{HIPOTESIS3} \\
+            6. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS3DISJUNCIONINTRODUCCION}(2) \\
+            7. & \varphi_{2} \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
+            8. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS1DIVISIONPORCASOS}(1,4,7) \\
+            9. & (\varphi_{1} \vee \varphi_{2}) \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
+            10. & (\varphi_{2} \vee \varphi_{1}) && \text{HIPOTESIS4} \\
+            11. & \varphi_{2} && \text{HIPOTESIS5} \\
+            12. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
+            13. & \varphi_{2} \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+            14. & \varphi_{1} && \text{HIPOTESIS6} \\
+            15. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS6DISJUNCIONINTRODUCCION}(14) \\
+            16. & \varphi_{1} \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+            17. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS4DIVISIONPORCASOS}(10,13,16) \\
+            18. & (\varphi_{2} \vee \varphi_{1}) \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+            19. & (\varphi_{1} \vee \varphi_{2}) \leftrightarrow (\varphi_{2} \vee \varphi_{1}) &&
+              \text{EQUIVALENCIAINTRODUCCION}(9,18)
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{2}]_{T} \ \IN^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \ \IN^{T}
+        \ [\varphi_{2}]_{T}) \ \IN^{T} \ [\varphi_{3}]_{T}$: Sean $\varphi_{1}, \varphi_{2}, \varphi_{3} \in
+        S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3}))]_{T} = [((\varphi_{1} \wedge \varphi_{2}) \wedge
+          \varphi_{3})]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3}))
+        \leftrightarrow ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}))$.
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) && \text{HIPOTESIS1} \\
+            2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
+            3. & (\varphi_{2} \wedge \varphi_{3}) && \text{CONJUNCIONELIMINACION}(1) \\
+            4. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(3) \\
+            5. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(3) \\
+            6. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONINTRODUCCION}(2,4) \\
+            7. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) && \text{TESIS1CONJUNCIONINTRODUCCION}(6,5) \\
+            8. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) \rightarrow ((\varphi_{1} \wedge \varphi_{2})
+              \wedge \varphi_{3}) && \text{CONCLUSION} \\
+            9. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) && \text{HIPOTESIS2} \\
+            10. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONELIMINACION}(9) \\
+            11. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(9) \\
+            12. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(10) \\
+            13. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(10) \\
+            14. & (\varphi_{2} \wedge \varphi_{3}) && \text{CONJUNCIONINTRODUCCION}(13,11) \\
+            15. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) && \text{TESIS1CONJUNCIONINTRODUCCION}(12,14) \\
+            16. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) \rightarrow (\varphi_{1} \wedge (\varphi_{2}
+              \wedge \varphi_{3})) && \text{CONCLUSION} \\
+            17. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) \leftrightarrow ((\varphi_{1} \wedge
+              \varphi_{2}) \wedge \varphi_{3}) && \text{EQUIVALENCIAINTRODUCCION}(8,16) \\
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \
+        \SU^{T} \ [\varphi_{2}]_{T}) \ \SU^{T} \ [\varphi_{3}]_{T}$: Sean $\varphi_{1}, \varphi_{2}, \varphi_{3} \in
+        S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3}))]_{T} = [((\varphi_{1} \vee \varphi_{2}) \vee
+          \varphi_{3})]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \leftrightarrow
+        ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}))$. Notese que por el \textbf{Lemma~\ref{lemma_71}}, basta con
+        probar que:
+        \[
+          \begin{array}{rcl}
+            T & \vdash & ((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2})
+              \vee \varphi_{3})) \\
+            T & \vdash & (((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) \rightarrow (\varphi_{1} \vee (\varphi_{2}
+              \vee \varphi_{3})))
+          \end{array}
+        \]
+        \PN Prueba de $((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2})
+        \vee \varphi_{3}))$
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{HIPOTESIS1} \\
+            2. & \varphi_{1} && \text{HIPOTESIS2} \\
+            3. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(2) \\
+            4. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS2DISJUNCIONINTRODUCCION}(3) \\
+            5. & \varphi_{1} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
+            6. & (\varphi_{2} \vee \varphi_{3}) && \text{HIPOTESIS3} \\
+            7. & \varphi_{2} && \text{HIPOTESIS4} \\
+            8. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(7) \\
+            9. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS4DISJUNCIONINTRODUCCION}(8) \\
+            10. & \varphi_{2} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
+            11. & \varphi_{3} && \text{HIPOTESIS5} \\
+            12. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
+            13. & \varphi_{3} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
+            14. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS3DIVISIONPORCASOS}(6,10,13) \\
+            15. & (\varphi_{2} \vee \varphi_{3}) \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) &&
+              \text{CONCLUSION} \\
+            16. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS1DIVISIONPORCASOS}(1,5,15) \\
+            17. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee
+              \varphi_{3}) && \text{CONCLUSION}
+          \end{array}
+        \]
+
+        \PN Prueba de $((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee (\varphi_{2}
+        \vee \varphi_{3}))$
+        \[
+          \begin{array}{llll}
+            1. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{HIPOTESIS1} \\
+            2. & \varphi_{3} && \text{HIPOTESIS2} \\
+            3. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(2) \\
+            4. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS2DISJUNCIONINTRODUCCION}(3) \\
+            5. & \varphi_{3} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
+            6. & (\varphi_{1} \vee \varphi_{2}) && \text{HIPOTESIS3} \\
+            7. & \varphi_{1} && \text{HIPOTESIS4} \\
+            8. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS4DISJUNCIONINTRODUCCION}(7) \\
+            9. & \varphi_{1} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
+            10. & \varphi_{2} && \text{HIPOTESIS5} \\
+            11. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(10) \\
+            12. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
+            13. & \varphi_{2} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
+            14. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS3DIVISIONPORCASOS}(6,9,13) \\
+            15. & (\varphi_{1} \vee \varphi_{2}) \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) &&
+              \text{CONCLUSION} \\
+            16. & (\varphi_{1} \vee (\varphi_{2}) \vee \varphi_{3})) && \text{TESIS1DIVISIONPORCASOS}(1,15,5) \\
+            17. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee
+              \varphi_{3})) && \text{CONCLUSION}
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{2}]_{T}) = [\varphi_{1}]_{T}$: Sean
+        $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2}))]_{T} = [\varphi_{1}]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \leftrightarrow
+        \varphi_{1})$.
+        \[
+        \begin{array}{llll}
+          1. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) && \text{HIPOTESIS1} \\
+          2. & \varphi_{1} \leftrightarrow \varphi_{1} && \text{AXIOMALOGICO} \\
+          3. & \varphi_{1} \rightarrow \varphi_{1} && \text{EQUIVALENCIAELIMINACION}(2) \\
+          4. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS2} \\
+          5. & \varphi_{1} && \text{TESIS2CONJUNCIONELIMINACION}(4) \\
+          6. & (\varphi_{1} \wedge \varphi_{2}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+          7. & \varphi_{1} && \text{TESIS1DIVISIONPORCASOS}(1,3,6) \\
+          8. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+          9. & \varphi_{1} && \text{HIPOTESIS3} \\
+          10. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2} )) && \text{TESIS3DISJUNCIONINTRODUCCION}(9) \\
+          11. & \varphi_{1} \rightarrow (\varphi_{1} \vee (\varphi \wedge \varphi_{2})) && \text{CONCLUSION} \\
+          12. & ((\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \leftrightarrow \varphi_{1}) &&
+            \text{EQUIVALENCIAINTRODUCCION}(8,11)
+        \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{2}]_{T}) = [\varphi_{1}]_{T}$: Sean
+        $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}))]_{T} = [\varphi_{1}]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \leftrightarrow
+        \varphi_{1})$.
+        \[
+        \begin{array}{llll}
+          1. & (\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) && \text{HIPOTESIS1} \\
+          2. & \varphi_{1} && \text{TESIS1CONJUNCIONELIMINACION}(1) \\
+          3. & (\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+          4. & \varphi_{1} && \text{HIPOTESIS2} \\
+          5. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(4) \\
+          6. & \varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}) && \text{TESIS2CONJUNCIONINTRODUCCION}(4,5) \\
+          7. & \varphi_{1} \rightarrow \varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+          8. & ((\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \leftrightarrow \varphi_{1}) &&
+            \text{EQUIVALENCIAINTRODUCCION}(3,7)
+        \end{array}
+        \]
+
       \item $0^{T} \ \SU^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Ya que $(\varphi \wedge \lnot\varphi)$ es
         refutable en $T$, tenemos que el \textbf{Lemma~\ref{lemma_75}} nos dice que $0^{T} =
         \{\varphi \in S^{\tau}: \varphi$ es refutable de $T\} = [(\varphi \wedge \lnot\varphi)]_{T}$, es decir,
@@ -575,129 +575,129 @@
           \end{array}
         \]
 
-      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ 1^{T} = 1^{T}$: Ya que $\forall x_{1} (x_{1} \equiv x_{1})$ es un teorema de
-      %   $T$, atestiguado por la prueba
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & c \equiv c && \text{AXIOMALOGICO} \\
-      %       2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1)
-      %     \end{array}
-      %   \]
-      %   \PN donde $c$ es un nombre de constante que no pertenece a $\mathcal{C}$ y tal que $(\mathcal{C} \cup \{c\},
-      %   \mathcal{F}, \mathcal{R}, a)$ es un tipo. Tenemos que el \textbf{Lemma~\ref{lemma_75}} nos dice que $1^{T} =
-      %   \{\varphi \in S^{\tau}: \varphi$ es un teorema de $T\} = [\forall x_{1} (x_{1} \equiv x_{1})]_{T}$, es decir,
-      %   que debemos probar que para cualquier $\varphi_{1} \in S^{\tau}$, se da que:
-      %   \[
-      %     [\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = \{\varphi \in S^{\tau}: \varphi \
-      %     \text{es un teorema de} \ T\}
-      %   \]
-      %  \PN Ya que $[\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = [\varphi_{1} \vee \forall
-      %  x_{1}(x_{1}\equiv x_{1})]_{T}$, debemos probar que $\varphi_{1} \vee \forall x_{1} (x_{1} \equiv x_{1})$ es un
-      %  teorema de $T$, lo cual es atestiguado por la siguiente prueba
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & c \equiv c && \text{AXIOMALOGICO} \\
-      %       2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1) \\
-      %       3. & (\varphi_{1} \vee \forall x_{1} (x_{1}\equiv x_{1})) && \text{DISJUNCIONINTRODUCCION}(2)
-      %     \end{array}
-      %   \]
-      %
-      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{1}]_{T})^{\mathsf{c}^{T}} = 1^{T}$: Sea $\varphi_{1} \in S^{\tau}$
-      %   fija. Ya que $\forall x_{1} (x_{1} \equiv x_{1})$ es un teorema de $T$ y por la definición de la operación
-      %   $\SU^{T}$ debemos probar que:
-      %   \[
-      %     [(\varphi_{1} \vee \lnot\varphi_{1})]_{T} = [\forall x_{1} (x_{1} \equiv x_{1})]_{T}
-      %   \]
-      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \lnot\varphi_{1}) \leftrightarrow \forall x_{1}
-      %   (x_{1} \equiv x_{1}))$.
-      %   \[
-      %     \begin{array}{llll}
-      %       1. & (\varphi_{1} \vee \lnot\varphi_{1}) && \text{HIPOTESIS1} \\
-      %       2. & c \equiv c && \text{AXIOMALOGICO} \\
-      %       3. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{TESIS1GENERALIZACION}(2) \\
-      %       4. & (\varphi_{1} \vee \lnot\varphi_{1}) \rightarrow \forall x_{1} (x_{1} \equiv x_{1}) &&
-      %         \text{CONCLUSION} \\
-      %       5. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{HIPOTESIS2} \\
-      %       6. & (\varphi_{1} \vee \lnot\varphi_{1}) && \text{TESIS2AXIOMALOGICO} \\
-      %       7. & \forall x_{1} (x_{1} \equiv x_{1}) \rightarrow (\varphi_{1} \vee \lnot\varphi_{1}) &&
-      %         \text{CONCLUSION} \\
-      %       8. & (\varphi_{1} \vee \lnot\varphi_{1}) \leftrightarrow \forall x_{1} (x_{1} \equiv x_{1}) &&
-      %         \text{EQUIVALENCIAINTRODUCCION}(8,16) \\
-      %     \end{array}
-      %   \]
-      %   \PN donde $c$ es un nombre de constante que no pertenece a $\mathcal{C}$ y tal que $(\mathcal{C} \cup \{c\},
-      %   \mathcal{F}, \mathcal{R}, a)$ es un tipo.
+      \item $[\varphi_{1}]_{T} \ \SU^{T} \ 1^{T} = 1^{T}$: Ya que $\forall x_{1} (x_{1} \equiv x_{1})$ es un teorema de
+        $T$, atestiguado por la prueba
+        \[
+          \begin{array}{llll}
+            1. & c \equiv c && \text{AXIOMALOGICO} \\
+            2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1)
+          \end{array}
+        \]
+        \PN donde $c$ es un nombre de constante que no pertenece a $\mathcal{C}$ y tal que $(\mathcal{C} \cup \{c\},
+        \mathcal{F}, \mathcal{R}, a)$ es un tipo. Tenemos que el \textbf{Lemma~\ref{lemma_75}} nos dice que $1^{T} =
+        \{\varphi \in S^{\tau}: \varphi$ es un teorema de $T\} = [\forall x_{1} (x_{1} \equiv x_{1})]_{T}$, es decir,
+        que debemos probar que para cualquier $\varphi_{1} \in S^{\tau}$, se da que:
+        \[
+          [\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = \{\varphi \in S^{\tau}: \varphi \
+          \text{es un teorema de} \ T\}
+        \]
+       \PN Ya que $[\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = [\varphi_{1} \vee \forall
+       x_{1}(x_{1}\equiv x_{1})]_{T}$, debemos probar que $\varphi_{1} \vee \forall x_{1} (x_{1} \equiv x_{1})$ es un
+       teorema de $T$, lo cual es atestiguado por la siguiente prueba
+        \[
+          \begin{array}{llll}
+            1. & c \equiv c && \text{AXIOMALOGICO} \\
+            2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1) \\
+            3. & (\varphi_{1} \vee \forall x_{1} (x_{1}\equiv x_{1})) && \text{DISJUNCIONINTRODUCCION}(2)
+          \end{array}
+        \]
+
+      \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{1}]_{T})^{\mathsf{c}^{T}} = 1^{T}$: Sea $\varphi_{1} \in S^{\tau}$
+        fija. Ya que $\forall x_{1} (x_{1} \equiv x_{1})$ es un teorema de $T$ y por la definición de la operación
+        $\SU^{T}$ debemos probar que:
+        \[
+          [(\varphi_{1} \vee \lnot\varphi_{1})]_{T} = [\forall x_{1} (x_{1} \equiv x_{1})]_{T}
+        \]
+        \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \lnot\varphi_{1}) \leftrightarrow \forall x_{1}
+        (x_{1} \equiv x_{1}))$.
+        \[
+          \begin{array}{llll}
+            1. & (\varphi_{1} \vee \lnot\varphi_{1}) && \text{HIPOTESIS1} \\
+            2. & c \equiv c && \text{AXIOMALOGICO} \\
+            3. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{TESIS1GENERALIZACION}(2) \\
+            4. & (\varphi_{1} \vee \lnot\varphi_{1}) \rightarrow \forall x_{1} (x_{1} \equiv x_{1}) &&
+              \text{CONCLUSION} \\
+            5. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{HIPOTESIS2} \\
+            6. & (\varphi_{1} \vee \lnot\varphi_{1}) && \text{TESIS2AXIOMALOGICO} \\
+            7. & \forall x_{1} (x_{1} \equiv x_{1}) \rightarrow (\varphi_{1} \vee \lnot\varphi_{1}) &&
+              \text{CONCLUSION} \\
+            8. & (\varphi_{1} \vee \lnot\varphi_{1}) \leftrightarrow \forall x_{1} (x_{1} \equiv x_{1}) &&
+              \text{EQUIVALENCIAINTRODUCCION}(8,16) \\
+          \end{array}
+        \]
+        \PN donde $c$ es un nombre de constante que no pertenece a $\mathcal{C}$ y tal que $(\mathcal{C} \cup \{c\},
+        \mathcal{F}, \mathcal{R}, a)$ es un tipo.
 
       \item $[\varphi_{1}]_{T} \ \IN^{T} \ ([\varphi_{1}]_{T})^{\mathsf{c}^{T}} = 0^{T}$
 
-      % \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \ \IN^{T}
-      %   \ [\varphi_{2}]_{T}) \ \SU^{T} \  ([\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{3}]_{T})$: Sean $\varphi_{1},
-      %   \varphi_{2}, \varphi_{3} \in S^{\tau}$ fijas. Por la definición de las operaciones $\SU^{T}, \IN^{T}$ debemos
-      %   probar que:
-      %     \[
-      %       [(\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))]_{T} = [((\varphi_{1} \wedge \varphi_{2}) \vee
-      %       (\varphi_{1} \wedge \varphi_{3}))]_{T}
-      %     \]
-      %     \PN es decir, debemos probar que $T \vdash (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \leftrightarrow
-      %     ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3}))$. Notese que por el
-      %     \textbf{Lemma~\ref{lemma_71}}, basta con probar que:
-      %     \[
-      %       \begin{array}{rcl}
-      %         T & \vdash & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge
-      %           \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \\
-      %         T & \vdash & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow
-      %           (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))
-      %       \end{array}
-      %     \]
-      %     \PN Prueba de $(\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge
-      %     \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3}))$
-      %     \[
-      %       \begin{array}{llll}
-      %         1. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) && \text{HIPOTESIS1} \\
-      %         2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
-      %         3. & (\varphi_{2} \vee \varphi_{3}) && \text{CONJUNCIONELIMINACION}(1) \\
-      %         4. & \varphi_{2} && \text{HIPOTESIS2} \\
-      %         5. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONINTRODUCCION}(2,4) \\
-      %         6. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
-      %           \text{TESIS2DISJUNCIONINTRODUCCION}(5) \\
-      %         7. & \varphi_{2} \rightarrow ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
-      %           \text{CONCLUSION} \\
-      %         8. & \varphi_{3} && \text{HIPOTESIS3} \\
-      %         9. & (\varphi_{1} \wedge \varphi_{3}) && \text{CONJUNCIONINTRODUCCION}(2,8) \\
-      %         10. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
-      %           \text{TESIS3DISJUNCIONINTRODUCCION}(9) \\
-      %         11. & \varphi_{3} \rightarrow ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
-      %           \text{CONCLUSION} \\
-      %         12. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
-      %           \text{TESIS1DIVISIONPORCASOS}(3,7,11) \\
-      %         13. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge \varphi_{2})
-      %           \vee (\varphi_{1} \wedge \varphi_{3})) && \text{CONCLUSION}
-      %       \end{array}
-      %     \]
-      %     \PN Prueba de $((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow
-      %       (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))$
-      %     \[
-      %     \begin{array}{llll}
-      %       1. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) && \text{HIPOTESIS1} \\
-      %       2. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS2} \\
-      %       3. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(2) \\
-      %       4. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(2) \\
-      %       5. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(4) \\
-      %       6. & \varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}) && \text{TESIS2CONJUNCIONINTRODUCCION}(3,5) \\
-      %       7. & (\varphi_{1} \wedge \varphi_{2})\rightarrow (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) &&
-      %         \text{CONCLUSION} \\
-      %       8. & (\varphi_{1} \wedge \varphi_{3}) && \text{HIPOTESIS}3 \\
-      %       9. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(8) \\
-      %       10. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(8) \\
-      %       11. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(10) \\
-      %       12. & \varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}) && \text{TESIS3CONJUNCIONINTRODUCCION}(9,11) \\
-      %       13. & (\varphi_{1} \wedge \varphi_{3}) \rightarrow (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) &&
-      %         \text{CONCLUSION} \\
-      %       14. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) && \text{TESIS1DIVISIONPORCASOS}(1,7,13) \\
-      %       15. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow (\varphi_{1}
-      %         \wedge (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION}
-      %     \end{array}
-      %     \]
+      \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \ \IN^{T}
+        \ [\varphi_{2}]_{T}) \ \SU^{T} \  ([\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{3}]_{T})$: Sean $\varphi_{1},
+        \varphi_{2}, \varphi_{3} \in S^{\tau}$ fijas. Por la definición de las operaciones $\SU^{T}, \IN^{T}$ debemos
+        probar que:
+          \[
+            [(\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))]_{T} = [((\varphi_{1} \wedge \varphi_{2}) \vee
+            (\varphi_{1} \wedge \varphi_{3}))]_{T}
+          \]
+          \PN es decir, debemos probar que $T \vdash (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \leftrightarrow
+          ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3}))$. Notese que por el
+          \textbf{Lemma~\ref{lemma_71}}, basta con probar que:
+          \[
+            \begin{array}{rcl}
+              T & \vdash & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge
+                \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \\
+              T & \vdash & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow
+                (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))
+            \end{array}
+          \]
+          \PN Prueba de $(\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge
+          \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3}))$
+          \[
+            \begin{array}{llll}
+              1. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) && \text{HIPOTESIS1} \\
+              2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
+              3. & (\varphi_{2} \vee \varphi_{3}) && \text{CONJUNCIONELIMINACION}(1) \\
+              4. & \varphi_{2} && \text{HIPOTESIS2} \\
+              5. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONINTRODUCCION}(2,4) \\
+              6. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+                \text{TESIS2DISJUNCIONINTRODUCCION}(5) \\
+              7. & \varphi_{2} \rightarrow ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+                \text{CONCLUSION} \\
+              8. & \varphi_{3} && \text{HIPOTESIS3} \\
+              9. & (\varphi_{1} \wedge \varphi_{3}) && \text{CONJUNCIONINTRODUCCION}(2,8) \\
+              10. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+                \text{TESIS3DISJUNCIONINTRODUCCION}(9) \\
+              11. & \varphi_{3} \rightarrow ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+                \text{CONCLUSION} \\
+              12. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+                \text{TESIS1DIVISIONPORCASOS}(3,7,11) \\
+              13. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge \varphi_{2})
+                \vee (\varphi_{1} \wedge \varphi_{3})) && \text{CONCLUSION}
+            \end{array}
+          \]
+          \PN Prueba de $((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow
+            (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))$
+          \[
+          \begin{array}{llll}
+            1. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) && \text{HIPOTESIS1} \\
+            2. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS2} \\
+            3. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(2) \\
+            4. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(2) \\
+            5. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(4) \\
+            6. & \varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}) && \text{TESIS2CONJUNCIONINTRODUCCION}(3,5) \\
+            7. & (\varphi_{1} \wedge \varphi_{2})\rightarrow (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) &&
+              \text{CONCLUSION} \\
+            8. & (\varphi_{1} \wedge \varphi_{3}) && \text{HIPOTESIS}3 \\
+            9. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(8) \\
+            10. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(8) \\
+            11. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(10) \\
+            12. & \varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}) && \text{TESIS3CONJUNCIONINTRODUCCION}(9,11) \\
+            13. & (\varphi_{1} \wedge \varphi_{3}) \rightarrow (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) &&
+              \text{CONCLUSION} \\
+            14. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) && \text{TESIS1DIVISIONPORCASOS}(1,7,13) \\
+            15. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow (\varphi_{1}
+              \wedge (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION}
+          \end{array}
+          \]
     \end{enumerate}
   \end{proof}
 
@@ -911,7 +911,7 @@
     \PN \textbf{(Completitud) (G{\"o}del)} Sea $T = (\Sigma, \tau)$ una teoría de primer orden. Si $T \models \varphi$
     entonces $T \vdash \varphi$.
   \end{theorem}
-  \begin{proof} % TODO error de compilación.
+  \begin{proof}
     Primero probaremos completitud para el caso en que $\tau $ tiene una cantidad infinita de nombres de constante que no ocurren en las sentencias de $ \Sigma $. Lo probaremos por el absurdo, es decir supongamos que $\varphi_{0} $ es tal que $(\Sigma, \tau)\models \varphi_{0}$ y $(\Sigma, \tau)\not\vdash \varphi_{0}.$ Notese que ya que $(\Sigma, \tau)\not\vdash \varphi_{0}$, tenemos que $\lbrack\lnot \varphi_{0}\rbrack\not=0^{\mathcal{A}_{(\Sigma, \tau)}}.$ Para cada $j\in \mathbb{N}$, sea $w_{j}\in Var$ tal que $ Li(\gamma _{j})\subseteq \{w_{j}\}$. Para cada $j$, declaremos $\gamma _{j}=_{d}\gamma _{j}(w_{j})$. Notese que por el Lema 163 tenemos que $\inf \{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\} = \lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack$, para cada $j=1,2,\dotsc$. Por el Teorema de Rasiova y Sikorski tenemos que hay un filtro primo de $\mathcal{A}_{(\Sigma, \tau)}$ , $\mathcal{U}$ el cual cumple:
 
     (a) $\lbrack\lnot \varphi_{0}\rbrack\in \mathcal{U}$

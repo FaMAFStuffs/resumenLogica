@@ -69,12 +69,13 @@
     \end{enumerate}
   \end{lemma}
 
+  TODO: detalle
   % Lemma 161. Con prueba. Lemma 71.
   \begin{lemma} \label{lemma_71}
     \PN Sea $(\Sigma, \tau)$ una teoría.
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
       \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $(\Sigma \cup \{\varphi_{1}, \dotsc,
-      \varphi_{n}\},\tau ) \vdash \varphi$ entonces $(\Sigma, \tau) \vdash \varphi$.
+      \varphi_{n}\},\tau) \vdash \varphi$ entonces $(\Sigma, \tau) \vdash \varphi$.
       \item Si $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y $\varphi$ se deduce por alguna regla universal
       a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, entonces $(\Sigma, \tau) \vdash \varphi$.
       \item Si $(\Sigma, \tau)$ es inconsistente, entonces $(\Sigma, \tau) \vdash \varphi$, para toda sentencia
@@ -87,51 +88,127 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    \begin{enumerate}
-      \item Haremos el caso $n=2.$ Supongamos entonces que $(\Sigma, \tau)\vdash \varphi_{1},\varphi_{2}$ y $(\Sigma \cup \{\varphi_{1},\varphi_{2}\},\tau )\vdash \varphi $. Para $i=1,2$, sea $(\varphi_{1}^{i}\dotsc\varphi_{n_{i}}^{i},J_{1}^{i}\dotsc J_{n_{i}}^{i})$ una prueba de $ \varphi_{i}$ en $(\Sigma, \tau)$. Sea $(\psi_{1}\dotsc\psi_{n},J_{1}\dotsc J_{n})$ una prueba de $\varphi$ en $(\Sigma \cup \{\varphi_{1},\varphi_{2}\},\tau )$. Notese que por el Lema 154 podemos suponer que estas tres pruebas no comparten ningun nombre de constante auxiliar y que tampoco comparten numeros asociados a hipotesis o tesis. Para cada $i=1, \dotsc, n$, definamos $\widetilde{J_{i}}$ de la siguiente manera.
+    \begin{enumerate}[(1)]
+      \item Haremos el caso $n = 2.$ Supongamos entonces que $(\Sigma, \tau) \vdash \varphi_{1}, \varphi_{2}$ y
+        \linebreak $(\Sigma \ \cup \ \{\varphi_{1}, \varphi_{2}\}, \tau) \vdash \varphi$. Sean:
+        \begin{itemize}
+          \item $(\varphi_{1}^{1} \dotsc \varphi_{n_{1}}^{1}, J_{1}^{1} \dotsc J_{n_{1}}^{1})$ una prueba de
+            $\varphi_{1}$ en $(\Sigma, \tau)$.
+          \item $(\varphi_{1}^{2} \dotsc \varphi_{n_{2}}^{2}, J_{1}^{2} \dotsc J_{n_{2}}^{2})$ una prueba de
+            $\varphi_{2}$ en $(\Sigma, \tau)$.
+          \item $(\psi_{1} \dotsc \psi_{n}, J_{1} \dotsc J_{n})$ una prueba de $\varphi$ en $(\Sigma \ \cup \
+            \{\varphi_{1}, \varphi_{2}\}, \tau)$.
+        \end{itemize}
 
-      - Si $\psi_{i}=\varphi_{1}$ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(\overline{n_{1}})$
-      - Si $\psi_{i}=\varphi_{2}$ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(\overline{n_{1}+n_{2}})$.
-      - Si $\psi_{i}\notin \{\varphi_{1},\varphi_{2}\}$ y $J_{i}=\mathrm{ AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{AXIOMAPROPIO}$.
-      - Si $J_{i}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
-      - Si $J_{i}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}}=\mathrm{ CONCLUSION}$.
-      - Si $J_{i}=\mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
-      - Si $J_{i}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $ \alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}}=\alpha P(\overline{l_{1}+n_{1}+n_{2}}, \dotsc,  \overline{l_{k}+n_{1}+n_{2}})$
-      Para cada $i=1, \dotsc, n_{2}$, definamos $\widetilde{J_{i}^{2}}$ de la siguiente manera.
+        \PN Notese que por el \textbf{Lemma~\ref{lemma_70}}, podemos suponer que estas tres pruebas no comparten ningún
+        nombre de constante auxiliar y que tampoco comparten números asociados a hipotesis o tesis.
 
-      - Si $J_{i}^{2}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}^{2} }=\mathrm{AXIOMAPROPIO}$
-      - Si $J_{i}^{2}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}^{2} }=\mathrm{AXIOMALOGICO}$
-      - Si $J_{i}^{2}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}^{2}}= \mathrm{CONCLUSION}$.
-      - Si $J_{i}^{2}=\mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{ J_{i}^{2}}=\mathrm{HIPOTESIS}\bar{k}$
-      - Si $J_{i}^{2}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $\alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}^{2}}=\alpha P(\overline{l_{1}+n_{1}}, \dotsc,  \overline{l_{k}+n_{1}})$
-      Es facil chequear que
+        \vspace{3mm}
+        \PN Para cada $i = 1, \dotsc, n$, definamos $\widetilde{J_{i}}$ de la siguiente manera:
+        \begin{itemize}
+          \item Si $\psi_{i} = \varphi_{1}$ y $J_{i} = \mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}} =
+            \mathrm{EVOCACION}(\overline{n_{1}})$
+          \item Si $\psi_{i} = \varphi_{2}$ y $J_{i} = \mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}} =
+            \mathrm{EVOCACION}(\overline{n_{1} + n_{2}})$.
+          \item Si $\psi_{i} \notin \{\varphi_{1},\varphi_{2}\}$ y $J_{i} = \mathrm{AXIOMAPROPIO}$, entonces
+            $\widetilde{J_{i}} = \mathrm{AXIOMAPROPIO}$.
+          \item Si $J_{i} = \mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
+          \item Si $J_{i} = \mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}} = \mathrm{CONCLUSION}$.
+          \item Si $J_{i} = \mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
+          \item Si $J_{i} = \alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $\alpha \in \{\varepsilon\} \
+            \cup \ \{\mathrm{TESIS}\bar{k}: k \in \mathbb{N}\}$, entonces \linebreak $\widetilde{J_{i}} = \alpha
+            P(\overline{l_{1} + n_{1}+n_{2}}, \dotsc, \overline{l_{k} + n_{1} + n_{2}})$
+        \end{itemize}
 
-      $\displaystyle (\varphi_{1}^{1}\dotsc\varphi_{n_{1}}^{1}\varphi_{1}^{2}\dotsc\varphi_{n_{2}}^{2}\psi_{1}\dotsc\psi_{n},J_{1}^{1}\dotsc J_{n_{1}}^{1}\widetilde{ J_{1}^{2}}\dotsc\widetilde{J_{n_{2}}^{2}}\widetilde{J_{1}}\dotsc\widetilde{J_{n}}) $
+        \PN Para cada $i = 1, \dotsc, n_{2}$, definamos $\widetilde{J_{i}^{2}}$ de la siguiente manera.
+        \begin{itemize}
+          \item Si $J_{i}^{2} = \mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}^{2}} = \mathrm{AXIOMAPROPIO}$
+          \item Si $J_{i}^{2} = \mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}^{2}} = \mathrm{AXIOMALOGICO}$
+          \item Si $J_{i}^{2} = \mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}^{2}} = \mathrm{CONCLUSION}$.
+          \item Si $J_{i}^{2} = \mathrm{HIPOTESIS}\bar{k}$, entonces $\widetilde{J_{i}^{2}} = \mathrm{HIPOTESIS}\bar{k}$
+          \item Si $J_{i}^{2} = \alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $\alpha \in \{\varepsilon\}
+            \ \cup \ \{\mathrm{TESIS}\bar{k}: k \in \mathbb{N}\}$, entonces \linebreak $\widetilde{J_{i}^{2}} = \alpha
+            P(\overline{l_{1} + n_{1}}, \dotsc, \overline{l_{k} + n_{1}})$
+        \end{itemize}
 
-      es una prueba de $\varphi$ en $(\Sigma, \tau)$
+        \PN Luego,
+        \[
+          (\varphi_{1}^{1} \dotsc \varphi_{n_{1}}^{1} \varphi_{1}^{2} \dotsc \varphi_{n_{2}}^{2} \psi_{1} \dotsc
+          \psi_{n}, J_{1}^{1} \dotsc J_{n_{1}}^{1} \widetilde{J_{1}^{2}} \dotsc \widetilde{J_{n_{2}}^{2}}
+          \widetilde{J_{1}} \dotsc \widetilde{J_{n}})
+        \]
+        \PN es una prueba de $\varphi$ en $(\Sigma, \tau)$.
 
-      \item Supongamos que $(\Sigma, \tau)\vdash \varphi_{1}, \dotsc, \varphi_{n}$ y que $\varphi$ se deduce por regla R a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, con R universal. Notese que
+      \item Supongamos que $(\Sigma, \tau) \vdash \varphi_{1}, \dotsc, \varphi_{n}$ y que $\varphi$ se deduce por regla
+        R a partir de $\varphi_{1}, \dotsc, \varphi_{n}$, con R universal. Notese que:
+        \[
+          \begin{array}{llll}
+            1. & \varphi_{1} && \text{AXIOMAPROPIO} \\
+            2. & \varphi_{2} && \text{AXIOMAPROPIO} \\
+            \vdots & \vdots && \vdots \\
+            n. & \varphi_{n} && \text{AXIOMAPROPIO} \\
+            n+1. & \varphi && \text{R}(\bar{1}, \dotsc, \bar{n})
+          \end{array}
+        \]
+        \PN es una prueba de $\varphi$ en $(\Sigma \ \cup \ \{\varphi_{1}, \dotsc, \varphi_{n}\}, \tau)$, lo cual por
+        (1) nos dice que $(\Sigma, \tau) \vdash \varphi$.
 
-      $\displaystyle \begin{array}{llll} 1.\; & \varphi_{1} & & \text{AXIOMAPROPIO} \\ 2.\; & \varphi_{2} & & \text{AXIOMAPROPIO} \\ \vdots & \vdots & & \vdots \\ n. & \varphi_{n} & & \text{AXIOMAPROPIO} \\ n+1 & \varphi & & \text{R}(\bar{1}, \dotsc, \bar{n}) \end{array} $
+      \item Si $(\Sigma, \tau)$ es inconsistente, entonces por definición tenemos que $(\Sigma, \tau) \vdash (\psi
+        \wedge \lnot \psi)$ para alguna sentencia $\psi$. Dada una sentencia cualquiera $\varphi$ tenemos que $\varphi$
+        se deduce por la regla del absurdo a partir de $(\psi \wedge \lnot \psi)$ con lo cual (2) nos dice que $(\Sigma,
+        \tau) \vdash \varphi$.
 
-      es una prueba de $\varphi$ en $(\Sigma \cup \{\varphi_{1}, \dotsc, \varphi_{n}\},\tau )$, lo cual por (1) nos dice que $(\Sigma, \tau)\vdash \varphi $ .
-      \item Si $(\Sigma, \tau)$ es inconsistente, entonces por definicion tenemos que $(\Sigma, \tau)\vdash \psi \wedge \lnot \psi $ para alguna sentencia $ \psi $. Dada una sentencia cualquiera $\varphi$ tenemos que $\varphi$ se deduce por la regla del absurdo a partir de $\psi \wedge \lnot \psi $ con lo cual (2) nos dice que $(\Sigma, \tau)\vdash \varphi $
+      \item Supongamos $(\Sigma, \tau)$ es consistente y $(\Sigma, \tau) \vdash \varphi$. Si $(\Sigma \ \cup \
+        \{\varphi\}, \tau)$ fuera inconsistente, entonces $(\Sigma \ \cup \ \{\varphi\}, \tau) \vdash (\psi \wedge \lnot
+        \psi)$, para alguna sentencia $\psi$, lo cual por (1) nos diría que $(\Sigma, \tau) \vdash (\psi \wedge \lnot
+        \psi)$, es decir, que $(\Sigma, \tau)$ es inconsistente.
 
-      \item Supongamos $(\Sigma, \tau)$ es consistente y $(\Sigma, \tau)\vdash \varphi $. Si $(\Sigma \cup \{\varphi \},\tau )$ fuera inconsistente, entonces $(\Sigma \cup \{\varphi \},\tau )\vdash \psi \wedge \lnot \psi $, para alguna sentencia $\psi$, lo cual por (1) nos diria que $(\Sigma, \tau)\vdash \psi \wedge \lnot \psi $, es decir nos diria que $(\Sigma, \tau)$ es inconsistente.
+      \item \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos $(\Sigma, \tau) \vdash
+        (\varphi \rightarrow \psi)$, entonces tenemos que $(\Sigma \ \cup \ \{\varphi\}, \tau) \vdash (\varphi
+        \rightarrow \psi), \varphi$, lo cual por (2) nos dice que $(\Sigma \ \cup \ \{\varphi\}, \tau) \vdash \psi$.
 
-      \item Supongamos $(\Sigma, \tau)\vdash (\varphi \rightarrow \psi )$. Entonces tenemos que $(\Sigma \cup \{\varphi \},\tau )\vdash (\varphi \rightarrow \psi ),\varphi $, lo cual por (2) nos dice que $(\Sigma \cup \{\varphi \},\tau )\vdash \psi $. Supongamos ahora que $(\Sigma \cup \{\varphi \},\tau )\vdash \psi $. Sea $(\varphi_{1}\dotsc\varphi_{n},J_{1}\dotsc,J_{n})$ una prueba de $\psi$ en $(\Sigma \cup \{\varphi \},\tau )$. Notese que podemos suponer que $J_{n}$ es de la forma $P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$ . Definimos $\widetilde{J_{i}}=$ $\mathrm{TESIS}\bar{m}P(\overline{l_{1}+1} , \dotsc, \overline{l_{k}+1}$, donde $m$ es tal que ninguna $J_{i}$ es igual a $ \mathrm{HIPOTESIS}\bar{m}$. Para cada $i=1, \dotsc, n-1$, definamos $\widetilde{ J_{i}}$ de la siguiente manera.
+        \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos ahora que $(\Sigma \ \cup \
+          \{\varphi\}, \tau) \vdash \psi$. Sea $(\varphi_{1} \dotsc \varphi_{n}, J_{1} \dotsc J_{n})$ una prueba de
+          $\psi$ en $(\Sigma \cup \{\varphi\}, \tau)$. Notese que podemos suponer que $J_{n}$ es de la forma
+          $P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$ . Definimos $\widetilde{J_{i}} = $ $\mathrm{TESIS}\bar{m}
+          P(\overline{l_{1}+1} , \dotsc, \overline{l_{k}+1})$, donde $m$ es tal que ninguna $J_{i}$ es igual a
+          $\mathrm{HIPOTESIS}\bar{m}$.
 
-      - Si $\varphi_{i}=\varphi $ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{EVOCACION}(1)$
-      - Si $\varphi_{i}\neq \varphi $ y $J_{i}=\mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}}=\mathrm{AXIOMAPROPIO}$
-      - Si $J_{i}=\mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
-      - Si $J_{i}=\mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}}=\mathrm{ CONCLUSION}$
-      - Si $J_{i}=\mathrm{HIPOTESIS}\bar{k}$ entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
-      - Si $J_{i}=\alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $ \alpha \in \{\varepsilon \}\cup \{\mathrm{TESIS}\bar{k}:k\in \mathbb{N}\}$, entonces $\widetilde{J_{i}}=\alpha P(\overline{l_{1}+1}, \dotsc, \overline{l_{k}+1 })$
-      Es facil chequear que
+        \PN Para cada $i = 1, \dotsc, n-1$, definamos $\widetilde{J_{i}}$ de la siguiente manera:
+        \begin{itemize}
+          \item Si $\varphi_{i} = \varphi $ y $J_{i} = \mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}} =
+            \mathrm{EVOCACION}(1)$
+          \item Si $\varphi_{i}\neq \varphi $ y $J_{i} = \mathrm{AXIOMAPROPIO}$, entonces $\widetilde{J_{i}} =
+            \mathrm{AXIOMAPROPIO}$
+          \item Si $J_{i} = \mathrm{AXIOMALOGICO}$, entonces $\widetilde{J_{i}}= \mathrm{AXIOMALOGICO}$
+          \item Si $J_{i} = \mathrm{CONCLUSION}$, entonces $\widetilde{J_{i}} = \mathrm{CONCLUSION}$
+          \item Si $J_{i} = \mathrm{HIPOTESIS}\bar{k}$ entonces $\widetilde{J_{i}}= \mathrm{HIPOTESIS}\bar{k}$
+          \item Si $J_{i} = \alpha P(\overline{l_{1}}, \dotsc, \overline{l_{k}})$, con $\alpha \in \{\varepsilon\}
+            \ \cup \ \{\mathrm{TESIS}\bar{k}: k \in \mathbb{N}\}$, entonces $\widetilde{J_{i}} = \alpha
+            P(\overline{l_{1}+1}, \dotsc, \overline{l_{k}+1})$
+        \end{itemize}
 
-      $\displaystyle (\varphi \varphi_{1}\dotsc\varphi_{n}(\varphi \rightarrow \psi ),\text{ HIPOTESIS}\bar{m}\widetilde{J_{1}}\dotsc\widetilde{J_{n}}\text{CONCLUSION}) $
+        \PN Luego,
+        \[
+          (\varphi \varphi_{1} \dotsc \varphi_{n} (\varphi \rightarrow \psi), \text{HIPOTESIS}\bar{m} \widetilde{J_{1}}
+          \dotsc \widetilde{J_{n}} \text{CONCLUSION})
+        \]
+        \PN es una prueba de $(\varphi \rightarrow \psi)$ en $(\Sigma, \tau)$.
 
-      es una prueba de $(\varphi \rightarrow \psi )$ en $(\Sigma, \tau)$
+      \item Supongamos que $(\Sigma, \tau) \not\vdash \lnot \varphi$ y supongamos que $(\Sigma \ \cup \ \{\varphi\},
+        \tau) \vdash (\psi \wedge \lnot \psi)$. Por (5), tenemos que $(\Sigma, \tau) \vdash (\varphi \rightarrow (\psi
+        \wedge \lnot \psi))$. La siguiente prueba atestigua que $(\Sigma, \tau) \vdash \lnot \varphi$:
+        \[
+          \begin{array}{llll}
+            1. & \varphi \rightarrow (\psi \wedge \lnot \psi) && \text{AXIOMAPROPIO} \\
+            2. & \lnot\lnot\varphi \leftrightarrow \varphi && \text{AXIOMALOGICO} \\
+            3. & \lnot\lnot\varphi \leftrightarrow (\psi \wedge \lnot \psi) && \text{REEMPLAZO}(2,1) \\
+            4. & \lnot\lnot\varphi \rightarrow (\psi \wedge \lnot \psi) && \text{EQUIVALENCIAELIMINACION}(3) \\
+            5. & \lnot\lnot\lnot\varphi && \text{ABSURDO}(4) \\
+            6. & \lnot\varphi && \text{REEMPLAZO}(2,5) \\
+          \end{array}
+        \]
+        \PN lo cual es absurdo y por lo tanto $(\Sigma \ \cup \ \{\varphi\}, \tau)$ es consistente.
     \end{enumerate}
   \end{proof}
 
@@ -145,20 +222,31 @@
     \PN Si $(\Sigma, \tau)$ tiene un modelo, entonces $(\Sigma, \tau)$ es consistente.
   \end{corollary}
   \begin{proof}
-    Supongamos $\mathbf{A}$ es un modelo de $(\Sigma, \tau).$ Si $(\Sigma, \tau)$ fuera inconsistente, tendriamos que hay una $\varphi \in S^{t}$ tal que $ (\Sigma, \tau)\vdash (\varphi \wedge \lnot \varphi )$, lo cual por el Teorema de Correccion nos diria que $\mathbf{A}\models (\varphi \wedge \lnot \varphi )$
+    \PN Supongamos $\mathbf{A}$ es un modelo de $(\Sigma, \tau)$. Si $(\Sigma, \tau)$ fuera inconsistente, tendriamos
+    que hay una $\varphi \in S^{\tau}$ tal que $(\Sigma, \tau) \vdash (\varphi \wedge \lnot \varphi)$, lo cual por
+    el \textbf{Theorem~\ref{theorem_72}}, obtendríamos que $\mathbf{A} \models (\varphi \wedge \lnot \varphi)$, lo cual
+    es un absurdo y vino de suponer que $(\Sigma, \tau)$ era inconsistente.
   \end{proof}
 
   % Lemma 164. Con prueba. Lemma 74.
   \begin{lemma} \label{lemma_74}
-    \PN $\dashv \vdash$ es una relación de equivalencia.
+    \PN $\dashv \vdash_{T}$ es una relación de equivalencia.
   \end{lemma}
   \begin{proof}
     \PN \newline
     \begin{itemize}
-      \item \textit{Reflexiva:} La relacion es reflexiva ya que $(\varphi \leftrightarrow \varphi )$ es un axioma logico.
-      \item \textit{Simétrica:} Supongamos que $\varphi \dashv \vdash \psi $, es decir $(\Sigma, \tau)\vdash \left( \varphi \leftrightarrow \psi \right) $. Ya que $((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$ es un axioma logico, tenemos que $(\Sigma, \tau)\vdash ((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$. Notese que $\left( \psi \leftrightarrow \varphi \right) $ se deduce de $((\varphi \leftrightarrow \psi )\leftrightarrow (\psi \leftrightarrow \varphi ))$ y $(\varphi \leftrightarrow \psi )$ por la regla de reemplazo, lo cual por (2) del Lema 155 nos dice que $(\Sigma, \tau)\vdash \left( \psi \leftrightarrow \varphi \right) $.
-
-      \item \textit{Transitiva:}   Analogamente, usando la regla de transitividad se puede probar que $\dashv \vdash $ es transitiva.
+      \item \textit{Reflexiva:} La relación es reflexiva ya que $(\varphi \leftrightarrow \varphi)$ es un axioma
+        lógico, y por lo tanto $((\varphi \leftrightarrow \varphi), \text{AXIOMALOGICO})$ es una prueba de $(\varphi
+        \leftrightarrow \varphi)$ en $T$.
+      \item \textit{Simétrica:} Supongamos que $\varphi \dashv \vdash_{T} \psi$, es decir $T \vdash (\varphi
+        \leftrightarrow \psi)$. Ya que $(\varphi \leftrightarrow \psi)$ se deduce de $\psi \leftrightarrow \varphi$ por
+        la regla de conmutatividad, el \textbf{Lemma~\ref{lemma_71}}, nos dice que $T \vdash (\psi \leftrightarrow
+        \varphi)$, es decir, $\psi \dashv \vdash_{T} \varphi$.
+      \item \textit{Transitiva:} Supongamos que $\varphi \dashv \vdash_{T} \psi$ y que $\psi \dashv \vdash_{T} \phi$, es
+        decir $T \vdash (\varphi \leftrightarrow \psi)$ y $T \vdash (\psi \leftrightarrow \phi)$. Ya que $(\varphi
+        \leftrightarrow \phi)$ se deduce de $\varphi \leftrightarrow \psi$ y $\psi \leftrightarrow \phi$ por
+        la regla de transitividad, el \textbf{Lemma~\ref{lemma_71}}, nos dice que $T \vdash (\varphi \leftrightarrow
+        \phi)$, es decir, $\varphi \dashv \vdash_{T} \phi$.
     \end{itemize}
   \end{proof}
 
@@ -171,6 +259,48 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
+    \begin{enumerate}[(1)]
+      \item $\{\varphi \in S^{\tau}: \varphi \ \text{es un teorema de T}\} \in S^{\tau}/ \dashv \vdash_{T}$: Sean
+        $\varphi, \psi$ teoremas en $T$, veremos que $\varphi \dashv \vdash_{T} \psi$. Notese que
+        \[
+          \begin{array}{llll}
+            1. & \varphi && \text{HIPOTESIS1} \\
+            2. & \psi && \text{TESIS1AXIOMAPROPIO} \\
+            3. & (\varphi \rightarrow \psi) && \text{CONCLUSION} \\
+            4. & \psi && \text{HIPOTESIS2} \\
+            5. & \varphi && \text{TESIS2AXIOMAPROPIO} \\
+            6. & (\psi \rightarrow \varphi) && \text{CONCLUSION} \\
+            7. & (\varphi \leftrightarrow \psi) && \text{EQUIVALENCIAINTRODUCCION}(3,6)
+          \end{array}
+        \]
+        \PN justifica que $(\Sigma \ \cup \ \{\varphi, \psi\}, \tau) \vdash (\varphi \leftrightarrow \psi)$ lo cual por
+        el \textbf{Lemma~\ref{lemma_71}} tenes que $(\Sigma, \tau) \vdash (\varphi \leftrightarrow \psi)$, obteniendo
+        que $\varphi \dashv \vdash_{T} \psi$.
+      \item $\{\varphi \in S^{\tau}: \varphi \ \text{es refutable en T}\} \in S^{\tau}/ \dashv \vdash_{T}$: Sean
+        $\varphi, \psi$ refutables en $T$, veremos que $\varphi \dashv \vdash_{T} \psi$. Notese que
+        \[
+          \begin{array}{llll}
+            1. & \varphi && \text{HIPOTESIS1} \\
+            2. & \lnot \psi && \text{HIPOTESIS2} \\
+            3. & \lnot \varphi && \text{AXIOMAPROPIO} \\
+            4. & (\varphi \wedge \lnot \varphi) && \text{TESIS2CONJUNCIONINTRODUCCION}(1,3) \\
+            5. & \lnot \psi \rightarrow (\varphi \wedge \lnot \varphi) && \text{CONCLUSION} \\
+            6. & \psi && \text{TESIS1ABSURDO}(5) \\
+            7. & (\varphi \rightarrow \psi) && \text{CONCLUSION} \\
+            8. & \psi && \text{HIPOTESIS3} \\
+            9. & \lnot \varphi && \text{HIPOTESIS4} \\
+            10. & \lnot \psi && \text{AXIOMAPROPIO} \\
+            11. & (\psi \wedge \lnot \psi) && \text{TESIS4CONJUNCIONINTRODUCCION}(8,10) \\
+            12. & \lnot \varphi \rightarrow (\psi \wedge \lnot \psi) && \text{CONCLUSION} \\
+            13. & \varphi && \text{TESIS}3\text{ABSURDO}(5) \\
+            14. & (\psi \rightarrow \varphi) && \text{CONCLUSION} \\
+            15. & (\varphi \leftrightarrow \psi) && \text{EQUIVALENCIAINTRODUCCION}(7,14)
+          \end{array}
+        \]
+       \PN justifica que $(\Sigma \ \cup \ \{\lnot \varphi, \lnot \psi\}, \tau) \vdash (\varphi \leftrightarrow \psi)$
+       lo ual por el \textbf{Lemma~\ref{lemma_71}} tenes que $(\Sigma, \tau) \vdash (\varphi \leftrightarrow \psi)$,
+       obteniendo que $\varphi \dashv \vdash_{T} \psi$.
+    \end{enumerate}
   \end{proof}
 
   % Lemma 166. Con prueba. Lemma 76.
@@ -179,6 +309,396 @@
     1^{T})$ es un álgebra de Boole.
   \end{lemma}
   \begin{proof}
+    \PN Por definición de Álgebra de Boole, debemos probar que cualesquiera sean $\varphi_{1}, \varphi_{2}, \varphi_{3}
+    \in S^{\tau}$, se cumplen las siguientes igualdades:
+    \begin{enumerate}[(1)]
+      % \item $[\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Sea $\varphi_{1} \in S^{\tau}$ fija.
+      %   Por la definición de la operación $\IN^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \wedge \varphi_{1})]_{T} = [\varphi_{1}]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge \varphi_{1}) \leftrightarrow \varphi_{1})$.
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \wedge \varphi_{1}) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{1} && \text{TESIS1CONJUNCIONELIMINACION}(1) \\
+      %       3. & (\varphi_{1} \wedge \varphi_{1}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+      %       4. & \varphi_{1} && \text{HIPOTESIS2} \\
+      %       5. & (\varphi_{1} \wedge \varphi_{1}) && \text{TESIS2CONJUNCIONINTRODUCCION}(4) \\
+      %       6. & \varphi_{1} \rightarrow (\varphi_{1} \wedge \varphi_{1}) && \text{CONCLUSION} \\
+      %       7. & (\varphi_{1} \wedge \varphi_{1}) \leftrightarrow \varphi_{1} && \text{EQUIVALENCIAINTRODUCCION}(3,6)
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Sea $\varphi_{1} \in S^{\tau}$ fija.
+      %   Por la definición de la operación $\SU^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \vee \varphi_{1})]_{T} = [\varphi_{1}]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \varphi_{1}) \leftrightarrow \varphi_{1})$.
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \vee \varphi_{1}) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{1} \leftrightarrow \varphi_{1} && \text{AXIOMALOGICO} \\
+      %       3. & \varphi_{1} \rightarrow \varphi_{1} && \text{EQUIVALENCIAELIMINACION}(2) \\
+      %       4. & \varphi_{1} && \text{TESIS1DIVISIONPORCASOS}(1,3,3) \\
+      %       5. & (\varphi_{1} \vee \varphi_{1}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+      %       6. & \varphi_{1} && \text{HIPOTESIS3} \\
+      %       7. & (\varphi_{1} \vee \varphi_{1}) && \text{TESIS3DISJUNCIONINTRODUCCION}(6) \\
+      %       8. & \varphi \rightarrow (\varphi_{1} \vee \varphi_{1}) && \text{CONCLUSION} \\
+      %       9. & (\varphi_{1} \vee \varphi_{1}) \leftrightarrow \varphi_{1} && \text{EQUIVALENCIAINTRODUCCION}(5,8)
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{2}]_{T} = [\varphi_{2}]_{T} \ \IN^{T} \ [\varphi_{1}]_{T}$: Sean
+      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \wedge \varphi_{2})]_{T} = [(\varphi_{2} \wedge \varphi_{1})]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge \varphi_{2}) \leftrightarrow (\varphi_{2} \wedge
+      %   \varphi_{1}))$.
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
+      %       3. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(1) \\
+      %       4. & (\varphi_{2} \wedge \varphi_{1}) && \text{TESIS1CONJUNCIONINTRODUCCION}(3,2) \\
+      %       5. & (\varphi_{1} \wedge \varphi_{2}) \rightarrow (\varphi_{2} \wedge \varphi_{1}) && \text{CONCLUSION} \\
+      %       6. & (\varphi_{2} \wedge \varphi_{1}) && \text{HIPOTESIS2} \\
+      %       7. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(6) \\
+      %       8. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(6) \\
+      %       9. & (\varphi_{1} \wedge \varphi_{2}) && \text{TESIS1CONJUNCIONINTRODUCCION}(8,7) \\
+      %       10. & (\varphi_{2} \wedge \varphi_{1}) \rightarrow (\varphi_{1} \wedge \varphi_{2}) && \text{CONCLUSION} \\
+      %       11. & (\varphi_{1} \wedge \varphi_{2}) \leftrightarrow (\varphi_{2} \wedge \varphi_{1}) &&
+      %         \text{EQUIVALENCIAINTRODUCCION}(5,10)
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{2}]_{T} = [\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{1}]_{T}$: Sean
+      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \vee \varphi_{2})]_{T} = [(\varphi_{2} \vee \varphi_{1})]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \varphi_{2}) \leftrightarrow (\varphi_{2} \vee
+      %   \varphi_{1}))$.
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \vee \varphi_{2}) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{1} && \text{HIPOTESIS2} \\
+      %       3. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS2DISJUNCIONINTRODUCCION}(2) \\
+      %       4. & \varphi_{1} \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
+      %       5. & \varphi_{2} && \text{HIPOTESIS3} \\
+      %       6. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS3DISJUNCIONINTRODUCCION}(2) \\
+      %       7. & \varphi_{2} \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
+      %       8. & (\varphi_{2} \vee \varphi_{1}) && \text{TESIS1DIVISIONPORCASOS}(1,4,7) \\
+      %       9. & (\varphi_{1} \vee \varphi_{2}) \rightarrow (\varphi_{2} \vee \varphi_{1}) && \text{CONCLUSION} \\
+      %       10. & (\varphi_{2} \vee \varphi_{1}) && \text{HIPOTESIS4} \\
+      %       11. & \varphi_{2} && \text{HIPOTESIS5} \\
+      %       12. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
+      %       13. & \varphi_{2} \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+      %       14. & \varphi_{1} && \text{HIPOTESIS6} \\
+      %       15. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS6DISJUNCIONINTRODUCCION}(14) \\
+      %       16. & \varphi_{1} \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+      %       17. & (\varphi_{1} \vee \varphi_{2}) && \text{TESIS4DIVISIONPORCASOS}(10,13,16) \\
+      %       18. & (\varphi_{2} \vee \varphi_{1}) \rightarrow (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+      %       19. & (\varphi_{1} \vee \varphi_{2}) \leftrightarrow (\varphi_{2} \vee \varphi_{1}) &&
+      %         \text{EQUIVALENCIAINTRODUCCION}(9,18)
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{2}]_{T} \ \IN^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \ \IN^{T}
+      %   \ [\varphi_{2}]_{T}) \ \IN^{T} \ [\varphi_{3}]_{T}$: Sean $\varphi_{1}, \varphi_{2}, \varphi_{3} \in
+      %   S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3}))]_{T} = [((\varphi_{1} \wedge \varphi_{2}) \wedge
+      %     \varphi_{3})]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3}))
+      %   \leftrightarrow ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}))$.
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
+      %       3. & (\varphi_{2} \wedge \varphi_{3}) && \text{CONJUNCIONELIMINACION}(1) \\
+      %       4. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(3) \\
+      %       5. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(3) \\
+      %       6. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONINTRODUCCION}(2,4) \\
+      %       7. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) && \text{TESIS1CONJUNCIONINTRODUCCION}(6,5) \\
+      %       8. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) \rightarrow ((\varphi_{1} \wedge \varphi_{2})
+      %         \wedge \varphi_{3}) && \text{CONCLUSION} \\
+      %       9. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) && \text{HIPOTESIS2} \\
+      %       10. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONELIMINACION}(9) \\
+      %       11. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(9) \\
+      %       12. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(10) \\
+      %       13. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(10) \\
+      %       14. & (\varphi_{2} \wedge \varphi_{3}) && \text{CONJUNCIONINTRODUCCION}(13,11) \\
+      %       15. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) && \text{TESIS1CONJUNCIONINTRODUCCION}(12,14) \\
+      %       16. & ((\varphi_{1} \wedge \varphi_{2}) \wedge \varphi_{3}) \rightarrow (\varphi_{1} \wedge (\varphi_{2}
+      %         \wedge \varphi_{3})) && \text{CONCLUSION} \\
+      %       17. & (\varphi_{1} \wedge (\varphi_{2} \wedge \varphi_{3})) \leftrightarrow ((\varphi_{1} \wedge
+      %         \varphi_{2}) \wedge \varphi_{3}) && \text{EQUIVALENCIAINTRODUCCION}(8,16) \\
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \
+      %   \SU^{T} \ [\varphi_{2}]_{T}) \ \SU^{T} \ [\varphi_{3}]_{T}$: Sean $\varphi_{1}, \varphi_{2}, \varphi_{3} \in
+      %   S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3}))]_{T} = [((\varphi_{1} \vee \varphi_{2}) \vee
+      %     \varphi_{3})]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \leftrightarrow
+      %   ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}))$. Notese que por el \textbf{Lemma~\ref{lemma_71}}, basta con
+      %   probar que:
+      %   \[
+      %     \begin{array}{rcl}
+      %       T & \vdash & ((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2})
+      %         \vee \varphi_{3})) \\
+      %       T & \vdash & (((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) \rightarrow (\varphi_{1} \vee (\varphi_{2}
+      %         \vee \varphi_{3})))
+      %     \end{array}
+      %   \]
+      %   \PN Prueba de $((\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2})
+      %   \vee \varphi_{3}))$
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{1} && \text{HIPOTESIS2} \\
+      %       3. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(2) \\
+      %       4. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS2DISJUNCIONINTRODUCCION}(3) \\
+      %       5. & \varphi_{1} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
+      %       6. & (\varphi_{2} \vee \varphi_{3}) && \text{HIPOTESIS3} \\
+      %       7. & \varphi_{2} && \text{HIPOTESIS4} \\
+      %       8. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(7) \\
+      %       9. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS4DISJUNCIONINTRODUCCION}(8) \\
+      %       10. & \varphi_{2} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
+      %       11. & \varphi_{3} && \text{HIPOTESIS5} \\
+      %       12. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
+      %       13. & \varphi_{3} \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{CONCLUSION} \\
+      %       14. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS3DIVISIONPORCASOS}(6,10,13) \\
+      %       15. & (\varphi_{2} \vee \varphi_{3}) \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) &&
+      %         \text{CONCLUSION} \\
+      %       16. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{TESIS1DIVISIONPORCASOS}(1,5,15) \\
+      %       17. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee \varphi_{2}) \vee
+      %         \varphi_{3}) && \text{CONCLUSION}
+      %     \end{array}
+      %   \]
+      %
+      %   \PN Prueba de $((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3})) \rightarrow ((\varphi_{1} \vee (\varphi_{2}
+      %   \vee \varphi_{3}))$
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) && \text{HIPOTESIS1} \\
+      %       2. & \varphi_{3} && \text{HIPOTESIS2} \\
+      %       3. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(2) \\
+      %       4. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS2DISJUNCIONINTRODUCCION}(3) \\
+      %       5. & \varphi_{3} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
+      %       6. & (\varphi_{1} \vee \varphi_{2}) && \text{HIPOTESIS3} \\
+      %       7. & \varphi_{1} && \text{HIPOTESIS4} \\
+      %       8. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS4DISJUNCIONINTRODUCCION}(7) \\
+      %       9. & \varphi_{1} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
+      %       10. & \varphi_{2} && \text{HIPOTESIS5} \\
+      %       11. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(10) \\
+      %       12. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS5DISJUNCIONINTRODUCCION}(11) \\
+      %       13. & \varphi_{2} \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION} \\
+      %       14. & (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) && \text{TESIS3DIVISIONPORCASOS}(6,9,13) \\
+      %       15. & (\varphi_{1} \vee \varphi_{2}) \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee \varphi_{3})) &&
+      %         \text{CONCLUSION} \\
+      %       16. & (\varphi_{1} \vee (\varphi_{2}) \vee \varphi_{3})) && \text{TESIS1DIVISIONPORCASOS}(1,15,5) \\
+      %       17. & ((\varphi_{1} \vee \varphi_{2}) \vee \varphi_{3}) \rightarrow (\varphi_{1} \vee (\varphi_{2} \vee
+      %         \varphi_{3})) && \text{CONCLUSION}
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{2}]_{T}) = [\varphi_{1}]_{T}$: Sean
+      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\SU^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2}))]_{T} = [\varphi_{1}]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \leftrightarrow
+      %   \varphi_{1})$.
+      %   \[
+      %   \begin{array}{llll}
+      %     1. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) && \text{HIPOTESIS1} \\
+      %     2. & \varphi_{1} \leftrightarrow \varphi_{1} && \text{AXIOMALOGICO} \\
+      %     3. & \varphi_{1} \rightarrow \varphi_{1} && \text{EQUIVALENCIAELIMINACION}(2) \\
+      %     4. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS2} \\
+      %     5. & \varphi_{1} && \text{TESIS2CONJUNCIONELIMINACION}(4) \\
+      %     6. & (\varphi_{1} \wedge \varphi_{2}) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+      %     7. & \varphi_{1} && \text{TESIS1DIVISIONPORCASOS}(1,3,6) \\
+      %     8. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+      %     9. & \varphi_{1} && \text{HIPOTESIS3} \\
+      %     10. & (\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2} )) && \text{TESIS3DISJUNCIONINTRODUCCION}(9) \\
+      %     11. & \varphi_{1} \rightarrow (\varphi_{1} \vee (\varphi \wedge \varphi_{2})) && \text{CONCLUSION} \\
+      %     12. & ((\varphi_{1} \vee (\varphi_{1} \wedge \varphi_{2})) \leftrightarrow \varphi_{1}) &&
+      %       \text{EQUIVALENCIAINTRODUCCION}(8,11)
+      %   \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{1}]_{T} \ \SU^{T} \ [\varphi_{2}]_{T}) = [\varphi_{1}]_{T}$: Sean
+      %   $\varphi_{1}, \varphi_{2} \in S^{\tau}$ fijas. Por la definición de la operación $\IN^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}))]_{T} = [\varphi_{1}]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \leftrightarrow
+      %   \varphi_{1})$.
+      %   \[
+      %   \begin{array}{llll}
+      %     1. & (\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) && \text{HIPOTESIS1} \\
+      %     2. & \varphi_{1} && \text{TESIS1CONJUNCIONELIMINACION}(1) \\
+      %     3. & (\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \rightarrow \varphi_{1} && \text{CONCLUSION} \\
+      %     4. & \varphi_{1} && \text{HIPOTESIS2} \\
+      %     5. & (\varphi_{1} \vee \varphi_{2}) && \text{DISJUNCIONINTRODUCCION}(4) \\
+      %     6. & \varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}) && \text{TESIS2CONJUNCIONINTRODUCCION}(4,5) \\
+      %     7. & \varphi_{1} \rightarrow \varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2}) && \text{CONCLUSION} \\
+      %     8. & ((\varphi_{1} \wedge (\varphi_{1} \vee \varphi_{2})) \leftrightarrow \varphi_{1}) &&
+      %       \text{EQUIVALENCIAINTRODUCCION}(3,7)
+      %   \end{array}
+      %   \]
+      %
+      \item $0^{T} \ \SU^{T} \ [\varphi_{1}]_{T} = [\varphi_{1}]_{T}$: Ya que $(\varphi \wedge \lnot\varphi)$ es
+        refutable en $T$, tenemos que el \textbf{Lemma~\ref{lemma_75}} nos dice que $0^{T} =
+        \{\varphi \in S^{\tau}: \varphi$ es refutable de $T\} = [(\varphi \wedge \lnot\varphi)]_{T}$, es decir,
+        que debemos probar que para cualquier $\varphi_{1} \in S^{\tau}$, se da que:
+        \[
+          [0]_{T} \ \IN^{T} \ [(\varphi \wedge \lnot\varphi)]_{T} = \{\varphi \in S^{\tau}: \varphi \ \text{es refutable
+          en} \ T\}
+        \]
+       \PN Ya que $[\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = [\varphi_{1} \vee \forall
+       x_{1}(x_{1}\equiv x_{1})]_{T}$, debemos probar que $\varphi_{1} \vee \forall x_{1} (x_{1} \equiv x_{1})$ es un
+       teorema de $T$, lo cual es atestiguado por la siguiente prueba
+        \[
+          \begin{array}{llll}
+            1. & c \equiv c && \text{AXIOMALOGICO} \\
+            2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1) \\
+            3. & (\varphi_{1} \vee \forall x_{1} (x_{1}\equiv x_{1})) && \text{DISJUNCIONINTRODUCCION}(2)
+          \end{array}
+        \]
+
+      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ 1^{T} = 1^{T}$: Ya que $\forall x_{1} (x_{1} \equiv x_{1})$ es un teorema de
+      %   $T$, atestiguado por la prueba
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & c \equiv c && \text{AXIOMALOGICO} \\
+      %       2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1)
+      %     \end{array}
+      %   \]
+      %   \PN donde $c$ es un nombre de constante que no pertenece a $\mathcal{C}$ y tal que $(\mathcal{C} \cup \{c\},
+      %   \mathcal{F}, \mathcal{R}, a)$ es un tipo. Tenemos que el \textbf{Lemma~\ref{lemma_75}} nos dice que $1^{T} =
+      %   \{\varphi \in S^{\tau}: \varphi$ es un teorema de $T\} = [\forall x_{1} (x_{1} \equiv x_{1})]_{T}$, es decir,
+      %   que debemos probar que para cualquier $\varphi_{1} \in S^{\tau}$, se da que:
+      %   \[
+      %     [\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = \{\varphi \in S^{\tau}: \varphi \
+      %     \text{es un teorema de} \ T\}
+      %   \]
+      %  \PN Ya que $[\varphi_{1}]_{T} \ \SU^{T} \ [\forall x_{1} (x_{1} \equiv x_{1})]_{T} = [\varphi_{1} \vee \forall
+      %  x_{1}(x_{1}\equiv x_{1})]_{T}$, debemos probar que $\varphi_{1} \vee \forall x_{1} (x_{1} \equiv x_{1})$ es un
+      %  teorema de $T$, lo cual es atestiguado por la siguiente prueba
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & c \equiv c && \text{AXIOMALOGICO} \\
+      %       2. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{GENERALIZACION}(1) \\
+      %       3. & (\varphi_{1} \vee \forall x_{1} (x_{1}\equiv x_{1})) && \text{DISJUNCIONINTRODUCCION}(2)
+      %     \end{array}
+      %   \]
+      %
+      % \item $[\varphi_{1}]_{T} \ \SU^{T} \ ([\varphi_{1}]_{T})^{\mathsf{c}^{T}} = 1^{T}$: Sea $\varphi_{1} \in S^{\tau}$
+      %   fija. Ya que $\forall x_{1} (x_{1} \equiv x_{1})$ es un teorema de $T$ y por la definición de la operación
+      %   $\SU^{T}$ debemos probar que:
+      %   \[
+      %     [(\varphi_{1} \vee \lnot\varphi_{1})]_{T} = [\forall x_{1} (x_{1} \equiv x_{1})]_{T}
+      %   \]
+      %   \PN es decir, debemos probar que $T \vdash ((\varphi_{1} \vee \lnot\varphi_{1}) \leftrightarrow \forall x_{1}
+      %   (x_{1} \equiv x_{1}))$.
+      %   \[
+      %     \begin{array}{llll}
+      %       1. & (\varphi_{1} \vee \lnot\varphi_{1}) && \text{HIPOTESIS1} \\
+      %       2. & c \equiv c && \text{AXIOMALOGICO} \\
+      %       3. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{TESIS1GENERALIZACION}(2) \\
+      %       4. & (\varphi_{1} \vee \lnot\varphi_{1}) \rightarrow \forall x_{1} (x_{1} \equiv x_{1}) &&
+      %         \text{CONCLUSION} \\
+      %       5. & \forall x_{1} (x_{1} \equiv x_{1}) && \text{HIPOTESIS2} \\
+      %       6. & (\varphi_{1} \vee \lnot\varphi_{1}) && \text{TESIS2AXIOMALOGICO} \\
+      %       7. & \forall x_{1} (x_{1} \equiv x_{1}) \rightarrow (\varphi_{1} \vee \lnot\varphi_{1}) &&
+      %         \text{CONCLUSION} \\
+      %       8. & (\varphi_{1} \vee \lnot\varphi_{1}) \leftrightarrow \forall x_{1} (x_{1} \equiv x_{1}) &&
+      %         \text{EQUIVALENCIAINTRODUCCION}(8,16) \\
+      %     \end{array}
+      %   \]
+      %   \PN donde $c$ es un nombre de constante que no pertenece a $\mathcal{C}$ y tal que $(\mathcal{C} \cup \{c\},
+      %   \mathcal{F}, \mathcal{R}, a)$ es un tipo.
+
+      \item $[\varphi_{1}]_{T} \ \IN^{T} \ ([\varphi_{1}]_{T})^{\mathsf{c}^{T}} = 0^{T}$
+
+      % \item $[\varphi_{1}]_{T} \ \IN^{T}([\varphi_{2}]_{T} \ \SU^{T} \ [\varphi_{3}]_{T}) = ([\varphi_{1}]_{T} \ \IN^{T}
+      %   \ [\varphi_{2}]_{T}) \ \SU^{T} \  ([\varphi_{1}]_{T} \ \IN^{T} \ [\varphi_{3}]_{T})$: Sean $\varphi_{1},
+      %   \varphi_{2}, \varphi_{3} \in S^{\tau}$ fijas. Por la definición de las operaciones $\SU^{T}, \IN^{T}$ debemos
+      %   probar que:
+      %     \[
+      %       [(\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))]_{T} = [((\varphi_{1} \wedge \varphi_{2}) \vee
+      %       (\varphi_{1} \wedge \varphi_{3}))]_{T}
+      %     \]
+      %     \PN es decir, debemos probar que $T \vdash (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \leftrightarrow
+      %     ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3}))$. Notese que por el
+      %     \textbf{Lemma~\ref{lemma_71}}, basta con probar que:
+      %     \[
+      %       \begin{array}{rcl}
+      %         T & \vdash & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge
+      %           \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \\
+      %         T & \vdash & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow
+      %           (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))
+      %       \end{array}
+      %     \]
+      %     \PN Prueba de $(\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge
+      %     \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3}))$
+      %     \[
+      %       \begin{array}{llll}
+      %         1. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) && \text{HIPOTESIS1} \\
+      %         2. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(1) \\
+      %         3. & (\varphi_{2} \vee \varphi_{3}) && \text{CONJUNCIONELIMINACION}(1) \\
+      %         4. & \varphi_{2} && \text{HIPOTESIS2} \\
+      %         5. & (\varphi_{1} \wedge \varphi_{2}) && \text{CONJUNCIONINTRODUCCION}(2,4) \\
+      %         6. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+      %           \text{TESIS2DISJUNCIONINTRODUCCION}(5) \\
+      %         7. & \varphi_{2} \rightarrow ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+      %           \text{CONCLUSION} \\
+      %         8. & \varphi_{3} && \text{HIPOTESIS3} \\
+      %         9. & (\varphi_{1} \wedge \varphi_{3}) && \text{CONJUNCIONINTRODUCCION}(2,8) \\
+      %         10. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+      %           \text{TESIS3DISJUNCIONINTRODUCCION}(9) \\
+      %         11. & \varphi_{3} \rightarrow ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+      %           \text{CONCLUSION} \\
+      %         12. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) &&
+      %           \text{TESIS1DIVISIONPORCASOS}(3,7,11) \\
+      %         13. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) \rightarrow ((\varphi_{1} \wedge \varphi_{2})
+      %           \vee (\varphi_{1} \wedge \varphi_{3})) && \text{CONCLUSION}
+      %       \end{array}
+      %     \]
+      %     \PN Prueba de $((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow
+      %       (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}))$
+      %     \[
+      %     \begin{array}{llll}
+      %       1. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) && \text{HIPOTESIS1} \\
+      %       2. & (\varphi_{1} \wedge \varphi_{2}) && \text{HIPOTESIS2} \\
+      %       3. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(2) \\
+      %       4. & \varphi_{2} && \text{CONJUNCIONELIMINACION}(2) \\
+      %       5. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(4) \\
+      %       6. & \varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}) && \text{TESIS2CONJUNCIONINTRODUCCION}(3,5) \\
+      %       7. & (\varphi_{1} \wedge \varphi_{2})\rightarrow (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) &&
+      %         \text{CONCLUSION} \\
+      %       8. & (\varphi_{1} \wedge \varphi_{3}) && \text{HIPOTESIS}3 \\
+      %       9. & \varphi_{1} && \text{CONJUNCIONELIMINACION}(8) \\
+      %       10. & \varphi_{3} && \text{CONJUNCIONELIMINACION}(8) \\
+      %       11. & (\varphi_{2} \vee \varphi_{3}) && \text{DISJUNCIONINTRODUCCION}(10) \\
+      %       12. & \varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3}) && \text{TESIS3CONJUNCIONINTRODUCCION}(9,11) \\
+      %       13. & (\varphi_{1} \wedge \varphi_{3}) \rightarrow (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) &&
+      %         \text{CONCLUSION} \\
+      %       14. & (\varphi_{1} \wedge (\varphi_{2} \vee \varphi_{3})) && \text{TESIS1DIVISIONPORCASOS}(1,7,13) \\
+      %       15. & ((\varphi_{1} \wedge \varphi_{2}) \vee (\varphi_{1} \wedge \varphi_{3})) \rightarrow (\varphi_{1}
+      %         \wedge (\varphi_{2} \vee \varphi_{3})) && \text{CONCLUSION}
+      %     \end{array}
+      %     \]
+    \end{enumerate}
   \end{proof}
 
   % Lemma 167. Con prueba. Lemma 77.
@@ -187,15 +707,43 @@
     $[\varphi]_{T} \leq^{T} [\psi]_{T}$ si y solo si $[\varphi]_{T} \ \SU^{T} \ [\psi]_{T} = [\psi]_{T})$, entonces se
     tiene que:
     \[
-      [\varphi]_{T} \leq^{T} [\psi]_{T} \text{ si y solo si} \ T \vdash (\varphi \rightarrow \psi)
+      [\varphi]_{T} \leq^{T} [\psi]_{T} \text{si y solo si} \ T \vdash (\varphi \rightarrow \psi)
     \]
   \end{lemma}
   \begin{proof}
-    En virtud de los lemas anteriores solo falta probar que
+    \PN \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Supongamos $[\varphi]_{T} \leq^{T} [\psi]_{T}$,
+    es decir, $[\varphi]_{T} \ \SU^{T} \ [\psi]_{T} = [\psi]_{T}$. Por la definición de $\SU^{T}$, tenemos que
+    $[(\varphi \vee \psi)]_{T} = [\psi]_{T}$, es decir, $T \vdash ((\varphi \vee \psi) \leftrightarrow \psi)$. Luego, la
+    siguiente prueba atestigua que $T \vdash (\varphi \rightarrow \psi)$
+    \[
+      \begin{array}{llll}
+        1. & \varphi && \text{HIPOTESIS1} \\
+        2. & (\varphi \vee \psi) && \text{DISJUNCIONINTRODUCCION}(1) \\
+        3. & (\varphi \vee \psi) \leftrightarrow \psi && \text{AXIOMAPROPIO} \\
+        4. & (\varphi \vee \psi) \rightarrow \psi && \text{EQUIVALENCIAELIMINACION}(3) \\
+        5. & \psi && \text{TESIS1MODUSPONENS}(2,4) \\
+        6. & \varphi \rightarrow \psi && \text{CONCLUSION}
+      \end{array}
+    \]
 
-    $\displaystyle \begin{array}{rcl} \lbrack \varphi \rbrack\;\mathsf{s}\;\lbrack\varphi \rbrack^{c} & =& 1 \\ \lbrack \varphi \rbrack\;\mathsf{i}\;\lbrack\varphi \rbrack^{c} & =& 0 \end{array} $
-
-    Dejamos al lector la prueba de estas igualdades.
+    \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Supongamos $T \vdash (\varphi \rightarrow \psi)$,
+    la siguiente prueba atestigua que $T \vdash ((\varphi \vee \psi) \leftrightarrow \psi)$.
+    \[
+      \begin{array}{llll}
+        1. & (\varphi \vee \psi) && \text{HIPOTESIS1} \\
+        2. & \varphi \rightarrow \psi && \text{AXIOMAPROPIO} \\
+        3. & \psi \leftrightarrow \psi && \text{AXIOMALOGICO} \\
+        4. & \psi \rightarrow \psi && \text{EQUIVALENCIAELIMINACION}(3) \\
+        5. & \psi && \text{TESIS1DIVISIONPORCASOS}(1,2,4) \\
+        6. & (\varphi \vee \psi) \rightarrow \psi && \text{CONCLUSION} \\
+        7. & \psi && \text{HIPOTESIS2} \\
+        8. & (\varphi \vee \psi) && \text{TESIS2DISJUNCIONINTRODUCCION} \\
+        9. & \psi \rightarrow (\varphi \vee \psi) && \text{CONCLUSION} \\
+        10. & (\varphi \vee \psi) \leftrightarrow \psi && \text{EQUIVALENCIAINTRODUCCION}(6,9)
+      \end{array}
+    \]
+    \PN Esto nos dice que $[\varphi \vee \psi]_{T} = [\psi]_{T}$, que por la definición de $\SU^{T}$, tenemos que
+    $[\varphi]_{T} \ \SU^{T} \ [\psi]_{T} = [\psi]_{T}$, es decir, $[\varphi_{T}] \leq^{T} [\psi]_{T}$.
   \end{proof}
 
   % Lemma 168. Con prueba. Lemma 78.
@@ -214,9 +762,102 @@
   \begin{proof}
     \PN \newline
     \begin{enumerate}[(1)]
-      \item Supongamos $(\Sigma, \tau)\vdash \varphi $. Entonces hay una prueba $ (\varphi_{1}\dotsc\varphi_{n},J_{1}\dotsc J_{n})$ de $\varphi$ en $(\Sigma, \tau)$. Sea $\mathcal{C}_{1}$ el conjunto de nombres de constante que ocurren en alguna $\varphi_{i}$ y que no pertenecen a $\mathcal{C}.$ Notese que aplicando varias veces el Lema 154 podemos obtener una prueba $ (\tilde{\varphi}_{1}\dotsc\tilde{\varphi}_{n},J_{1}\dotsc J_{n})$ de $\varphi$ en $(\Sigma, \tau)$ la cual cumple que los nombres de constante que ocurren en alguna $\psi_{i}$ y que no pertenecen a $\mathcal{C}$ no pertenecen a $ \mathcal{C}^{\prime}$. Pero entonces $(\tilde{\varphi}_{1}\dotsc\tilde{\varphi} _{n},J_{1}\dotsc J_{n})$ es una prueba de $\varphi$ en $(\Sigma ,\tau ^{\prime})$, con lo cual $(\Sigma ,\tau ^{\prime})\vdash \varphi $
+      \item Supongamos $(\Sigma, \tau) \vdash \varphi$. Sea $(\varphi_{1} \dotsc \varphi_{n}, J_{1} \dotsc J_{n})$ la
+        prueba de $\varphi$ en $(\Sigma, \tau)$. Sea $\mathcal{C}_{1}$ el conjunto de nombres de constante que ocurren
+        en alguna $\varphi_{i}$ y que no pertenecen a $\mathcal{C}$. Notese que aplicando varias veces el
+        \textbf{Lemma~\ref{lemma_70}}, podemos obtener una prueba $(\tilde{\varphi}_{1} \dotsc \tilde{\varphi}_{n},
+        J_{1} \dotsc J_{n})$ de $\varphi$ en $(\Sigma, \tau)$ la cual cumple que los nombres de constante que ocurren en
+        alguna $\psi_{i}$ y que no pertenecen a $\mathcal{C}$ no pertenecen a $\mathcal{C}^{\prime}$. Luego,
+        $(\tilde{\varphi}_{1} \dotsc \tilde{\varphi}_{n}, J_{1} \dotsc J_{n})$ es una prueba de $\varphi$ en $(\Sigma,
+        \tau^{\prime})$, con lo cual $(\Sigma, \tau^{\prime}) \vdash \varphi$.
 
-      \item Supongamos $(\Sigma ,\tau ^{\prime})\vdash \varphi $. Entonces hay una prueba $(\mathbf{\varphi },\mathbf{J})$ de $\varphi$ en $(\Sigma ,\tau ^{\prime})$. Veremos que $(\mathbf{\varphi },\mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau)$. Ya que $(\mathbf{\varphi },\mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma ,\tau ^{\prime})$ hay un conjunto finito $\mathcal{C}_{1}$, disjunto con $\mathcal{C}^{\prime}$, tal que $( \mathcal{C}^{\prime}\cup \mathcal{C}_{1},\mathcal{F},\mathcal{R},a)$ es un tipo y cada $\mathbf{\varphi }_{i}$ es una sentencia de tipo $(\mathcal{C} ^{\prime}\cup \mathcal{C}_{1},\mathcal{F},\mathcal{R},a)$. Notese que $ \widetilde{\mathcal{C}_{1}}=\mathcal{C}_{1}\cup (\mathcal{C}^{\prime}- \mathcal{C})$ es tal que $(\mathcal{C}\cup \widetilde{\mathcal{C}_{1}}, \mathcal{F},\mathcal{R},a)$ es un tipo y cada $\mathbf{\varphi }_{i}$ es una sentencia de tipo $(\mathcal{C}\cup \widetilde{\mathcal{C}_{1}},\mathcal{F}, \mathcal{R},a)$, con lo cual $(\mathbf{\varphi },\mathbf{J})$ cunple el punto 1. de la definicion de prueba. Todos los otros puntos se cumplen en forma directa, exepto los puntos 4(f) y 4(g)i para los cuales es necesario notar que $\mathcal{C}\subseteq \mathcal{C}^{\prime}$.
+      \item Supongamos $(\Sigma, \tau^{\prime}) \vdash \varphi$. Sea $(\pmb{\varphi}, \mathbf{J})$ de $\varphi$ en
+        $(\Sigma, \tau^{\prime})$. Veremos que $(\pmb{\varphi}, \mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma,
+        \tau)$. Recordemos la definición de prueba:
+        \PN Sea $(\Sigma, \tau)$ una teoría de primer orden. Sea $\varphi$ una sentencia de tipo $\tau$. Una
+        \textbf{prueba} de $\varphi$ en $(\Sigma, \tau)$ será un par adecuado $(\mathbf{\varphi}, \mathbf{J})$ de algún
+        tipo $\tau_{1} = (\mathcal{C} \cup \mathcal{C}_{1}, \mathcal{F}, \mathcal{R}, a)$, con $\mathcal{C}_{1}$ finito
+        y disjunto con $\mathcal{C}$, tal que
+        \begin{enumerate}[(1)]
+          \item Cada $\mathbf{\varphi}_{i}$ es una sentencia de tipo $\tau_{1}$
+          \item $\mathbf{\varphi}_{n(\mathbf{\varphi})} = \varphi$
+          \item Si $\left\langle i, j \right\rangle \in \mathcal{B}^{\mathbf{J}}$, entonces $\mathbf{J}_{j+1}$ es de la
+            forma $\alpha \mathrm{CONCLUSION}$ y $\mathbf{\varphi}_{j+1} = (\mathbf{\varphi}_{i} \rightarrow
+            \mathbf{\varphi}_{j})$
+          \item Para cada $i = 1, \dotsc, n(\mathbf{\varphi}),$ se da una de las siguientes:
+          \begin{enumerate}[(a)]
+            \item $\mathbf{J}_{i} = \mathrm{HIPOTESIS}\bar{k}$ para algún $k \in \mathbf{N}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{CONCLUSION}$ y hay un $j$ tal que $\left\langle j, i-1
+              \right\rangle \in \mathcal{B}^{\mathbf{J}}$ y $\mathbf{\varphi}_{i} = (\mathbf{\varphi}_{j} \rightarrow
+              \mathbf{\varphi}_{i-1})$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{AXIOMALOGICO}$ y $\mathbf{\varphi}_{i}$ es un axioma
+              lógico de tipo $\tau_{1}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{AXIOMAPROPIO}$ y $\mathbf{\varphi}_{i} \in \Sigma$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{PARTICULARIZACION} (\bar{l})$, con $l$ anterior a $i$
+              y $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Partic^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{COMMUTATIVIDAD}(\bar{l})$, con $l$ anterior a $i$ y
+              $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Commut^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{ABSURDO}(\bar{l})$, con $l$ anterior a $i$ y
+              $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Absur^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{EVOCACION}(\bar{l} )$, con $l$ anterior a $i$ y
+              $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Evoc^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{EXISTENCIA}(\bar{l })$, con $l$ anterior a $i$ y
+              $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Exist^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{CONJUNCIONELIMINACION}(\bar{l})$, con $l$ anterior a
+              $i$ y $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in ConjElim^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{DISJUNCIONINTRODUCCION}(\bar{l})$, con $l$ anterior a
+              $i$ y $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in DisjInt^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{EQUIVALENCIAELIMINACION}(\bar{l})$, con $l$ anterior a
+              $i$ y $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in EquivElim^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{MODUSPONENS}(\overline{l_{1}}, \overline{l_{2}})$, con
+              $l_{1}$ y $l_{2}$ anteriores a $i$ y $(\mathbf{\varphi}_{l_{1}}, \mathbf{\varphi}_{l_{2}},
+              \mathbf{\varphi}_{i}) \in ModPon^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{CONJUNCIONINTRODUCCION}(\overline{l_{1}},
+              \overline{l_{2}})$, con $l_{1}$ y $ l_{2}$ anteriores a $i$ y $(\mathbf{\varphi}_{l_{1}},
+              \mathbf{\varphi}_{l_{2}}, \mathbf{\varphi}_{i}) \in ConjInt^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{EQUIVALENCIAINTRODUCCION}(\overline{l_{1}},
+              \overline{l_{2}})$, con $l_{1}$ y $l_{2}$ anteriores a $i$ y $(\mathbf{\varphi}_{l_{1}},
+              \mathbf{\varphi}_{l_{2}}, \mathbf{\varphi}_{i}) \in EquivInt^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{DISJUNCIONELIMINACION}(\overline{l_{1}},
+              \overline{l_{2}})$, con $l_{1}$ y $ l_{2}$ anteriores a $i$ y $(\mathbf{\varphi}_{l_{1}},
+              \mathbf{\varphi}_{l_{2}}, \mathbf{\varphi}_{i}) \in DisjElim^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{REEMPLAZO}(\overline{l_{1}}, \overline{l_{2}})$, con
+              $l_{1}$ y $l_{2}$ anteriores a $i$ y $(\mathbf{\varphi}_{l_{1}}, \mathbf{\varphi}_{l_{2}},
+              \mathbf{\varphi}_{i}) \in Reemp^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{TRANSITIVIDAD}(\overline{l_{1}}, \overline{l_{2}})$,
+              con $l_{1}$ y $l_{2}$ anteriores a $i$ y $(\mathbf{\varphi}_{l_{1}}, \mathbf{\varphi}_{l_{2}},
+              \mathbf{\varphi}_{i}) \in Trans^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{DIVISIONPORCASOS}(\overline{l_{1}}, \overline{l_{2}},
+              \overline{l_{3}})$, con $l_{1},l_{2}$ y $ l_{3}$ anteriores a $i$ y y $(\mathbf{\varphi}_{l_{1}},
+              \mathbf{\varphi}_{l_{2}}, \mathbf{\varphi}_{l_{3}}, \mathbf{\varphi}_{i}) \in DivPorCas^{\tau_{1}}$
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{ELECCION}(\bar{l}) $, con $l$ anterior a $i$ y
+              $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Elec^{\tau_{1}}$ vía el nombre de constante $e$, el cual
+              no pertenece a $ \mathcal{C}$ y no ocurre en $\mathbf{\varphi}_{1}, \dotsc, \mathbf{\varphi}_{i-1}$.
+            \item $\mathbf{J}_{i}$ es de la forma $\alpha \mathrm{GENERALIZACION}(\bar{l})$, con $l$ anterior a $i$ y
+              $(\mathbf{\varphi}_{l}, \mathbf{\varphi}_{i}) \in Generaliz^{\tau_{1}}$ vía el nombre de constante $c$ el
+              cual cumple:
+              \begin{enumerate}[(i)]
+                \item $c \not\in \mathcal{C}$
+                \item $c$ no es un nombre de constante que ocurra en $\mathbf{\varphi}$ el cual sea introducido por la
+                  aplicación de la regla de elección, es decir para cada $u \in \{1, \dotsc, n(\mathbf{\varphi})\}$, si
+                  $\mathbf{J}_{u}$ es de la forma $\alpha \mathrm{ELECCION}(\bar{v})$, entonces no se da que
+                  $(\mathbf{\varphi}_{v}, \mathbf{\varphi}_{u}) \in Elec^{\tau_{1}}$ vía $c$.
+                \item $c$ no ocurre en ninguna hipotesis de $\mathbf{\varphi}_{l}$.
+                \item Ningún nombre de constante que ocurra en $\mathbf{\varphi}_{l}$ o en sus hipotesis, depende de $c$.
+              \end{enumerate}
+          \end{enumerate}
+        \end{enumerate}
+
+        \PN Ya que $(\mathbf{\varphi}, \mathbf{J})$ es una prueba de $\varphi$ en $(\Sigma, \tau^{\prime})$ hay un
+        conjunto finito $\mathcal{C}_{1}$, disjunto con $\mathcal{C}^{\prime}$, tal que $(\mathcal{C}^{\prime} \cup
+        \mathcal{C}_{1}, \mathcal{F}, \mathcal{R}, a)$ es un tipo y cada $\mathbf{\varphi}_{i}$ es una sentencia de tipo
+        $(\mathcal{C}^{\prime} \cup \mathcal{C}_{1}, \mathcal{F}, \mathcal{R}, a)$. Notese que
+        $\widetilde{\mathcal{C}_{1}} = \mathcal{C}_{1} \cup (\mathcal{C}^{\prime}-\mathcal{C})$ es tal que $(\mathcal{C}
+        \cup \widetilde{\mathcal{C}_{1}}, \mathcal{F}, \mathcal{R}, a)$ es un tipo y cada $\mathbf{\varphi}_{i}$ es una
+        sentencia de tipo $(\mathcal{C} \cup \widetilde{\mathcal{C}_{1}}, \mathcal{F}, \mathcal{R}, a)$, con lo cual
+        $(\mathbf{\varphi}, \mathbf{J})$ cumple el punto (1) de la definición de prueba. Con la excepción de los puntos
+        4(f) y 4(g)i para los cuales es necesario notar que $\mathcal{C} \subseteq \mathcal{C}^{\prime}$, todos los
+        demás puntos se cumplen en forma directa.
     \end{enumerate}
   \end{proof}
 
@@ -234,7 +875,7 @@
       \item $\mathcal{C}_{\cap} = \mathcal{C} \cap \mathcal{C}^{\prime}$
       \item $\mathcal{F}_{\cap} = \{f \in \mathcal{F} \cap \mathcal{F}^{\prime}: a(f) = a^{\prime}(f)\}$
       \item $\mathcal{R}_{\cap} = \{r \in \mathcal{R} \cap \mathcal{R}^{\prime}: a(r) = a^{\prime}(r)\}$
-      \item $a_{\cap} = a\mid_{\mathcal{F}_{\cap} \cup \mathcal{R}_{\cap}}$
+      \item $a_{\cap} = a\mid_{\mathcal{F}_{\cap} \; \cup \; \mathcal{R}_{\cap}}$
     \end{itemize}
 
     \PN Sean $\mathbf{A}$ y $\mathbf{A}^{\prime}$ modelos de tipo $\tau$ y $\tau^{\prime}$ respectivamente. Supongamos
@@ -270,87 +911,87 @@
     \PN \textbf{(Completitud) (G{\"o}del)} Sea $T = (\Sigma, \tau)$ una teoría de primer orden. Si $T \models \varphi$
     entonces $T \vdash \varphi$.
   \end{theorem}
-  % \begin{proof} % TODO error de compilación.
-  %   Primero probaremos completitud para el caso en que $\tau $ tiene una cantidad infinita de nombres de cte que no ocurren en las sentencias de $ \Sigma $. Lo probaremos por el absurdo, es decir supongamos que $\varphi_{0} $ es tal que $(\Sigma, \tau)\models \varphi_{0}$ y $(\Sigma, \tau)\not\vdash \varphi_{0}.$ Notese que ya que $(\Sigma, \tau)\not\vdash \varphi_{0}$, tenemos que $\lbrack\lnot \varphi_{0}\rbrack\not=0^{\mathcal{A}_{(\Sigma, \tau)}}.$ Para cada $j\in \mathbb{N}$, sea $w_{j}\in Var$ tal que $ Li(\gamma _{j})\subseteq \{w_{j}\}$. Para cada $j$, declaremos $\gamma _{j}=_{d}\gamma _{j}(w_{j})$. Notese que por el Lema 163 tenemos que $\inf \{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}=\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack$, para cada $j=1,2,\dotsc$. Por el Teorema de Rasiova y Sikorski tenemos que hay un filtro primo de $\mathcal{A}_{(\Sigma, \tau)}$ , $\mathcal{U}$ el cual cumple:
-  %
-  %   (a) $\lbrack\lnot \varphi_{0}\rbrack\in \mathcal{U}$
-  %   (b) para cada $j\in \mathbb{N}$, $\{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ implica que $\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack\in \mathcal{U}$
-  %   Ya que la sucesion de las $\gamma _{i}$ cubre todas las formulas con a lo sumo una variable libre, podemos reescribir la propiedad (b) de la siguiente manera
-  %
-  %   (b)$^{\prime}$ para cada $\varphi =_{d}\varphi (v)\in F^{\tau }$, si $\{\lbrack\varphi (t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ entonces $ \lbrack\forall v\varphi (v)\rbrack\in \mathcal{U}$
-  %   Definamos sobre $T_{c}^{\tau }$ la siguiente relacion:
-  %
-  %   $\displaystyle t\bowtie s\text{ si y solo si }\lbrack(t\equiv s)\rbrack\in \mathcal{U}\text{.} $
-  %
-  %   Veamos entonces que:
-  %   (1) $\bowtie $ es de equivalencia.
-  %   (2) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F^{\tau }$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$, si $t_{1}\bowtie s_{1}$, $ t_{2}\bowtie s_{2}$, $\dotsc$, $t_{n}\bowtie s_{n}$, entonces $\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}$ si y solo si $\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U}$.
-  %   (3) Para cada $f\in \mathcal{F}_{n}$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$,
-  %   $\displaystyle t_{1}\bowtie s_{1},t_{2}\bowtie s_{2}, \dotsc, \;t_{n}\bowtie s_{n}\text{ implica }f(t_{1}, \dotsc, t_{n})\bowtie f(s_{1}, \dotsc, s_{n}). $
-  %
-  %   Probaremos (2). Notese que
-  %
-  %   $\displaystyle (\Sigma, \tau)\vdash \left( (t_{1}\equiv s_{1})\wedge (t_{2}\equiv s_{2})\wedge \dotsc\wedge (t_{n}\equiv s_{n})\wedge \varphi (t_{1}, \dotsc, t_{n})\right) \rightarrow \varphi (s_{1}, \dotsc, s_{n}) $
-  %
-  %   lo cual nos dice que
-  %   $\displaystyle \lbrack (t_{1}\equiv s_{1})\rbrack \ \IN \ \lbrack(t_{2}\equiv s_{2})\rbrack \ \IN \  \dotsc \ \IN \ \lbrack(t_{n}\equiv s_{n})\rbrack \ \IN \ \lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\leq \lbrack \varphi (s_{1}, \dotsc, s_{n})\rbrack $
-  %
-  %   de lo cual se desprende que
-  %   $\displaystyle \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{ implica }\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U} $
-  %
-  %   ya que $\mathcal{U}$ es un filtro. La otra implicacion es analoga.
-  %   Para probar (3) podemos tomar $\varphi =\left( f(v_{1}, \dotsc, v_{n})\equiv f(s_{1}, \dotsc, s_{n})\right) $ y aplicar (2).
-  %
-  %   Definamos ahora un modelo $\mathbf{A}_{\mathcal{U}}$ de tipo $\tau $ de la siguiente manera:
-  %
-  %   - Universo de $\mathbf{A}_{\mathcal{U}}=T_{c}^{\tau }/\mathrm{\bowtie }$
-  %   - $f^{\mathbf{A}_{\mathcal{U}}}(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie })=f(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie }$, $f\in \mathcal{F} _{n}$, $t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }\;$
-  %   - $r^{\mathbf{A}_{\mathcal{U}}}=\{(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie }):\lbrackr(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\}$, $r\in \mathcal{R} _{n}.$
-  %   Notese que la definicion de $f^{\mathbf{A}_{\mathcal{U}}}$ es inambigua por (3). Probaremos las siguientes propiedades basicas:
-  %
-  %   (4) Para cada $t=_{d}t(v_{1}, \dotsc, v_{n})\in \TAU$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
-  %   $\displaystyle t^{\mathbf{A}_{\mathcal{U}}}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{ \bowtie }\rbrack=t(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie } $
-  %
-  %   (5) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F^{\tau }$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
-  %   $\displaystyle \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{ si y solo si }\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. $
-  %
-  %   La prueba de (4) es directa por induccion. Probaremos (5) por induccion en el $k$ tal que $\varphi \in F_{k}^{\tau }$. El caso $k=0$ es dejado al lector. Supongamos (5) vale para $\varphi \in F_{k}^{\tau }$. Sea $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n})\in F_{k+1}^{\tau }-F_{k}^{\tau }.$ Hay varios casos:
-  %
-  %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\left( \varphi_{1}(v_{1}, \dotsc, v_{n})\vee \varphi_{2}(v_{1}, \dotsc, v_{n})\right) .$
-  %
-  %   Tenemos
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{ o }\mathbf{A}_{\mathcal{U}}\models \varphi_{2}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{ o }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\ \mathsf{s\ }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \left( \varphi_{1}(t_{1}, \dotsc, t_{n})\vee \varphi_{2}(t_{1}, \dotsc, t_{n})\right) \rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
-  %
-  %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\forall v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
-  %   Tenemos
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para todo }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para todo } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
-  %
-  %   CASO $\varphi (v_{1}, \dotsc, v_{n})=\exists v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
-  %   Tenemos
-  %
-  %   $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para algun } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack^{c}\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \lnot \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\not\in \mathcal{U} \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack^{c}\in \mathcal{U} \\ \Updownarrow \\ \lbrack \lnot \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U } \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
-  %
-  %   Pero ahora notese que (5) en particular nos dice que para cada sentencia $ \psi \in S^{\tau }$, $\mathbf{A}_{\mathcal{U}}\models \psi $ si y solo si $ \lbrack\psi \rbrack\in \mathcal{U}.$ De esta forma llegamos a que $\mathbf{A}_{\mathcal{U }}\models \Sigma $ y $\mathbf{A}_{\mathcal{U}}\models \lnot \varphi_{0}$, lo cual contradice la suposicion de que $(\Sigma, \tau)\models \varphi_{0}. $
-  %   Ahora supongamos que $\tau $ es cualquier tipo. Sean $s_{1}$ y $s_{2}$ un par de simbolos no pertenecientes a la lista
-  %
-  %   $\displaystyle \forall \ \ \exists \ \ \lnot \ \ \vee \ \ \wedge \ \ \rightarrow \ \ \leftrightarrow \ \ (\ \ )\ \ ,\ \equiv \ \ \mathsf{X}\ \ \mathit{0}\ \ \mathit{1}\ \ \dotsc\ \ \mathit{9}\ \ \mathbf{0}\ \ \mathbf{1}\ \ \dotsc\ \ \mathbf{9} $
-  %
-  %   y tales que ninguno ocurra en alguna palabra de $\mathcal{C}\cup \mathcal{F} \cup \mathcal{R}.$ Si $(\Sigma, \tau)\models \varphi $, entonces usando el Lema de Coincidencia se puede ver que $(\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\},\mathcal{F},\mathcal{R} ,a))\models \varphi $, por lo cual
-  %   $\displaystyle (\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\}, \mathcal{F},\mathcal{R},a))\vdash \varphi . $
-  %
-  %   Pero por Lema 162, tenemos que $(\Sigma, \tau)\vdash \varphi .$
-  % \end{proof}
+  \begin{proof} % TODO error de compilación.
+    Primero probaremos completitud para el caso en que $\tau $ tiene una cantidad infinita de nombres de constante que no ocurren en las sentencias de $ \Sigma $. Lo probaremos por el absurdo, es decir supongamos que $\varphi_{0} $ es tal que $(\Sigma, \tau)\models \varphi_{0}$ y $(\Sigma, \tau)\not\vdash \varphi_{0}.$ Notese que ya que $(\Sigma, \tau)\not\vdash \varphi_{0}$, tenemos que $\lbrack\lnot \varphi_{0}\rbrack\not=0^{\mathcal{A}_{(\Sigma, \tau)}}.$ Para cada $j\in \mathbb{N}$, sea $w_{j}\in Var$ tal que $ Li(\gamma _{j})\subseteq \{w_{j}\}$. Para cada $j$, declaremos $\gamma _{j}=_{d}\gamma _{j}(w_{j})$. Notese que por el Lema 163 tenemos que $\inf \{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\} = \lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack$, para cada $j=1,2,\dotsc$. Por el Teorema de Rasiova y Sikorski tenemos que hay un filtro primo de $\mathcal{A}_{(\Sigma, \tau)}$ , $\mathcal{U}$ el cual cumple:
+
+    (a) $\lbrack\lnot \varphi_{0}\rbrack\in \mathcal{U}$
+    (b) para cada $j\in \mathbb{N}$, $\{\lbrack\gamma _{j}(t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ implica que $\lbrack\forall w_{j}\gamma _{j}(w_{j})\rbrack\in \mathcal{U}$
+    Ya que la sucesion de las $\gamma _{i}$ cubre todas las formulas con a lo sumo una variable libre, podemos reescribir la propiedad (b) de la siguiente manera
+
+    (b)$^{\prime}$ para cada $\varphi =_{d}\varphi (v) \in F^{\tau }$, si $\{\lbrack\varphi (t)\rbrack:t\in T_{c}^{\tau }\}\subseteq \mathcal{U}$ entonces $ \lbrack\forall v\varphi (v)\rbrack\in \mathcal{U}$
+    Definamos sobre $T_{c}^{\tau }$ la siguiente relacion:
+
+    $\displaystyle t\bowtie s\text{si y solo si }\lbrack(t\equiv s)\rbrack\in \mathcal{U}\text{.} $
+
+    Veamos entonces que:
+    (1) $\bowtie $ es de equivalencia.
+    (2) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n}) \in F^{\tau }$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$, si $t_{1}\bowtie s_{1}$, $ t_{2}\bowtie s_{2}$, $\dotsc$, $t_{n}\bowtie s_{n}$, entonces $\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}$ si y solo si $\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U}$.
+    (3) Para cada $f\in \mathcal{F}_{n}$, $ t_{1}, \dotsc, t_{n},s_{1}, \dotsc, s_{n}\in T_{c}^{\tau }$,
+    $\displaystyle t_{1}\bowtie s_{1},t_{2}\bowtie s_{2}, \dotsc, \;t_{n}\bowtie s_{n}\text{implica }f(t_{1}, \dotsc, t_{n})\bowtie f(s_{1}, \dotsc, s_{n}). $
+
+    Probaremos (2). Notese que
+
+    $\displaystyle (\Sigma, \tau)\vdash \left( (t_{1}\equiv s_{1})\wedge (t_{2}\equiv s_{2})\wedge \dotsc\wedge (t_{n}\equiv s_{n})\wedge \varphi (t_{1}, \dotsc, t_{n})\right) \rightarrow \varphi (s_{1}, \dotsc, s_{n}) $
+
+    lo cual nos dice que
+    $\displaystyle \lbrack (t_{1}\equiv s_{1})\rbrack \ \IN \ \lbrack(t_{2}\equiv s_{2})\rbrack \ \IN \  \dotsc \ \IN \ \lbrack(t_{n}\equiv s_{n})\rbrack \ \IN \ \lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\leq \lbrack \varphi (s_{1}, \dotsc, s_{n})\rbrack $
+
+    de lo cual se desprende que
+    $\displaystyle \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{implica }\lbrack\varphi (s_{1}, \dotsc, s_{n})\rbrack\in \mathcal{U} $
+
+    ya que $\mathcal{U}$ es un filtro. La otra implicacion es analoga.
+    Para probar (3) podemos tomar $\varphi =\left( f(v_{1}, \dotsc, v_{n})\equiv f(s_{1}, \dotsc, s_{n})\right) $ y aplicar (2).
+
+    Definamos ahora un modelo $\mathbf{A}_{\mathcal{U}}$ de tipo $\tau $ de la siguiente manera:
+
+    - Universo de $\mathbf{A}_{\mathcal{U}}=T_{c}^{\tau }/\mathrm{\bowtie }$
+    - $f^{\mathbf{A}_{\mathcal{U}}}(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie })=f(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie }$, $f\in \mathcal{F}_{n}$, $t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }\;$
+    - $r^{\mathbf{A}_{\mathcal{U}}} = \{(t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/ \mathrm{\bowtie }):\lbrack(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\}$, $r\in \mathcal{R}_{n}.$
+    Notese que la definicion de $f^{\mathbf{A}_{\mathcal{U}}}$ es inambigua por (3). Probaremos las siguientes propiedades basicas:
+
+    (4) Para cada $t=_{d}t(v_{1}, \dotsc, v_{n}) \in \TAU$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
+    $\displaystyle t^{\mathbf{A}_{\mathcal{U}}}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{\bowtie }\rbrack=t(t_{1}, \dotsc, t_{n})/\mathrm{\bowtie } $
+
+    (5) Para cada $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n}) \in F^{\tau }$, $ t_{1}, \dotsc, t_{n}\in T_{c}^{\tau }$, tenemos que
+    $\displaystyle \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{si y solo si }\lbrack\varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. $
+
+    La prueba de (4) es directa por induccion. Probaremos (5) por induccion en el $k$ tal que $\varphi \in F_{k}^{\tau }$. El caso $k=0$ es dejado al lector. Supongamos (5) vale para $\varphi \in F_{k}^{\tau }$. Sea $\varphi =_{d}\varphi (v_{1}, \dotsc, v_{n}) \in F_{k+1}^{\tau }-F_{k}^{\tau }.$ Hay varios casos:
+
+    CASO $\varphi (v_{1}, \dotsc, v_{n})=\left( \varphi_{1}(v_{1}, \dotsc, v_{n}) \vee \varphi_{2}(v_{1}, \dotsc, v_{n})\right) .$
+
+    Tenemos
+
+    $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack\text{o }\mathbf{A}_{\mathcal{U}}\models \varphi_{2}\lbrack t_{1}/\mathrm{\bowtie }, \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}\text{o }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n})\rbrack\ \mathsf{s\ }\lbrack\varphi_{2}(t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \left( \varphi_{1}(t_{1}, \dotsc, t_{n}) \vee \varphi_{2}(t_{1}, \dotsc, t_{n})\right) \rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
+
+    CASO $\varphi (v_{1}, \dotsc, v_{n})=\forall v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
+    Tenemos
+
+    $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para todo }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para todo } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U} \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
+
+    CASO $\varphi (v_{1}, \dotsc, v_{n})=\exists v\varphi_{1}(v_{1}, \dotsc, v_{n},v).$
+    Tenemos
+
+    $\displaystyle \begin{array}{c} \mathbf{A}_{\mathcal{U}}\models \varphi \lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie }\rbrack \\ \Updownarrow \\ \mathbf{A}_{\mathcal{U}}\models \varphi_{1}\lbrack t_{1}/\mathrm{\bowtie } , \dotsc, t_{n}/\mathrm{\bowtie },t/\mathrm{\bowtie }\rbrack\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\in \mathcal{U}\text{, para algun } t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack^{c}\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \lnot \varphi_{1}(t_{1}, \dotsc, t_{n},t)\rbrack\not\in \mathcal{U}\text{, para algun }t\in T_{c}^{\tau } \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\not\in \mathcal{U} \\ \Updownarrow \\ \lbrack \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack^{c}\in \mathcal{U} \\ \Updownarrow \\ \lbrack \lnot \forall v\;\lnot \varphi_{1}(t_{1}, \dotsc, t_{n},v)\rbrack\in \mathcal{U } \\ \Updownarrow \\ \lbrack \varphi (t_{1}, \dotsc, t_{n})\rbrack\in \mathcal{U}. \end{array} $
+
+    Pero ahora notese que (5) en particular nos dice que para cada sentencia $ \psi \in S^{\tau }$, $\mathbf{A}_{\mathcal{U}}\models \psi $ si y solo si $ \lbrack\psi \rbrack\in \mathcal{U}.$ De esta forma llegamos a que $\mathbf{A}_{\mathcal{U }}\models \Sigma $ y $\mathbf{A}_{\mathcal{U}}\models \lnot \varphi_{0}$, lo cual contradice la suposicion de que $(\Sigma, \tau)\models \varphi_{0}. $
+    Ahora supongamos que $\tau $ es cualquier tipo. Sean $s_{1}$ y $s_{2}$ un par de simbolos no pertenecientes a la lista
+
+    $\displaystyle \forall \ \ \exists \ \ \lnot \ \ \vee \ \ \wedge \ \ \rightarrow \ \ \leftrightarrow \ \ (\ \ )\ \ ,\ \equiv \ \ \mathsf{X}\ \ \mathit{0}\ \ \mathit{1}\ \ \dotsc\ \ \mathit{9}\ \ \mathbf{0}\ \ \mathbf{1}\ \ \dotsc\ \ \mathbf{9} $
+
+    y tales que ninguno ocurra en alguna palabra de $\mathcal{C}\cup \mathcal{F} \cup \mathcal{R}.$ Si $(\Sigma, \tau)\models \varphi $, entonces usando el Lema de Coincidencia se puede ver que $(\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\},\mathcal{F},\mathcal{R} ,a))\models \varphi $, por lo cual
+    $\displaystyle (\Sigma ,(\mathcal{C}\cup \{s_{1}s_{2}s_{1},s_{1}s_{2}s_{2}s_{1},\dotsc\}, \mathcal{F},\mathcal{R},a))\vdash \varphi . $
+
+    Pero por Lema 162, tenemos que $(\Sigma, \tau)\vdash \varphi .$
+  \end{proof}
 
   % Corollary 173. Con prueba. Corollary 83.
   \begin{corollary} \label{corollary_83}
     \PN Toda teoría consistente tiene un modelo.
   \end{corollary}
   \begin{proof}
-    Supongamos $(\Sigma, \tau)$ es consistente y no tiene modelos. Entonces $ (\Sigma, \tau)\models \left( \varphi
-    \wedge \lnot \varphi \right) $, con lo cual por completitud $(\Sigma, \tau)\vdash \left( \varphi \wedge \lnot
-    \varphi \right) $, lo cual es absurdo.
+    \PN Supongamos $(\Sigma, \tau)$ es consistente y no tiene modelos. Entonces $(\Sigma, \tau) \models \left(\varphi
+    \wedge \lnot \varphi \right) $, con lo cual por \textbf{Completitud}, $(\Sigma, \tau) \vdash \left(\varphi \wedge
+    \lnot \varphi \right)$, lo cual es absurdo. Dicho absurdo vino de suponer que $(\Sigma, \tau)$ no tenía modelos.
   \end{proof}
 
   % Corollary 174. Con prueba. Corollary 84.
@@ -364,9 +1005,14 @@
     \end{enumerate}
   \end{corollary}
   \begin{proof}
-    (a) Si $(\Sigma, \tau)$ fuera inconsistente habria un subconjunto finito $ \Sigma _{0}\subseteq \Sigma $ tal que la teoria $(\Sigma _{0},\tau )$ es inconsistente ($\Sigma _{0}$ puede ser formado con los axiomas de $\Sigma $ usados en una prueba que atestigue que $(\Sigma, \tau)\vdash \left( \varphi \wedge \lnot \varphi \right) $). O sea que $(\Sigma, \tau)$ es consistente por lo cual tiene un modelo.
-
-    (b) Si $(\Sigma, \tau)\models \varphi $, entonces por completitud, $(\Sigma, \tau)\vdash \varphi $. Pero entonces hay un subconjunto finito $\Sigma _{0}\subseteq \Sigma $ tal que $(\Sigma _{0},\tau )\vdash \varphi $, es decir tal que $(\Sigma _{0},\tau )\models \varphi $ (correccion).
+    \begin{enumerate}[(a)]
+      \item Si $(\Sigma, \tau)$ no tuviera un modelo, es decir, si fuera inconsistente, habría un subconjunto finito
+        $\Sigma_{0} \subseteq \Sigma$ tal que la teoría $(\Sigma_{0}, \tau)$ es inconsistente, lo cual es absurdo, pues
+        cada subconjunto finito de $\Sigma$ es consistente.
+      \item Si $(\Sigma, \tau) \models \varphi$, entonces por \textbf{Completitud}, $(\Sigma, \tau) \vdash \varphi$, es
+        decir que hay un subconjunto finito $\Sigma_{0} \subseteq \Sigma$ tal que $(\Sigma_{0}, \tau) \vdash \varphi$.
+        Por lo tanto, por \textbf{Correción}, $(\Sigma_{0}, \tau) \models \varphi$.
+    \end{enumerate}
   \end{proof}
 
   % El número 175 es usado para un ejemplo.

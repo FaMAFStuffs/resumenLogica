@@ -2,32 +2,62 @@
 
   % Lemma 133. Con prueba. Lemma 43.
   \begin{lemma} \label{lemma_43}
-    \PN Sea $\mathbf{A}$ una estructura de tipo $\tau$ y sea $t\in \TAU$. Supongamos que $\vec{a}, \vec{b}$ son
+    \PN Sea $\mathbf{A}$ una estructura de tipo $\tau$ y sea $t \in \TAU$. Supongamos que $\vec{a}, \vec{b}$ son
     asignaciones tales que $a_{i} = b_{i}$ cada vez que $x_{i}$ ocurra en $t$, entonces $t^{\mathbf{A}}[\vec{a}] =
     t^{\mathbf{A}}[\vec{b}]$.
   \end{lemma}
   \begin{proof}
-    Sea
+    \PN Sea
+    \begin{center}
+      Teo$_{k}$: El lema vale para $t \in T_{k}^{\tau}$
+    \end{center}
+    \PN Probaremos este lema por inducción en $k$.
 
-    - Teo$_{k}$: El lema vale para $t\in T_{k}^{\tau }$.
-    Teo$_{0}$ es facil de probar. Veamos Teo$_{k}\Rightarrow $Teo$_{k+1}$. Supongamos $t\in T_{k+1}^{\tau }-T_{k}^{\tau }$
-    y sean $\vec{a},\vec{b}$ asignaciones tales que $a_{i}=b_{i}$ cada vez que $x_{i}$ ocurra en $t$. Notese que
-    $t=f(t_{1}, \dotsc, t_{n})$, con $f\in \mathcal{F}_{n},\;n\geq 1 \ \text{y} \  t_{1}, \dotsc, t_{n}\in \TAU$. Notese que para
-    cada $j=1, \dotsc, n$, tenemos que $a_{i}=b_{i}$ cada vez que $x_{i}$ ocurra en $t_{j}$, lo cual por Teo$_{k}$ nos
-    dice que
-
-    $t_{j}^{\mathbf{A}}[\vec{a}]=t_{j}^{\mathbf{A}}[\vec{b}]\text{, }j=1, \dotsc, n $
-
-    Se tiene entonces que
+    \vspace{3mm}
+    \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline Teo$_{0}$ \\\hline \end{tabular} Sea $t \in T_{0}^{\tau}$ y
+    sean $\vec{a}, \vec{b}$ asignaciones tales que $a_{i} = b_{i}$ cada vez que $x_{i}$ ocurra en $t$, entonces
     \[
-      \begin{array}{ccl}
-        t^{\mathbf{A}}[\vec{a}] &=& i(f)(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{n}^{ \mathbf{A}}[\vec{a}])\text{ (por def de }t^{\mathbf{A}}[\vec{a}]\text{)} \\
-        &=& i(f)(t_{1}^{\mathbf{A}}[\vec{b}], \dotsc, t_{n}^{\mathbf{A}}[\vec{b}]) \\
-        &=& t^{\mathbf{A}}[\vec{b}]\text{ (por def de }t^{\mathbf{A}}[\vec{a}] \text{)}
-      \end{array}
+      t \in Var \cup \mathcal{C}
     \]
+    \PN es decir, sucede una de las siguientes:
+    \begin{itemize}
+      \item $t = x_{i}$, con $x_{i} \in Var$:
+        \[
+          t^{\mathbf{A}}[\vec{a}] = a_{i} = b_{i} = t^{\mathbf{A}}[\vec{b}]
+        \]
+      \item $t = c$, con $c \in \mathcal{C}$:
+        \[
+          t^{\mathbf{A}}[\vec{a}] = i(c) = t^{\mathbf{A}}[\vec{b}]
+        \]
+    \end{itemize}
+
+		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline Teo$_{k} \Rightarrow$ Teo$_{k + 1}$ \\\hline
+    \end{tabular} Sea $t \in T_{k+1}^{\tau}$ y sean $\vec{a}, \vec{b}$ asignaciones tales que $a_{i} = b_{i}$ cada vez
+    que $x_{i}$ ocurra en $t$, entonces
+    \[
+      t \in T_{k}^{\tau} \cup \{f(t_{1}, \dotsc, t_{n}): f \in \mathcal{F}_{n},n\geq 1,t_{1}, \dotsc, t_{n} \in
+      T_{k}^{\tau}\}
+    \]
+    \PN es decir, sucede una de las siguientes:
+    \begin{itemize}
+      \item $t \in T_{k}^{\tau}$: Aplicando HI y utilizando el hecho de que $T_{k}^{\tau} \subseteq T_{k+1}^{\tau}$,
+      obtenemos que Teo$_{k+1}$ vale.
+      \item $t = f(t_{1}, \dotsc, t_{n})$, con $f \in \mathcal{F}_{n} \ n \geq 1 \ \text{y} \ t_{1}, \dotsc, t_{n} \in
+      T_{k}^{\tau}$: Notar que para cada $j = 1, \dotsc, n$, tenemos que $a_{i} = b_{i}$ cada vez que $x_{i}$ ocurra en
+      $t_{j}$, lo cual por Teo$_{k}$ nos dice que:
+      \[
+        t_{j}^{\mathbf{A}}[\vec{a}] = t_{j}^{\mathbf{A}}[\vec{b}] \qquad \text{para} \ j = 1, \dotsc, n
+      \]
+      \PN Se tiene entonces que
+      \begin{eqnarray*}
+        t^{\mathbf{A}}[\vec{a}] &=& i(f)(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{n}^{\mathbf{A}}[\vec{a}]) \\
+        &=& i(f)(t_{1}^{\mathbf{A}}[\vec{b}], \dotsc, t_{n}^{\mathbf{A}}[\vec{b}]) \\
+        &=& t^{\mathbf{A}}[\vec{b}]
+      \end{eqnarray*}
+    \end{itemize}
   \end{proof}
 
+  % TODO
   % Lemma 134. Con prueba. Lemma 44.
   \begin{lemma} \label{lemma_44}
     \PN \newline
@@ -40,12 +70,18 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
+    \PN \newline
     \begin{enumerate}[(a)]
       \item son triviales de las definiciones, teniendo en cuenta que si una variable $v$ ocurre en $(t\equiv s)$ (resp. en $r(t_{1}, \dotsc, t_{n})$) entonces $v$ ocurre en $t \ \text{o} \ v$ ocurre en $s$ (resp.$v$ ocurre en algun $ t_{i}$)
       \item son triviales de las definiciones, teniendo en cuenta que si una variable $v$ ocurre en $(t\equiv s)$ (resp. en $r(t_{1}, \dotsc, t_{n})$) entonces $v$ ocurre en $t \ \text{o} \ v$ ocurre en $s$ (resp.$v$ ocurre en algun $ t_{i}$)
       \item es similar a (d)
-      \item Supongamos $v\in Li((\varphi \eta \psi ))$, entonces hay un $i$ tal que $ v$ ocurre libremente en $(\varphi \eta \psi )$ a partir de $i$. Por definicion tenemos que ya sea $v$ ocurre libremente en $\varphi $ a partir de $i-1 \ \text{o} \ v$ ocurre libremente en $\psi $ a partir de $i-\left\vert (\varphi \eta \right\vert $, con lo cual $v\in Li(\varphi )\cup Li(\psi )$
-      Supongamos ahora que $v\in Li(\varphi )\cup Li(\psi )$. S.p.d.g. supongamos $ v\in Li(\psi )$. Por definicion tenemos que hay un $i$ tal que $v$ ocurre libremente en $\psi $ a partir de $i$. Pero notese que esto nos dice por definicion que $v$ ocurre libremente en $(\varphi \eta \psi )$ a partir de $ i+\left\vert (\varphi \eta \right\vert $ con lo cual $v\in Li((\varphi \eta \psi ))$.
+      \item Supongamos $v \in Li((\varphi \eta \psi))$, entonces hay un $i$ tal que $ v$ ocurre libremente en $(\varphi
+        \eta \psi )$ a partir de $i$. Por definición tenemos que ya sea $v$ ocurre libremente en $\varphi$ a partir de
+        $i-1$ ó $v$ ocurre libremente en $\psi$ a partir de $i-\left\vert (\varphi \eta \right\vert$, con lo cual $v \in
+        Li(\varphi) \cup Li(\psi)$.
+
+        \PN Supongamos ahora que $v \in Li(\varphi) \cup Li(\psi)$. Supongamos $v \in Li(\psi)$. Por definición tenemos
+        que hay un $i$ tal que $v$ ocurre libremente en $\psi$ a partir de $i$. Pero notese que esto nos dice por definicion que $v$ ocurre libremente en $(\varphi \eta \psi )$ a partir de $ i+\left\vert (\varphi \eta \right\vert $ con lo cual $v\in Li((\varphi \eta \psi ))$.
       \item Supongamos $v\in Li(Qx_{j}\varphi )$, entonces hay un $i$ tal que $v$ ocurre libremente en $Qx_{j}\varphi $ a partir de $i$. Por definicion tenemos que $v\neq x_{j} \ \text{y} \ v$ ocurre libremente en $\varphi $ a partir de $ i-\left\vert Qx_{j}\right\vert $, con lo cual $v\in Li(\varphi )-\{x_{j}\}$
       Supongamos ahora que $v\in Li(\varphi )-\{x_{j}\}$. Por definicion tenemos que hay un $i$ tal que $v$ ocurre libremente en $\varphi $ a partir de $i$. Ya que $v\neq x_{j}$ esto nos dice por definicion que $v$ ocurre libremente en $Qx_{j}\varphi $ a partir de $i+\left\vert Qx_{j}\right\vert $, con lo cual $v\in Li(Qx_{j}\varphi )$.
     \end{enumerate}
@@ -58,29 +94,88 @@
     \vec{b}]$.
   \end{lemma}
   \begin{proof}
-    Probaremos por induccion en $k$ que el lema vale para cada $\varphi \in F_{k}^{\tau }.$ El caso $k=0$ se desprende del Lema 131. Veamos que Teo$_{k}$ implica Teo$_{k+1}.$ Sea $\varphi \in F_{k+1}^{\tau }-F_{k}^{\tau }.$ Hay varios casos:
+    \PN Sea
+      \begin{center}
+        Teo$_{k}$: El lema vale para $\varphi \in F_{k}^{\tau}$
+      \end{center}
+      \PN Probaremos este lema por inducción en $k$.
 
-    CASO $\varphi = (\varphi_{1}\wedge \varphi_{2})$.
+      \vspace{3mm}
+      \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline Teo$_{0}$ \\\hline \end{tabular} Sea $\varphi \in
+      F_{0}^{\tau}$ y sean $\vec{a}, \vec{b}$ asignaciones tales que si $x_{i} \in Li(\varphi)$ entonces $a_{i} = b_{i}$
+      entonces
+      \[
+        \varphi \in \{(t \equiv s): t, s \in T^{\tau}\} \cup \{r(t_{1}, \dotsc, t_{n}): r \in \mathcal{R}_{n}, n \geq 1,
+        t_{1}, \dotsc, t_{n} \in T^{\tau}\}
+      \]
+      \PN es decir, sucede una de las siguientes:
+      \begin{itemize}
+        \item $\varphi = (t \equiv s)$ con $t, s \in T^{\tau}$:
+          \begin{eqnarray*}
+            \mathbf{A} \models \varphi[\vec{a}] &\Leftrightarrow& \mathbf{A} \models (t \equiv s)[\vec{a}] \\
+            &\Leftrightarrow& t^{\mathbf{A}}[\vec{a}] = s^{\mathbf{A}}[\vec{a}] \\
+            &\Leftrightarrow& t^{\mathbf{A}}[\vec{b}] = s^{\mathbf{A}}[\vec{b}] \qquad
+              (\text{Por} \ \textbf{Lemma~\ref{lemma_43}}) \\
+            &\Leftrightarrow& \mathbf{A} \models (t \equiv s)[\vec{b}] \\
+            &\Leftrightarrow& \mathbf{A} \models \varphi[\vec{b}]
+          \end{eqnarray*}
 
-    Ya que $Li(\varphi_{i})\subseteq Li(\varphi )$, $i=1,2$, Teo$_{k}$ nos dice que $\mathbf{A} \models \varphi_{i}[\vec{a}]$ sii $\mathbf{A} \models \varphi_{i}[\vec{b}]$, para $i=1,2$. Se tiene entonces que
+        \item $\varphi = r(t_{1}, \dotsc, t_{n})$ con $r \in \mathcal{R}_{n}, n \geq 1, t_{1}, \dotsc, t_{n} \in
+          T^{\tau}$:
+          \begin{eqnarray*}
+            \mathbf{A} \models \varphi[\vec{a}] &\Leftrightarrow& \mathbf{A} \models r(t_{1}, \dotsc, t_{n})[\vec{a}] \\
+            &\Leftrightarrow& r(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc t_{n}^{\mathbf{A}}[\vec{a}]) \in i(r) \\
+            &\Leftrightarrow& r(t_{1}^{\mathbf{A}}[\vec{b}], \dotsc t_{n}^{\mathbf{A}}[\vec{b}]) \in i(r) \qquad
+              (\text{Por} \ \textbf{Lemma~\ref{lemma_43}}) \\
+            &\Leftrightarrow& \mathbf{A} \models r(t_{1}, \dotsc, t_{n})[\vec{b}] \\
+            &\Leftrightarrow& \mathbf{A} \models \varphi[\vec{b}]
+          \end{eqnarray*}
+      \end{itemize}
 
-    $\displaystyle \begin{array}{l} \mathbf{A} \models \varphi \lbrack \vec{a}] \\ \ \ \Updownarrow \text{ (por (3) en la def de }\mathbf{A} \models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A} \models \varphi_{1}[\vec{a}]\text{ y }\mathbf{A} \models \varphi_{2}[\vec{a}] \\ \ \ \Updownarrow \text{ (por Teo}_{k}\text{)} \\ \mathbf{A} \models \varphi_{1}[\vec{b}]\text{ y }\mathbf{A} \models \varphi_{2}[\vec{b}] \\ \ \ \Updownarrow \text{(por (3) en la def de }\mathbf{A} \models \varphi \lbrack \vec{a}]\text{)} \\ \mathbf{A} \models \varphi \lbrack \vec{b}] \end{array} $
+  		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline Teo$_{k} \Rightarrow$ Teo$_{k + 1}$ \\\hline
+      \end{tabular} Sea $\varphi \in F_{k+1}^{\tau}$ y sean $\vec{a}, \vec{b}$ asignaciones tales que si $x_{i} \in
+      Li(\varphi)$ entonces $a_{i} = b_{i}$ entonces si $\varphi \in F_{k}^{\tau}$, aplicando HI y utilizando el hecho
+      de que $F_{k}^{\tau} \subseteq F_{k+1}^{\tau}$, obtenemos que Teo$_{k+1}$ vale. Por el contrario, tenemos los
+      siguientes casos:
+      \begin{itemize}
+        \item $\varphi = (\varphi_{1} \eta \varphi_{2})$, con $\eta \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}$.
+        Probaremos $(\varphi_{1} \wedge \varphi_{2})$ ya que los demás casos son análogos. Ya que $Li(\varphi_{1}),
+        Li(\varphi_{2}) \subseteq Li(\varphi)$, Teo$_{k}$ nos dice que:
+        \[
+          \mathbf{A} \models \varphi_{1}[\vec{a}] \ \text{sii} \ \mathbf{A} \models \varphi_{1}[\vec{b}] \ \text{y} \
+          \mathbf{A} \models \varphi_{2}[\vec{a}] \ \text{sii} \ \mathbf{A} \models \varphi_{2}[\vec{b}]
+        \]
+        \PN Se tiene entonces que
+        \begin{eqnarray*}
+          \mathbf{A} \models \varphi[\vec{a}] &\Leftrightarrow& \mathbf{A} \models \varphi_{1}[\vec{a}] \ \text{y} \
+            \mathbf{A} \models \varphi_{2}[\vec{a}] \\
+          &\Leftrightarrow& \mathbf{A} \models \varphi_{1}[\vec{b}] \ \text{y} \ \mathbf{A} \models \varphi_{2}[\vec{b}]
+            \qquad (\text{Por Teo}_{k}) \\
+          &\Leftrightarrow& \mathbf{A} \models \varphi \lbrack \vec{b}]
+        \end{eqnarray*}
 
-    CASO $\varphi = (\varphi_{1}\wedge \varphi_{2})$.
+        \item $\varphi = \lnot \varphi_{1}$: Ya que $Li(\varphi_{1}) \subseteq Li(\varphi)$, Teo$_{k}$ nos dice que
+        $\mathbf{A} \models \varphi_{1}[\vec{a}] \ \text{sii} \ \mathbf{A} \models \varphi_{1}[\vec{b}]$. Se tiene
+        entonces que
+        \begin{eqnarray*}
+          \mathbf{A} \models \varphi[\vec{a}] &\Leftrightarrow& \mathbf{A} \models \lnot \varphi_{1}[\vec{a}] \\
+          &\Leftrightarrow& \mathbf{A} \models \lnot \varphi_{1}[\vec{b}] \qquad (\text{Por Teo}_{k}) \\
+          &\Leftrightarrow& \mathbf{A} \models \varphi[\vec{b}]
+        \end{eqnarray*}
 
-    Es completamente similar al anterior.
-
-    CASO $\varphi =\lnot \varphi_{1}.$
-
-    Es completamente similar al anterior.
-
-    CASO $\varphi =\forall x_{j}\varphi_{1}.$
-
-    Supongamos $\mathbf{A} \models \varphi \lbrack \vec{a}]$. Entonces por (8) en la def de $\mathbf{A} \models \varphi \lbrack \vec{a}]$ se tiene que $\mathbf{A} \models \varphi_{1}[\downarrow _{j}^{a}(\vec{a})]$, para todo $a\in A$. Notese que $\downarrow _{j}^{a}(\vec{a}) \ \text{y} \ \downarrow _{j}^{a}(\vec{b})$ coinciden en toda $x_{i}$ de $x_{i}\in Li(\varphi_{1})\subseteq Li(\varphi_{1})\cup \{x_{j}\}$, con lo cual por Teo$_{k}$ se tiene que $\mathbf{A} \models \varphi_{1}[\downarrow _{j}^{a}(\vec{b})]$, para todo $a\in A$, lo cual por (8) en la def de $\mathbf{A} \models \varphi \lbrack \vec{a}]$ nos dice que $\mathbf{A} \models \varphi \lbrack \vec{b}]$. La prueba de que $\mathbf{A} \models \varphi \lbrack \vec{b}]$ implica que $ \mathbf{A} \models \varphi \lbrack \vec{a}]$ es similar.
-
-    CASO $\varphi =\exists x_{j}\varphi_{1}$.
-
-    Es similar al anterior.
+        \item $\varphi = Qx_{j}\varphi_{1}$, con $Q \in \{\forall, \exists\}$: Probaremos $\varphi = \forall x_{j}
+        \varphi_{1}$ ya que el otro caso es análogo. Notar que $\downarrow_{j}^{a}(\vec{a})$ y $\downarrow_{j}^{a}
+        (\vec{b})$ coinciden en toda $x_{i} \in Li(\varphi_{1}) \subseteq Li(\varphi_{1}) \cup \{x_{j}\}$, con lo cual
+        por Teo$_{k}$ nos dice que $\mathbf{A} \models \varphi_{1}[\downarrow_{j}^{a}(\vec{a})]$ sii $\mathbf{A} \models
+        \varphi_{1}[\downarrow_{j}^{a}(\vec{b})]$ para todo $a \in A$. Por lo tanto
+        \begin{eqnarray*}
+          \mathbf{A} \models \varphi[\vec{a}] &\Leftrightarrow& \mathbf{A} \models \varphi_{1}[\downarrow_{j}^{a}
+            (\vec{a})] \ \ \text{para cada} \ a \in A \\
+          &\Leftrightarrow& \mathbf{A} \models \varphi_{1}[\downarrow_{j}^{a}(\vec{b})] \ \ \text{para cada} \ a \in A
+            \qquad (\text{Por Teo}_{k}) \\
+          &\Leftrightarrow& \mathbf{A} \models \varphi[\vec{b}]
+        \end{eqnarray*}
+      \end{itemize}
   \end{proof}
 
   % Corollary 136. Sin prueba. Lemma 46.
@@ -89,6 +184,7 @@
     \models \varphi \lbrack \vec{b}]$, cualesquiera sean las asignaciones $\vec{a}, \vec{b}$.
   \end{corollary}
 
+  % TODO
   % Lemma 137. Con prueba. Lemma 47.
   \begin{lemma} \label{lemma_47}
     \PN \newline
@@ -119,6 +215,7 @@
     \end{enumerate}
   \end{proof}
 
+  % TODO: detalle
   % Lemma 138. Con prueba. Lemma 48.
   \begin{lemma} \label{lemma_48}
     \PN Sea $F: \mathbf{A} \rightarrow \mathbf{B}$ un homomorfismo, entonces:
@@ -128,24 +225,54 @@
     \PN para cada $t \in \TAU, (a_{1}, a_{2}, \dotsc) \in A^{\mathbb{N}}$.
   \end{lemma}
   \begin{proof}
-    Sea
+    \PN Sea
+    \begin{center}
+      Teo$_{k}$: El lema vale para $t \in T_{k}^{\tau}$
+    \end{center}
+    \PN Probaremos este lema por inducción en $k$. Denotemos $(F(a_{1}), F(a_{2}), \dotsc)$ con $F(\vec{a})$.
 
-    - Teo$_{k}$: Si $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, entonces
-    $\displaystyle F(t^{\mathbf{A}}[(a_{1},a_{2},...)]=t^{\mathbf{B}}[F(a_{1}),F(a_{2}),...)] $
-
-    para cada $t\in T_{k}^{\tau }$, $(a_{1},a_{2},...)\in A^{\mathbb{N}}$.
-    Teo$_{0}$ es trivial. Veamos que Teo$_{k}$ implica Teo$_{k+1}$. Supongamos que vale Teo$_{k}$ y supongamos $F:\mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo, $t\in T_{k+1}^{\tau }-T_{k}^{\tau } \ \text{y} \ \vec{a} = (a_{1},a_{2},...)\in A^{\mathbb{N}}$. Denotemos $(F(a_{1}),F(a_{2}),...)$ con $F(\vec{a})$. Por Lema 117, $t=f(t_{1}, \dotsc, t_{n})$, con $n\geq 1 $$\;f\in \mathcal{F}_{n} \ \text{y} \ t_{1}, \dotsc, t_{n}\in T_{k}^{\tau }$. Tenemos entonces
-
+    \vspace{3mm}
+    \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline Teo$_{0}$ \\\hline \end{tabular} Sea $t \in T_{0}^{\tau}$ y
+    sea $F: \mathbf{A} \rightarrow \mathbf{B}$ un homomorfismo, entonces
     \[
-      \begin{array}{ccl}
+      t \in Var \cup \mathcal{C}
+    \]
+    \PN es decir, sucede una de las siguientes:
+    \begin{itemize}
+      \item $t = x_{i}$, con $x_{i} \in Var$:
+      \begin{eqnarray*}
+        F(t^{\mathbf{A}}[\vec{a}]) &=& F(a_{i}) \\
+      \end{eqnarray*}
+      \item $t = c$, con $c \in \mathcal{C}$:
+      \begin{eqnarray*}
+        F(t^{\mathbf{A}}[\vec{a}]) &=& F(c^{\mathbf{A}}) \\
+        &=& c^{\mathbf{B}} \\
+        &=& t^{\mathbf{B}}[F(\vec{a})]
+      \end{eqnarray*}
+    \end{itemize}
+
+		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline Teo$_{k} \Rightarrow$ Teo$_{k + 1}$ \\\hline
+    \end{tabular} Supongamos que vale Teo$_{k}$ y supongamos $F: \mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo,
+    $\vec{a} = (a_{1}, a_{2}, \dotsc) \in A^{\mathbb{N}}$, entonces:
+    \[
+      t \in T_{k}^{\tau} \cup \{f(t_{1}, \dotsc, t_{n}): f \in \mathcal{F}_{n},n\geq 1,t_{1}, \dotsc, t_{n} \in
+      T_{k}^{\tau}\}
+    \]
+    \PN es decir, sucede una de las siguientes:
+    \begin{itemize}
+      \item $t \in T_{k}^{\tau}$: Aplicando HI y utilizando el hecho de que $T_{k}^{\tau} \subseteq T_{k+1}^{\tau}$,
+      obtenemos que Teo$_{k+1}$ vale.
+      \item $t = f(t_{1}, \dotsc, t_{n})$, con $f \in \mathcal{F}_{n} \ n \geq 1 \ \text{y} \ t_{1}, \dotsc, t_{n} \in
+      T_{k}^{\tau}$, tenemos entonces
+      \begin{eqnarray*}
         F(t^{\mathbf{A}}[\vec{a}]) &=& F(f(t_{1}, \dotsc, t_{n})^{\mathbf{A}}[\vec{a}]) \\
         &=& F(f^{\mathbf{A}}(t_{1}^{\mathbf{A}}[\vec{a}], \dotsc, t_{n}^{\mathbf{A}}[ \vec{a}])) \\
         &=& f^{\mathbf{B}}(F(t_{1}^{\mathbf{A}}[\vec{a}]), \dotsc, F(t_{n}^{\mathbf{A}}[ \vec{a}])) \\
         &=& f^{\mathbf{B}}(t_{1}^{\mathbf{B}}[F(\vec{a})], \dotsc, t_{n}^{\mathbf{B}}[F( \vec{a})])) \\
         &=& f(t_{1}, \dotsc, t_{n})^{\mathbf{B}}[F(\vec{a})] \\
         &=& t^{\mathbf{B}}[F(\vec{a})]
-      \end{array}
-    \]
+      \end{eqnarray*}
+    \end{itemize}
   \end{proof}
 
   % Lemma 139. Con prueba. Lemma 49.
@@ -162,17 +289,30 @@
     %TODO
   \end{proof}
 
+  % TODO: detalle
   % Lemma 140. Con prueba. Lemma 50.
   \begin{lemma} \label{lemma_50}
     \PN Supongamos que $\tau$ es algebraico, si $F: \mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo biyectivo,
     entonces $F$ es un isomorfismo.
   \end{lemma}
   \begin{proof}
-    Solo falta probar que $F^{-1}$ es un homomorfismo. Supongamos que $c\in \mathcal{C}$. Ya que $F(c^{\mathbf{A}})=c^{\mathbf{B}}$, tenemos que $ F^{-1}(c^{\mathbf{B}})=c^{\mathbf{A}}$, por lo cual $F^{-1}$ cumple (1) de la definicion de homomorfismo. Supongamos ahora que $f\in \mathcal{F}_{n}$ y sean $b_{1}, \dotsc, b_{n}\in B$. Sean $a_{1}, \dotsc, a_{n}\in A$ tales que $ F(a_{i})=b_{i}$, $i=1, \dotsc, n$. Tenemos que
-
-    $\displaystyle \begin{array}{ccl} F^{-1}(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) & = & F^{-1}(f^{\mathbf{B} }(F(a_{1}), \dotsc, F(a_{n}))) \\ & = & F^{-1}(F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) \\ & = & f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \\ & = & f^{\mathbf{A}}(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n})) \end{array} $
-
-    por lo cual $F^{-1}$ satisface (2) de la definicion de homomorfismo
+    \PN Debemos probar que $F^{-1}$ es un homomorfismo, es decir, debemos ver
+    \begin{itemize}
+      \item $F^{-1}(c^{\mathbf{B}}) = c^{\mathbf{A}}$, para todo $c \in \mathcal{C}$: Ya que $F(c^{\mathbf{A}}) =
+        c^{\mathbf{B}}$, tenemos que $F^{-1}(c^{\mathbf{B}}) = c^{\mathbf{A}}$
+      \item $F^{-1}(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) = f^{\mathbf{A}}(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n}))$ para
+        cada $f \in \mathcal{F}_{n}, b_{1}, \dotsc, b_{n} \in B$: Sean $a_{1}, \dotsc, a_{n} \in A$ tales que
+        $F(a_{i}) = b_{i}, i = 1, \dotsc, n$. Tenemos que
+        \begin{eqnarray*}
+          F^{-1}(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) &=& F^{-1}(f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n}))) \\
+          &=& F^{-1}(F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}))) \\
+          &=& f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \\
+          &=& f^{\mathbf{A}}(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n}))
+        \end{eqnarray*}
+      \item $(b_{1}, \dotsc, b_{n}) \in r^{\mathbf{B}}$ implica $(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n})) \in
+        r^{\mathbf{A}}$ para todo $r \in \mathcal{R}_{n}, b_{1}, \dotsc, b_{n} \in B$:
+    \end{itemize}
+    \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
   \end{proof}
 
   % Lemma 141. Con prueba. Lemma 51.
@@ -181,11 +321,19 @@
     $I_{F}$ es un subuniverso de $\mathbf{B}$.
   \end{lemma}
   \begin{proof}
-    Ya que $A\neq \varnothing $ tenemos que $I_{F}\neq \varnothing .$ Es claro que $ c^{\mathbf{B}}=F(c^{\mathbf{A}})\in I_{F}$ para cada $c\in \mathcal{C}$. Sea $f\in \mathcal{F}_{n}$ y sean $b_{1}, \dotsc, b_{n}\in I_{F}$ Sean $ a_{1}, \dotsc, a_{n}$ tales que $F(a_{i})=b_{i}$ $i=1, \dotsc, n$. Tenemos que
-
-    $\displaystyle f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})=f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n}))=F(f^{ \mathbf{A}}(a_{1}, \dotsc, a_{n}))\in I_{F} $
-
-    por lo cual $I_{F}$ es cerrada bajo $f^{\mathbf{B}}$.
+    \PN Para probar que $I_{F}$ es un subuniverso de $\mathbf{B}$, debemos ver:
+    \begin{itemize}
+      \item $I_{F} \neq \emptyset$: Ya que $A \neq \emptyset$, tenemos que $I_{F} \neq \emptyset$.
+      \item $c^{\mathbf{B}} \in I_{F}$, para cada $c \in \mathcal{C}$: Es claro que $c^{\mathbf{B}} = F(c^{\mathbf{A}})
+        \in I_{F}$ para cada $c \in \mathcal{C}$, pues F es homomorfismo.
+      \item $f^{\mathbf{B}}(b_{1}, \dotsc, b_{n}) \in I_{F}$, para cada $b_{1}, \dotsc, b_{n} \in I_{F}$ y $f \in
+        \mathcal{F}$: Sean $a_{1}, \dotsc, a_{n}$ tales que $F(a_{i}) = b_{i}, i = 1, \dotsc, n$. Tenemos que
+        \[
+          f^{\mathbf{B}}(b_{1}, \dotsc, b_{n}) = f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n})) = F(f^{\mathbf{A}}(a_{1},
+          \dotsc, a_{n})) \in I_{F}
+        \]
+        \PN por lo cual $I_{F}$ es cerrada bajo $f^{\mathbf{B}}$.
+    \end{itemize}
   \end{proof}
 
   % Lemma 142. Con prueba. Lemma 52.
@@ -194,11 +342,15 @@
     $\ker F$ es una congruencia sobre $\mathbf{A}$.
   \end{lemma}
   \begin{proof}
-    Sea $f\in \mathcal{F}_{n}$. Supongamos que $a_{1}, \dotsc, a_{n},b_{1}, \dotsc, b_{n} \in A$ son tales que $a_{1}\ker Fb_{1}, \dotsc, a_{n}\ker Fb_{n}$. Tenemos entonces que
+    \PN Sea $f \in \mathcal{F}_{n}$. Supongamos que $a_{1}, \dotsc, a_{n}, b_{1}, \dotsc, b_{n} \in A$ son tales que
+    $a_{1} \ker F \ b_{1}, \dotsc, \linebreak a_{n} \ker F \ b_{n}$. Tenemos entonces que
+    \begin{eqnarray*}
+      F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) &=& f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n})) \\
+      &=& f^{\mathbf{B}}(F(b_{1}), \dotsc, F(b_{n})) \\
+      &=& F(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n}))
+    \end{eqnarray*}
 
-    $\displaystyle \begin{array}{ccl} F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) & = & f^{\mathbf{B} }(F(a_{1}), \dotsc, F(a_{n})) \\ & = & f^{\mathbf{B}}(F(b_{1}), \dotsc, F(b_{n})) \\ & = & F(f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})) \end{array} $
-
-    lo cual nos dice que $f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})\ker Ff^{\mathbf{B} }(b_{1}, \dotsc, b_{n})$
+    \PN lo cual nos dice que $f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \ker F \ f^{\mathbf{B}}(b_{1}, \dotsc, b_{n})$.
   \end{proof}
 
   % Lemma 143. Con prueba. Lemma 53.
@@ -206,22 +358,25 @@
     \PN $\pi_{\theta}: \mathbf{A} \rightarrow \mathbf{A}/\theta$ es un homomorfismo cuyo núcleo es $\theta$.
   \end{lemma}
   \begin{proof}
-    Sea $c\in \mathcal{C}$. Tenemos que
+    \PN Debemos ver que $\pi_{\theta}$ satisface
+    \begin{itemize}
+      \item $\pi_{\theta}(c^{\mathbf{A}}) = c^{\mathbf{A}/\theta}$, para cada $c \in \mathcal{C}$: Tenemos que
+        \[
+          \pi_{\theta}(c^{\mathbf{A}}) = c^{\mathbf{A}}/\theta = c^{\mathbf{A}/\theta}
+        \]
+      \item $\pi_{\theta}(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) = f^{\mathbf{A}/\theta}(\pi_{\theta}(a_{1}), \dotsc,
+        \pi_{\theta}(a_{n}))$, para cada $f \in \mathcal{F}_{n}$ y $a_{1}, \dotsc, a_{n} \in A$: \linebreak Tenemos que
+        \begin{eqnarray*}
+          \pi_{\theta}(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) &=& f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})/\theta \\
+          &=& f^{\mathbf{A}/\theta}(a_{1}/\theta, \dotsc, a_{n}/\theta) \\
+          &=& f^{\mathbf{A}/\theta}(\pi_{\theta}(a_{1}), \dotsc, \pi_{\theta}(a_{n}))
+        \end{eqnarray*}
 
-    \[
-      \pi_{\theta}(c^{\mathbf{A}}) = c^{\mathbf{A}}/\theta = c^{\mathbf{A}/\theta}
-    \]
-
-    Sea $f\in \mathcal{F}_{n}$, con $n\geq 1$ y sean $a_{1}, \dotsc, a_{n}\in A$. Tenemos que
-
-    \[
-      \begin{array}{ccl}
-        \pi_{\theta}(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) &=& f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})/\theta \\
-        &=& f^{\mathbf{A}/\theta}(a_{1}/\theta, \dotsc, a_{n}/\theta) \\
-        &=& f^{\mathbf{A}/\theta}(\pi_{\theta}(a_{1}), \dotsc, \pi_{\theta}(a_{n}))
-      \end{array}
-    \]
-    con lo cual $\pi _{\theta }$ es un homomorfismo. Es trivial que $\ker \pi _{\theta }=\theta $.
+      \item $(a_{1}, \dotsc, a_{n}) \in r^{\mathbf{A}}$ implica $(\pi_{\theta}(a_{1}), \dotsc, \pi_{\theta}(a_{n})) \in
+        r^{\mathbf{A}/\theta}$, para todo $r \in \mathcal{R}_{n}, a_{1}, \dotsc, a_{n} \in A$: Lo cual vale, dado que
+        $\pi_{\theta}(a_{1}) = a_{1}/\theta, \dotsc, \pi_{\theta}(a_{n}) = a_{n}/\theta$.
+    \end{itemize}
+    \PN por lo tanto, $\pi_{\theta}$ es un homomorfismo.
   \end{proof}
 
   % Corollary 144. Con prueba. Lemma 54.
@@ -230,35 +385,57 @@
     a_{2}/\theta, \dotsc)] = t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)]/\theta$.
   \end{corollary}
   \begin{proof}
-    Ya que $\pi _{\theta }$ es un homomorfismo, se puede aplicar el Lema 136.
+    \PN Ya que $\pi_{\theta}$ es un homomorfismo, utilizando el \textbf{Lemma~\ref{lemma_48}} tenemos que
+    \[
+      \pi_{\theta}(t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)] = t^{\mathbf{A}/\theta}[\pi_{\theta}(a_{1}),
+        \pi_{\theta}(a_{2}), \dotsc)] \\
+    \]
+    \PN lo cual, por definición de $\pi_{\theta}$ es igual a
+    \[
+      t^{\mathbf{A}}[(a_{1}, a_{2}, \dotsc)]/\theta = t^{\mathbf{A}/\theta}[(a_{1}/\theta, a_{2}/\theta, \dotsc)]
+    \]
   \end{proof}
 
+  % TODO: detalle
   % Theorem 145. Con prueba. Lemma 55.
   \begin{theorem} \label{theorem_55}
-    \PN Sea $F: \mathbf{A} \rightarrow \mathbf{B}$ un homomorfismo sobreyectivo, entonces:
+    \PN Sea $F: \mathbf{A} \rightarrow \mathbf{B}$ un homomorfismo sobreyectivo. Definimos sin ambiguedad la siguiente
+    función:
     \begin{eqnarray*}
-      A/\ker F &\rightarrow& B \\
+      \bar{F}: A/\ker F &\rightarrow& B \\
       a/\ker F &\rightarrow& F(a)
     \end{eqnarray*}
-    \PN define sin ambiguedad una función $\bar{F}$ la cual es un isomorfismo de $\mathbf{A}/\ker F$ en $\mathbf{B}$.
+    \PN la cual es un isomorfismo de $\mathbf{A}/\ker F$ en $\mathbf{B}$.
   \end{theorem}
   \begin{proof}
-    Notese que la definicion de $\bar{F}$ es inambigua ya que si $a/\ker F=a^{\prime }/\ker F$, entonces $F(a)=F(a^{\prime }).$ Ya que $F$ es sobre, tenemos que $\bar{F}$ lo es. Supongamos que $\bar{F}(a/\ker F)=\bar{F} (a^{\prime }/\ker F).$ Claramente entonces tenemos que $F(a)=F(a^{\prime })$ , lo cual nos dice que $a/\ker F=a^{\prime }/\ker F$. Esto prueba que $\bar{F }$ es inyectiva. Para ver que $\bar{F}$ es un isomorfismo, por el Lema 138, basta con ver que $\bar{F}$ es un homomorfismo. Sea $c\in \mathcal{C}$. Tenemos que
-
-    $\displaystyle \bar{F}(c^{\mathbf{A}/\ker F})=\bar{F}(c^{\mathbf{A}}/\ker F)=F(c^{\mathbf{A} })=c^{\mathbf{B}} $
-
-    Sea $f\in \mathcal{F}_{n}$. Sean $a_{1}, \dotsc, a_{n}\in A$. Tenemos que
-    \[
-      \begin{array}{ccl}
-        \bar{F}(f^{\mathbf{A}/\ker F}(a_{1}/\ker F, \dotsc, a_{n}/\ker F)) &=& \bar{F}(f^{\mathbf{A}}(a_{1}, \dotsc,
+    \PN Notese que la definición de $\bar{F}$ es inambigua ya que si $a/\ker F = a^{\prime}/\ker F$, entonces $F(a) =
+    F(a^{\prime})$. Veamos que $\bar{F}$ es biyectiva, es decir:
+    \begin{itemize}
+      \item $\bar{F}$ es sobreyectiva: Ya que $F$ es sobre, tenemos que $\bar{F}$ lo es.
+      \item $\bar{F}$ es inyectiva: Supongamos que $\bar{F}(a/\ker F) = \bar{F}(a^{\prime}/\ker F)$, tenemos entonces
+        que $F(a) = F(a^{\prime})$, lo cual nos dice que $a/\ker F = a^{\prime}/\ker F$, es decir, $\bar{F}$ es
+        inyectiva.
+    \end{itemize}
+    \PN Luego, $\bar{F}$ es biyectiva, por lo que el \textbf{Lemma~\ref{lemma_50}} no dice que para ver que $\bar{F}$ es
+    un isomorfismo, basta con ver que $\bar{F}$ es un homomorfismo. Veamos esto.
+    \begin{itemize}
+      \item $\bar{F}(c^{\mathbf{A}/\ker F}) = c^{\mathbf{B}}$, para cada $c \in \mathcal{C}$: Tenemos que
+        \[
+          \bar{F}(c^{\mathbf{A}/\ker F}) = \bar{F}(c^{\mathbf{A}}/\ker F) = F(c^{\mathbf{A} }) = c^{\mathbf{B}}
+        \]
+      \item $\bar{F}(f^{\mathbf{A}/\ker F}(a_{1}/\ker F, \dotsc, a_{n}/\ker F)) = f^{\mathbf{B}}(\bar{F}(a_{1}/\ker F), \dotsc,
+        \bar{F}(a_{n}/\ker F))$, para cada $f \in \mathcal{F}_{n}$ y $a_{1}, \dotsc, a_{n} \in A$: Tenemos que
+        \begin{eqnarray*}
+          \bar{F}(f^{\mathbf{A}/\ker F}(a_{1}/\ker F, \dotsc, a_{n}/\ker F)) &=& \bar{F}(f^{\mathbf{A}}(a_{1}, \dotsc,
           a_{n})/\ker F) \\
-        &=& F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) \\
-        &=& f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n})) \\
-        &=& f^{\mathbf{B}}(\bar{F}(a_{1}/\ker F), \dotsc, \bar{F}(a_{n}/\ker F))
-      \end{array}
-    \]
+          &=& F(f^{\mathbf{A}}(a_{1}, \dotsc, a_{n})) \\
+          &=& f^{\mathbf{B}}(F(a_{1}), \dotsc, F(a_{n})) \\
+          &=& f^{\mathbf{B}}(\bar{F}(a_{1}/\ker F), \dotsc, \bar{F}(a_{n}/\ker F))
+        \end{eqnarray*}
 
-    con lo cual $\bar{F}$ cunple (2) de la definicion de homomorfismo.
+      \item $(a_{1}/\ker F, \dotsc, a_{n}/\ker F) \in r^{\mathbf{A}/\ker F}$ implica $(\bar{F}(a_{1}/\ker F), \dotsc,
+        \bar{F}(a_{n}/\ker F)) \in r^{\mathbf{A}/\ker F}$, para todo $r \in \mathcal{R}_{n}, a_{1}, \dotsc, a_{n} \in A$:
+    \end{itemize}
   \end{proof}
 
   % Lemma 146. Nada. Lemma 56.
@@ -271,6 +448,7 @@
     \PN Este lema no se evalua.
   \end{lemma}
 
+  % TODO: de aca en adelante...
   % Lemma 148. Con prueba. Lemma 58.
   \begin{lemma} \label{lemma_58}
     \PN Sea $\tau$ un tipo cualquiera y supongamos $t \in \TAU$. Si $t =_{d} t(v_{1}, \dotsc, v_{n})$ entonces se da

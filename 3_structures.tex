@@ -242,6 +242,7 @@
       \item $t = x_{i}$, con $x_{i} \in Var$:
       \begin{eqnarray*}
         F(t^{\mathbf{A}}[\vec{a}]) &=& F(a_{i}) \\
+        &=& t^{\mathbf{B}}[F(\vec{a})]
       \end{eqnarray*}
       \item $t = c$, con $c \in \mathcal{C}$:
       \begin{eqnarray*}
@@ -289,7 +290,6 @@
     %TODO
   \end{proof}
 
-  % TODO: detalle
   % Lemma 140. Con prueba. Lemma 50.
   \begin{lemma} \label{lemma_50}
     \PN Supongamos que $\tau$ es algebraico, si $F: \mathbf{A} \rightarrow \mathbf{B}$ es un homomorfismo biyectivo,
@@ -309,8 +309,6 @@
           &=& f^{\mathbf{A}}(a_{1}, \dotsc, a_{n}) \\
           &=& f^{\mathbf{A}}(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n}))
         \end{eqnarray*}
-      \item $(b_{1}, \dotsc, b_{n}) \in r^{\mathbf{B}}$ implica $(F^{-1}(b_{1}), \dotsc, F^{-1}(b_{n})) \in
-        r^{\mathbf{A}}$ para todo $r \in \mathcal{R}_{n}, b_{1}, \dotsc, b_{n} \in B$:
     \end{itemize}
     \PN Luego, $F^{-1}$ es homomorfismo y por lo tanto $F$ es isomorfismo.
   \end{proof}
